@@ -87,43 +87,45 @@ function NewsletterForm() {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+    <footer className="bg-white">
 
-          {/* Linke Spalte: Logo + Links + Copyright */}
-          <div className="flex flex-col gap-4">
-            <Logo height={22} />
-            <div className="flex items-center gap-5 flex-wrap">
-              <Link href="/impressum" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                Impressum
-              </Link>
-              <Link href="/datenschutz" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                Datenschutz
-              </Link>
-              <Link href="/kontakt" className="text-sm text-gray-500 hover:text-gray-800 transition-colors">
-                Kontakt
-              </Link>
-            </div>
-            <p className="text-sm text-gray-400">© 2025 kinderleicht.ai</p>
-          </div>
-
-          {/* Rechte Spalte: Newsletter */}
-          <div className="md:max-w-sm w-full">
+      {/* Newsletter-Bereich */}
+      <div className="border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="max-w-md">
             <h3
-              className="text-sm font-semibold text-gray-900 mb-1"
+              className="text-base font-semibold text-gray-900 mb-1"
               style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               Newsletter
             </h3>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-sm text-gray-400 mb-5">
               Praxistipps und neue Tools direkt ins Postfach.
             </p>
             <NewsletterForm />
           </div>
-
         </div>
       </div>
+
+      {/* Bottom-Bar: Logo + Links + Copyright */}
+      <div className="border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <Logo height={22} />
+          <div className="flex items-center gap-5 flex-wrap">
+            <Link href="/impressum" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+              Impressum
+            </Link>
+            <Link href="/datenschutz" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+              Datenschutz
+            </Link>
+            <Link href="/kontakt" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+              Kontakt
+            </Link>
+          </div>
+          <p className="text-sm text-gray-400">© 2025 kinderleicht.ai</p>
+        </div>
+      </div>
+
     </footer>
   );
 }
