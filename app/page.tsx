@@ -63,8 +63,8 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-7 text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
-            Praxisnahe Tools, kuratierte Werkzeuge und fertige Materialien —
-            alles, was du brauchst, um sofort loszulegen.
+            Eigene Web-Apps, geprüfte KI-Tools und fertige Materialien.
+            Alles, was du für den Bildungsalltag brauchst.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

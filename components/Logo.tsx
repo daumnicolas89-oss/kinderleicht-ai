@@ -1,27 +1,42 @@
+import Image from "next/image";
+
 /**
- * Crops the logo PNG via background-image positioning.
- * Source image: 1000×1000px square.
- * Logo content occupies approx x: 3%–97%, y: 45%–67% of the image.
+ * Logo-Crop via overflow:hidden + negativem margin-top.
+ *
+ * Gemessen aus Kinderleicht-1000x1000.png:
+ *   Logo-Inhalt: y ≈ 400–680px (28% Höhe, startet bei 40% von oben)
+ *                x ≈ 25–975px  (95% Breite)
  */
-export default function Logo({ height = 28 }: { height?: number }) {
-  const scale = height / 0.22;          // scale full image so logo fills `height`
-  const offsetX = scale * 0.03;         // remove left whitespace
-  const offsetY = scale * 0.45;         // remove top whitespace
-  const width = Math.round(scale * 0.94); // logo content width
+export default function Logo({ height = 32 }: { height?: number }) {
+  const fullSize = Math.round(height / 0.28); // Vollbild-Höhe so skalieren, dass Logo = height
+  const offsetY = Math.round(fullSize * 0.40); // Whitespace oben abschneiden
+  const offsetX = Math.round(fullSize * 0.025); // minimales Whitespace links
+  const containerWidth = Math.round(fullSize * 0.95);
 
   return (
     <div
-      aria-label="kinderleicht.ai"
-      role="img"
       style={{
         height,
-        width,
+        width: containerWidth,
+        overflow: "hidden",
         flexShrink: 0,
-        backgroundImage: "url('/Kinderleicht-1000x1000.png')",
-        backgroundSize: `${Math.round(scale)}px ${Math.round(scale)}px`,
-        backgroundPosition: `-${Math.round(offsetX)}px -${Math.round(offsetY)}px`,
-        backgroundRepeat: "no-repeat",
       }}
-    />
+    >
+      <Image
+        src="/Kinderleicht-1000x1000.png"
+        alt="kinderleicht.ai"
+        width={fullSize}
+        height={fullSize}
+        style={{
+          width: fullSize,
+          height: fullSize,
+          marginTop: -offsetY,
+          marginLeft: -offsetX,
+          display: "block",
+          maxWidth: "none",
+        }}
+        priority
+      />
+    </div>
   );
 }
