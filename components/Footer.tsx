@@ -105,38 +105,33 @@ export default function Footer() {
         `}</style>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
 
-          {/* Animiertes Briefumschlag-Icon */}
-          <div className="flex justify-center mb-6">
+          {/* Animiertes Briefumschlag-Icon + Headline eng zusammen */}
+          <div className="flex flex-col items-center gap-3 mb-4">
             <div className="envelope-float">
               <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Envelope body */}
                 <rect x="1" y="8" width="50" height="31" rx="4" fill="#EBF6FA" stroke="#2596be" strokeWidth="1.5"/>
-                {/* Envelope flap (lid) */}
                 <path
                   className="envelope-lid"
                   d="M1 12 L26 26 L51 12 L51 8 Q51 8 26 22 Q1 8 1 8 Z"
                   fill="#2596be"
                   opacity="0.15"
                 />
-                {/* V-fold line */}
                 <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
-                {/* Bottom corners */}
                 <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.4"/>
-                {/* Small star sparkle */}
                 <circle cx="42" cy="4" r="2" fill="#74C5E0" opacity="0.8"/>
                 <circle cx="10" cy="5" r="1.5" fill="#2596be" opacity="0.5"/>
               </svg>
             </div>
+            <h3
+              className="text-2xl font-bold text-gray-900"
+              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+            >
+              KI im Bildungsalltag. Direkt ins Postfach.
+            </h3>
           </div>
 
-          <h3
-            className="text-xl font-bold text-gray-900 mb-2"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            Newsletter
-          </h3>
-          <p className="text-sm text-gray-400 mb-7">
-            Praxistipps und neue Tools direkt ins Postfach.
+          <p className="text-sm text-gray-400 mb-7 max-w-lg mx-auto leading-relaxed">
+            Melde dich für unseren Newsletter an und erhalte regelmäßig praktische Tipps zum KI-Einsatz im Bildungsalltag, neue Tools und fertige Materialien direkt ins Postfach. Werde Teil der kinderleicht.ai Community und bleib immer auf dem neuesten Stand.
           </p>
 
           <div className="max-w-md mx-auto">
@@ -160,7 +155,7 @@ export default function Footer() {
               Kontakt
             </Link>
           </div>
-          <p className="text-sm text-gray-400">© 2025 kinderleicht.ai</p>
+          <p className="text-sm text-gray-400">© {new Date().getFullYear()} kinderleicht.ai</p>
         </div>
       </div>
 

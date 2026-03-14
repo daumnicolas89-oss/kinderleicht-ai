@@ -24,7 +24,7 @@ export default function Nav() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Logo height={44} />
+            <Logo height={52} />
           </Link>
 
           {/* Desktop Nav */}
