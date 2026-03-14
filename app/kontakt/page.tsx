@@ -145,34 +145,35 @@ export default function KontaktPage() {
       </section>
 
       {/* ── MAIN CONTENT ─────────────────────────────────── */}
-      <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
 
           {/* Linke Spalte: FAQ */}
-          <div>
-            <h2
-              className="text-2xl font-bold text-gray-900 mb-2"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-            >
-              Häufige Fragen
-            </h2>
-            <p className="text-sm text-gray-400 mb-8">Antworten auf die wichtigsten Fragen.</p>
-            <Accordion />
+          <div className="flex flex-col gap-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#2596be" }}>FAQ</p>
+              <h2
+                className="text-2xl font-bold text-gray-900"
+                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+              >
+                Häufige Fragen
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-gray-100 px-6">
+              <Accordion />
+            </div>
 
             {/* Direct contact hint */}
-            <div className="mt-10 flex items-start gap-3 p-4 rounded-xl bg-[#F5F5F7]">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EBF6FB" }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth={2}>
+            <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-gray-100">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#EBF6FB" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-700">Direkte E-Mail</p>
-                <a
-                  href="mailto:kontakt@kinderleicht.ai"
-                  className="text-sm transition-colors"
-                  style={{ color: "#2596be" }}
-                >
+                <p className="text-sm font-medium text-gray-700 mb-0.5">Lieber direkt schreiben?</p>
+                <a href="mailto:kontakt@kinderleicht.ai" className="text-sm font-medium transition-colors" style={{ color: "#2596be" }}>
                   kontakt@kinderleicht.ai
                 </a>
               </div>
@@ -180,46 +181,49 @@ export default function KontaktPage() {
           </div>
 
           {/* Rechte Spalte: Formular */}
-          <div>
-            <h2
-              className="text-2xl font-bold text-gray-900 mb-2"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-            >
-              Nachricht schreiben
-            </h2>
-            <p className="text-sm text-gray-400 mb-8">Wir antworten innerhalb von 1 bis 2 Werktagen.</p>
+          <div className="bg-white rounded-2xl border border-gray-100 p-8 flex flex-col gap-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#2596be" }}>Formular</p>
+              <h2
+                className="text-2xl font-bold text-gray-900"
+                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+              >
+                Nachricht schreiben
+              </h2>
+              <p className="text-sm text-gray-400 mt-1">Wir antworten innerhalb von 1 bis 2 Werktagen.</p>
+            </div>
 
-            <form className="flex flex-col gap-5">
+            <form className="flex flex-col gap-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-700">Vorname</label>
+                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Vorname</label>
                   <input type="text" placeholder="Max" className={inputClass} onFocus={focusOn} onBlur={focusOff} />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-medium text-gray-700">Nachname</label>
+                  <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Nachname</label>
                   <input type="text" placeholder="Mustermann" className={inputClass} onFocus={focusOn} onBlur={focusOff} />
                 </div>
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   E-Mail <span style={{ color: "#2596be" }}>*</span>
                 </label>
                 <input type="email" required placeholder="max@beispiel.de" className={inputClass} onFocus={focusOn} onBlur={focusOff} />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-gray-700">Betreff</label>
+                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">Betreff</label>
                 <input type="text" placeholder="Worum geht es?" className={inputClass} onFocus={focusOn} onBlur={focusOff} />
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Nachricht <span style={{ color: "#2596be" }}>*</span>
                 </label>
                 <textarea
                   required
-                  rows={6}
+                  rows={5}
                   placeholder="Deine Nachricht..."
                   className={`${inputClass} resize-none`}
                   onFocus={focusOn as React.FocusEventHandler<HTMLTextAreaElement>}
@@ -229,7 +233,7 @@ export default function KontaktPage() {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90"
+                className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 mt-1"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Nachricht senden
@@ -241,7 +245,7 @@ export default function KontaktPage() {
       </section>
 
       {/* ── SOCIAL LINKS ─────────────────────────────────── */}
-      <section className="border-t border-gray-100 bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-xl mx-auto text-center">
           <p className="text-xs font-semibold uppercase tracking-widest mb-8 text-gray-400">
             Folge uns
