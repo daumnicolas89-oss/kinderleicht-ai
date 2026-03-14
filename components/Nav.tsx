@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "@/components/Logo";
 import { useState } from "react";
 
 export default function Nav() {
@@ -13,14 +13,7 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="/Kinderleicht-1000x1000.png"
-              alt="kinderleicht.ai"
-              width={160}
-              height={40}
-              className="h-8 w-auto"
-              priority
-            />
+            <Logo height={28} />
           </Link>
 
           {/* Desktop Nav */}
