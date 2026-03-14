@@ -1,18 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="border-t border-gray-100 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span
-            className="text-sm font-semibold"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            <span style={{ color: "#2596be" }}>ki</span>
-            <span className="text-gray-700">nderleicht</span>
-            <span className="text-gray-400">.ai</span>
-          </span>
+          <Image
+            src="/Kinderleicht-1000x1000.png"
+            alt="kinderleicht.ai"
+            width={120}
+            height={30}
+            className="h-6 w-auto"
+          />
 
           <div className="flex items-center gap-6">
             <Link
