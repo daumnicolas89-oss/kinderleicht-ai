@@ -154,43 +154,6 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ── SOCIAL SCROLL STRIP ──────────────────────────── */}
-      <div className="border-y border-gray-100 bg-white overflow-hidden py-6">
-        <div className="logo-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex items-center" style={{ gap: 72, paddingRight: 72 }}>
-              {socials.map((s) =>
-                s.href ? (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="flex-shrink-0 text-gray-300 transition-colors duration-200"
-                    style={{ ["--hover" as string]: s.hoverColor }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
-                  >
-                    {s.svg}
-                  </a>
-                ) : (
-                  <span
-                    key={s.label}
-                    aria-label={s.label}
-                    className="flex-shrink-0 text-gray-300 transition-colors duration-200 cursor-default"
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
-                  >
-                    {s.svg}
-                  </span>
-                )
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ── MAIN CONTENT ─────────────────────────────────── */}
       <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -286,6 +249,48 @@ export default function KontaktPage() {
 
         </div>
       </section>
+
+      {/* ── SOCIAL SCROLL STRIP ──────────────────────────── */}
+      {/* 6 Wiederholungen pro Set → Strip ist immer breiter als der Viewport */}
+      {(() => {
+        const repeated = Array.from({ length: 6 }, () => socials).flat();
+        return (
+          <div className="border-t border-gray-100 bg-white overflow-hidden py-6">
+            <div className="logo-track">
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex items-center" style={{ gap: 72, paddingRight: 72 }}>
+                  {repeated.map((s, idx) =>
+                    s.href ? (
+                      <a
+                        key={idx}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={s.label}
+                        className="flex-shrink-0 text-gray-300 transition-colors duration-200"
+                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
+                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
+                      >
+                        {s.svg}
+                      </a>
+                    ) : (
+                      <span
+                        key={idx}
+                        aria-label={s.label}
+                        className="flex-shrink-0 text-gray-300 transition-colors duration-200 cursor-default"
+                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
+                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
+                      >
+                        {s.svg}
+                      </span>
+                    )
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </>
   );
 }
