@@ -4,6 +4,13 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { useState } from "react";
 
+const navLinks = [
+  { label: "Apps", href: "/apps" },
+  { label: "Tools", href: "/tools" },
+  { label: "Downloads", href: "/downloads" },
+  { label: "Über uns", href: "/ueber-uns" },
+];
+
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -18,18 +25,15 @@ export default function Nav() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link
-              href="/apps"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Apps
-            </Link>
-            <Link
-              href="/tools"
-              className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Tools
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Mobile hamburger */}
@@ -47,20 +51,16 @@ export default function Nav() {
         {/* Mobile Menu */}
         {mobileOpen && (
           <nav className="md:hidden border-t border-gray-100 py-4 flex flex-col gap-4">
-            <Link
-              href="/apps"
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
-              onClick={() => setMobileOpen(false)}
-            >
-              Apps
-            </Link>
-            <Link
-              href="/tools"
-              className="text-sm font-medium text-gray-700 hover:text-gray-900"
-              onClick={() => setMobileOpen(false)}
-            >
-              Tools
-            </Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-gray-700 hover:text-gray-900"
+                onClick={() => setMobileOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         )}
       </div>
