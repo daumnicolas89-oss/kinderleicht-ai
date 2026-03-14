@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 /* ─── Rotating words ─────────────────────────────────────────── */
-const rotatingWords = ["Kitas", "Schulen", "Horten", "Krippen", "Teams"];
+const rotatingWords = ["Kitas", "Schulen", "Krippen", "GBS", "GTS", "Teams"];
 
 function RotatingWord() {
   const [index, setIndex] = useState(0);
@@ -184,11 +184,11 @@ const pillars = [
 ];
 
 const audiences = [
-  { label: "Kita & Krippe", emoji: "🏠" },
-  { label: "Grundschule", emoji: "✏️" },
-  { label: "Weiterführende Schule", emoji: "📚" },
-  { label: "Nachmittagsbetreuung", emoji: "☀️" },
-  { label: "Leitung & Verwaltung", emoji: "📋" },
+  { label: "Kita & Krippe", emoji: "🏠", desc: "Alltagserleichterung für Erzieher und Kita-Teams" },
+  { label: "Grundschule", emoji: "✏️", desc: "Unterrichtsvorbereitung und Elternkommunikation" },
+  { label: "Weiterführende Schule", emoji: "📚", desc: "Materialien und Tools für Lehrkräfte aller Fächer" },
+  { label: "GBS & GTS", emoji: "☀️", desc: "Ferienprogramme, Dienstpläne und Elternbriefe" },
+  { label: "Leitung & Verwaltung", emoji: "📋", desc: "Konzepte, Berichte und Kommunikation effizient gestalten" },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────── */
@@ -350,25 +350,43 @@ export default function HomePage() {
 
       {/* ── AUDIENCE ──────────────────────────────────────────── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div ref={audienceRef} className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            Für wen ist kinderleicht.ai?
-          </h2>
-          <p className="text-gray-400 text-lg mb-10">
-            Für alle, die professionell mit Kindern und Jugendlichen arbeiten.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {audiences.map((a) => (
-              <span
+        <div ref={audienceRef} className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2
+              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
+              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+            >
+              Für wen ist kinderleicht.ai?
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Für alle, die professionell mit Kindern und Jugendlichen arbeiten.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {audiences.map((a, i) => (
+              <div
                 key={a.label}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-[#2596be]/40 hover:shadow-sm transition-all duration-200"
+                className={`bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#2596be]/30 hover:shadow-md transition-all duration-300 flex items-start gap-4 ${
+                  i === 3 ? "sm:col-span-1 lg:col-span-1" : ""
+                }`}
               >
-                <span>{a.emoji}</span>
-                {a.label}
-              </span>
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl"
+                  style={{ backgroundColor: "#EBF6FB" }}
+                >
+                  {a.emoji}
+                </div>
+                <div>
+                  <h3
+                    className="font-semibold text-gray-900 mb-1"
+                    style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+                  >
+                    {a.label}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{a.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
