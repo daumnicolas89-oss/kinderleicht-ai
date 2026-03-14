@@ -1,29 +1,27 @@
-import Image from "next/image";
-
 /**
- * Renders the logo PNG cropped to remove surrounding whitespace.
- * The 1000×1000 image has ~42% empty space on top, ~32% on bottom —
- * the actual logo content is ~26% of the image height.
+ * Crops the logo PNG via background-image positioning.
+ * Source image: 1000×1000px square.
+ * Logo content occupies approx x: 3%–97%, y: 45%–67% of the image.
  */
 export default function Logo({ height = 28 }: { height?: number }) {
-  // Scale image so the logo content fills the desired height
-  const imageHeight = Math.round(height / 0.26);
-  const imageWidth = imageHeight; // square source
-  const marginTop = -Math.round(imageHeight * 0.42);
+  const scale = height / 0.22;          // scale full image so logo fills `height`
+  const offsetX = scale * 0.03;         // remove left whitespace
+  const offsetY = scale * 0.45;         // remove top whitespace
+  const width = Math.round(scale * 0.94); // logo content width
 
   return (
     <div
-      style={{ height, overflow: "hidden", position: "relative" }}
-      className="flex items-center"
-    >
-      <Image
-        src="/Kinderleicht-1000x1000.png"
-        alt="kinderleicht.ai"
-        width={imageWidth}
-        height={imageHeight}
-        style={{ marginTop, display: "block", flexShrink: 0 }}
-        priority
-      />
-    </div>
+      aria-label="kinderleicht.ai"
+      role="img"
+      style={{
+        height,
+        width,
+        flexShrink: 0,
+        backgroundImage: "url('/Kinderleicht-1000x1000.png')",
+        backgroundSize: `${Math.round(scale)}px ${Math.round(scale)}px`,
+        backgroundPosition: `-${Math.round(offsetX)}px -${Math.round(offsetY)}px`,
+        backgroundRepeat: "no-repeat",
+      }}
+    />
   );
 }
