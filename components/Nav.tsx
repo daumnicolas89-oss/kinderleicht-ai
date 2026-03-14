@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Tools", href: "/tools" },
   { label: "Downloads", href: "/downloads" },
   { label: "Über uns", href: "/ueber-uns" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export default function Nav() {
