@@ -148,9 +148,23 @@ const stats = [
 
 const pillars = [
   {
-    icon: (
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+    illustration: (
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Browser window */}
+        <rect x="4" y="10" width="48" height="36" rx="6" fill="#2596be" opacity="0.12"/>
+        <rect x="4" y="10" width="48" height="36" rx="6" stroke="#2596be" strokeWidth="1.8"/>
+        {/* Top bar */}
+        <rect x="4" y="10" width="48" height="11" rx="6" fill="#2596be" opacity="0.18"/>
+        <rect x="4" y="17" width="48" height="4" fill="#2596be" opacity="0.18"/>
+        {/* Traffic lights */}
+        <circle cx="13" cy="16" r="2.2" fill="#2596be" opacity="0.5"/>
+        <circle cx="20" cy="16" r="2.2" fill="#2596be" opacity="0.35"/>
+        <circle cx="27" cy="16" r="2.2" fill="#2596be" opacity="0.2"/>
+        {/* Content lines */}
+        <rect x="11" y="28" width="20" height="2.5" rx="1.2" fill="#2596be" opacity="0.35"/>
+        <rect x="11" y="33" width="14" height="2.5" rx="1.2" fill="#2596be" opacity="0.2"/>
+        {/* Sparkle */}
+        <path d="M40 27l1.2 3.3 3.3 1.2-3.3 1.2L40 36l-1.2-3.3-3.3-1.2 3.3-1.2z" fill="#2596be"/>
       </svg>
     ),
     label: "Unsere Apps",
@@ -159,9 +173,25 @@ const pillars = [
     cta: "Apps ansehen",
   },
   {
-    icon: (
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+    illustration: (
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Central brain/circuit node */}
+        <circle cx="28" cy="28" r="9" fill="#2596be" opacity="0.15" stroke="#2596be" strokeWidth="1.8"/>
+        <circle cx="28" cy="28" r="4" fill="#2596be"/>
+        {/* Connecting nodes */}
+        <circle cx="10" cy="18" r="3.5" fill="#2596be" opacity="0.25" stroke="#2596be" strokeWidth="1.5"/>
+        <circle cx="46" cy="18" r="3.5" fill="#2596be" opacity="0.25" stroke="#2596be" strokeWidth="1.5"/>
+        <circle cx="10" cy="38" r="3.5" fill="#2596be" opacity="0.25" stroke="#2596be" strokeWidth="1.5"/>
+        <circle cx="46" cy="38" r="3.5" fill="#2596be" opacity="0.25" stroke="#2596be" strokeWidth="1.5"/>
+        <circle cx="28" cy="8" r="3" fill="#2596be" opacity="0.4" stroke="#2596be" strokeWidth="1.5"/>
+        <circle cx="28" cy="48" r="3" fill="#2596be" opacity="0.4" stroke="#2596be" strokeWidth="1.5"/>
+        {/* Lines */}
+        <line x1="13" y1="20" x2="22" y2="25" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
+        <line x1="43" y1="20" x2="34" y2="25" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
+        <line x1="13" y1="36" x2="22" y2="31" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
+        <line x1="43" y1="36" x2="34" y2="31" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
+        <line x1="28" y1="11" x2="28" y2="19" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
+        <line x1="28" y1="45" x2="28" y2="37" stroke="#2596be" strokeWidth="1.2" opacity="0.4"/>
       </svg>
     ),
     label: "KI-Tools",
@@ -170,9 +200,19 @@ const pillars = [
     cta: "Tools ansehen",
   },
   {
-    icon: (
-      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    illustration: (
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Folder base */}
+        <rect x="4" y="18" width="48" height="30" rx="5" fill="#2596be" opacity="0.12" stroke="#2596be" strokeWidth="1.8"/>
+        {/* Folder tab */}
+        <path d="M4 18h12l4-5h-16z" fill="#2596be" opacity="0.22"/>
+        <path d="M4 18h12l4-5" stroke="#2596be" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* Document inside */}
+        <rect x="15" y="24" width="18" height="18" rx="3" fill="white" stroke="#2596be" strokeWidth="1.5" opacity="0.9"/>
+        <rect x="18" y="29" width="12" height="1.8" rx="0.9" fill="#2596be" opacity="0.4"/>
+        <rect x="18" y="33" width="9" height="1.8" rx="0.9" fill="#2596be" opacity="0.25"/>
+        {/* Arrow down */}
+        <path d="M37 27v10m0 0l-3.5-3.5M37 37l3.5-3.5" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     label: "Downloads",
@@ -319,11 +359,8 @@ export default function HomePage() {
                 className="flex flex-col items-center text-center p-8 rounded-2xl border border-gray-100 hover:border-[#2596be]/30 hover:shadow-lg transition-all duration-300 group"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
-                  style={{ backgroundColor: "#EBF6FB", color: "#2596be" }}
-                >
-                  {p.icon}
+                <div className="mb-5 group-hover:scale-110 transition-transform duration-300">
+                  {p.illustration}
                 </div>
                 <h3
                   className="text-lg font-semibold text-gray-900 mb-2"
