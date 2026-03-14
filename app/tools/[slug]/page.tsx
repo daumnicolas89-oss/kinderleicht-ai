@@ -8,26 +8,26 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   return {
-    title: `${slug} — Werkzeuge — kinderleicht.ai`,
+    title: `${slug} — Tools — kinderleicht.ai`,
   };
 }
 
-export default async function WerkzeugDetailPage({ params }: Props) {
+export default async function ToolDetailPage({ params }: Props) {
   const { slug } = await params;
 
   return (
     <section className="min-h-[70vh] py-20 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
         <Link
-          href="/werkzeuge"
+          href="/tools"
           className="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-700 transition-colors mb-10"
         >
-          ← Alle Werkzeuge
+          ← Alle Tools
         </Link>
 
         <div className="max-w-2xl">
           <p className="text-sm font-medium mb-3" style={{ color: "#2596be" }}>
-            Werkzeug
+            Tool
           </p>
           <h1
             className="text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-4"
@@ -39,7 +39,7 @@ export default async function WerkzeugDetailPage({ params }: Props) {
               .join(" ")}
           </h1>
           <p className="text-lg text-gray-500 leading-relaxed">
-            Detailseite für dieses Werkzeug — Beschreibung, Einsatzideen und
+            Detailseite für dieses Tool. Beschreibung, Einsatzideen und
             direkte Links folgen in Kürze.
           </p>
         </div>
