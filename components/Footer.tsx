@@ -140,22 +140,80 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom-Bar: Logo + Links + Copyright */}
+      {/* Navigation + Bottom-Bar */}
       <div className="border-t border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <Logo height={22} />
-          <div className="flex items-center gap-5 flex-wrap">
-            <Link href="/impressum" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
-              Datenschutz
-            </Link>
-            <Link href="/kontakt" className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
-              Kontakt
-            </Link>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+
+          {/* Nav-Spalten */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+            {/* Logo-Spalte */}
+            <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
+              <Logo height={22} />
+              <p className="text-xs text-gray-400 leading-relaxed max-w-[180px]">
+                KI im Bildungsalltag. Für Pädagogen in Deutschland.
+              </p>
+            </div>
+
+            {/* ENTDECKEN */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Entdecken</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Apps", href: "/apps" },
+                  { label: "Tools", href: "/tools" },
+                  { label: "Downloads", href: "/downloads" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* KINDERLEICHT.AI */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Über uns", href: "/ueber-uns" },
+                  { label: "FAQ", href: "/faq" },
+                  { label: "Kontakt", href: "/kontakt" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* RECHTLICHES */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Rechtliches</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Impressum", href: "/impressum" },
+                  { label: "Datenschutz", href: "/datenschutz" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <p className="text-sm text-gray-400">© {new Date().getFullYear()} kinderleicht.ai</p>
+
+          {/* Bottom-Bar */}
+          <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
+            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen in Deutschland</p>
+          </div>
+
         </div>
       </div>
 

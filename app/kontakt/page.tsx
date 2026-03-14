@@ -124,18 +124,6 @@ const inputClass =
 export default function KontaktPage() {
   return (
     <>
-      <style>{`
-        @keyframes scroll-left {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .logo-track {
-          display: flex;
-          width: max-content;
-          animation: scroll-left 20s linear infinite;
-        }
-      `}</style>
-
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="bg-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
@@ -250,47 +238,69 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      {/* ── SOCIAL SCROLL STRIP ──────────────────────────── */}
-      {/* 6 Wiederholungen pro Set → Strip ist immer breiter als der Viewport */}
-      {(() => {
-        const repeated = Array.from({ length: 6 }, () => socials).flat();
-        return (
-          <div className="border-t border-gray-100 bg-white overflow-hidden py-6">
-            <div className="logo-track">
-              {[0, 1].map((copy) => (
-                <div key={copy} className="flex items-center" style={{ gap: 72, paddingRight: 72 }}>
-                  {repeated.map((s, idx) =>
-                    s.href ? (
-                      <a
-                        key={idx}
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={s.label}
-                        className="flex-shrink-0 text-gray-300 transition-colors duration-200"
-                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
-                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
-                      >
-                        {s.svg}
-                      </a>
-                    ) : (
-                      <span
-                        key={idx}
-                        aria-label={s.label}
-                        className="flex-shrink-0 text-gray-300 transition-colors duration-200 cursor-default"
-                        onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = s.hoverColor)}
-                        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "")}
-                      >
-                        {s.svg}
-                      </span>
-                    )
-                  )}
+      {/* ── SOCIAL LINKS ─────────────────────────────────── */}
+      <section className="border-t border-gray-100 bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest mb-8 text-gray-400">
+            Folge uns
+          </p>
+          <div className="flex items-center justify-center gap-6">
+            {socials.map((s) => {
+              const inner = (
+                <>
+                  <span className="relative z-10">{s.svg}</span>
+                  <span className="text-xs font-medium mt-2 text-gray-400 group-hover:text-gray-600 transition-colors duration-200">
+                    {s.label}
+                  </span>
+                </>
+              );
+              const sharedClass =
+                "group flex flex-col items-center gap-0 w-20 h-20 rounded-2xl border border-gray-100 justify-center text-gray-300 transition-all duration-250 hover:border-transparent hover:shadow-lg hover:scale-105";
+
+              return s.href ? (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className={sharedClass}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = s.hoverColor;
+                    (e.currentTarget as HTMLElement).style.borderColor = s.hoverColor + "33";
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 24px ${s.hoverColor}22`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "";
+                    (e.currentTarget as HTMLElement).style.borderColor = "";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "";
+                  }}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div
+                  key={s.label}
+                  aria-label={s.label}
+                  className={sharedClass + " cursor-default"}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = s.hoverColor;
+                    (e.currentTarget as HTMLElement).style.borderColor = s.hoverColor + "33";
+                    (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 24px ${s.hoverColor}22`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "";
+                    (e.currentTarget as HTMLElement).style.borderColor = "";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "";
+                  }}
+                >
+                  {inner}
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        );
-      })()}
+        </div>
+      </section>
     </>
   );
 }
