@@ -29,7 +29,6 @@ function RotatingWord() {
         transition: "opacity 0.3s ease, transform 0.3s ease",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(-8px)",
-        minWidth: "200px",
       }}
     >
       {rotatingWords[index]}
@@ -235,7 +234,8 @@ export default function HomePage() {
             className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-900 leading-[1.08]"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
-            KI-Tools für{" "}
+            KI-Tools für
+            <br />
             <RotatingWord />
           </h1>
 
