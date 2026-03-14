@@ -150,7 +150,7 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
               <Logo height={22} />
               <p className="text-xs text-gray-400 leading-relaxed max-w-[180px]">
-                KI im Bildungsalltag. Für Pädagogen in Deutschland.
+                KI im Bildungsalltag. Für Pädagogen im deutschsprachigen Raum.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function Footer() {
           {/* Bottom-Bar */}
           <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
-            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen in Deutschland</p>
+            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen im deutschsprachigen Raum</p>
           </div>
 
         </div>

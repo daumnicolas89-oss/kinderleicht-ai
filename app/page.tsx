@@ -64,76 +64,52 @@ function useFadeIn(delay = 0) {
   return ref;
 }
 
-/* ─── Browser Mockup ─────────────────────────────────────────── */
-function BrowserMockup() {
+/* ─── Floating Badges ────────────────────────────────────────── */
+const badges = [
+  { icon: "✉️", text: "Elternbrief in 30 Sekunden", delay: 0 },
+  { icon: "🗓️", text: "Ferienprogramm automatisch", delay: 600 },
+  { icon: "📋", text: "Dienstplan auf Knopfdruck", delay: 300 },
+  { icon: "🧠", text: "KI verständlich erklärt", delay: 900 },
+  { icon: "📥", text: "Vorlagen kostenlos", delay: 150 },
+  { icon: "⏱️", text: "Stunden Zeit gespart", delay: 750 },
+];
+
+function FloatingBadges() {
   return (
-    <div className="w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200" style={{ background: "#fff" }}>
-      {/* Chrome bar */}
-      <div className="flex items-center gap-3 px-4 py-3" style={{ background: "#F5F5F7", borderBottom: "1px solid #e5e7eb" }}>
-        <div className="flex items-center gap-1.5">
-          <div className="w-3 h-3 rounded-full" style={{ background: "#FF5F57" }} />
-          <div className="w-3 h-3 rounded-full" style={{ background: "#FEBC2E" }} />
-          <div className="w-3 h-3 rounded-full" style={{ background: "#28C840" }} />
-        </div>
-        <div className="flex-1 flex justify-center">
-          <div className="bg-white rounded-md px-4 py-1.5 text-xs text-gray-400 border border-gray-200 flex items-center gap-2" style={{ minWidth: 220 }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="text-gray-300">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-            </svg>
-            ferienplaner.kinderleicht.ai
+    <div className="relative w-full max-w-2xl mx-auto h-44 mt-12 select-none">
+      <style>{`
+        @keyframes badge-float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-7px); }
+        }
+      `}</style>
+
+      {/* Row 1 — 3 badges */}
+      <div className="flex justify-center gap-3 mb-3">
+        {badges.slice(0, 3).map((b) => (
+          <div
+            key={b.text}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-100 shadow-sm text-sm font-medium text-gray-700 whitespace-nowrap"
+            style={{ animation: `badge-float 4s ease-in-out ${b.delay}ms infinite` }}
+          >
+            <span className="text-base">{b.icon}</span>
+            {b.text}
           </div>
-        </div>
+        ))}
       </div>
 
-      {/* App UI */}
-      <div className="p-6" style={{ background: "#fff", minHeight: 300 }}>
-        {/* App header */}
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <div className="text-base font-bold text-gray-900" style={{ fontFamily: "var(--font-ibm-plex-sans)" }}>Ferienplaner</div>
-            <div className="text-xs text-gray-400 mt-0.5">Sommer 2025 · Kita Sonnenschein</div>
+      {/* Row 2 — 3 badges, offset */}
+      <div className="flex justify-center gap-3" style={{ paddingLeft: 60 }}>
+        {badges.slice(3).map((b) => (
+          <div
+            key={b.text}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-100 shadow-sm text-sm font-medium text-gray-700 whitespace-nowrap"
+            style={{ animation: `badge-float 4s ease-in-out ${b.delay}ms infinite` }}
+          >
+            <span className="text-base">{b.icon}</span>
+            {b.text}
           </div>
-          <div className="px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style={{ background: "#2596be" }}>
-            Neu erstellen
-          </div>
-        </div>
-
-        {/* Three option cards */}
-        <div className="grid grid-cols-3 gap-3 mb-5">
-          {[
-            { label: "Ferienprogramm", icon: "🗓️", active: true },
-            { label: "Elternbrief", icon: "✉️", active: false },
-            { label: "Dienstplan", icon: "📋", active: false },
-          ].map((card) => (
-            <div
-              key={card.label}
-              className="rounded-xl p-3 text-center border"
-              style={{
-                borderColor: card.active ? "#2596be" : "#e5e7eb",
-                background: card.active ? "#EBF6FA" : "#fafafa",
-              }}
-            >
-              <div className="text-xl mb-1">{card.icon}</div>
-              <div className="text-xs font-medium" style={{ color: card.active ? "#2596be" : "#6b7280" }}>
-                {card.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Fake form */}
-        <div className="space-y-3">
-          <div className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2.5 text-xs text-gray-400">
-            Zeitraum: 14. Juli – 25. Juli 2025
-          </div>
-          <div className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2.5 text-xs text-gray-400">
-            Gruppenalter: 3–6 Jahre · 18 Kinder
-          </div>
-          <div className="w-full rounded-lg text-xs font-semibold text-white py-2.5 text-center" style={{ background: "#2596be" }}>
-            Programm generieren ✨
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -300,16 +276,10 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-400">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            Bereits von Pädagogen in ganz Deutschland genutzt
-          </div>
 
           {/* Browser Mockup */}
           <div className="mt-14 px-2">
-            <BrowserMockup />
+            <FloatingBadges />
           </div>
         </div>
       </section>

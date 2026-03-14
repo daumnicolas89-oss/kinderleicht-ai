@@ -82,13 +82,13 @@ function Accordion() {
               {faq.title}
             </span>
             <span
-              className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200"
+              className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200"
               style={{
                 backgroundColor: open === i ? "#2596be" : "#F5F5F7",
                 color: open === i ? "#fff" : "#9ca3af",
               }}
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>
                 {open === i
                   ? <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                   : <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />}
@@ -125,9 +125,11 @@ export default function KontaktPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="bg-white pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-6" style={{ color: "#2596be" }}>
+      <section className="relative overflow-hidden bg-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, #d1d5db 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)", WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)", opacity: 0.45 }} />
+        <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.10) 0%, transparent 70%)" }} />
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: "#2596be" }}>
             Kontakt
           </p>
           <h1
