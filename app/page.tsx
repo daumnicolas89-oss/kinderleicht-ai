@@ -252,13 +252,12 @@ export default async function HomePage() {
                 title: "Eigene Apps",
                 description: "Von uns entwickelte Tools wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
                 linkText: "Apps entdecken",
-                accentColor: "#2596be",
               },
               {
                 href: "/tools",
                 icon: (
-                  <div className="w-12 h-12 rounded-2xl bg-[#F0FDF4] flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="w-12 h-12 rounded-2xl bg-[#EBF6FA] flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="8" />
                       <path d="M21 21l-4.35-4.35" />
                     </svg>
@@ -267,13 +266,12 @@ export default async function HomePage() {
                 title: "KI-Tools",
                 description: "Geprüfte KI-Tools mit DSGVO-Einschätzung, Bewertungen und Tipps für den Einsatz.",
                 linkText: "Tools durchsuchen",
-                accentColor: "#059669",
               },
               {
                 href: "/downloads",
                 icon: (
-                  <div className="w-12 h-12 rounded-2xl bg-[#FEF9C3] flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="w-12 h-12 rounded-2xl bg-[#EBF6FA] flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                       <polyline points="7 10 12 15 17 10" />
                       <line x1="12" y1="15" x2="12" y2="3" />
@@ -283,7 +281,6 @@ export default async function HomePage() {
                 title: "Downloads",
                 description: "Kostenlose Vorlagen, Checklisten und Materialien zum direkten Herunterladen.",
                 linkText: "Downloads ansehen",
-                accentColor: "#D97706",
               },
             ].map((card) => (
               <Link
@@ -303,7 +300,7 @@ export default async function HomePage() {
                 </p>
                 <span
                   className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all"
-                  style={{ color: card.accentColor }}
+                  style={{ color: "#2596be" }}
                 >
                   {card.linkText}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
