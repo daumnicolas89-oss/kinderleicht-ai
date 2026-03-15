@@ -47,11 +47,6 @@ export default async function HomePage() {
         />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#2596be]/20 bg-[#2596be]/5 text-xs font-medium text-[#2596be] mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2596be] animate-pulse" />
-            Ferienplaner ist jetzt live
-          </div>
-
           <h1
             className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
