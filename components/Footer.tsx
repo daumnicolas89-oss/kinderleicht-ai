@@ -90,7 +90,7 @@ export default function Footer() {
     <footer className="bg-white">
 
       {/* Newsletter-Bereich */}
-      <div className="border-t border-gray-100">
+      <div style={{ backgroundColor: "#F5F5F7" }}>
         <style>{`
           @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(-2deg); }
