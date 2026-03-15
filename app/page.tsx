@@ -1,119 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+import { featuredToolsQuery } from "@/lib/sanity/queries";
+import RotatingWord from "@/components/RotatingWord";
 
-/* ─── Rotating words ─────────────────────────────────────── */
-const rotatingWords = ["Kitas", "Schulen", "Krippen", "GBS", "GTS", "Teams"];
+const DSGVO_COLOR: Record<string, string> = { grün: "#059669", gelb: "#D97706", rot: "#DC2626" };
+const DSGVO_BG: Record<string, string>    = { grün: "#DCFCE7", gelb: "#FEF9C3", rot: "#FEE2E2" };
+const DSGVO_LABEL: Record<string, string> = { grün: "DSGVO konform", gelb: "Eingeschränkt", rot: "Kritisch" };
 
-function RotatingWord() {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % rotatingWords.length);
-        setVisible(true);
-      }, 280);
-    }, 2400);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <span
-      style={{
-        color: "#2596be",
-        display: "inline-block",
-        transition: "opacity 0.28s ease, transform 0.28s ease",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(-6px)",
-      }}
-    >
-      {rotatingWords[index]}
-    </span>
-  );
-}
-
-/* ─── Fade-in on scroll ──────────────────────────────────── */
-function useFadeIn(delay = 0) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.opacity = "0";
-    el.style.transform = "translateY(24px)";
-    el.style.transition = `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms`;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.opacity = "1";
-          el.style.transform = "translateY(0)";
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [delay]);
-  return ref;
-}
-
-/* ─── Floating Badges ────────────────────────────────────── */
-const badges = [
-  { icon: "✉️", text: "Elternbrief in 30 Sekunden" },
-  { icon: "🗓️", text: "Ferienprogramm automatisch" },
-  { icon: "📋", text: "Dienstplan auf Knopfdruck" },
-  { icon: "🧠", text: "KI verständlich erklärt" },
-  { icon: "📥", text: "Vorlagen kostenlos" },
-  { icon: "⏱️", text: "Stunden Zeit gespart" },
-];
-
-/* ─── Pillars ─────────────────────────────────────────────── */
-const pillars = [
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-        <path d="M7 8h.01M10 8h5" />
-        <path d="M7 11h.01M10 11h3" />
-      </svg>
-    ),
-    label: "Unsere Apps",
-    desc: "Web-Apps für den Bildungsalltag. Direkt im Browser, ohne Installation.",
-    href: "/apps",
-    cta: "Apps ansehen",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a7 7 0 0 1 7 7c0 4-4 6-4 9H9c0-3-4-5-4-9a7 7 0 0 1 7-7z" />
-        <path d="M9 18h6M10 22h4" />
-      </svg>
-    ),
-    label: "KI-Tools",
-    desc: "Geprüfte Tools wie Canva, Claude und ChatGPT mit Tipps für den pädagogischen Einsatz.",
-    href: "/tools",
-    cta: "Tools ansehen",
-  },
-  {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3" />
-      </svg>
-    ),
-    label: "Downloads",
-    desc: "Vorlagen, Checklisten und Materialien zum Sofort-Nutzen. Kostenlos.",
-    href: "/downloads",
-    cta: "Downloads ansehen",
-  },
-];
-
-/* ─── Audience ────────────────────────────────────────────── */
 const audiences = [
   { label: "Kita & Krippe", emoji: "🏠" },
   { label: "Grundschule", emoji: "✏️" },
@@ -122,15 +17,19 @@ const audiences = [
   { label: "Leitung & Verwaltung", emoji: "📋" },
 ];
 
-/* ─── Page ────────────────────────────────────────────────── */
-export default function HomePage() {
-  const pillarsRef = useFadeIn(0);
-  const audienceRef = useFadeIn(0);
+export default async function HomePage() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rawTools: any[] = await client.fetch(featuredToolsQuery);
+  const featuredTools = rawTools.map((t) => ({
+    ...t,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    logoUrl: t.logo ? urlFor(t.logo as any).width(160).fit("max").url() : null,
+  }));
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-4 px-4 sm:px-6 lg:px-8">
+      {/* ── HERO ──────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -147,14 +46,13 @@ export default function HomePage() {
         />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          {/* Live-Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#2596be]/20 bg-[#2596be]/5 text-xs font-medium text-[#2596be] mb-7">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#2596be]/20 bg-[#2596be]/5 text-xs font-medium text-[#2596be] mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2596be] animate-pulse" />
             Ferienplaner ist jetzt live
           </div>
 
           <h1
-            className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-900 leading-[1.08]"
+            className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             KI-Tools für
@@ -162,112 +60,251 @@ export default function HomePage() {
             <RotatingWord />
           </h1>
 
-          <p className="mt-5 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-lg mx-auto">
-            Eigene Web-Apps, geprüfte KI-Tools und fertige Materialien für den Bildungsalltag.
+          <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
+            Elternbriefe, Ferienpläne, Unterrichtsplanung — geprüfte Tools und eigene Apps,
+            damit mehr Zeit für Kinder bleibt.
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/tools"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-white text-sm font-semibold hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#2596be" }}
             >
               Tools entdecken
             </Link>
-            <Link
-              href="/apps"
-              className="inline-flex items-center px-6 py-2.5 rounded-lg border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
+            <a
+              href="https://ferienplaner.kinderleicht.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
             >
-              Unsere Apps
-            </Link>
+              Ferienplaner ausprobieren
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M7 17L17 7M7 7h10v10" />
+              </svg>
+            </a>
           </div>
 
-          {/* Floating Badges */}
-          <div className="mt-12 pb-4">
-            <style>{`
-              @keyframes badge-float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-6px); }
-              }
-            `}</style>
-            <div className="flex flex-col gap-2.5">
-              <div className="flex justify-center gap-2.5 flex-wrap">
-                {badges.slice(0, 3).map((b, i) => (
-                  <div
-                    key={b.text}
-                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-gray-100 shadow-sm text-sm text-gray-600 whitespace-nowrap"
-                    style={{ animation: `badge-float 4s ease-in-out ${i * 250}ms infinite` }}
-                  >
-                    <span className="text-sm">{b.icon}</span>
-                    {b.text}
-                  </div>
-                ))}
+          {/* Trust-Badges */}
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            {[
+              { icon: "🛡️", text: "DSGVO-geprüft" },
+              { icon: "🇪🇺", text: "EU-Server bevorzugt" },
+              { icon: "🎓", text: "Für den Bildungsalltag" },
+            ].map((b) => (
+              <div key={b.text} className="flex items-center gap-1.5 text-xs text-gray-500">
+                <span>{b.icon}</span>
+                {b.text}
               </div>
-              <div className="flex justify-center gap-2.5 flex-wrap">
-                {badges.slice(3).map((b, i) => (
-                  <div
-                    key={b.text}
-                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-gray-100 shadow-sm text-sm text-gray-600 whitespace-nowrap"
-                    style={{ animation: `badge-float 4s ease-in-out ${(i + 3) * 250}ms infinite` }}
-                  >
-                    <span className="text-sm">{b.icon}</span>
-                    {b.text}
-                  </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FERIENPLANER ──────────────────────────────────────── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* Text */}
+            <div>
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
+              >
+                Eigene App
+              </p>
+              <h2
+                className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5"
+                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+              >
+                Ferienprogramm fertig —<br />
+                in Minuten statt Stunden.
+              </h2>
+              <p className="text-gray-500 text-base leading-relaxed mb-7">
+                Kein leeres Blatt mehr. Der Ferienplaner erstellt automatisch ein strukturiertes
+                Programm für deine Einrichtung — direkt im Browser, ohne Anmeldung.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Automatische Programmplanung",
+                  "Direkt im Browser, kein Download",
+                  "Kostenlos und ohne Anmeldung",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                    {item}
+                  </li>
                 ))}
+              </ul>
+              <a
+                href="https://ferienplaner.kinderleicht.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: "#2596be" }}
+              >
+                Ferienplaner öffnen
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M7 17L17 7M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+
+            {/* App-Mockup */}
+            <div className="relative">
+              <div
+                className="absolute -inset-6 rounded-3xl pointer-events-none"
+                style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.08) 0%, transparent 70%)" }}
+              />
+              <div className="relative rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+                {/* Browser bar */}
+                <div className="flex items-center gap-3 px-4 py-3 bg-[#F5F5F7] border-b border-gray-100">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                    <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                    <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+                  </div>
+                  <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-400 border border-gray-200 font-mono">
+                    ferienplaner.kinderleicht.ai
+                  </div>
+                </div>
+                {/* Simulated app UI */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-5">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2596be] mb-0.5">Ferienplaner</p>
+                      <p className="text-sm font-bold text-gray-800">Sommerprogramm 2025</p>
+                    </div>
+                    <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600">
+                      Bereit
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    {[
+                      { day: "Mo, 21.7.", activity: "Ausflug Zoo", color: "#2596be" },
+                      { day: "Di, 22.7.", activity: "Basteln & Kreativ", color: "#8b5cf6" },
+                      { day: "Mi, 23.7.", activity: "Schwimmbad", color: "#059669" },
+                      { day: "Do, 24.7.", activity: "Spielolympiade", color: "#d97706" },
+                    ].map((row) => (
+                      <div key={row.day} className="flex items-center gap-3 py-2 rounded-lg px-2 hover:bg-gray-50">
+                        <span className="text-xs text-gray-400 w-20 flex-shrink-0">{row.day}</span>
+                        <div className="h-1.5 rounded-full flex-1" style={{ backgroundColor: row.color, opacity: 0.25 }} />
+                        <span className="text-xs text-gray-600 text-right flex-shrink-0 w-28">{row.activity}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-xs text-gray-400">4 von 14 Tagen geplant</span>
+                    <span className="text-xs font-semibold" style={{ color: "#2596be" }}>Weiter planen</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── THREE PILLARS ──────────────────────────────────── */}
-      <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
-        <div ref={pillarsRef} className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2
-              className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-            >
-              Was du hier findest
-            </h2>
-            <p className="text-gray-400">Alles für den Bildungsalltag. An einem Ort.</p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {pillars.map((p) => (
-              <Link
-                key={p.label}
-                href={p.href}
-                className="group flex flex-col p-6 rounded-2xl border border-gray-100 hover:border-[#2596be]/25 hover:shadow-md transition-all duration-200 bg-white"
+      {/* ── EMPFOHLENE TOOLS ──────────────────────────────────── */}
+      {featuredTools.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#EBF6FA] flex items-center justify-center mb-4 group-hover:bg-[#2596be]/15 transition-colors">
-                  {p.icon}
-                </div>
-                <h3
-                  className="text-base font-semibold text-gray-900 mb-1.5"
-                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-                >
-                  {p.label}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed flex-1">{p.desc}</p>
-                <span
-                  className="mt-4 text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
-                  style={{ color: "#2596be" }}
-                >
-                  {p.cta}
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+                Geprüfte KI-Tools
+              </p>
+              <h2
+                className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
+                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+              >
+                Unsere Empfehlungen.
+              </h2>
+              <p className="text-gray-400 text-base max-w-md mx-auto">
+                Handverlesene Tools mit DSGVO-Einschätzung und Tipps für den pädagogischen Einsatz.
+              </p>
+            </div>
 
-      {/* ── AUDIENCE ───────────────────────────────────────── */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              {featuredTools.map((tool) => (
+                <Link
+                  key={tool.slug}
+                  href={`/tools/${tool.slug}`}
+                  className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
+                >
+                  <div className="flex flex-col p-5 flex-1">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="relative w-11 h-11 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
+                        {tool.logoUrl ? (
+                          <Image src={tool.logoUrl} alt={tool.name} fill className="object-contain p-2" sizes="44px" />
+                        ) : (
+                          <span className="absolute inset-0 flex items-center justify-center text-base font-bold text-gray-300">
+                            {tool.name.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                        Empfohlen
+                      </span>
+                    </div>
+                    <h3
+                      className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
+                      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+                    >
+                      {tool.name}
+                    </h3>
+                    {tool.kurzbeschreibung && (
+                      <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                        {tool.kurzbeschreibung}
+                      </p>
+                    )}
+                  </div>
+                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
+                    {tool.dsgvo && (
+                      <span
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                        style={{
+                          backgroundColor: DSGVO_BG[tool.dsgvo] ?? "#F3F4F6",
+                          color: DSGVO_COLOR[tool.dsgvo] ?? "#374151",
+                        }}
+                      >
+                        {DSGVO_LABEL[tool.dsgvo]}
+                      </span>
+                    )}
+                    {tool.preismodell && (
+                      <span className="text-[10px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
+                        {tool.preismodell}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/tools"
+                className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
+                style={{ color: "#2596be" }}
+              >
+                Alle Tools ansehen
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── ZIELGRUPPEN ───────────────────────────────────────── */}
       <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div ref={audienceRef} className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
@@ -275,7 +312,6 @@ export default function HomePage() {
             Für wen ist kinderleicht.ai?
           </h2>
           <p className="text-gray-400 mb-8">Für alle, die professionell mit Kindern arbeiten.</p>
-
           <div className="flex flex-wrap justify-center gap-2.5">
             {audiences.map((a) => (
               <div
@@ -290,7 +326,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ────────────────────────────────────────────── */}
+      {/* ── CTA ───────────────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#2596be" }}>
         <div className="max-w-xl mx-auto text-center">
           <h2
@@ -304,7 +340,7 @@ export default function HomePage() {
           </p>
           <Link
             href="/tools"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
             style={{ backgroundColor: "#ffffff", color: "#2596be" }}
           >
             Jetzt entdecken
