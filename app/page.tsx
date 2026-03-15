@@ -66,41 +66,6 @@ export default async function HomePage() {
             Unterrichtsplanung. Damit mehr Zeit für Kinder bleibt.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/tools"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-white text-sm font-semibold hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#2596be" }}
-            >
-              Tools entdecken
-            </Link>
-            <a
-              href="https://ferienplaner.kinderleicht.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
-            >
-              Ferienplaner ausprobieren
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M7 17L17 7M7 7h10v10" />
-              </svg>
-            </a>
-          </div>
-
-          {/* Trust-Badges */}
-          <div className="mt-10 flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
-            {[
-              { icon: "🛡️", text: "DSGVO-geprüft" },
-              { icon: "🇪🇺", text: "EU-Server bevorzugt" },
-              { icon: "🎓", text: "Für den Bildungsalltag" },
-            ].map((b, i) => (
-              <div key={b.text} className="flex items-center gap-1.5 text-xs text-gray-400">
-                {i > 0 && <span className="hidden sm:inline text-gray-200 -ml-2.5 mr-0">·</span>}
-                <span>{b.icon}</span>
-                {b.text}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -259,6 +224,102 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      {/* ── ENTDECKEN-GRID ─────────────────────────────────────── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2
+              className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
+              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+            >
+              Alles an einem Ort.
+            </h2>
+            <p className="text-gray-400 text-base max-w-md mx-auto">
+              Apps, Tools und Vorlagen für deinen pädagogischen Alltag.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              {
+                href: "/apps",
+                icon: (
+                  <div className="w-12 h-12 rounded-2xl bg-[#EBF6FA] flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                      <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                      <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                      <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                    </svg>
+                  </div>
+                ),
+                title: "Eigene Apps",
+                description: "Von uns entwickelte Tools wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
+                linkText: "Apps entdecken",
+                accentColor: "#2596be",
+              },
+              {
+                href: "/tools",
+                icon: (
+                  <div className="w-12 h-12 rounded-2xl bg-[#F0FDF4] flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                  </div>
+                ),
+                title: "KI-Tools",
+                description: "Geprüfte KI-Tools mit DSGVO-Einschätzung, Bewertungen und Tipps für den Einsatz.",
+                linkText: "Tools durchsuchen",
+                accentColor: "#059669",
+              },
+              {
+                href: "/downloads",
+                icon: (
+                  <div className="w-12 h-12 rounded-2xl bg-[#FEF9C3] flex items-center justify-center">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </div>
+                ),
+                title: "Downloads",
+                description: "Kostenlose Vorlagen, Checklisten und Materialien zum direkten Herunterladen.",
+                linkText: "Downloads ansehen",
+                accentColor: "#D97706",
+              },
+            ].map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-200"
+              >
+                <div className="mb-5">{card.icon}</div>
+                <h3
+                  className="text-lg font-bold text-gray-900 mb-2"
+                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+                >
+                  {card.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed flex-1 mb-5">
+                  {card.description}
+                </p>
+                <span
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all"
+                  style={{ color: card.accentColor }}
+                >
+                  {card.linkText}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── ZIELGRUPPEN ───────────────────────────────────────── */}
       <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
