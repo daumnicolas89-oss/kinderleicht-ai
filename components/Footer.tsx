@@ -211,7 +211,7 @@ export default function Footer() {
           {/* Bottom-Bar */}
           <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
-            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen im deutschsprachigen Raum</p>
+            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen</p>
           </div>
 
         </div>
