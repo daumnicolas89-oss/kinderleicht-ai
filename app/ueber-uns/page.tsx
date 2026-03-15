@@ -142,7 +142,7 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      {/* ── QUALITÄT & AUSBLICK ──────────────────────────────── */}
+      {/* ── QUALITÄT ─────────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2
@@ -151,25 +151,40 @@ export default function UeberUnsPage() {
           >
             Qualität ist uns wichtig.
           </h2>
-          <p className="text-base text-gray-500 leading-relaxed mb-4">
+          <p className="text-base text-gray-500 leading-relaxed mb-6">
             Kein Tool landet zufällig auf unserer Plattform. Jedes Tool, jede App und jedes Material
             durchläuft einen festen Prüfprozess, damit du dich auf unsere Empfehlungen verlassen kannst.
           </p>
-          <p className="text-base text-gray-500 leading-relaxed mb-8">
-            kinderleicht.ai soll zur zentralen Anlaufstelle für KI in der Bildung werden.
-            Mit eigenen Apps, geprüften Tools und praxisnahen Materialien. Vom ersten
-            Prompt bis zur Entwicklung ganzer pädagogischer Konzepte.
-          </p>
           <Link
             href="/so-arbeiten-wir"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "#2596be" }}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity"
+            style={{ color: "#2596be" }}
           >
             So arbeiten wir
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
+        </div>
+      </section>
+
+      {/* ── AUSBLICK ───────────────────────────────────────────── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#2596be" }}>
+            Ausblick
+          </p>
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+          >
+            Wo wir hinwollen
+          </h2>
+          <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
+            kinderleicht.ai soll zur zentralen Anlaufstelle für KI in der Bildung werden.
+            Mit eigenen Apps, geprüften Tools und praxisnahen Materialien. Vom ersten
+            Prompt bis zur Entwicklung ganzer pädagogischer Konzepte.
+          </p>
         </div>
       </section>
     </>
