@@ -74,7 +74,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
   return (
     <>
       {/* ── Filter-Leiste ─────────────────────────────────── */}
-      <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
+      <div className="sticky top-[72px] z-30 bg-white border border-gray-100 rounded-2xl shadow-sm mb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
 

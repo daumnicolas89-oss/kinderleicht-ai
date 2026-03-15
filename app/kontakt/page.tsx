@@ -25,7 +25,7 @@ export default function KontaktPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -95,7 +95,7 @@ export default function KontaktPage() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="vorname" className="text-xs font-medium text-gray-500">
+                    <label htmlFor="vorname" className="text-sm font-medium text-gray-500">
                       Vorname
                     </label>
                     <input
@@ -107,7 +107,7 @@ export default function KontaktPage() {
                     />
                   </div>
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="nachname" className="text-xs font-medium text-gray-500">
+                    <label htmlFor="nachname" className="text-sm font-medium text-gray-500">
                       Nachname
                     </label>
                     <input
@@ -121,7 +121,7 @@ export default function KontaktPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="email" className="text-xs font-medium text-gray-500">
+                  <label htmlFor="email" className="text-sm font-medium text-gray-500">
                     E-Mail <span style={{ color: "#2596be" }}>*</span>
                   </label>
                   <input
@@ -135,7 +135,7 @@ export default function KontaktPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="betreff" className="text-xs font-medium text-gray-500">
+                  <label htmlFor="betreff" className="text-sm font-medium text-gray-500">
                     Betreff
                   </label>
                   <input
@@ -148,7 +148,7 @@ export default function KontaktPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="nachricht" className="text-xs font-medium text-gray-500">
+                  <label htmlFor="nachricht" className="text-sm font-medium text-gray-500">
                     Nachricht <span style={{ color: "#2596be" }}>*</span>
                   </label>
                   <textarea

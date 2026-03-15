@@ -317,7 +317,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── ZIELGRUPPEN ───────────────────────────────────────── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"

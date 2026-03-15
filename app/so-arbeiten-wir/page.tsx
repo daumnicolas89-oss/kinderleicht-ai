@@ -72,7 +72,7 @@ export default function SoArbeitenWirPage() {
   return (
     <>
       {/* ── HERO ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0" style={dotGrid} />
         <div
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
@@ -203,21 +203,21 @@ export default function SoArbeitenWirPage() {
       </section>
 
       {/* ── CTA ────────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#2596be" }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-3"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Noch Fragen?
           </h2>
-          <p className="text-white/80 text-base mb-8">
+          <p className="text-gray-500 text-base mb-8">
             Schreib uns wenn du ein Tool vermisst oder Feedback zur Bewertung hast.
           </p>
           <Link
             href="/kontakt"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "white", color: "#2596be" }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "#2596be" }}
           >
             Kontakt aufnehmen
           </Link>
