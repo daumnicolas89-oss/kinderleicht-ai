@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { toolBySlugQuery, allToolSlugsQuery } from "@/lib/sanity/queries";
+import ScreenshotLightbox from "@/components/ScreenshotLightbox";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -96,8 +97,9 @@ export default async function ToolDetailPage({ params }: Props) {
               {tool.name}
             </h1>
             {tool.kurzbeschreibung && (
-              <p className="text-base text-gray-500 leading-relaxed max-w-xl">{tool.kurzbeschreibung}</p>
+              <p className="text-base text-gray-500 leading-relaxed max-w-xl mb-3">{tool.kurzbeschreibung}</p>
             )}
+            {shotUrl && <ScreenshotLightbox src={shotUrl} alt={`Screenshot ${tool.name}`} />}
           </div>
 
           {/* CTA */}
@@ -118,20 +120,6 @@ export default async function ToolDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {/* ── Screenshot (volle Breite) ───────────────────────── */}
-      {shotUrl && (
-        <div className="border-t border-b border-gray-100 bg-[#F5F5F7]">
-          <div className="max-w-5xl mx-auto">
-            <Image
-              src={shotUrl}
-              alt={`Screenshot ${tool.name}`}
-              width={1200}
-              height={680}
-              className="w-full object-cover"
-            />
-          </div>
-        </div>
-      )}
 
       {/* ── Content ────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
