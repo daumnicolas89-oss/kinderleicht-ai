@@ -87,13 +87,14 @@ export default async function HomePage() {
           </div>
 
           {/* Trust-Badges */}
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
             {[
               { icon: "🛡️", text: "DSGVO-geprüft" },
               { icon: "🇪🇺", text: "EU-Server bevorzugt" },
               { icon: "🎓", text: "Für den Bildungsalltag" },
-            ].map((b) => (
-              <div key={b.text} className="flex items-center gap-1.5 text-xs text-gray-500">
+            ].map((b, i) => (
+              <div key={b.text} className="flex items-center gap-1.5 text-xs text-gray-400">
+                {i > 0 && <span className="hidden sm:inline text-gray-200 -ml-2.5 mr-0">·</span>}
                 <span>{b.icon}</span>
                 {b.text}
               </div>

@@ -146,11 +146,11 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
       {/* ── Card-Grid ─────────────────────────────────────── */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-baseline justify-between mb-5">
-            <p className="text-sm text-gray-400">
+          <div className="flex items-center justify-between mb-5 gap-4">
+            <p className="text-sm text-gray-400 hidden sm:block">
               Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz.
             </p>
-            <p className="text-xs text-gray-400 flex-shrink-0 ml-4">
+            <p className="text-xs text-gray-400 flex-shrink-0">
               {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
             </p>
           </div>

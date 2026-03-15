@@ -17,7 +17,7 @@ const DSGVO_LABEL: Record<string, string> = { grün: "DSGVO konform", gelb: "Ein
 function Stars({ value }: { value?: number }) {
   if (!value) return null;
   return (
-    <span className="flex items-center gap-0.5">
+    <span className="flex items-center gap-[2px]">
       {[1, 2, 3, 4, 5].map((i) => (
         <svg key={i} width="15" height="15" viewBox="0 0 12 12" fill={i <= value ? "#F59E0B" : "#E5E7EB"}>
           <path d="M6 1l1.4 2.8 3.1.5-2.2 2.1.5 3.1L6 8l-2.8 1.5.5-3.1L1.5 4.3l3.1-.5z" />
@@ -179,7 +179,7 @@ export default async function ToolDetailPage({ params }: Props) {
                 href={targetUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="sm:ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                className="sm:ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Tool öffnen
