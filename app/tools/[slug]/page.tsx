@@ -131,21 +131,6 @@ export default async function ToolDetailPage({ params }: Props) {
               </span>
             )}
             {tool.bewertung && <Stars value={tool.bewertung} />}
-
-            {targetUrl && (
-              <a
-                href={targetUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                Tool öffnen
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
-            )}
           </div>
         </div>
       </div>
@@ -210,7 +195,7 @@ export default async function ToolDetailPage({ params }: Props) {
             {tool.didaktischer_mehrwert && (
               <div className="bg-white rounded-2xl border border-gray-100 p-7">
                 <SectionHeading>Didaktischer Mehrwert</SectionHeading>
-                <blockquote className="border-l-4 pl-4 text-gray-600 leading-[1.85] text-sm whitespace-pre-line italic"
+                <blockquote className="border-l-4 pl-4 text-gray-600 leading-[1.85] text-sm whitespace-pre-line"
                   style={{ borderColor: "#2596be" }}>
                   {tool.didaktischer_mehrwert}
                 </blockquote>

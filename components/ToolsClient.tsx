@@ -238,16 +238,21 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                     )}
                   </div>
 
-                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2.5">
-                    {tool.preismodell && (
-                      <span className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-md">
-                        {tool.preismodell}
+                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
+                    {tool.dsgvo && (
+                      <span
+                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                        style={{
+                          backgroundColor: tool.dsgvo === "grün" ? "#DCFCE7" : tool.dsgvo === "gelb" ? "#FEF9C3" : "#FEE2E2",
+                          color: DSGVO_DOT[tool.dsgvo],
+                        }}
+                      >
+                        {DSGVO_LABEL[tool.dsgvo]}
                       </span>
                     )}
-                    {tool.dsgvo && (
-                      <span className="flex items-center gap-1 text-[11px] text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: DSGVO_DOT[tool.dsgvo] }} />
-                        {DSGVO_LABEL[tool.dsgvo]}
+                    {tool.preismodell && (
+                      <span className="text-[10px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
+                        {tool.preismodell}
                       </span>
                     )}
                     {tool.bewertung && (
