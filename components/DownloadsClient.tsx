@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 interface Download {
@@ -111,12 +112,10 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((dl) => {
-              const href = dl.dateiUrl || dl.externer_link || "#";
-              const isExternal = !dl.dateiUrl && !!dl.externer_link;
-
               return (
-                <div
+                <Link
                   key={dl.slug}
+                  href={`/downloads/${dl.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
                   {/* Preview */}
@@ -177,23 +176,17 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                       </p>
                     )}
 
-                    <a
-                      href={href}
-                      target={isExternal ? "_blank" : undefined}
-                      rel={isExternal ? "noopener noreferrer" : undefined}
-                      download={dl.dateiUrl ? true : undefined}
-                      className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity mt-auto"
-                      style={{ backgroundColor: "#2596be" }}
+                    <span
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold mt-auto group-hover:gap-2.5 transition-all"
+                      style={{ color: "#2596be" }}
                     >
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
+                      Mehr erfahren
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
-                      Herunterladen
-                    </a>
+                    </span>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
