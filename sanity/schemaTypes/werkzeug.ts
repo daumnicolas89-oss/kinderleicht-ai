@@ -200,31 +200,10 @@ export const werkzeug = defineType({
       type: "url",
     }),
 
-    // ── Bewertungen ──────────────────────────────────────────
+    // ── Bewertung ────────────────────────────────────────────
     defineField({
-      name: "bewertung_nutzen",
-      title: "Bewertung: Nutzen",
-      type: "number",
-      description: "1 bis 5",
-      validation: (Rule) => Rule.min(1).max(5).integer(),
-    }),
-    defineField({
-      name: "bewertung_bedienbarkeit",
-      title: "Bewertung: Bedienbarkeit",
-      type: "number",
-      description: "1 bis 5",
-      validation: (Rule) => Rule.min(1).max(5).integer(),
-    }),
-    defineField({
-      name: "bewertung_datenschutz",
-      title: "Bewertung: Datenschutz",
-      type: "number",
-      description: "1 bis 5",
-      validation: (Rule) => Rule.min(1).max(5).integer(),
-    }),
-    defineField({
-      name: "bewertung_preis",
-      title: "Bewertung: Preis/Leistung",
+      name: "bewertung",
+      title: "Gesamtbewertung (1-5 Sterne)",
       type: "number",
       description: "1 bis 5",
       validation: (Rule) => Rule.min(1).max(5).integer(),
