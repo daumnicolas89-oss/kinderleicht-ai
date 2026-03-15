@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { toolBySlugQuery, allToolSlugsQuery, similarToolsQuery } from "@/lib/sanity/queries";
-import { ShareBar } from "@/components/ToolDetailClient";
-import ToolDetailLayout from "@/components/ToolDetailLayout";
+import ScreenshotLightbox from "@/components/ScreenshotLightbox";
+import { ShareBar, PriceDetail } from "@/components/ToolDetailClient";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,6 +24,26 @@ function Stars({ value }: { value?: number }) {
         </svg>
       ))}
     </span>
+  );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2
+      className="text-lg font-semibold text-gray-900 mb-4"
+      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+function SidebarLabel({ emoji, label }: { emoji: string; label: string }) {
+  return (
+    <div className="flex items-center gap-1.5 mb-2">
+      <span className="text-sm leading-none">{emoji}</span>
+      <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">{label}</p>
+    </div>
   );
 }
 
@@ -67,6 +87,8 @@ export default async function ToolDetailPage({ params }: Props) {
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <div className="relative bg-white border-b border-gray-100 overflow-hidden">
+
+        {/* Dot grid */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -92,6 +114,7 @@ export default async function ToolDetailPage({ params }: Props) {
           {/* Logo + Name + Kategorien */}
           <div className="flex items-start gap-6 mb-5">
             <div className="relative flex-shrink-0">
+              {/* Blue glow behind logo */}
               <div
                 className="absolute -inset-5 rounded-full pointer-events-none"
                 style={{ background: "radial-gradient(circle, rgba(37,150,190,0.13) 0%, transparent 70%)" }}
@@ -127,6 +150,7 @@ export default async function ToolDetailPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Kurzbeschreibung */}
           {tool.kurzbeschreibung && (
             <p className="text-lg text-gray-500 leading-relaxed mb-7 max-w-2xl">
               {tool.kurzbeschreibung}
@@ -175,9 +199,198 @@ export default async function ToolDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {/* ── Hauptinhalt: Tabs + Sidebar ───────────────────────── */}
+      {/* ── Zweispaltiger Inhalt ───────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <ToolDetailLayout tool={tool} shotUrl={shotUrl} targetUrl={targetUrl} />
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 items-start">
+
+          {/* ── Linke Spalte ──────────────────────────────────── */}
+          <div className="space-y-6">
+
+            {tool.beschreibung && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                <SectionHeading>Über das Tool</SectionHeading>
+                <p className="text-gray-600 leading-[1.85] whitespace-pre-line text-sm">
+                  {tool.beschreibung}
+                </p>
+              </div>
+            )}
+
+            {((tool.vorteile ?? []).length > 0 || (tool.nachteile ?? []).length > 0) && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                <SectionHeading>Stärken & Schwächen</SectionHeading>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {(tool.vorteile ?? []).length > 0 && (
+                    <div className="rounded-xl border-l-4 bg-emerald-50 p-4" style={{ borderLeftColor: "#059669" }}>
+                      <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3">Vorteile</p>
+                      <ul className="space-y-2">
+                        {tool.vorteile.map((v: string, i: number) => (
+                          <li key={i} className="flex gap-2 text-sm text-gray-700 leading-snug">
+                            <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
+                              <path d="M20 6L9 17l-5-5" />
+                            </svg>
+                            {v}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {(tool.nachteile ?? []).length > 0 && (
+                    <div className="rounded-xl border-l-4 bg-red-50 p-4" style={{ borderLeftColor: "#DC2626" }}>
+                      <p className="text-xs font-semibold text-red-600 uppercase tracking-wider mb-3">Nachteile</p>
+                      <ul className="space-y-2">
+                        {tool.nachteile.map((n: string, i: number) => (
+                          <li key={i} className="flex gap-2 text-sm text-gray-700 leading-snug">
+                            <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2.5">
+                              <path d="M18 6L6 18M6 6l12 12" />
+                            </svg>
+                            {n}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {tool.didaktischer_mehrwert && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                <SectionHeading>Didaktischer Mehrwert</SectionHeading>
+                <blockquote
+                  className="border-l-4 pl-5 text-gray-600 leading-[1.85] text-sm whitespace-pre-line"
+                  style={{ borderColor: "#2596be" }}
+                >
+                  {tool.didaktischer_mehrwert}
+                </blockquote>
+              </div>
+            )}
+
+            {tool.aufwand && (
+              <div className="bg-white rounded-2xl border border-gray-100 p-7">
+                <SectionHeading>Aufwand & Voraussetzungen</SectionHeading>
+                <p className="text-gray-600 leading-[1.85] text-sm">{tool.aufwand}</p>
+              </div>
+            )}
+          </div>
+
+          {/* ── Rechte Spalte (sticky) ────────────────────────── */}
+          <aside className="lg:sticky lg:top-[88px]">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden divide-y divide-gray-100">
+
+              {/* Screenshot */}
+              {shotUrl && (
+                <div className="p-4">
+                  <ScreenshotLightbox src={shotUrl} alt={`Screenshot ${tool.name}`} fullWidth />
+                </div>
+              )}
+
+              {/* PREIS */}
+              {(tool.preismodell || tool.preis_detail) && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="💶" label="Preis" />
+                  {tool.preismodell && (
+                    <p className="text-sm font-semibold text-gray-800">{tool.preismodell}</p>
+                  )}
+                  {tool.preis_detail && <PriceDetail text={tool.preis_detail} />}
+                </div>
+              )}
+
+              {/* DATENSCHUTZ */}
+              {(tool.dsgvo || tool.dsgvo_hinweis) && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🛡️" label="Datenschutz" />
+                  {tool.dsgvo && (
+                    <span
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full mb-2"
+                      style={{ backgroundColor: DSGVO_BG[tool.dsgvo], color: DSGVO_COLOR[tool.dsgvo] }}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: DSGVO_COLOR[tool.dsgvo] }} />
+                      {DSGVO_LABEL[tool.dsgvo]}
+                    </span>
+                  )}
+                  {tool.dsgvo_hinweis && (
+                    <p className="text-xs text-gray-500 leading-relaxed">{tool.dsgvo_hinweis}</p>
+                  )}
+                </div>
+              )}
+
+              {/* SERVER */}
+              {tool.serverstandort && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🖥️" label="Server" />
+                  <p className="text-sm text-gray-700">{tool.serverstandort}</p>
+                </div>
+              )}
+
+              {/* ANBIETER */}
+              {tool.anbieter && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🏢" label="Anbieter" />
+                  <p className="text-sm text-gray-700">{tool.anbieter}</p>
+                </div>
+              )}
+
+              {/* BILDUNGSLIZENZ */}
+              {tool.bildungslizenz !== undefined && tool.bildungslizenz !== null && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🎓" label="Bildungslizenz" />
+                  {tool.bildungslizenz ? (
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-emerald-600">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                      Verfügbar
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-gray-400">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                      </svg>
+                      Nicht verfügbar
+                    </span>
+                  )}
+                  {tool.bildungslizenz_info && (
+                    <p className="text-xs text-gray-500 mt-1 leading-relaxed">{tool.bildungslizenz_info}</p>
+                  )}
+                </div>
+              )}
+
+              {/* WEBSITE */}
+              {tool.website && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🌐" label="Website" />
+                  <a
+                    href={tool.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm hover:underline break-all"
+                    style={{ color: "#2596be" }}
+                  >
+                    {(() => { try { return new URL(tool.website).hostname; } catch { return tool.website; } })()}
+                  </a>
+                </div>
+              )}
+
+              {/* CTA */}
+              {targetUrl && (
+                <div className="px-5 py-4">
+                  <a
+                    href={targetUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: "#2596be" }}
+                  >
+                    Tool öffnen
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+          </aside>
+        </div>
       </div>
 
       {/* ── Ähnliche Tools ────────────────────────────────────── */}
