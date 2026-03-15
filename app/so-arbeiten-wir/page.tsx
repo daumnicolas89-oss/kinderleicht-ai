@@ -62,10 +62,10 @@ const checks = [
 ];
 
 const appPoints = [
-  "Keine Weitergabe von Daten an Dritte",
-  "Keine Speicherung personenbezogener Daten",
   "Keine Anmeldung erforderlich",
-  "Alle Eingaben verlassen den Browser nur für die KI-Verarbeitung und werden nicht gespeichert",
+  "Wir speichern keine personenbezogenen Daten",
+  "Unsere Apps nutzen KI-Dienste externer Anbieter für die Textgenerierung",
+  "Gib keine personenbezogenen Daten von Kindern oder Eltern ein",
 ];
 
 export default function SoArbeitenWirPage() {
