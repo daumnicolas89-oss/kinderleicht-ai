@@ -55,16 +55,8 @@ export default function Nav() {
             })}
           </nav>
 
-          {/* CTA + Hamburger */}
+          {/* Hamburger */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/tools"
-              className="hidden md:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#2596be" }}
-            >
-              Jetzt starten
-            </Link>
-
             {/* Mobile hamburger */}
             <button
               className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg hover:bg-gray-50 gap-[5px] transition-colors"
@@ -100,16 +92,6 @@ export default function Nav() {
                 </Link>
               );
             })}
-            <div className="pt-2 mt-1 border-t border-gray-100">
-              <Link
-                href="/tools"
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-4 py-3 text-sm font-semibold text-white rounded-lg"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                Jetzt starten
-              </Link>
-            </div>
           </nav>
         </div>
       )}
