@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -52,61 +52,6 @@ function Stars({ value }: { value?: number }) {
   );
 }
 
-function CategoryDropdown({
-  value,
-  onChange,
-}: {
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handle(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    document.addEventListener("mousedown", handle);
-    return () => document.removeEventListener("mousedown", handle);
-  }, []);
-
-  return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200 bg-white hover:border-gray-300 transition-colors whitespace-nowrap"
-        style={value !== "Alle" ? { borderColor: "#2596be", color: "#2596be" } : { color: "#374151" }}
-      >
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M4 6h16M7 12h10M10 18h4" />
-        </svg>
-        {value === "Alle" ? "Kategorie" : value}
-        <svg
-          width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.15s" }}
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
-      </button>
-
-      {open && (
-        <div className="absolute top-full left-0 mt-1.5 w-52 bg-white border border-gray-100 rounded-xl shadow-lg z-50 py-1 overflow-hidden">
-          {KATEGORIEN.map((kat) => (
-            <button
-              key={kat}
-              onClick={() => { onChange(kat); setOpen(false); }}
-              className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-[#F5F5F7]"
-              style={value === kat ? { color: "#2596be", fontWeight: 600 } : { color: "#374151" }}
-            >
-              {kat}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function ToolsClient({ tools }: { tools: Tool[] }) {
   const [activeKat, setActiveKat]     = useState("Alle");
   const [search, setSearch]           = useState("");
@@ -130,16 +75,31 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
     <>
       {/* ── Filter-Leiste ─────────────────────────────────── */}
       <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-          <div className="flex items-center gap-2">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
 
-            {/* Kategorie-Dropdown */}
-            <CategoryDropdown value={activeKat} onChange={setActiveKat} />
+            {/* Kategorie-Select */}
+            <select
+              value={activeKat}
+              onChange={(e) => setActiveKat(e.target.value)}
+              className="px-4 py-2 text-sm rounded-lg border bg-white transition-colors focus:outline-none cursor-pointer"
+              style={
+                activeKat !== "Alle"
+                  ? { borderColor: "#2596be", color: "#2596be" }
+                  : { borderColor: "#e5e7eb", color: "#374151" }
+              }
+            >
+              {KATEGORIEN.map((kat) => (
+                <option key={kat} value={kat}>
+                  {kat === "Alle" ? "Alle Kategorien" : kat}
+                </option>
+              ))}
+            </select>
 
-            {/* Highlight-Toggle */}
+            {/* Empfohlen-Toggle */}
             <button
               onClick={() => setHighlight((v) => !v)}
-              className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-lg border transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap"
               style={
                 onlyHighlight
                   ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
@@ -153,7 +113,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
             </button>
 
             {/* Suchfeld */}
-            <div className="relative flex-1 max-w-xs">
+            <div className="relative sm:flex-1 sm:max-w-xs">
               <svg
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
                 width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
