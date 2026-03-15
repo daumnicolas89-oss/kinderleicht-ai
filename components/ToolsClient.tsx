@@ -139,17 +139,17 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                 >
                   {/* Header: Logo + Highlight */}
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-[#F5F5F7] flex items-center justify-center overflow-hidden flex-shrink-0">
+                    <div className="relative w-14 h-14 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
                       {tool.logoUrl ? (
                         <Image
                           src={tool.logoUrl}
                           alt={tool.name}
-                          width={60}
-                          height={60}
-                          className="object-contain"
+                          fill
+                          className="object-contain p-2"
+                          sizes="56px"
                         />
                       ) : (
-                        <span className="text-2xl font-bold text-gray-300">
+                        <span className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-gray-300">
                           {tool.name.charAt(0)}
                         </span>
                       )}
