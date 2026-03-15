@@ -188,6 +188,17 @@ export default function ImpressumPage() {
               </p>
             </div>
 
+            {/* Quelle */}
+            <div>
+              <p className="text-sm text-gray-400">
+                Erstellt mit{" "}
+                <a href="https://www.impressum-generator.de" target="_blank" rel="noopener noreferrer" className="underline">
+                  Impressum-Generator.de
+                </a>
+                . Nach einer Vorlage der Kanzlei Hasselbach.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
