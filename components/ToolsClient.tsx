@@ -70,20 +70,29 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
   return (
     <>
       {/* ── Filter-Leiste ─────────────────────────────────── */}
-      <div className="sticky top-[72px] z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 py-3">
-            {/* Scrollbare Tabs */}
-            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide flex-1 min-w-0">
+
+          {/* Zeile 1: Kategorie-Tabs + Suche */}
+          <div className="flex items-center gap-2 py-2.5">
+            {/* Scrollbarer Tab-Streifen mit Fade-Maske */}
+            <div
+              className="flex-1 min-w-0 overflow-x-auto flex items-center gap-1"
+              style={{
+                scrollbarWidth: "none",
+                maskImage: "linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%)",
+              }}
+            >
               {KATEGORIEN.map((kat) => (
                 <button
                   key={kat}
                   onClick={() => setActiveKat(kat)}
-                  className="flex-shrink-0 px-3.5 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 whitespace-nowrap"
+                  className="flex-shrink-0 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 whitespace-nowrap"
                   style={
                     activeKat === kat
                       ? { backgroundColor: "#2596be", color: "#fff" }
-                      : { backgroundColor: "transparent", color: "#6B7280" }
+                      : { color: "#6B7280" }
                   }
                 >
                   {kat}
@@ -91,40 +100,39 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
               ))}
             </div>
 
-            {/* Trennlinie + Suche */}
-            <div className="flex-shrink-0 flex items-center gap-2 border-l border-gray-100 pl-3">
-              <div className="relative">
-                <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-                </svg>
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Suchen..."
-                  className="pl-8 pr-3 py-1.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white w-36 transition-colors"
-                />
-              </div>
+            {/* Suche — immer sichtbar, rechts */}
+            <div className="flex-shrink-0 relative">
+              <svg
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+              >
+                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+              </svg>
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Suchen"
+                className="pl-7 pr-3 py-1.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white w-28 sm:w-36 transition-colors"
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* ── Card-Grid ─────────────────────────────────────── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] min-h-[60vh]">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
-
-          {/* Ergebnis-Zeile */}
-          <p className="text-xs text-gray-400 mb-5">
-            {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"} gefunden
+          <p className="text-xs text-gray-400 mb-4">
+            {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
           </p>
 
           {filtered.length === 0 ? (
-            <div className="py-24 text-center rounded-2xl bg-white border border-gray-100">
-              <p className="text-gray-400 text-sm">Keine Tools für diese Auswahl.</p>
+            <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
+              <p className="text-gray-400 text-sm mb-3">Keine Tools gefunden.</p>
               <button
                 onClick={() => { setActiveKat("Alle"); setSearch(""); }}
-                className="mt-4 text-xs underline text-gray-400 hover:text-gray-700"
+                className="text-xs text-[#2596be] hover:underline"
               >
                 Filter zurücksetzen
               </button>
@@ -137,35 +145,30 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   href={`/tools/${tool.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
-                  {/* Card Body */}
                   <div className="flex flex-col p-5 flex-1">
-                    {/* Logo + Highlight Badge */}
                     <div className="flex items-start justify-between mb-4">
-                      <div className="relative w-12 h-12 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
+                      <div className="relative w-11 h-11 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
                         {tool.logoUrl ? (
-                          <Image src={tool.logoUrl} alt={tool.name} fill className="object-contain p-2" sizes="48px" />
+                          <Image src={tool.logoUrl} alt={tool.name} fill className="object-contain p-2" sizes="44px" />
                         ) : (
-                          <span className="absolute inset-0 flex items-center justify-center text-lg font-bold text-gray-300">
+                          <span className="absolute inset-0 flex items-center justify-center text-base font-bold text-gray-300">
                             {tool.name.charAt(0)}
                           </span>
                         )}
                       </div>
                       {tool.highlight && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>
+                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                           Empfohlen
                         </span>
                       )}
                     </div>
 
-                    {/* Name */}
                     <h3
-                      className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors leading-snug"
+                      className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
                       style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                     >
                       {tool.name}
                     </h3>
-
-                    {/* Beschreibung */}
                     {tool.kurzbeschreibung && (
                       <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
                         {tool.kurzbeschreibung}
@@ -173,22 +176,18 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                     )}
                   </div>
 
-                  {/* Card Footer */}
-                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-3">
-                    {/* Preismodell */}
+                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2.5">
                     {tool.preismodell && (
                       <span className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-md">
                         {tool.preismodell}
                       </span>
                     )}
-                    {/* DSGVO-Punkt */}
                     {tool.dsgvo && (
                       <span className="flex items-center gap-1 text-[11px] text-gray-400">
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: DSGVO_DOT[tool.dsgvo] }} />
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: DSGVO_DOT[tool.dsgvo] }} />
                         {DSGVO_LABEL[tool.dsgvo]}
                       </span>
                     )}
-                    {/* Stars */}
                     {tool.bewertung && (
                       <span className="ml-auto">
                         <Stars value={tool.bewertung} />
