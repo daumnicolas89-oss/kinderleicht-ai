@@ -220,8 +220,8 @@ export default function DatenschutzPage() {
           <P><strong>Erhebung von Zugriffsdaten und Logfiles:</strong> Der Zugriff auf unser Onlineangebot wird in Form von sogenannten &bdquo;Server-Logfiles&ldquo; protokolliert. Logfile-Informationen werden für die Dauer von maximal 30 Tagen gespeichert und danach gelöscht oder anonymisiert.</P>
           <P><strong>Eingesetzte Hosting-Dienste:</strong></P>
           <UL>
-            <li><strong>ALL-INKL</strong> – ALL-INKL.COM, Neue Medien Münnich, Hauptstraße 68, 02742 Friedersdorf (<a href="https://all-inkl.com/datenschutzinformationen/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>WordPress.com</strong> – Aut O'Mattic A8C Irland Ltd., Dublin (<a href="https://automattic.com/de/privacy/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
+            <li><strong>Vercel</strong> – Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA (<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>). Grundlage Drittlandtransfers: Data Privacy Framework (DPF), Standardvertragsklauseln.</li>
+            <li><strong>Sanity</strong> – Sanity AS, Grensen 5-7, 0159 Oslo, Norwegen (<a href="https://www.sanity.io/legal/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>). Content-Management-System für die Verwaltung von Inhalten.</li>
           </UL>
 
           <H2>Einsatz von Cookies</H2>
@@ -231,7 +231,7 @@ export default function DatenschutzPage() {
             <li><strong>Temporäre Cookies (Session-Cookies):</strong> Werden gelöscht, nachdem ein Nutzer ein Onlineangebot verlassen und seinen Browser geschlossen hat.</li>
             <li><strong>Permanente Cookies:</strong> Bleiben auch nach dem Schließen des Browsers gespeichert. Speicherdauer bis zu zwei Jahre.</li>
           </UL>
-          <P><strong>Einwilligungs-Management:</strong> Borlabs Cookie – Ausführung auf Servern unter eigener datenschutzrechtlicher Verantwortlichkeit (<a href="https://de.borlabs.io/borlabs-cookie/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Website</a>).</P>
+          <P>Nutzer können die von ihnen abgegebenen Einwilligungen jederzeit widerrufen und zudem einen Widerspruch gegen die Verarbeitung entsprechend den gesetzlichen Vorgaben, auch mittels der Privatsphäre-Einstellungen ihres Browsers, erklären.</P>
 
           <H2>Kontakt- und Anfrageverwaltung</H2>
           <P>Bei der Kontaktaufnahme mit uns (z. B. per Post, Kontaktformular, E-Mail, Telefon oder via soziale Medien) sowie im Rahmen bestehender Nutzer- und Geschäftsbeziehungen werden die Angaben der anfragenden Personen verarbeitet, soweit dies zur Beantwortung der Kontaktanfragen und etwaiger angefragter Maßnahmen erforderlich ist.</P>
