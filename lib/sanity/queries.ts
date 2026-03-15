@@ -45,3 +45,18 @@ export const toolBySlugQuery = groq`
 export const allToolSlugsQuery = groq`
   *[_type == "werkzeug"] { "slug": slug.current }
 `;
+
+export const similarToolsQuery = groq`
+  *[_type == "werkzeug" && slug.current != $slug && count(kategorie[@ in $kategorien]) > 0]
+  | order(highlight desc, name asc) [0...3] {
+    name,
+    "slug": slug.current,
+    kurzbeschreibung,
+    highlight,
+    bewertung,
+    logo,
+    kategorie,
+    preismodell,
+    dsgvo
+  }
+`;
