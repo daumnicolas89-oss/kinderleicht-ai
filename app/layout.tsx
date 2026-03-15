@@ -3,6 +3,7 @@ import { IBM_Plex_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
