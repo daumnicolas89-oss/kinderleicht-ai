@@ -59,6 +59,21 @@ export const featuredToolsQuery = groq`
   }
 `;
 
+export const allDownloadsQuery = groq`
+  *[_type == "download"] | order(erscheinungsdatum desc) {
+    titel,
+    "slug": slug.current,
+    kurzbeschreibung,
+    typ,
+    kategorie,
+    vorschaubild,
+    "dateiUrl": datei.asset->url,
+    externer_link,
+    kostenlos,
+    erscheinungsdatum
+  }
+`;
+
 export const similarToolsQuery = groq`
   *[_type == "werkzeug" && slug.current != $slug && count(kategorie[@ in $kategorien]) > 0]
   | order(highlight desc, name asc) [0...3] {
