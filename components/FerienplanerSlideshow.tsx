@@ -3,46 +3,110 @@
 import { useState, useEffect } from "react";
 
 const slides = [
-  /* Slide 1 — Eingabe */
-  <div key="eingabe" className="p-5 h-full flex flex-col">
-    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2596be] mb-4">Neue Planung</p>
-    <div className="space-y-3 flex-1">
+  /* Slide 1 — Übersicht / Home */
+  <div key="home" className="p-5 h-full flex flex-col">
+    <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2596be] mb-4">Was kannst du erstellen?</p>
+    <div className="space-y-2.5 flex-1">
+      {[
+        { icon: "✉️", label: "Elternbrief Generator", desc: "Professionelle Briefe in Sekunden", color: "#EBF6FA", textColor: "#2596be" },
+        { icon: "📋", label: "Dienstplan Generator", desc: "Schichtplanung automatisch erstellt", color: "#F0FDF4", textColor: "#059669" },
+        { icon: "🗓️", label: "Ferienprogramm Generator", desc: "Strukturiertes Ferienprogramm", color: "#FEF9C3", textColor: "#D97706" },
+      ].map((item) => (
+        <div key={item.label} className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-sm" style={{ backgroundColor: item.color }}>
+            {item.icon}
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-gray-800">{item.label}</p>
+            <p className="text-[10px] text-gray-400">{item.desc}</p>
+          </div>
+          <svg className="ml-auto flex-shrink-0" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" strokeWidth="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </div>
+      ))}
+    </div>
+    <div className="mt-4 text-center text-[10px] text-gray-400">Direkt im Browser · Kostenlos · Kein Login</div>
+  </div>,
+
+  /* Slide 2 — Elternbrief Generator */
+  <div key="elternbrief" className="p-5 h-full flex flex-col">
+    <div className="flex items-center gap-2 mb-4">
+      <div className="w-7 h-7 rounded-lg bg-[#EBF6FA] flex items-center justify-center text-sm">✉️</div>
+      <p className="text-xs font-semibold text-gray-800">Elternbrief Generator</p>
+    </div>
+    <div className="flex-1 space-y-2.5">
       <div>
-        <p className="text-[10px] text-gray-400 mb-1">Einrichtung</p>
-        <div className="bg-[#F5F5F7] rounded-lg px-3 py-2 text-xs text-gray-800">Kita Sonnenschein</div>
+        <p className="text-[10px] text-gray-400 mb-1">Anlass</p>
+        <div className="bg-[#F5F5F7] rounded-lg px-3 py-2 text-xs text-gray-800">Sommerfest am 18. Juli</div>
       </div>
       <div>
-        <p className="text-[10px] text-gray-400 mb-1">Zeitraum</p>
-        <div className="bg-[#F5F5F7] rounded-lg px-3 py-2 text-xs text-gray-800">21.7. – 1.8.2025</div>
-      </div>
-      <div>
-        <p className="text-[10px] text-gray-400 mb-1">Zielgruppe</p>
-        <div className="bg-[#EBF6FA] rounded-lg px-3 py-2 text-xs text-[#2596be] border border-[#2596be]/20">Vorschulkinder (15 Kinder)</div>
-      </div>
-      <div>
-        <p className="text-[10px] text-gray-400 mb-1">Schwerpunkte</p>
-        <div className="flex flex-wrap gap-1.5">
-          {["Natur", "Kreativ", "Bewegung"].map((t) => (
-            <span key={t} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">{t}</span>
+        <p className="text-[10px] text-gray-400 mb-1">Ton</p>
+        <div className="flex gap-1.5">
+          {["Freundlich", "Formell", "Locker"].map((t, i) => (
+            <div key={t} className={`text-[10px] px-2 py-1 rounded-lg border text-center flex-1 ${i === 0 ? "border-[#2596be] text-[#2596be] bg-[#EBF6FA]" : "border-gray-200 text-gray-500"}`}>{t}</div>
           ))}
         </div>
       </div>
+      <div className="bg-gray-50 rounded-xl p-3 border border-gray-100">
+        <p className="text-[10px] text-gray-500 leading-relaxed">
+          <span className="text-gray-800 font-medium">Liebe Eltern,</span><br />
+          wir freuen uns, Sie zu unserem diesjährigen Sommerfest einzuladen...
+        </p>
+        <div className="mt-2 h-1.5 bg-gray-200 rounded-full w-3/4" />
+        <div className="mt-1 h-1.5 bg-gray-200 rounded-full w-1/2" />
+      </div>
     </div>
     <div className="mt-4 w-full py-2 rounded-lg text-xs font-semibold text-white bg-[#2596be] text-center">
-      Plan erstellen
+      Brief generieren
     </div>
   </div>,
 
-  /* Slide 2 — Wochenübersicht */
-  <div key="woche" className="p-5 h-full flex flex-col">
-    <div className="flex items-center justify-between mb-4">
-      <div>
-        <p className="text-[10px] text-[#2596be] font-semibold uppercase tracking-wide mb-0.5">Ferienplaner</p>
-        <p className="text-sm font-bold text-gray-800">Sommerprogramm 2025</p>
-      </div>
-      <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600">Bereit</span>
+  /* Slide 3 — Dienstplan Generator */
+  <div key="dienstplan" className="p-5 h-full flex flex-col">
+    <div className="flex items-center gap-2 mb-4">
+      <div className="w-7 h-7 rounded-lg bg-[#F0FDF4] flex items-center justify-center text-sm">📋</div>
+      <p className="text-xs font-semibold text-gray-800">Dienstplan Generator</p>
     </div>
-    <div className="space-y-1 flex-1">
+    <div className="flex-1">
+      <div className="grid grid-cols-4 gap-1 mb-1">
+        <div className="text-[9px] text-gray-400"></div>
+        {["Mo", "Di", "Mi"].map((d) => (
+          <div key={d} className="text-[9px] text-gray-400 text-center font-medium">{d}</div>
+        ))}
+      </div>
+      {[
+        { name: "Anna K.", shifts: ["Früh", "Frei", "Früh"], colors: ["#EBF6FA", "white", "#EBF6FA"] },
+        { name: "Max B.", shifts: ["Spät", "Spät", "Frei"], colors: ["#FEF9C3", "#FEF9C3", "white"] },
+        { name: "Lisa M.", shifts: ["Frei", "Früh", "Spät"], colors: ["white", "#EBF6FA", "#FEF9C3"] },
+        { name: "Tom W.", shifts: ["Früh", "Frei", "Früh"], colors: ["#EBF6FA", "white", "#EBF6FA"] },
+      ].map((row) => (
+        <div key={row.name} className="grid grid-cols-4 gap-1 mb-1">
+          <div className="text-[9px] text-gray-600 flex items-center truncate">{row.name}</div>
+          {row.shifts.map((shift, i) => (
+            <div key={i} className="text-[8px] text-gray-600 text-center py-1.5 rounded-md border border-gray-100 font-medium" style={{ backgroundColor: row.colors[i] }}>
+              {shift}
+            </div>
+          ))}
+        </div>
+      ))}
+      <div className="mt-3 pt-2 border-t border-gray-100 flex items-center justify-between">
+        <span className="text-[10px] text-gray-400">KW 29 · 4 Mitarbeiter</span>
+        <span className="text-[10px] text-emerald-600 font-medium">Vollständig</span>
+      </div>
+    </div>
+    <div className="mt-3 w-full py-2 rounded-lg text-xs font-semibold text-center" style={{ backgroundColor: "#F0FDF4", color: "#059669" }}>
+      Als PDF exportieren
+    </div>
+  </div>,
+
+  /* Slide 4 — Ferienprogramm */
+  <div key="ferien" className="p-5 h-full flex flex-col">
+    <div className="flex items-center gap-2 mb-4">
+      <div className="w-7 h-7 rounded-lg bg-[#FEF9C3] flex items-center justify-center text-sm">🗓️</div>
+      <p className="text-xs font-semibold text-gray-800">Ferienprogramm Generator</p>
+    </div>
+    <div className="flex-1 space-y-1">
       {[
         { day: "Mo, 21.7.", activity: "Ausflug Zoo", color: "#2596be" },
         { day: "Di, 22.7.", activity: "Basteln & Kreativ", color: "#8b5cf6" },
@@ -50,83 +114,16 @@ const slides = [
         { day: "Do, 24.7.", activity: "Spielolympiade", color: "#d97706" },
         { day: "Fr, 25.7.", activity: "Kochen & Backen", color: "#ef4444" },
       ].map((row) => (
-        <div key={row.day} className="flex items-center gap-3 py-2 rounded-lg px-2 hover:bg-gray-50">
-          <span className="text-[11px] text-gray-400 w-20 flex-shrink-0">{row.day}</span>
+        <div key={row.day} className="flex items-center gap-3 py-1.5 px-2 rounded-lg hover:bg-gray-50">
+          <span className="text-[10px] text-gray-400 w-20 flex-shrink-0">{row.day}</span>
           <div className="h-1.5 rounded-full flex-1" style={{ backgroundColor: row.color, opacity: 0.3 }} />
-          <span className="text-[11px] text-gray-600 flex-shrink-0">{row.activity}</span>
+          <span className="text-[10px] text-gray-600 flex-shrink-0">{row.activity}</span>
         </div>
       ))}
     </div>
     <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
       <span className="text-[10px] text-gray-400">5 von 10 Tagen geplant</span>
       <span className="text-[10px] font-semibold" style={{ color: "#2596be" }}>Weiter</span>
-    </div>
-  </div>,
-
-  /* Slide 3 — Tagesdetail */
-  <div key="tag" className="p-5 h-full flex flex-col">
-    <div className="flex items-center justify-between mb-4">
-      <div>
-        <p className="text-[10px] text-gray-400">Montag, 21. Juli</p>
-        <p className="text-sm font-bold text-gray-800">Tag 1 von 10</p>
-      </div>
-      <div className="w-8 h-8 rounded-full bg-[#EBF6FA] flex items-center justify-center text-base">🌞</div>
-    </div>
-    <div className="space-y-2 flex-1">
-      {[
-        { time: "09:00", label: "Ankommen & Frühstück", color: "#F59E0B" },
-        { time: "10:00", label: "Ausflug in den Zoo", color: "#2596be" },
-        { time: "12:30", label: "Mittagessen", color: "#059669" },
-        { time: "14:00", label: "Kreativzeit & Basteln", color: "#8b5cf6" },
-        { time: "16:00", label: "Freispiel & Abholung", color: "#d97706" },
-      ].map((row) => (
-        <div key={row.time} className="flex items-center gap-2.5">
-          <span className="text-[10px] text-gray-400 w-10 flex-shrink-0">{row.time}</span>
-          <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: row.color }} />
-          <span className="text-[11px] text-gray-700">{row.label}</span>
-        </div>
-      ))}
-    </div>
-    <div className="mt-3 pt-3 border-t border-gray-100 flex gap-2">
-      <div className="flex-1 py-1.5 rounded-lg text-[10px] font-semibold text-center bg-[#F5F5F7] text-gray-600">Bearbeiten</div>
-      <div className="flex-1 py-1.5 rounded-lg text-[10px] font-semibold text-center bg-[#2596be] text-white">Weiter</div>
-    </div>
-  </div>,
-
-  /* Slide 4 — Fertig */
-  <div key="fertig" className="p-5 h-full flex flex-col">
-    <div className="flex items-center gap-3 mb-5">
-      <div className="w-9 h-9 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
-          <path d="M20 6L9 17l-5-5" />
-        </svg>
-      </div>
-      <div>
-        <p className="text-sm font-bold text-gray-800">Plan fertig!</p>
-        <p className="text-[10px] text-gray-400">10 Tage, 42 Aktivitäten geplant</p>
-      </div>
-    </div>
-    <div className="grid grid-cols-2 gap-1.5 flex-1">
-      {[
-        { day: "Mo – Fr", color: "#2596be", label: "Woche 1" },
-        { day: "Mo – Fr", color: "#8b5cf6", label: "Woche 2" },
-        { day: "Ausflüge", color: "#059669", label: "6 geplant" },
-        { day: "Kreativ", color: "#d97706", label: "8 geplant" },
-      ].map((item) => (
-        <div key={item.label} className="bg-gray-50 rounded-xl p-2.5">
-          <div className="w-2 h-2 rounded-full mb-1.5" style={{ backgroundColor: item.color }} />
-          <p className="text-[10px] font-semibold text-gray-700">{item.label}</p>
-          <p className="text-[10px] text-gray-400">{item.day}</p>
-        </div>
-      ))}
-    </div>
-    <div className="mt-4 flex items-center justify-center gap-1.5 w-full py-2 rounded-lg bg-[#2596be] text-white text-[11px] font-semibold">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-      Als PDF exportieren
     </div>
   </div>,
 ];
@@ -146,14 +143,19 @@ export default function FerienplanerSlideshow() {
     return () => clearInterval(interval);
   }, []);
 
+  function goTo(i: number) {
+    setFading(true);
+    setTimeout(() => { setActive(i); setFading(false); }, 300);
+  }
+
   return (
     <div className="relative">
       <div
         className="absolute -inset-6 rounded-3xl pointer-events-none"
         style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.08) 0%, transparent 70%)" }}
       />
-      {/* Browser frame */}
       <div className="relative rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+        {/* Browser bar */}
         <div className="flex items-center gap-3 px-4 py-3 bg-[#F5F5F7] border-b border-gray-100">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
@@ -165,22 +167,22 @@ export default function FerienplanerSlideshow() {
           </div>
         </div>
 
-        {/* Slide content */}
-        <div
-          className="min-h-[300px] transition-opacity duration-300"
-          style={{ opacity: fading ? 0 : 1 }}
-        >
+        {/* Slide */}
+        <div className="min-h-[300px] transition-opacity duration-300" style={{ opacity: fading ? 0 : 1 }}>
           {slides[active]}
         </div>
 
-        {/* Dot indicators */}
+        {/* Dots */}
         <div className="flex justify-center gap-1.5 pb-3">
           {slides.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setFading(true); setTimeout(() => { setActive(i); setFading(false); }, 300); }}
-              className="w-1.5 h-1.5 rounded-full transition-all"
-              style={{ backgroundColor: i === active ? "#2596be" : "#e5e7eb", width: i === active ? "16px" : "6px" }}
+              onClick={() => goTo(i)}
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{
+                width: i === active ? "16px" : "6px",
+                backgroundColor: i === active ? "#2596be" : "#e5e7eb",
+              }}
             />
           ))}
         </div>
