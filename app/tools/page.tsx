@@ -24,7 +24,7 @@ export default async function ToolsPage() {
   const raw = await client.fetch(allToolsQuery);
   const tools = raw.map((t: Record<string, unknown>) => ({
     ...t,
-    logoUrl: t.logo ? urlFor(t.logo).width(120).height(120).url() : null,
+    logoUrl: t.logo ? urlFor(t.logo).width(160).fit("max").url() : null,
   }));
 
   return (
