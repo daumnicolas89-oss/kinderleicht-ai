@@ -167,26 +167,6 @@ export default function UeberUnsPage() {
           </Link>
         </div>
       </section>
-
-      {/* ── AUSBLICK ───────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#2596be" }}>
-            Ausblick
-          </p>
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            Wo wir hinwollen
-          </h2>
-          <p className="text-base sm:text-lg text-gray-500 leading-relaxed">
-            kinderleicht.ai soll zur zentralen Anlaufstelle für KI in der Bildung werden.
-            Mit eigenen Apps, geprüften Tools und praxisnahen Materialien. Vom ersten
-            Prompt bis zur Entwicklung ganzer pädagogischer Konzepte.
-          </p>
-        </div>
-      </section>
     </>
   );
 }
