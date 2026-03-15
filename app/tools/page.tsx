@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 import { allToolsQuery } from "@/lib/sanity/queries";
 import ToolsClient from "@/components/ToolsClient";
 
@@ -20,7 +21,11 @@ const dotGrid = {
 } as React.CSSProperties;
 
 export default async function ToolsPage() {
-  const tools = await client.fetch(allToolsQuery);
+  const raw = await client.fetch(allToolsQuery);
+  const tools = raw.map((t: Record<string, unknown>) => ({
+    ...t,
+    logoUrl: t.logo ? urlFor(t.logo).width(120).height(120).url() : null,
+  }));
 
   return (
     <>

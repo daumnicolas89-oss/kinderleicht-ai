@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 
 const KATEGORIEN = [
   "Alle",
@@ -34,7 +33,7 @@ type Tool = {
   kurzbeschreibung?: string;
   highlight?: boolean;
   bewertung?: number;
-  logo?: object;
+  logoUrl?: string | null;
   kategorie?: string[];
   preismodell?: string;
   dsgvo?: string;
@@ -141,9 +140,9 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   {/* Header: Logo + Highlight */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-14 h-14 rounded-xl bg-[#F5F5F7] flex items-center justify-center overflow-hidden flex-shrink-0">
-                      {tool.logo ? (
+                      {tool.logoUrl ? (
                         <Image
-                          src={urlFor(tool.logo).width(120).height(120).url()}
+                          src={tool.logoUrl}
                           alt={tool.name}
                           width={60}
                           height={60}
