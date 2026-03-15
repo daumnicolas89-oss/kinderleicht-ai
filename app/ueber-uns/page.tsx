@@ -186,11 +186,11 @@ export default function UeberUnsPage() {
             Prompt bis zur Entwicklung ganzer pädagogischer Konzepte.
           </p>
           <Link
-            href="/tools"
+            href="/so-arbeiten-wir"
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
             style={{ backgroundColor: "#2596be" }}
           >
-            Tools entdecken
+            So arbeiten wir
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
