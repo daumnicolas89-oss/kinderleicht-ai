@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -52,59 +52,111 @@ function Stars({ value }: { value?: number }) {
   );
 }
 
+function CategoryDropdown({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200 bg-white hover:border-gray-300 transition-colors whitespace-nowrap"
+        style={value !== "Alle" ? { borderColor: "#2596be", color: "#2596be" } : { color: "#374151" }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M4 6h16M7 12h10M10 18h4" />
+        </svg>
+        {value === "Alle" ? "Kategorie" : value}
+        <svg
+          width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.15s" }}
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full left-0 mt-1.5 w-52 bg-white border border-gray-100 rounded-xl shadow-lg z-50 py-1 overflow-hidden">
+          {KATEGORIEN.map((kat) => (
+            <button
+              key={kat}
+              onClick={() => { onChange(kat); setOpen(false); }}
+              className="w-full text-left px-4 py-2 text-sm transition-colors hover:bg-[#F5F5F7]"
+              style={value === kat ? { color: "#2596be", fontWeight: 600 } : { color: "#374151" }}
+            >
+              {kat}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function ToolsClient({ tools }: { tools: Tool[] }) {
-  const [activeKat, setActiveKat] = useState("Alle");
-  const [search, setSearch] = useState("");
+  const [activeKat, setActiveKat]     = useState("Alle");
+  const [search, setSearch]           = useState("");
+  const [onlyHighlight, setHighlight] = useState(false);
 
   const filtered = useMemo(() => {
     return tools.filter((t) => {
-      const matchKat = activeKat === "Alle" || (t.kategorie ?? []).includes(activeKat);
-      const q = search.trim().toLowerCase();
+      const matchKat  = activeKat === "Alle" || (t.kategorie ?? []).includes(activeKat);
+      const matchHL   = !onlyHighlight || t.highlight === true;
+      const q         = search.trim().toLowerCase();
       const matchSearch = !q ||
         t.name.toLowerCase().includes(q) ||
         (t.kurzbeschreibung ?? "").toLowerCase().includes(q);
-      return matchKat && matchSearch;
+      return matchKat && matchHL && matchSearch;
     });
-  }, [tools, activeKat, search]);
+  }, [tools, activeKat, search, onlyHighlight]);
+
+  const hasFilter = activeKat !== "Alle" || onlyHighlight || search.trim() !== "";
 
   return (
     <>
       {/* ── Filter-Leiste ─────────────────────────────────── */}
       <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+          <div className="flex items-center gap-2">
 
-          {/* Zeile 1: Kategorie-Tabs + Suche */}
-          <div className="flex items-center gap-2 py-2.5">
-            {/* Scrollbarer Tab-Streifen mit Fade-Maske */}
-            <div
-              className="flex-1 min-w-0 overflow-x-auto flex items-center gap-1"
-              style={{
-                scrollbarWidth: "none",
-                maskImage: "linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 24px, black calc(100% - 24px), transparent 100%)",
-              }}
+            {/* Kategorie-Dropdown */}
+            <CategoryDropdown value={activeKat} onChange={setActiveKat} />
+
+            {/* Highlight-Toggle */}
+            <button
+              onClick={() => setHighlight((v) => !v)}
+              className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-lg border transition-colors whitespace-nowrap"
+              style={
+                onlyHighlight
+                  ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
+                  : { borderColor: "#e5e7eb", color: "#374151" }
+              }
             >
-              {KATEGORIEN.map((kat) => (
-                <button
-                  key={kat}
-                  onClick={() => setActiveKat(kat)}
-                  className="flex-shrink-0 px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 whitespace-nowrap"
-                  style={
-                    activeKat === kat
-                      ? { backgroundColor: "#2596be", color: "#fff" }
-                      : { color: "#6B7280" }
-                  }
-                >
-                  {kat}
-                </button>
-              ))}
-            </div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              Empfohlen
+            </button>
 
-            {/* Suche — immer sichtbar, rechts */}
-            <div className="flex-shrink-0 relative">
+            {/* Suchfeld */}
+            <div className="relative flex-1 max-w-xs">
               <svg
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
               >
                 <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
               </svg>
@@ -112,10 +164,20 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Suchen"
-                className="pl-7 pr-3 py-1.5 text-xs border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white w-28 sm:w-36 transition-colors"
+                placeholder="Tools durchsuchen..."
+                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white transition-colors"
               />
             </div>
+
+            {/* Filter zurücksetzen */}
+            {hasFilter && (
+              <button
+                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
+                className="flex-shrink-0 text-xs text-gray-400 hover:text-gray-600 transition-colors px-2 py-2"
+              >
+                Zurücksetzen
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -131,7 +193,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
             <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
               <p className="text-gray-400 text-sm mb-3">Keine Tools gefunden.</p>
               <button
-                onClick={() => { setActiveKat("Alle"); setSearch(""); }}
+                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
                 className="text-xs text-[#2596be] hover:underline"
               >
                 Filter zurücksetzen
