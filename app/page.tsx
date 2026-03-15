@@ -4,6 +4,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { featuredToolsQuery } from "@/lib/sanity/queries";
 import RotatingWord from "@/components/RotatingWord";
+import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 
 const DSGVO_COLOR: Record<string, string> = { grün: "#059669", gelb: "#D97706", rot: "#DC2626" };
 const DSGVO_BG: Record<string, string>    = { grün: "#DCFCE7", gelb: "#FEF9C3", rot: "#FEE2E2" };
@@ -116,10 +117,7 @@ export default async function HomePage() {
               >
                 Eigene App
               </p>
-              <h2
-                className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-              >
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
                 Ferienprogramm fertig —<br />
                 in Minuten statt Stunden.
               </h2>
@@ -155,56 +153,8 @@ export default async function HomePage() {
               </a>
             </div>
 
-            {/* App-Mockup */}
-            <div className="relative">
-              <div
-                className="absolute -inset-6 rounded-3xl pointer-events-none"
-                style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.08) 0%, transparent 70%)" }}
-              />
-              <div className="relative rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
-                {/* Browser bar */}
-                <div className="flex items-center gap-3 px-4 py-3 bg-[#F5F5F7] border-b border-gray-100">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
-                    <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
-                    <div className="w-3 h-3 rounded-full bg-[#28C840]" />
-                  </div>
-                  <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-400 border border-gray-200 font-mono">
-                    ferienplaner.kinderleicht.ai
-                  </div>
-                </div>
-                {/* Simulated app UI */}
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-5">
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2596be] mb-0.5">Ferienplaner</p>
-                      <p className="text-sm font-bold text-gray-800">Sommerprogramm 2025</p>
-                    </div>
-                    <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-emerald-50 text-emerald-600">
-                      Bereit
-                    </span>
-                  </div>
-                  <div className="space-y-1">
-                    {[
-                      { day: "Mo, 21.7.", activity: "Ausflug Zoo", color: "#2596be" },
-                      { day: "Di, 22.7.", activity: "Basteln & Kreativ", color: "#8b5cf6" },
-                      { day: "Mi, 23.7.", activity: "Schwimmbad", color: "#059669" },
-                      { day: "Do, 24.7.", activity: "Spielolympiade", color: "#d97706" },
-                    ].map((row) => (
-                      <div key={row.day} className="flex items-center gap-3 py-2 rounded-lg px-2 hover:bg-gray-50">
-                        <span className="text-xs text-gray-400 w-20 flex-shrink-0">{row.day}</span>
-                        <div className="h-1.5 rounded-full flex-1" style={{ backgroundColor: row.color, opacity: 0.25 }} />
-                        <span className="text-xs text-gray-600 text-right flex-shrink-0 w-28">{row.activity}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-xs text-gray-400">4 von 14 Tagen geplant</span>
-                    <span className="text-xs font-semibold" style={{ color: "#2596be" }}>Weiter planen</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Slideshow */}
+            <FerienplanerSlideshow />
           </div>
         </div>
       </section>
