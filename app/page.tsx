@@ -62,8 +62,8 @@ export default async function HomePage() {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
-            Geprüfte Tools und eigene Apps für Elternbriefe, Ferienpläne und
-            Unterrichtsplanung. Damit mehr Zeit für Kinder bleibt.
+            Geprüfte Tools, eigene Apps und hilfreiche Downloads für Elternbriefe,
+            Ferienpläne und Unterrichtsplanung. Damit mehr Zeit für Kinder bleibt.
           </p>
 
         </div>
