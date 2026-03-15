@@ -6,6 +6,8 @@ import { urlFor } from "@/sanity/lib/image";
 import { allToolsQuery } from "@/lib/sanity/queries";
 import ToolsClient from "@/components/ToolsClient";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "KI-Tools — kinderleicht.ai",
   description: "Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz.",

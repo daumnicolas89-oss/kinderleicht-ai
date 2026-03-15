@@ -6,6 +6,8 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { allDownloadsQuery } from "@/lib/sanity/queries";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Downloads — kinderleicht.ai",
   description: "Kostenlose Vorlagen, Leitfäden und Checklisten für Pädagogen.",
