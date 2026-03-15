@@ -16,6 +16,7 @@ const audiences = [
   { label: "Weiterführende Schule", emoji: "📚" },
   { label: "GBS & GTS", emoji: "☀️" },
   { label: "Leitung & Verwaltung", emoji: "📋" },
+  { label: "Jugendarbeit", emoji: "🤝" },
 ];
 
 export default async function HomePage() {
