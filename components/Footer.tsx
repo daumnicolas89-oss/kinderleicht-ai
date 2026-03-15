@@ -150,7 +150,7 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
               <Logo height={22} />
               <p className="text-xs text-gray-400 leading-relaxed max-w-[180px]">
-                KI im Bildungsalltag. Für Pädagogen im deutschsprachigen Raum.
+                KI im Bildungsalltag. Für Pädagogen.
               </p>
             </div>
 
