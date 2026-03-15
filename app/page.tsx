@@ -337,27 +337,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#2596be" }}>
-        <div className="max-w-xl mx-auto text-center">
-          <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            Bereit loszulegen?
-          </h2>
-          <p className="text-base mb-8" style={{ color: "rgba(255,255,255,0.78)" }}>
-            Entdecke Tools und Apps, die deinen Alltag wirklich erleichtern.
-          </p>
-          <Link
-            href="/tools"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "#ffffff", color: "#2596be" }}
-          >
-            Jetzt entdecken
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
