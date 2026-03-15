@@ -68,7 +68,7 @@ const categories = [
       },
       {
         q: "Bietet ihr Workshops oder Fortbildungen an?",
-        a: "Das ist geplant. Trag dich für den Newsletter ein, um als Erste informiert zu werden.",
+        a: "Workshops und Fortbildungen sind in Vorbereitung. Trag dich für den Newsletter ein, um als Erste informiert zu werden.",
       },
     ],
   },

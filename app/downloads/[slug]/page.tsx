@@ -90,7 +90,7 @@ export default async function DownloadDetailPage({ params }: Props) {
             <Link href="/downloads" className="hover:text-gray-600 transition-colors">
               Downloads
             </Link>
-            <span>›</span>
+            <span className="text-gray-300">›</span>
             <span className="text-gray-600 truncate">{dl.titel}</span>
           </nav>
 

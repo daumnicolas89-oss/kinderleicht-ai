@@ -131,7 +131,7 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-gray-400 mb-7 max-w-lg mx-auto leading-relaxed">
-            Melde dich für unseren Newsletter an und erhalte regelmäßig praktische Tipps zum KI-Einsatz im Bildungsalltag, neue Tools und fertige Materialien direkt ins Postfach. Werde Teil der kinderleicht.ai Community und bleib immer auf dem neuesten Stand.
+            Praktische Tipps, neue Tools und fertige Materialien direkt ins Postfach.
           </p>
 
           <div className="max-w-md mx-auto">
