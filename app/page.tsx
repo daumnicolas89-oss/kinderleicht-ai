@@ -62,8 +62,8 @@ export default async function HomePage() {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
-            Elternbriefe, Ferienpläne, Unterrichtsplanung — geprüfte Tools und eigene Apps,
-            damit mehr Zeit für Kinder bleibt.
+            Geprüfte Tools und eigene Apps für Elternbriefe, Ferienpläne und
+            Unterrichtsplanung. Damit mehr Zeit für Kinder bleibt.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -118,39 +118,46 @@ export default async function HomePage() {
                 Eigene App
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
-                Ferienprogramm fertig —<br />
-                in Minuten statt Stunden.
+                Ferienprogramm, Elternbrief<br />
+                und Dienstplan auf Knopfdruck.
               </h2>
               <p className="text-gray-500 text-base leading-relaxed mb-7">
-                Kein leeres Blatt mehr. Der Ferienplaner erstellt automatisch ein strukturiertes
-                Programm für deine Einrichtung — direkt im Browser, ohne Anmeldung.
+                Der Ferienplaner erstellt alles, was du für die Ferienbetreuung brauchst.
+                Komplett im Browser, kostenlos und ohne Anmeldung.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Automatische Programmplanung",
-                  "Direkt im Browser, kein Download",
-                  "Kostenlos und ohne Anmeldung",
+                  "Ferienprogramm mit Mottos, Aktivitäten und Zeitplan generieren",
+                  "Elternbriefe automatisch formulieren und als PDF exportieren",
+                  "Dienstpläne mit Schichten und Betreuungsschlüssel erstellen",
+                  "Alles als PDF oder Word herunterladen",
+                  "Direkt im Browser, ohne Installation",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-gray-700">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <svg className="flex-shrink-0 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                     {item}
                   </li>
                 ))}
               </ul>
-              <a
-                href="https://ferienplaner.kinderleicht.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                Ferienplaner öffnen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
+              <div className="flex flex-col sm:flex-row items-start gap-3">
+                <a
+                  href="https://ferienplaner.kinderleicht.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: "#2596be" }}
+                >
+                  Ferienplaner öffnen
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+                <p className="text-xs text-gray-400 sm:self-center">
+                  Weitere Apps folgen in Kürze
+                </p>
+              </div>
             </div>
 
             {/* Slideshow */}
