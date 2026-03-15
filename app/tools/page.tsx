@@ -30,7 +30,7 @@ export default async function ToolsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-14 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0" style={dotGrid} />
         <div
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"

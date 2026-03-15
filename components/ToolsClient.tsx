@@ -78,66 +78,67 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2">
 
-            {/* Kategorie-Select */}
-            <select
-              value={activeKat}
-              onChange={(e) => setActiveKat(e.target.value)}
-              className="px-4 py-2 text-sm rounded-lg border bg-white transition-colors focus:outline-none cursor-pointer"
-              style={
-                activeKat !== "Alle"
-                  ? { borderColor: "#2596be", color: "#2596be" }
-                  : { borderColor: "#e5e7eb", color: "#374151" }
-              }
-            >
-              {KATEGORIEN.map((kat) => (
-                <option key={kat} value={kat}>
-                  {kat === "Alle" ? "Alle Kategorien" : kat}
-                </option>
-              ))}
-            </select>
-
-            {/* Empfohlen-Toggle */}
-            <button
-              onClick={() => setHighlight((v) => !v)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap"
-              style={
-                onlyHighlight
-                  ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
-                  : { borderColor: "#e5e7eb", color: "#374151" }
-              }
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              Empfohlen
-            </button>
-
-            {/* Suchfeld */}
-            <div className="relative sm:flex-1 sm:max-w-xs">
-              <svg
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+            {/* Links: Kategorie + Empfohlen */}
+            <div className="flex items-center gap-2">
+              <select
+                value={activeKat}
+                onChange={(e) => setActiveKat(e.target.value)}
+                className="px-4 py-2 text-sm rounded-lg border bg-white transition-colors focus:outline-none cursor-pointer"
+                style={
+                  activeKat !== "Alle"
+                    ? { borderColor: "#2596be", color: "#2596be" }
+                    : { borderColor: "#e5e7eb", color: "#374151" }
+                }
               >
-                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-              </svg>
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Tools durchsuchen..."
-                className="w-full pl-8 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white transition-colors"
-              />
+                {KATEGORIEN.map((kat) => (
+                  <option key={kat} value={kat}>
+                    {kat === "Alle" ? "Alle Kategorien" : kat}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                onClick={() => setHighlight((v) => !v)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap"
+                style={
+                  onlyHighlight
+                    ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
+                    : { borderColor: "#e5e7eb", color: "#374151" }
+                }
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                Empfohlen
+              </button>
             </div>
 
-            {/* Filter zurücksetzen */}
-            {hasFilter && (
-              <button
-                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
-                className="flex-shrink-0 text-xs text-gray-400 hover:text-gray-600 transition-colors px-2 py-2"
-              >
-                Zurücksetzen
-              </button>
-            )}
+            {/* Rechts: Suche + Reset */}
+            <div className="flex items-center gap-2 sm:ml-auto">
+              <div className="relative">
+                <svg
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                >
+                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+                </svg>
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Tools durchsuchen..."
+                  className="w-full sm:w-52 pl-8 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white transition-colors"
+                />
+              </div>
+              {hasFilter && (
+                <button
+                  onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
+                  className="flex-shrink-0 text-xs text-gray-400 hover:text-gray-600 transition-colors px-2 py-2"
+                >
+                  Zurücksetzen
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -145,9 +146,14 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
       {/* ── Card-Grid ─────────────────────────────────────── */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs text-gray-400 mb-4">
-            {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
-          </p>
+          <div className="flex items-baseline justify-between mb-5">
+            <p className="text-sm text-gray-400">
+              Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz.
+            </p>
+            <p className="text-xs text-gray-400 flex-shrink-0 ml-4">
+              {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
+            </p>
+          </div>
 
           {filtered.length === 0 ? (
             <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
