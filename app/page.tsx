@@ -61,7 +61,7 @@ export default function HomePage() {
               {
                 href: "/apps",
                 emoji: "🚀",
-                badge: "Neu",
+                badge: "Live",
                 title: "Eigene Apps",
                 description: "Selbst entwickelte Web-Apps wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
                 linkText: "Apps entdecken",
