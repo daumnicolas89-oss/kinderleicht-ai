@@ -63,73 +63,73 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
   return (
     <>
       {/* ── Filter-Leiste ─────────────────────────────────── */}
-      <div className="sticky top-[72px] z-30 bg-white border border-gray-100 rounded-2xl shadow-sm mb-8">
+      <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+          {/* Suchfeld volle Breite */}
+          <div className="relative mb-3">
+            <svg
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+              width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+            >
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              aria-label="Tools durchsuchen"
+              placeholder="Tools durchsuchen..."
+              className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
+            />
+          </div>
 
-            {/* Links: Kategorie + Empfohlen */}
-            <div className="flex items-center gap-2">
-              <select
-                value={activeKat}
-                onChange={(e) => setActiveKat(e.target.value)}
-                aria-label="Kategorie filtern"
-                className="px-4 py-2 text-sm rounded-lg border bg-white transition-colors focus:outline-none cursor-pointer"
-                style={
-                  activeKat !== "Alle"
-                    ? { borderColor: "#2596be", color: "#2596be" }
-                    : { borderColor: "#e5e7eb", color: "#374151" }
-                }
-              >
-                {KATEGORIEN.map((kat) => (
-                  <option key={kat} value={kat}>
-                    {kat === "Alle" ? "Alle Kategorien" : kat}
-                  </option>
-                ))}
-              </select>
+          {/* Filter-Chips */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <select
+              value={activeKat}
+              onChange={(e) => setActiveKat(e.target.value)}
+              aria-label="Kategorie filtern"
+              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none cursor-pointer"
+              style={
+                activeKat !== "Alle"
+                  ? { borderColor: "#2596be", color: "#2596be", backgroundColor: "#EBF6FA" }
+                  : { borderColor: "#e5e7eb", color: "#374151" }
+              }
+            >
+              {KATEGORIEN.map((kat) => (
+                <option key={kat} value={kat}>
+                  {kat === "Alle" ? "Alle Kategorien" : kat}
+                </option>
+              ))}
+            </select>
 
+            <button
+              onClick={() => setHighlight((v) => !v)}
+              className="inline-flex items-center gap-1.5 h-9 px-3 text-sm rounded-full border transition-colors whitespace-nowrap"
+              style={
+                onlyHighlight
+                  ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
+                  : { borderColor: "#e5e7eb", color: "#374151" }
+              }
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              Empfohlen
+            </button>
+
+            {hasFilter && (
               <button
-                onClick={() => setHighlight((v) => !v)}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap"
-                style={
-                  onlyHighlight
-                    ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
-                    : { borderColor: "#e5e7eb", color: "#374151" }
-                }
+                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
+                className="h-9 px-3 text-sm text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <svg width="13" height="13" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                </svg>
-                Empfohlen
+                Zurücksetzen
               </button>
-            </div>
+            )}
 
-            {/* Rechts: Suche + Reset */}
-            <div className="flex items-center gap-2 sm:ml-auto">
-              <div className="relative">
-                <svg
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                >
-                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-                </svg>
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  aria-label="Tools durchsuchen"
-                  placeholder="Tools durchsuchen..."
-                  className="w-full sm:w-52 pl-8 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white transition-colors"
-                />
-              </div>
-              {hasFilter && (
-                <button
-                  onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
-                  className="flex-shrink-0 text-xs text-gray-400 hover:text-gray-600 transition-colors px-2 py-2"
-                >
-                  Zurücksetzen
-                </button>
-              )}
-            </div>
+            <span className="text-xs text-gray-400 ml-auto hidden sm:block">
+              {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
+            </span>
           </div>
         </div>
       </div>
