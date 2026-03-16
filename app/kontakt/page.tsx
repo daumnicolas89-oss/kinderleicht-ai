@@ -2,24 +2,45 @@
 
 import { useState } from "react";
 
+type FormState = "idle" | "loading" | "success" | "error";
+
 export default function KontaktPage() {
-  const [sent, setSent] = useState(false);
+  const [state, setState] = useState<FormState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = `${data.get("vorname") || ""} ${data.get("nachname") || ""}`.trim();
-    const email = data.get("email") as string;
-    const betreff = (data.get("betreff") as string) || "Kontaktanfrage";
-    const nachricht = data.get("nachricht") as string;
+    setState("loading");
+    setErrorMsg("");
 
-    const subject = encodeURIComponent(betreff);
-    const body = encodeURIComponent(
-      `${nachricht}\n\n---\nVon: ${name}\nE-Mail: ${email}`
-    );
-    window.location.href = `mailto:kontakt@kinderleicht.ai?subject=${subject}&body=${body}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const name = `${fd.get("vorname") || ""} ${fd.get("nachname") || ""}`.trim();
+    const email = fd.get("email") as string;
+    const betreff = (fd.get("betreff") as string) || "Kontaktanfrage";
+    const nachricht = fd.get("nachricht") as string;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, betreff, nachricht }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.error || "Ein Fehler ist aufgetreten.");
+        setState("error");
+        return;
+      }
+
+      setState("success");
+      form.reset();
+    } catch {
+      setErrorMsg("Netzwerkfehler. Bitte pruefe deine Verbindung und versuche es erneut.");
+      setState("error");
+    }
   }
 
   return (
@@ -61,7 +82,7 @@ export default function KontaktPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-xl mx-auto">
           <div className="bg-white rounded-2xl border border-gray-100 p-8 sm:p-10">
-            {sent ? (
+            {state === "success" ? (
               <div className="text-center py-8">
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
@@ -75,16 +96,13 @@ export default function KontaktPage() {
                   className="text-2xl font-bold text-gray-900 mb-2"
                   style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                 >
-                  Dein Mail-Programm öffnet sich.
+                  Nachricht gesendet!
                 </h2>
                 <p className="text-sm text-gray-500">
-                  Falls es nicht klappt, schreib uns direkt an{" "}
-                  <a href="mailto:kontakt@kinderleicht.ai" className="font-medium" style={{ color: "#2596be" }}>
-                    kontakt@kinderleicht.ai
-                  </a>
+                  Vielen Dank fuer deine Nachricht. Wir melden uns so schnell wie moeglich bei dir.
                 </p>
                 <button
-                  onClick={() => setSent(false)}
+                  onClick={() => setState("idle")}
                   className="mt-6 text-sm font-medium hover:underline"
                   style={{ color: "#2596be" }}
                 >
@@ -161,17 +179,34 @@ export default function KontaktPage() {
                   />
                 </div>
 
+                {/* Error message */}
+                {state === "error" && (
+                  <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {errorMsg}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 mt-1"
+                  disabled={state === "loading"}
+                  className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   style={{ backgroundColor: "#2596be" }}
                 >
-                  Nachricht senden
+                  {state === "loading" ? (
+                    <>
+                      <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Wird gesendet...
+                    </>
+                  ) : (
+                    "Nachricht senden"
+                  )}
                 </button>
               </form>
             )}
           </div>
-
         </div>
       </section>
     </>
