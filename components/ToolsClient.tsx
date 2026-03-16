@@ -4,9 +4,9 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
+import FilterBar from "@/components/FilterBar";
 
 const KATEGORIEN = [
-  "Alle",
   "Texte & Schreiben",
   "Recherche & Analyse",
   "Planung & Vorbereitung",
@@ -42,13 +42,13 @@ function Stars({ value }: { value?: number }) {
 }
 
 export default function ToolsClient({ tools }: { tools: Tool[] }) {
-  const [activeKat, setActiveKat]     = useState("Alle");
+  const [activeKat, setActiveKat]     = useState("");
   const [search, setSearch]           = useState("");
   const [onlyHighlight, setHighlight] = useState(false);
 
   const filtered = useMemo(() => {
     return tools.filter((t) => {
-      const matchKat  = activeKat === "Alle" || (t.kategorie ?? []).includes(activeKat);
+      const matchKat  = !activeKat || (t.kategorie ?? []).includes(activeKat);
       const matchHL   = !onlyHighlight || t.highlight === true;
       const q         = search.trim().toLowerCase();
       const matchSearch = !q ||
@@ -58,100 +58,52 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
     });
   }, [tools, activeKat, search, onlyHighlight]);
 
-  const hasFilter = activeKat !== "Alle" || onlyHighlight || search.trim() !== "";
+  const hasFilter = activeKat !== "" || onlyHighlight || search.trim() !== "";
 
   return (
     <>
-      {/* ── Filter-Leiste ─────────────────────────────────── */}
-      <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          {/* Suchfeld volle Breite */}
-          <div className="relative mb-3">
-            <svg
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-              width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-            >
-              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+      <FilterBar
+        search={search}
+        onSearchChange={setSearch}
+        searchPlaceholder="Tools durchsuchen..."
+        categories={KATEGORIEN}
+        activeCategory={activeKat}
+        onCategoryChange={setActiveKat}
+        categoryPlaceholder="Alle Kategorien"
+        extraChips={
+          <button
+            onClick={() => setHighlight((v) => !v)}
+            className="inline-flex items-center gap-1.5 h-9 px-3 text-sm rounded-full border transition-colors whitespace-nowrap"
+            style={
+              onlyHighlight
+                ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
+                : { borderColor: "#e5e7eb", color: "#374151" }
+            }
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              aria-label="Tools durchsuchen"
-              placeholder="Tools durchsuchen..."
-              className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
-            />
-          </div>
-
-          {/* Filter-Chips */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <select
-              value={activeKat}
-              onChange={(e) => setActiveKat(e.target.value)}
-              aria-label="Kategorie filtern"
-              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none cursor-pointer"
-              style={
-                activeKat !== "Alle"
-                  ? { borderColor: "#2596be", color: "#2596be", backgroundColor: "#EBF6FA" }
-                  : { borderColor: "#e5e7eb", color: "#374151" }
-              }
-            >
-              {KATEGORIEN.map((kat) => (
-                <option key={kat} value={kat}>
-                  {kat === "Alle" ? "Alle Kategorien" : kat}
-                </option>
-              ))}
-            </select>
-
-            <button
-              onClick={() => setHighlight((v) => !v)}
-              className="inline-flex items-center gap-1.5 h-9 px-3 text-sm rounded-full border transition-colors whitespace-nowrap"
-              style={
-                onlyHighlight
-                  ? { borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }
-                  : { borderColor: "#e5e7eb", color: "#374151" }
-              }
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill={onlyHighlight ? "#2596be" : "none"} stroke={onlyHighlight ? "#2596be" : "currentColor"} strokeWidth="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              Empfohlen
-            </button>
-
-            {hasFilter && (
-              <button
-                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
-                className="h-9 px-3 text-sm text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                Zurücksetzen
-              </button>
-            )}
-
-            <span className="text-xs text-gray-400 ml-auto hidden sm:block">
-              {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
-            </span>
-          </div>
-        </div>
-      </div>
+            Empfohlen
+          </button>
+        }
+        count={filtered.length}
+        countLabel="Tools"
+        countLabelSingular="Tool"
+        hasFilter={hasFilter}
+        onReset={() => { setActiveKat(""); setHighlight(false); setSearch(""); }}
+      />
 
       {/* ── Card-Grid ─────────────────────────────────────── */}
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-5 gap-4">
-            <p className="text-base text-gray-400 hidden sm:block">
-              Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz.
-            </p>
-            <p className="text-xs text-gray-400 flex-shrink-0">
-              {filtered.length} {filtered.length === 1 ? "Tool" : "Tools"}
-            </p>
-          </div>
 
           {filtered.length === 0 ? (
             <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
-              <p className="text-gray-400 text-sm mb-3">Keine Tools gefunden.</p>
+              <p className="text-gray-400 text-base">Keine Tools gefunden.</p>
               <button
-                onClick={() => { setActiveKat("Alle"); setHighlight(false); setSearch(""); }}
-                className="text-xs text-[#2596be] hover:underline"
+                onClick={() => { setActiveKat(""); setHighlight(false); setSearch(""); }}
+                className="mt-4 text-sm font-semibold"
+                style={{ color: "#2596be" }}
               >
                 Filter zurücksetzen
               </button>
@@ -165,7 +117,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
                   <div className="flex flex-col p-5 flex-1">
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-3">
                       <div className="relative w-11 h-11 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
                         {tool.logoUrl ? (
                           <Image src={tool.logoUrl} alt={tool.name} fill className="object-contain p-2" sizes="44px" />
@@ -175,15 +127,17 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                           </span>
                         )}
                       </div>
-                      {tool.highlight && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                          Empfohlen
-                        </span>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {tool.highlight && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                            Empfohlen
+                          </span>
+                        )}
+                        <Stars value={tool.bewertung} />
+                      </div>
                     </div>
-
                     <h3
-                      className="text-base font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
+                      className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
                     >
                       {tool.name}
                     </h3>
@@ -193,7 +147,6 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       </p>
                     )}
                   </div>
-
                   <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                     {tool.dsgvo && (
                       <span
@@ -209,11 +162,6 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                     {tool.preismodell && (
                       <span className="text-[10px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
                         {tool.preismodell}
-                      </span>
-                    )}
-                    {tool.bewertung && (
-                      <span className="ml-auto">
-                        <Stars value={tool.bewertung} />
                       </span>
                     )}
                   </div>
