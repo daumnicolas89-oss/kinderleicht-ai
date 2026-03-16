@@ -123,7 +123,7 @@ export default function SoArbeitenWirPage() {
                 >
                   {c.title}
                 </h3>
-                <p className="text-[17px] text-gray-500 leading-relaxed">{c.text}</p>
+                <p className="text-base text-gray-500 leading-relaxed">{c.text}</p>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function SoArbeitenWirPage() {
                 <svg className="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2.5">
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
-                <span className="text-[17px]">{point}</span>
+                <span className="text-base">{point}</span>
               </li>
             ))}
           </ul>
@@ -187,7 +187,7 @@ export default function SoArbeitenWirPage() {
             className="rounded-xl p-5 border-l-4 max-w-2xl"
             style={{ borderColor: "#2596be", backgroundColor: "#EBF6FB" }}
           >
-            <p className="text-[17px] text-gray-600 leading-relaxed">
+            <p className="text-base text-gray-600 leading-relaxed">
               Unsere DSGVO-Ampel ist eine Orientierungshilfe. Wir sind keine Rechtsanwälte.
               Für verbindliche Datenschutzentscheidungen empfehlen wir die Rücksprache mit dem
               zuständigen Datenschutzbeauftragten.

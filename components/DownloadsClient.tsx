@@ -164,13 +164,13 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                     </div>
 
                     <h3
-                      className="text-[17px] font-semibold text-gray-900 mb-1"
+                      className="text-base font-semibold text-gray-900 mb-1"
                     >
                       {dl.titel}
                     </h3>
 
                     {dl.kurzbeschreibung && (
-                      <p className="text-[17px] text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-3">
+                      <p className="text-base text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-3">
                         {dl.kurzbeschreibung}
                       </p>
                     )}

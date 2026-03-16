@@ -99,7 +99,7 @@ export default function UeberUnsPage() {
                 >
                   {item.title}
                 </h3>
-                <p className="text-[17px] text-gray-500 leading-relaxed">{item.desc}</p>
+                <p className="text-base text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -135,8 +135,8 @@ export default function UeberUnsPage() {
               <div key={item.label} className="flex items-start gap-4 bg-[#F5F5F7] rounded-xl px-5 py-4">
                 <span className="text-xl mt-0.5">{item.icon}</span>
                 <div>
-                  <p className="text-[17px] font-semibold text-gray-900">{item.label}</p>
-                  <p className="text-[17px] text-gray-500">{item.desc}</p>
+                  <p className="text-base font-semibold text-gray-900">{item.label}</p>
+                  <p className="text-base text-gray-500">{item.desc}</p>
                 </div>
               </div>
             ))}

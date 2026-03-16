@@ -91,7 +91,7 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
         className="w-full flex items-center justify-between gap-6 py-5 text-left"
         onClick={() => setOpen(!open)}
       >
-        <span className="text-[17px] font-semibold text-gray-900" style={{ fontFamily: "var(--font-ibm-plex-sans)" }}>
+        <span className="text-base font-semibold text-gray-900" style={{ fontFamily: "var(--font-ibm-plex-sans)" }}>
           {q}
         </span>
         <span
@@ -109,7 +109,7 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
         className="overflow-hidden transition-all duration-200"
         style={{ maxHeight: open ? 200 : 0, opacity: open ? 1 : 0 }}
       >
-        <div className="text-[17px] text-gray-500 leading-relaxed pb-5">{a}</div>
+        <div className="text-base text-gray-500 leading-relaxed pb-5">{a}</div>
       </div>
     </div>
   );
@@ -181,7 +181,7 @@ export default function FAQPage() {
           >
             Noch Fragen offen?
           </h2>
-          <p className="text-[17px] text-gray-500 mb-7">
+          <p className="text-base text-gray-500 mb-7">
             Schreib uns direkt. Wir melden uns in der Regel innerhalb von 1 bis 2 Werktagen.
           </p>
           <Link

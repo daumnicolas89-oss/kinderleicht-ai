@@ -64,7 +64,7 @@ export default function DatenschutzPage() {
       </section>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto text-[17px] leading-relaxed text-gray-600">
+        <div className="max-w-3xl mx-auto text-base leading-relaxed text-gray-600">
 
           <H2>Präambel</H2>
           <P>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als &bdquo;Daten&ldquo; bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z. B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als &bdquo;Onlineangebot&ldquo;).</P>
