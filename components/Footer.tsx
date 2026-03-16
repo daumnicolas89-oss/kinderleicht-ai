@@ -145,7 +145,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Nav-Spalten */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-12">
             {/* Logo-Spalte */}
             <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
               <Logo height={22} />
@@ -154,25 +154,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* ENTDECKEN */}
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Entdecken</p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  { label: "Apps", href: "/apps" },
-                  { label: "Tools", href: "/tools" },
-                  { label: "Downloads", href: "/downloads" },
-                ].map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* KINDERLEICHT.AI */}
+{/* KINDERLEICHT.AI */}
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
               <ul className="flex flex-col gap-3">
