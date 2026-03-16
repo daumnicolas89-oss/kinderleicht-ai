@@ -1,4 +1,10 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Über uns — kinderleicht.ai",
+  description: "Das Team hinter kinderleicht.ai. Geprüfte KI-Tools und eigene Apps für Pädagogen im deutschsprachigen Raum.",
+};
 
 export default function UeberUnsPage() {
   return (
