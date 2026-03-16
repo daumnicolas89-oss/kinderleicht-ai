@@ -21,9 +21,11 @@ const inter = Inter({
 
 const siteTitle = "kinderleicht.ai — KI-Tools für Pädagogen";
 const siteDescription =
-  "Kuratierte KI-Tools, praktische Vorlagen und eigene Web-Apps — speziell für Erzieher und Lehrkräfte in Deutschland.";
+  "Geprüfte KI-Tools, eigene Apps und Vorlagen für Kita, Schule und Bildungseinrichtungen. Mit DSGVO-Einschätzung.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kinderleicht.ai"),
+  alternates: { canonical: "./" },
   title: siteTitle,
   description: siteDescription,
   openGraph: {
