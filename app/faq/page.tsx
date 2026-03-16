@@ -19,6 +19,15 @@ const categories = [
         q: "Kostet die Nutzung etwas?",
         a: "Nein. kinderleicht.ai ist kostenlos nutzbar. Alle Apps, Tools und Downloads stehen dir ohne Registrierung zur Verfügung.",
       },
+      {
+        q: "Wie prüft ihr die Apps, Tools und Downloads?",
+        a: (
+          <>
+            Jedes Tool durchläuft einen festen Prüfprozess mit vier Ebenen: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Unsere eigenen Apps entwickeln wir nach strengen Datenschutzrichtlinien. Alle Details findest du auf unserer Seite{" "}
+            <Link href="/so-arbeiten-wir" className="font-semibold underline" style={{ color: "#2596be" }}>So arbeiten wir</Link>.
+          </>
+        ),
+      },
     ],
   },
   {
@@ -74,7 +83,7 @@ const categories = [
   },
 ];
 
-function AccordionItem({ q, a }: { q: string; a: string }) {
+function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-gray-100 last:border-b-0">
@@ -100,7 +109,7 @@ function AccordionItem({ q, a }: { q: string; a: string }) {
         className="overflow-hidden transition-all duration-200"
         style={{ maxHeight: open ? 200 : 0, opacity: open ? 1 : 0 }}
       >
-        <p className="text-sm text-gray-500 leading-relaxed pb-5">{a}</p>
+        <div className="text-sm text-gray-500 leading-relaxed pb-5">{a}</div>
       </div>
     </div>
   );
