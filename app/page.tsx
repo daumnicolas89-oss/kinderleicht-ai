@@ -199,6 +199,32 @@ export default async function HomePage() {
               ))}
             </div>
 
+            {/* Downloads-Karte */}
+            <Link
+              href="/downloads"
+              className="group flex items-center gap-5 p-5 bg-[#F5F5F7] rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 mb-8"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#EBF6FA] flex-shrink-0 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h3
+                  className="text-[15px] font-semibold text-gray-900 group-hover:text-[#2596be] transition-colors"
+                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
+                >
+                  Kostenlose Downloads
+                </h3>
+                <p className="text-sm text-gray-500">Vorlagen, Checklisten und Materialien zum Herunterladen.</p>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" className="flex-shrink-0 group-hover:stroke-[#2596be] transition-colors">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+
             <div className="text-center">
               <Link
                 href="/tools"
