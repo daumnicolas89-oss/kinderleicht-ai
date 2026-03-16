@@ -39,7 +39,7 @@ export default function KontaktPage() {
       setState("success");
       form.reset();
     } catch {
-      setErrorMsg("Netzwerkfehler. Bitte pruefe deine Verbindung und versuche es erneut.");
+      setErrorMsg("Netzwerkfehler. Bitte prüfe deine Verbindung und versuche es erneut.");
       setState("error");
     }
   }
@@ -72,7 +72,7 @@ export default function KontaktPage() {
                   Nachricht gesendet!
                 </h2>
                 <p className="text-base text-gray-500">
-                  Vielen Dank fuer deine Nachricht. Wir melden uns so schnell wie moeglich bei dir.
+                  Vielen Dank für deine Nachricht. Wir melden uns so schnell wie möglich bei dir.
                 </p>
                 <button
                   onClick={() => setState("idle")}
