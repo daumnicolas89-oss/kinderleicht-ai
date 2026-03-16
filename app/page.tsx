@@ -143,22 +143,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── VERTRAUEN ────────────────────────────────────────── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-400">
-            <span className="flex items-center gap-2">
-              <span>🛡️</span> DSGVO-Einschätzung bei jedem Tool
-            </span>
-            <span className="flex items-center gap-2">
-              <span>🇪🇺</span> Fokus auf EU-konforme Anbieter
-            </span>
-            <span className="flex items-center gap-2">
-              <span>🎓</span> Von Pädagogen für Pädagogen
-            </span>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
