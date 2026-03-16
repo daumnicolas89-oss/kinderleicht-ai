@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  { src: "/ferienplaner-1.png", alt: "Ferienplaner Übersicht" },
-  { src: "/ferienplaner-2.png", alt: "Elternbrief Generator" },
-  { src: "/ferienplaner-3.png", alt: "Dienstplan Generator" },
-  { src: "/ferienplaner-4.png", alt: "Ferienprogramm Generator" },
+  { src: "/ferienplaner-1.webp", alt: "Ferienplaner Übersicht" },
+  { src: "/ferienplaner-2.webp", alt: "Elternbrief Generator" },
+  { src: "/ferienplaner-3.webp", alt: "Dienstplan Generator" },
+  { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
 ];
 
 export default function FerienplanerSlideshow() {
