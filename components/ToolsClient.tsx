@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
 
 const KATEGORIEN = [
   "Alle",
@@ -14,18 +15,6 @@ const KATEGORIEN = [
   "Video & Audio",
   "Fortbildung & Wissen",
 ];
-
-const DSGVO_DOT: Record<string, string> = {
-  grün: "#059669",
-  gelb: "#D97706",
-  rot: "#DC2626",
-};
-
-const DSGVO_LABEL: Record<string, string> = {
-  grün: "DSGVO konform",
-  gelb: "Eingeschränkt",
-  rot: "Kritisch",
-};
 
 type Tool = {
   name: string;
@@ -83,6 +72,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
               <select
                 value={activeKat}
                 onChange={(e) => setActiveKat(e.target.value)}
+                aria-label="Kategorie filtern"
                 className="px-4 py-2 text-sm rounded-lg border bg-white transition-colors focus:outline-none cursor-pointer"
                 style={
                   activeKat !== "Alle"
@@ -126,6 +116,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  aria-label="Tools durchsuchen"
                   placeholder="Tools durchsuchen..."
                   className="w-full sm:w-52 pl-8 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white transition-colors"
                 />
@@ -209,8 +200,8 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       <span
                         className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                         style={{
-                          backgroundColor: tool.dsgvo === "grün" ? "#DCFCE7" : tool.dsgvo === "gelb" ? "#FEF9C3" : "#FEE2E2",
-                          color: DSGVO_DOT[tool.dsgvo],
+                          backgroundColor: DSGVO_BG[tool.dsgvo] ?? "#F3F4F6",
+                          color: DSGVO_COLOR[tool.dsgvo] ?? "#374151",
                         }}
                       >
                         {DSGVO_LABEL[tool.dsgvo]}

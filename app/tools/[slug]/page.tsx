@@ -9,12 +9,9 @@ import { urlFor } from "@/sanity/lib/image";
 import { toolBySlugQuery, allToolSlugsQuery, similarToolsQuery } from "@/lib/sanity/queries";
 import ScreenshotLightbox from "@/components/ScreenshotLightbox";
 import { ShareBar, PriceDetail } from "@/components/ToolDetailClient";
+import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
-
-const DSGVO_COLOR: Record<string, string> = { grün: "#059669", gelb: "#D97706", rot: "#DC2626" };
-const DSGVO_BG: Record<string, string>    = { grün: "#DCFCE7", gelb: "#FEF9C3", rot: "#FEE2E2" };
-const DSGVO_LABEL: Record<string, string> = { grün: "DSGVO konform", gelb: "Eingeschränkt", rot: "Kritisch" };
 
 function Stars({ value }: { value?: number }) {
   if (!value) return null;
@@ -84,8 +81,45 @@ export default async function ToolDetailPage({ params }: Props) {
     logoUrl: t.logo ? urlFor(t.logo as any).width(160).fit("max").url() : null,
   }));
 
+  // Build JSON-LD structured data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const jsonLd: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    description: tool.kurzbeschreibung,
+    applicationCategory: "EducationalApplication",
+    url: `https://kinderleicht.ai/tools/${slug}`,
+  };
+  if (tool.bewertung) {
+    jsonLd.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: tool.bewertung,
+      bestRating: 5,
+      worstRating: 1,
+      ratingCount: 1,
+    };
+  }
+  if (tool.preismodell) {
+    const isFree =
+      tool.preismodell.toLowerCase().includes("kostenlos") ||
+      tool.preismodell.toLowerCase().includes("gratis");
+    jsonLd.offers = {
+      "@type": "Offer",
+      price: isFree ? "0" : undefined,
+      priceCurrency: "EUR",
+      description: tool.preis_detail || tool.preismodell,
+    };
+  }
+
   return (
     <div className="min-h-screen scroll-smooth" style={{ backgroundColor: "#F5F5F7" }}>
+
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <div className="relative bg-white border-b border-gray-100 overflow-hidden">
