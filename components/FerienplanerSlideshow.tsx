@@ -67,6 +67,7 @@ export default function FerienplanerSlideshow() {
             <button
               key={i}
               onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1} anzeigen`}
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
                 width: i === active ? "16px" : "6px",

@@ -120,6 +120,7 @@ export default function KontaktPage() {
                       id="vorname"
                       name="vorname"
                       type="text"
+                      aria-required="false"
                       placeholder="Max"
                       className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/10"
                     />
@@ -132,6 +133,7 @@ export default function KontaktPage() {
                       id="nachname"
                       name="nachname"
                       type="text"
+                      aria-required="false"
                       placeholder="Mustermann"
                       className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/10"
                     />
@@ -147,6 +149,7 @@ export default function KontaktPage() {
                     name="email"
                     type="email"
                     required
+                    aria-required="true"
                     placeholder="max@beispiel.de"
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/10"
                   />
@@ -160,6 +163,7 @@ export default function KontaktPage() {
                     id="betreff"
                     name="betreff"
                     type="text"
+                    aria-required="false"
                     placeholder="Worum geht es?"
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/10"
                   />
@@ -173,6 +177,7 @@ export default function KontaktPage() {
                     id="nachricht"
                     name="nachricht"
                     required
+                    aria-required="true"
                     rows={5}
                     placeholder="Deine Nachricht..."
                     className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 outline-none transition-all resize-none focus:border-[#2596be] focus:ring-2 focus:ring-[#2596be]/10"

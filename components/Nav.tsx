@@ -38,6 +38,16 @@ export default function Nav() {
     };
   }, [mobileOpen]);
 
+  // Close mobile menu on Escape key
+  useEffect(() => {
+    if (!mobileOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setMobileOpen(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
   return (
     <header className={`sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b transition-shadow duration-300 ${scrolled ? "border-gray-200 shadow-sm" : "border-gray-100 shadow-none"}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
