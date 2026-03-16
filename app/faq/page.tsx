@@ -53,15 +53,30 @@ const categories = [
     faqs: [
       {
         q: "Sind die KI-Tools datenschutzkonform?",
-        a: "Wir weisen bei jedem Tool transparent auf den Anbieter und dessen Datenschutzbestimmungen hin. Für den Einsatz in Einrichtungen empfehlen wir, keine personenbezogenen Daten von Kindern oder Eltern einzugeben.",
+        a: (
+          <>
+            Wir weisen bei jedem Tool transparent auf den Anbieter und dessen Datenschutzbestimmungen hin. Für den Einsatz in Einrichtungen empfehlen wir, keine personenbezogenen Daten von Kindern oder Eltern einzugeben. Mehr dazu in unserer{" "}
+            <Link href="/datenschutz" className="font-semibold underline" style={{ color: "#2596be" }}>Datenschutzerklärung</Link>.
+          </>
+        ),
       },
       {
         q: "Brauche ich KI-Vorkenntnisse?",
-        a: "Nein. kinderleicht.ai richtet sich ausdrücklich auch an Pädagogen ohne Vorkenntnisse. Alle Tools und Apps sind so aufbereitet, dass du sofort loslegen kannst.",
+        a: (
+          <>
+            Nein. kinderleicht.ai richtet sich ausdrücklich auch an Pädagogen ohne Vorkenntnisse. Alle Tools und Apps sind so aufbereitet, dass du sofort loslegen kannst. Falls du einen Begriff nicht kennst, hilft dir unser{" "}
+            <Link href="/ki-abc" className="font-semibold underline" style={{ color: "#2596be" }}>KI-ABC</Link> mit über 150 einfach erklärten Begriffen.
+          </>
+        ),
       },
       {
         q: "Speichert kinderleicht.ai meine Daten?",
-        a: "Wir erheben nur die Daten, die für den Betrieb der Plattform notwendig sind. Details findest du in unserer Datenschutzerklärung.",
+        a: (
+          <>
+            Wir erheben nur die Daten, die für den Betrieb der Plattform notwendig sind. Details findest du in unserer{" "}
+            <Link href="/datenschutz" className="font-semibold underline" style={{ color: "#2596be" }}>Datenschutzerklärung</Link>.
+          </>
+        ),
       },
     ],
   },
@@ -70,11 +85,22 @@ const categories = [
     faqs: [
       {
         q: "Ich habe einen Fehler gefunden. Wo kann ich ihn melden?",
-        a: "Schreib uns einfach über das Kontaktformular oder direkt an kontakt@kinderleicht.ai. Wir freuen uns über jedes Feedback.",
+        a: (
+          <>
+            Schreib uns einfach über das{" "}
+            <Link href="/kontakt" className="font-semibold underline" style={{ color: "#2596be" }}>Kontaktformular</Link>{" "}
+            oder direkt an kontakt@kinderleicht.ai. Wir freuen uns über jedes Feedback.
+          </>
+        ),
       },
       {
         q: "Kann ich eine Kooperation anfragen?",
-        a: "Ja, sehr gerne. Ob Fortbildungsinstitut, Träger oder Verlag, schreib uns dein Anliegen über das Kontaktformular.",
+        a: (
+          <>
+            Ja, sehr gerne. Ob Fortbildungsinstitut, Träger oder Verlag, schreib uns dein Anliegen über das{" "}
+            <Link href="/kontakt" className="font-semibold underline" style={{ color: "#2596be" }}>Kontaktformular</Link>.
+          </>
+        ),
       },
       {
         q: "Bietet ihr Workshops oder Fortbildungen an?",
