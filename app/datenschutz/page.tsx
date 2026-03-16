@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import React from "react";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung — kinderleicht.ai",
   description: "Datenschutzerklärung von kinderleicht.ai. Informationen zur Datenverarbeitung nach DSGVO.",
 };
-
-const dotGrid = {
-  backgroundImage: "radial-gradient(circle, #d1d5db 1px, transparent 1px)",
-  backgroundSize: "28px 28px",
-  maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-  WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-  opacity: 0.45,
-} as React.CSSProperties;
 
 function H2({ children }: { children: React.ReactNode }) {
   return (
@@ -45,23 +38,10 @@ function UL({ children }: { children: React.ReactNode }) {
 export default function DatenschutzPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-0" style={dotGrid} />
-        <div
-          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.10) 0%, transparent 70%)" }}
-        />
-        <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: "#2596be" }}>
-            Rechtliches
-          </p>
-          <h1
-            className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-          >
-            Datenschutzerklärung
-          </h1>
-        </div>
-      </section>
+      <PageHero
+        label="Rechtliches"
+        title="Datenschutzerklärung"
+      />
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-base leading-relaxed text-gray-600">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Über uns — kinderleicht.ai",
@@ -9,40 +10,11 @@ export const metadata: Metadata = {
 export default function UeberUnsPage() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage: "radial-gradient(circle, #d1d5db 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-            WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-            opacity: 0.4,
-          }}
-        />
-        <div
-          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.10) 0%, transparent 70%)" }}
-        />
-
-        <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: "#2596be" }}>
-            Über uns
-          </p>
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.08]"
-          >
-            KI im Bildungsalltag.{" "}
-            <span style={{ color: "#2596be" }}>Kinderleicht.</span>
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Wir machen KI für Kitas, Schulen und Bildungseinrichtungen zugänglich.
-            Kein Tech-Geblubber, keine Überforderung. Damit Pädagogen sich sicher,
-            kompetent und entlastet fühlen.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Über uns"
+        title="KI im Bildungsalltag. Kinderleicht."
+        subtitle="Wir machen KI für Kitas, Schulen und Bildungseinrichtungen zugänglich. Kein Tech-Geblubber, keine Überforderung. Damit Pädagogen sich sicher, kompetent und entlastet fühlen."
+      />
 
       {/* ── UNSER ANSATZ ───────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
