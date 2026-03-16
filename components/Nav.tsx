@@ -51,15 +51,15 @@ export default function Nav() {
   return (
     <header className={`sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b transition-shadow duration-300 ${scrolled ? "border-gray-200 shadow-sm" : "border-gray-100 shadow-none"}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18" style={{ height: "72px" }}>
+        <div className="relative flex items-center justify-between h-18" style={{ height: "72px" }}>
 
-          {/* Logo */}
+          {/* Logo — links */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Logo height={64} />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Desktop Nav — Mitte */}
+          <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
@@ -86,7 +86,7 @@ export default function Nav() {
             })}
           </nav>
 
-          {/* Social + Hamburger */}
+          {/* Social Icons — rechts */}
           <div className="flex items-center gap-2">
             {/* Social Icons (Desktop) */}
             <div className="hidden md:flex items-center gap-1">
