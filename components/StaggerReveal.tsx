@@ -13,6 +13,7 @@ export default function StaggerReveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const hasBeenVisible = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -20,7 +21,13 @@ export default function StaggerReveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setVisible(true);
+          hasBeenVisible.current = true;
+        } else if (hasBeenVisible.current) {
+          setVisible(false);
+          hasBeenVisible.current = false;
+        }
       },
       { threshold: 0.08 }
     );
@@ -34,7 +41,9 @@ export default function StaggerReveal({
       ref={ref}
       className={`${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} ${className}`}
       style={{
-        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+        transition: visible
+          ? `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`
+          : "none",
       }}
     >
       {children}
