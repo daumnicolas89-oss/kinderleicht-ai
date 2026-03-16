@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Apps — kinderleicht.ai",
-  description: "Eigene Web-Apps für den Bildungsalltag — direkt im Browser nutzbar.",
+  description: "Eigene Web-Apps für Kita und Schule. Kostenlos im Browser, ohne Anmeldung.",
 };
 
 const dotGrid = {

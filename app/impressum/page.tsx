@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Impressum — kinderleicht.ai",
-  description: "Impressum und Angaben gemäß § 5 DDG.",
+  description: "Impressum von kinderleicht.ai. Angaben gemäß § 5 DDG und Kontaktdaten.",
 };
 
 const dotGrid = {

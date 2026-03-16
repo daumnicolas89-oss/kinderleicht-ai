@@ -10,7 +10,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Downloads — kinderleicht.ai",
-  description: "Kostenlose Vorlagen, Leitfäden und Checklisten für Pädagogen.",
+  description: "Kostenlose Vorlagen, Checklisten und Leitfäden für Kita, Schule und Pädagogen.",
 };
 
 const dotGrid = {

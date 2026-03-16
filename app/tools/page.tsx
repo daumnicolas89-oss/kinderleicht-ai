@@ -10,7 +10,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "KI-Tools — kinderleicht.ai",
-  description: "Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz.",
+  description: "Geprüfte KI-Tools für Kita, Schule und Bildung. Mit DSGVO-Ampel, Bewertungen und Praxistipps.",
 };
 
 const dotGrid = {
