@@ -156,6 +156,24 @@ export default function KontaktPage() {
                   />
                 </div>
 
+                {/* Datenschutz-Checkbox */}
+                <div className="flex items-start gap-3">
+                  <input
+                    id="datenschutz"
+                    name="datenschutz"
+                    type="checkbox"
+                    required
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-[#2596be] focus:ring-[#2596be] cursor-pointer"
+                  />
+                  <label htmlFor="datenschutz" className="text-[13px] text-gray-500 leading-relaxed cursor-pointer">
+                    Ich habe die{" "}
+                    <a href="/datenschutz" target="_blank" className="underline font-medium" style={{ color: "#2596be" }}>
+                      Datenschutzerklärung
+                    </a>{" "}
+                    gelesen und bin mit der Verarbeitung meiner Daten einverstanden. <span style={{ color: "#2596be" }}>*</span>
+                  </label>
+                </div>
+
                 {/* Error message */}
                 {state === "error" && (
                   <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
