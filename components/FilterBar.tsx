@@ -45,7 +45,8 @@ export default function FilterBar({
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder={searchPlaceholder}
-            className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
+            aria-label="Durchsuchen"
+            className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
           />
         </div>
 
@@ -55,7 +56,8 @@ export default function FilterBar({
             <select
               value={activeCategory ?? ""}
               onChange={(e) => onCategoryChange(e.target.value)}
-              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none cursor-pointer"
+              aria-label={categoryPlaceholder || "Kategorie filtern"}
+              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 cursor-pointer"
               style={
                 activeCategory
                   ? { borderColor: "#2596be", color: "#2596be", backgroundColor: "#EBF6FA" }

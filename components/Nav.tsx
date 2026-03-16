@@ -67,6 +67,7 @@ export default function Nav() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={active ? "page" : undefined}
                   className={`
                     px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150
                     ${active
@@ -139,6 +140,7 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
+                  aria-current={active ? "page" : undefined}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     active
                       ? "text-[#2596be] bg-[#2596be]/8"

@@ -51,7 +51,8 @@ function NewsletterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="deine@email.de"
-          className="flex-1 min-w-0 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-white"
+          aria-label="E-Mail für Newsletter"
+          className="flex-1 min-w-0 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-white"
         />
         <button
           onClick={handleSubmit}
@@ -145,7 +146,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Nav-Spalten */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 text-center sm:text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10 mb-12 text-center sm:text-left">
             {/* Logo-Spalte */}
             <div className="flex flex-col items-center sm:items-start gap-4">
               <Logo height={36} />

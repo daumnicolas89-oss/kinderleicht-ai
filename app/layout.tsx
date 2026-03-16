@@ -77,8 +77,11 @@ export default function RootLayout({
             }),
           }}
         />
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#2596be] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold">
+          Zum Inhalt springen
+        </a>
         <Nav />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <CookieBanner />
       </body>

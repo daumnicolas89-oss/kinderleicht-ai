@@ -74,7 +74,8 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
               value={search}
               onChange={(e) => { setSearch(e.target.value); setActiveLetter(null); }}
               placeholder="Begriff suchen..."
-              className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
+              aria-label="Begriff suchen"
+              className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
             />
           </div>
 
@@ -97,7 +98,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                           ? "bg-[#2596be] text-white"
                           : hasEntries
                             ? "text-gray-600 hover:bg-[#2596be] hover:text-white cursor-pointer"
-                            : "text-gray-200 cursor-default"
+                            : "text-gray-300 cursor-default"
                         }
                       `}
                     >
