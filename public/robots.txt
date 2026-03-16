@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://kinderleicht.ai/sitemap.xml
+
+Disallow: /studio
+Disallow: /api/
