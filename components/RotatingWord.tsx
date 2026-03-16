@@ -20,18 +20,21 @@ export default function RotatingWord() {
     return () => clearInterval(interval);
   }, []);
 
-  const style: React.CSSProperties = {
-    color: "#2596be",
-    display: "inline-block",
-    transition: phase === "enter" ? "none" : "opacity 0.3s ease, transform 0.3s ease",
-    opacity: phase === "visible" ? 1 : 0,
-    transform:
-      phase === "exit"
-        ? "translateY(-12px)"
-        : phase === "enter"
-          ? "translateY(12px)"
-          : "translateY(0)",
-  };
-
-  return <span style={style}>{words[index]}</span>;
+  return (
+    <span
+      className="inline-block bg-gradient-to-r from-[#2596be] to-[#1a7a9e] bg-clip-text text-transparent"
+      style={{
+        transition: phase === "enter" ? "none" : "opacity 0.3s ease, transform 0.3s ease",
+        opacity: phase === "visible" ? 1 : 0,
+        transform:
+          phase === "exit"
+            ? "translateY(-12px)"
+            : phase === "enter"
+              ? "translateY(12px)"
+              : "translateY(0)",
+      }}
+    >
+      {words[index]}
+    </span>
+  );
 }

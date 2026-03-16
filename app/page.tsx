@@ -2,6 +2,7 @@ import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCount from "@/components/AnimatedCount";
 
 export default function HomePage() {
   return (
@@ -53,7 +54,7 @@ export default function HomePage() {
               {
                 href: "/tools",
                 emoji: "🔍",
-                count: "100+",
+                badge: <><AnimatedCount target={100} suffix="+" /></>,
                 title: "KI-Tools",
                 description: "Geprüfte Tools mit DSGVO-Ampel, Bewertungen und Praxistipps für den Bildungsalltag.",
                 linkText: "Alle Tools ansehen",
@@ -61,7 +62,7 @@ export default function HomePage() {
               {
                 href: "/apps",
                 emoji: "🚀",
-                count: "Neu",
+                badge: <>Neu</>,
                 title: "Eigene Apps",
                 description: "Selbst entwickelte Web-Apps wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
                 linkText: "Apps entdecken",
@@ -69,7 +70,7 @@ export default function HomePage() {
               {
                 href: "/ki-abc",
                 emoji: "📖",
-                count: "150+",
+                badge: <><AnimatedCount target={150} suffix="+" /></>,
                 title: "KI-ABC",
                 description: "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt.",
                 linkText: "Zum Lexikon",
@@ -78,12 +79,12 @@ export default function HomePage() {
               <Link
                 key={card.href}
                 href={card.href}
-                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-lg transition-all duration-200"
+                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl">{card.emoji}</span>
+                  <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{card.emoji}</span>
                   <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                    {card.count}
+                    {card.badge}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#2596be] transition-colors">
