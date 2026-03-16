@@ -30,7 +30,7 @@ function NewsletterForm() {
       }
     } catch {
       setStatus("error");
-      setErrorMsg("Ein Fehler ist aufgetreten. Bitte versuche es erneut.");
+      setErrorMsg("Etwas ist schiefgelaufen. Bitte versuche es erneut.");
     }
   }
 
@@ -59,23 +59,24 @@ function NewsletterForm() {
           className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90 disabled:opacity-40 whitespace-nowrap"
           style={{ backgroundColor: "#2596be" }}
         >
-          {status === "loading" ? "..." : "Anmelden"}
+          {status === "loading" ? "Wird gesendet..." : "Anmelden"}
         </button>
       </div>
 
       {/* Consent */}
-      <label className="flex items-start gap-2 cursor-pointer">
+      <div className="flex items-start gap-2">
         <input
+          id="newsletter-consent"
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 flex-shrink-0 accent-[#2596be]"
         />
-        <span className="text-xs text-gray-400 leading-relaxed">
+        <label htmlFor="newsletter-consent" className="text-[13px] text-gray-400 leading-relaxed cursor-pointer">
           Ich habe die Datenschutzbestimmungen gelesen. Ich stimme dem Erhalt von E-Mails
           und der Übertragung meiner Daten an Mailchimp zu.
-        </span>
-      </label>
+        </label>
+      </div>
 
       {/* Error */}
       {status === "error" && (
