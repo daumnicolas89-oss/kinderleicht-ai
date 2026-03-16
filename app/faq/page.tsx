@@ -115,9 +115,34 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
   );
 }
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: categories.flatMap((cat) =>
+    cat.faqs.map((faq) => ({
+      "@type": "Question" as const,
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer" as const,
+        text:
+          typeof faq.a === "string"
+            ? faq.a
+            : faq.q === "Wie prüft ihr die Apps, Tools und Downloads?"
+              ? "Jedes Tool durchläuft einen festen Prüfprozess mit vier Ebenen: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Alle Details auf unserer Seite So arbeiten wir."
+              : "",
+      },
+    }))
+  ),
+};
+
 export default function FAQPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div

@@ -119,6 +119,17 @@ export default async function ToolDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Tools", item: "https://kinderleicht.ai/tools" },
+            { "@type": "ListItem", position: 2, name: tool.name },
+          ],
+        }) }}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <div className="relative bg-white border-b border-gray-100 overflow-hidden">

@@ -73,6 +73,18 @@ export default async function DownloadDetailPage({ params }: Props) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Downloads", item: "https://kinderleicht.ai/downloads" },
+            { "@type": "ListItem", position: 2, name: dl.titel },
+          ],
+        }) }}
+      />
+
       {/* ── HERO ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white pt-12 pb-10 px-4 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0" style={dotGrid} />
