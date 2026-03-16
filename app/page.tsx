@@ -7,6 +7,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { featuredToolsQuery } from "@/lib/sanity/queries";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const DSGVO_COLOR: Record<string, string> = { grün: "#059669", gelb: "#D97706", rot: "#DC2626" };
 const DSGVO_BG: Record<string, string>    = { grün: "#DCFCE7", gelb: "#FEF9C3", rot: "#FEE2E2" };
@@ -69,7 +70,7 @@ export default async function HomePage() {
 
       {/* ── FERIENPLANER ──────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-5xl mx-auto">
+        <ScrollReveal className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Text */}
@@ -126,13 +127,13 @@ export default async function HomePage() {
             {/* Slideshow */}
             <FerienplanerSlideshow />
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ── EMPFOHLENE TOOLS ──────────────────────────────────── */}
       {featuredTools.length > 0 && (
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-5xl mx-auto">
+          <ScrollReveal className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <p
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -219,13 +220,13 @@ export default async function HomePage() {
                 </svg>
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
       )}
 
       {/* ── ENTDECKEN-GRID ─────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-5xl mx-auto">
+        <ScrollReveal className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2
               className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
@@ -313,12 +314,12 @@ export default async function HomePage() {
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ── ZIELGRUPPEN ───────────────────────────────────────── */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
+        <ScrollReveal className="max-w-3xl mx-auto text-center">
           <h2
             className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
             style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
@@ -337,7 +338,7 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
     </>
