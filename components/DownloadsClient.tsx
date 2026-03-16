@@ -74,37 +74,51 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
       <div className="max-w-5xl mx-auto">
 
         {/* ── Filter Bar ──────────────────────────────── */}
-        <div className="sticky top-[72px] z-30 bg-white border border-gray-100 rounded-2xl px-4 py-3 shadow-sm mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-            <div className="flex items-center gap-2">
-              <select
-                value={activeKat}
-                onChange={(e) => setActiveKat(e.target.value)}
-                className="text-sm font-medium text-gray-700 bg-[#F5F5F7] border-none rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 cursor-pointer"
+        <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100 shadow-sm mb-8 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-3">
+          {/* Suchfeld */}
+          <div className="relative mb-3">
+            <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Downloads durchsuchen..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
+            />
+          </div>
+
+          {/* Filter-Chips */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <select
+              value={activeKat}
+              onChange={(e) => setActiveKat(e.target.value)}
+              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none cursor-pointer"
+              style={
+                activeKat !== ""
+                  ? { borderColor: "#2596be", color: "#2596be", backgroundColor: "#EBF6FA" }
+                  : { borderColor: "#e5e7eb", color: "#374151" }
+              }
+            >
+              <option value="">Alle Kategorien</option>
+              {KATEGORIEN.map((k) => (
+                <option key={k} value={k}>{k}</option>
+              ))}
+            </select>
+
+            {hasFilter && (
+              <button
+                onClick={() => { setActiveKat(""); setSearch(""); }}
+                className="h-9 px-3 text-sm text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <option value="">Alle Kategorien</option>
-                {KATEGORIEN.map((k) => (
-                  <option key={k} value={k}>{k}</option>
-                ))}
-              </select>
-            </div>
-            <div className="flex items-center gap-2 sm:ml-auto">
-              <input
-                type="text"
-                placeholder="Downloads durchsuchen..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="text-sm bg-[#F5F5F7] border-none rounded-lg px-3 py-2 w-full sm:w-56 focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 placeholder:text-gray-400"
-              />
-              {hasFilter && (
-                <button
-                  onClick={() => { setActiveKat(""); setSearch(""); }}
-                  className="text-xs font-medium text-gray-400 hover:text-gray-600 whitespace-nowrap transition-colors"
-                >
-                  Zurücksetzen
-                </button>
-              )}
-            </div>
+                Zurücksetzen
+              </button>
+            )}
+
+            <span className="text-xs text-gray-400 ml-auto hidden sm:block">
+              {filtered.length} {filtered.length === 1 ? "Download" : "Downloads"}
+            </span>
           </div>
         </div>
 

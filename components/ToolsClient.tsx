@@ -135,7 +135,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
       </div>
 
       {/* ── Card-Grid ─────────────────────────────────────── */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[#F5F5F7] min-h-[60vh]">
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-5 gap-4">
             <p className="text-base text-gray-400 hidden sm:block">
