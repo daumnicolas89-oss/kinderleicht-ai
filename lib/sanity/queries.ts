@@ -47,7 +47,7 @@ export const allToolSlugsQuery = groq`
 `;
 
 export const featuredToolsQuery = groq`
-  *[_type == "werkzeug" && highlight == true] | order(name asc) [0...3] {
+  *[_type == "werkzeug" && highlight == true && bewertung == 5 && dsgvo == "grün"] | order(name asc) [0...3] {
     name,
     "slug": slug.current,
     kurzbeschreibung,
