@@ -17,7 +17,9 @@ const DSGVO_LABEL: Record<string, string> = { grün: "DSGVO konform", gelb: "Ein
 export default async function HomePage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const rawTools: any[] = await client.fetch(featuredToolsQuery);
-  const featuredTools = rawTools.map((t) => ({
+  // Zufällig 3 auswählen wenn mehr als 3 vorhanden
+  const shuffled = rawTools.sort(() => Math.random() - 0.5).slice(0, 3);
+  const featuredTools = shuffled.map((t) => ({
     ...t,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logoUrl: t.logo ? urlFor(t.logo as any).width(160).fit("max").url() : null,
