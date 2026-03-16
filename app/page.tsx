@@ -143,6 +143,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            Jedes Tool wird geprüft.
+          </h2>
+          <p className="text-base text-gray-500 leading-relaxed mb-7">
+            Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Kein Tool landet hier zufällig.
+          </p>
+          <Link
+            href="/so-arbeiten-wir"
+            className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
+            style={{ color: "#2596be" }}
+          >
+            Mehr erfahren
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
