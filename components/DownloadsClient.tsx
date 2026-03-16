@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import FilterBar from "@/components/FilterBar";
 
 interface Download {
@@ -99,68 +98,53 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                   href={`/downloads/${dl.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
-                  {/* Preview */}
-                  <div className="relative w-full bg-[#F5F5F7]" style={{ aspectRatio: "4/3" }}>
-                    {dl.imageUrl ? (
-                      <Image
-                        src={dl.imageUrl}
-                        alt={dl.titel}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center shadow-sm">
-                          {KATEGORIE_ICON[dl.kategorie || ""] || (
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2">
-                              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                              <polyline points="7 10 12 15 17 10" />
-                              <line x1="12" y1="15" x2="12" y2="3" />
-                            </svg>
-                          )}
-                        </div>
+                  <div className="flex flex-col p-5 flex-1">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="w-11 h-11 rounded-xl bg-[#EBF6FA] flex-shrink-0 flex items-center justify-center">
+                        {KATEGORIE_ICON[dl.kategorie || ""] || (
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                          </svg>
+                        )}
                       </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col p-4 flex-1">
-                    <div className="flex flex-wrap gap-1.5 mb-2.5">
-                      {dl.typ && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                          {dl.typ}
-                        </span>
-                      )}
-                      {dl.kostenlos && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
-                          Kostenlos
-                        </span>
-                      )}
-                      {dl.kategorie && (
-                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
-                          {dl.kategorie}
-                        </span>
-                      )}
+                      <div className="flex gap-1.5">
+                        {dl.typ && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                            {dl.typ}
+                          </span>
+                        )}
+                        {dl.kostenlos && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
+                            Kostenlos
+                          </span>
+                        )}
+                      </div>
                     </div>
 
-                    <h3
-                      className="text-base font-semibold text-gray-900 mb-1"
-                    >
+                    <h3 className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors">
                       {dl.titel}
                     </h3>
 
                     {dl.kurzbeschreibung && (
-                      <p className="text-base text-gray-500 leading-relaxed line-clamp-2 flex-1 mb-3">
+                      <p className="text-base text-gray-500 leading-relaxed line-clamp-2 flex-1">
                         {dl.kurzbeschreibung}
                       </p>
                     )}
+                  </div>
 
+                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
+                    {dl.kategorie && (
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
+                        {dl.kategorie}
+                      </span>
+                    )}
                     <span
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold mt-auto group-hover:gap-2.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold ml-auto group-hover:gap-2.5 transition-all"
                       style={{ color: "#2596be" }}
                     >
-                      Mehr erfahren
+                      Ansehen
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
