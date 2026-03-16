@@ -8,6 +8,7 @@ import { featuredToolsQuery } from "@/lib/sanity/queries";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
+import StaggerReveal from "@/components/StaggerReveal";
 import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
 
 
@@ -45,7 +46,7 @@ export default async function HomePage() {
           <h1
             className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]"
           >
-            KI-Tools für
+            <span className="bg-gradient-to-r from-[#2596be] to-[#1a6e8e] bg-clip-text text-transparent">KI-Tools</span> für
             <br />
             <RotatingWord />
           </h1>
@@ -141,9 +142,9 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              {featuredTools.map((tool) => (
+              {featuredTools.map((tool, i) => (
+                <StaggerReveal key={tool.slug} delay={i * 120}>
                 <Link
-                  key={tool.slug}
                   href={`/tools/${tool.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
@@ -192,6 +193,7 @@ export default async function HomePage() {
                     )}
                   </div>
                 </Link>
+                </StaggerReveal>
               ))}
             </div>
 
