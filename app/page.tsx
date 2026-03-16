@@ -13,14 +13,6 @@ const DSGVO_COLOR: Record<string, string> = { grün: "#059669", gelb: "#D97706",
 const DSGVO_BG: Record<string, string>    = { grün: "#DCFCE7", gelb: "#FEF9C3", rot: "#FEE2E2" };
 const DSGVO_LABEL: Record<string, string> = { grün: "DSGVO konform", gelb: "Eingeschränkt", rot: "Kritisch" };
 
-const audiences = [
-  { label: "Kita & Krippe", emoji: "🏠" },
-  { label: "Grundschule", emoji: "✏️" },
-  { label: "Weiterführende Schule", emoji: "📚" },
-  { label: "GBS & GTS", emoji: "☀️" },
-  { label: "Leitung & Verwaltung", emoji: "📋" },
-  { label: "Jugendarbeit", emoji: "🤝" },
-];
 
 export default async function HomePage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -316,29 +308,6 @@ export default async function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── ZIELGRUPPEN ───────────────────────────────────────── */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <h2
-            className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
-          >
-            Für wen ist kinderleicht.ai?
-          </h2>
-          <p className="text-gray-400 mb-8">Für alle, die professionell mit Kindern arbeiten.</p>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {audiences.map((a) => (
-              <div
-                key={a.label}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-100 text-sm font-medium text-gray-700 shadow-sm"
-              >
-                <span>{a.emoji}</span>
-                {a.label}
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
 
     </>
   );

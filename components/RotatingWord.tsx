@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const words = ["Kitas", "Schulen", "Krippen", "GBS", "GTS", "Teams", "Jugendarbeit"];
+const words = ["Kitas", "Schulen", "Krippen", "GBS", "GTS", "Teams", "Jugendarbeit", "Leitung", "Verwaltung", "weiterführende Schulen"];
 
 export default function RotatingWord() {
   const [index, setIndex] = useState(0);
