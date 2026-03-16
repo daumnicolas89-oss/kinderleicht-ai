@@ -33,8 +33,16 @@ export default async function LexikonDetailPage({ params }: Props) {
 
   const verwandte = (entry.verwandte_begriffe ?? []) as string[];
 
+  const KATEGORIE_COLOR: Record<string, { bg: string; text: string }> = {
+    "KI & Technologie": { bg: "#EBF6FA", text: "#2596be" },
+    "Datenschutz & Recht": { bg: "#FEF9C3", text: "#92400E" },
+    "Pädagogik & Didaktik": { bg: "#DCFCE7", text: "#166534" },
+    "Tools & Software": { bg: "#F3E8FF", text: "#6B21A8" },
+  };
+  const katColors = entry.kategorie ? KATEGORIE_COLOR[entry.kategorie as string] : null;
+
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#F5F5F7" }}>
+    <div className="min-h-screen bg-white">
       {/* Hero area */}
       <div className="relative bg-white border-b border-gray-100 overflow-hidden">
         {/* Dot grid */}
@@ -68,8 +76,11 @@ export default async function LexikonDetailPage({ params }: Props) {
           </nav>
 
           {/* Kategorie badge */}
-          {entry.kategorie && (
-            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4 bg-[#EBF6FA] text-[#2596be]">
+          {entry.kategorie && katColors && (
+            <span
+              className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4"
+              style={{ backgroundColor: katColors.bg, color: katColors.text }}
+            >
               {entry.kategorie}
             </span>
           )}

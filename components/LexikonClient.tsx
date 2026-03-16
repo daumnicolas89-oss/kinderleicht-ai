@@ -59,7 +59,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
       {/* Sticky bar: Search + Alphabet */}
-      <div className="sticky top-[72px] z-30 bg-white/95 backdrop-blur-md py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-gray-100">
+      <div className="sticky top-[72px] z-30 bg-white/95 backdrop-blur-md py-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 border-b border-gray-100 shadow-sm">
         {/* Search */}
         <div className="max-w-md mx-auto mb-3">
           <div className="relative">
@@ -87,30 +87,32 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
           </div>
         </div>
 
-        {/* Alphabet */}
-        <div className="flex justify-center gap-[3px] sm:gap-1">
-          {ALPHABET.map((letter) => {
-            const hasEntries = lettersWithEntries.has(letter);
-            const isActive = activeLetter === letter;
-            return (
-              <button
-                key={letter}
-                disabled={!hasEntries}
-                onClick={() => hasEntries && scrollToLetter(letter)}
-                className={`
-                  w-7 h-7 sm:w-8 sm:h-8 rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 flex-shrink-0
-                  ${isActive && hasEntries
-                    ? "bg-[#2596be] text-white"
-                    : hasEntries
-                      ? "text-gray-600 hover:bg-[#2596be]/10 hover:text-[#2596be] cursor-pointer"
-                      : "text-gray-200 cursor-default"
-                  }
-                `}
-              >
-                {letter}
-              </button>
-            );
-          })}
+        {/* Alphabet — horizontal scrollbar on mobile */}
+        <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="flex justify-center gap-[3px] sm:gap-1 min-w-max">
+            {ALPHABET.map((letter) => {
+              const hasEntries = lettersWithEntries.has(letter);
+              const isActive = activeLetter === letter;
+              return (
+                <button
+                  key={letter}
+                  disabled={!hasEntries}
+                  onClick={() => hasEntries && scrollToLetter(letter)}
+                  className={`
+                    w-8 h-8 rounded-md text-xs font-semibold transition-all duration-150 flex-shrink-0
+                    ${isActive && hasEntries
+                      ? "bg-[#2596be] text-white"
+                      : hasEntries
+                        ? "text-gray-600 hover:bg-[#2596be]/10 hover:text-[#2596be] cursor-pointer"
+                        : "text-gray-200 cursor-default"
+                    }
+                  `}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -147,7 +149,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
               <div className="flex-1 h-px bg-gray-100" />
               <span className="text-xs text-gray-300">{grouped[letter].length} {grouped[letter].length === 1 ? "Begriff" : "Begriffe"}</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {grouped[letter].map((entry) => {
                 const colors = entry.kategorie ? KATEGORIE_COLOR[entry.kategorie] : null;
                 return (

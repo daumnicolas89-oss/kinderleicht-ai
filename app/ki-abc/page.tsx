@@ -51,6 +51,9 @@ export default async function KiAbcPage() {
             Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools.
             Einfach erklärt für den pädagogischen Alltag.
           </p>
+          {entries.length > 0 && (
+            <p className="mt-4 text-sm text-gray-400">{entries.length} Begriffe von A bis Z</p>
+          )}
         </div>
       </section>
 
