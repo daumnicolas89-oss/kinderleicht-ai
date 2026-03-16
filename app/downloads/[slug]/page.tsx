@@ -38,7 +38,7 @@ const dotGrid = {
     "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
   WebkitMaskImage:
     "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-  opacity: 0.35,
+  opacity: 0.45,
 };
 
 export default async function DownloadDetailPage({ params }: Props) {

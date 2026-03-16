@@ -32,12 +32,12 @@ export default async function HomePage() {
             backgroundSize: "28px 28px",
             maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
             WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%)",
-            opacity: 0.4,
+            opacity: 0.45,
           }}
         />
         <div
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.11) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.10) 0%, transparent 70%)" }}
         />
 
         <div className="relative max-w-3xl mx-auto text-center">

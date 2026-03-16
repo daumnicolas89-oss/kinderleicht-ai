@@ -142,7 +142,7 @@ export default async function ToolDetailPage({ params }: Props) {
             backgroundSize: "28px 28px",
             maskImage: "radial-gradient(ellipse 80% 55% at 50% 0%, black 20%, transparent 100%)",
             WebkitMaskImage: "radial-gradient(ellipse 80% 55% at 50% 0%, black 20%, transparent 100%)",
-            opacity: 0.35,
+            opacity: 0.45,
           }}
         />
 

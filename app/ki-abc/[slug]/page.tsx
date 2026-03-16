@@ -56,7 +56,7 @@ export default async function LexikonDetailPage({ params }: Props) {
               "radial-gradient(ellipse 80% 55% at 50% 0%, black 20%, transparent 100%)",
             WebkitMaskImage:
               "radial-gradient(ellipse 80% 55% at 50% 0%, black 20%, transparent 100%)",
-            opacity: 0.35,
+            opacity: 0.45,
           }}
         />
 
@@ -98,7 +98,7 @@ export default async function LexikonDetailPage({ params }: Props) {
       </div>
 
       {/* Content */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-6">
         {/* Definition */}
         {entry.definition && (
           <div className="bg-white rounded-2xl border border-gray-100 p-7">

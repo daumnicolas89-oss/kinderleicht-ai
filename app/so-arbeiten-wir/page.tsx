@@ -76,7 +76,7 @@ export default function SoArbeitenWirPage() {
         <div className="pointer-events-none absolute inset-0" style={dotGrid} />
         <div
           className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.11) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.10) 0%, transparent 70%)" }}
         />
         <div className="relative max-w-3xl mx-auto text-center">
           <p
