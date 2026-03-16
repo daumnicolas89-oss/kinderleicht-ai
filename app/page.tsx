@@ -7,8 +7,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { featuredToolsQuery } from "@/lib/sanity/queries";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
-import ScrollReveal from "@/components/ScrollReveal";
-import StaggerReveal from "@/components/StaggerReveal";
 import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
 
 
@@ -60,7 +58,7 @@ export default async function HomePage() {
 
       {/* ── FERIENPLANER ──────────────────────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <ScrollReveal className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Text */}
@@ -117,13 +115,13 @@ export default async function HomePage() {
             {/* Slideshow */}
             <FerienplanerSlideshow />
           </div>
-        </ScrollReveal>
+        </div>
       </section>
 
       {/* ── EMPFOHLENE TOOLS ──────────────────────────────────── */}
       {featuredTools.length > 0 && (
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-          <ScrollReveal className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <p
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -142,9 +140,9 @@ export default async function HomePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              {featuredTools.map((tool, i) => (
-                <StaggerReveal key={tool.slug} delay={i * 120}>
+              {featuredTools.map((tool) => (
                 <Link
+                  key={tool.slug}
                   href={`/tools/${tool.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
@@ -193,7 +191,6 @@ export default async function HomePage() {
                     )}
                   </div>
                 </Link>
-                </StaggerReveal>
               ))}
             </div>
 
@@ -209,7 +206,7 @@ export default async function HomePage() {
                 </svg>
               </Link>
             </div>
-          </ScrollReveal>
+          </div>
         </section>
       )}
 
