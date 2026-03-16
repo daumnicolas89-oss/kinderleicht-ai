@@ -467,7 +467,7 @@ export default async function ToolDetailPage({ params }: Props) {
                       )}
                     </div>
                     {t.highlight && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                         Empfohlen
                       </span>
                     )}
@@ -486,7 +486,7 @@ export default async function ToolDetailPage({ params }: Props) {
                 <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                   {t.dsgvo && (
                     <span
-                      className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                      className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
                       style={{
                         backgroundColor: DSGVO_BG[t.dsgvo as string] ?? "#F5F5F7",
                         color: DSGVO_COLOR[t.dsgvo as string] ?? "#374151",
@@ -496,7 +496,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     </span>
                   )}
                   {t.preismodell && (
-                    <span className="text-[10px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
+                    <span className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
                       {t.preismodell}
                     </span>
                   )}

@@ -65,7 +65,7 @@ export default function AppsClient() {
                     <div className="p-6 lg:p-8 flex flex-col">
                       <div className="flex items-center gap-2 mb-3">
                         <h2 className="text-xl font-bold text-gray-900">{app.title}</h2>
-                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                        <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                           Live
                         </span>
                       </div>

@@ -129,7 +129,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       </div>
                       <div className="flex items-center gap-2">
                         {tool.highlight && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                             Empfohlen
                           </span>
                         )}
@@ -150,7 +150,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   <div className="px-6 py-3.5 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                     {tool.dsgvo && (
                       <span
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                        className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
                         style={{
                           backgroundColor: DSGVO_BG[tool.dsgvo] ?? "#F5F5F7",
                           color: DSGVO_COLOR[tool.dsgvo] ?? "#374151",
@@ -160,7 +160,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       </span>
                     )}
                     {tool.preismodell && (
-                      <span className="text-[10px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
+                      <span className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
                         {tool.preismodell}
                       </span>
                     )}

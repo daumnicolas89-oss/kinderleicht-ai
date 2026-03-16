@@ -111,12 +111,12 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                       </div>
                       <div className="flex gap-1.5">
                         {dl.typ && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                             {dl.typ}
                           </span>
                         )}
                         {dl.kostenlos && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
                             Kostenlos
                           </span>
                         )}
@@ -136,7 +136,7 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
 
                   <div className="px-6 py-3.5 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                     {dl.kategorie && (
-                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
+                      <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
                         {dl.kategorie}
                       </span>
                     )}

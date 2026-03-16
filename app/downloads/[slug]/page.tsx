@@ -274,12 +274,12 @@ export default async function DownloadDetailPage({ params }: Props) {
                   <div className="p-4">
                     <div className="flex flex-wrap gap-1.5 mb-2">
                       {s.typ && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                           {s.typ}
                         </span>
                       )}
                       {s.kostenlos && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
+                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#059669]">
                           Kostenlos
                         </span>
                       )}

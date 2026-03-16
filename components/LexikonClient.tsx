@@ -176,7 +176,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                         )}
                         {entry.kategorie && colors && (
                           <span
-                            className="inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full"
+                            className="inline-block text-[11px] font-semibold px-2 py-0.5 rounded-full"
                             style={{ backgroundColor: colors.bg, color: colors.text }}
                           >
                             {entry.kategorie}

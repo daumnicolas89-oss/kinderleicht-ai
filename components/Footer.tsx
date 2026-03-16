@@ -45,7 +45,7 @@ function NewsletterForm() {
   return (
     <div className="flex flex-col gap-3">
       {/* E-Mail + Button */}
-      <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="email"
           value={email}

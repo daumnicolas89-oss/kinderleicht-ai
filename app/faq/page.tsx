@@ -89,7 +89,7 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
   return (
     <div className="border-b border-gray-100 last:border-b-0">
       <button
-        className="w-full flex items-center justify-between gap-6 py-5 text-left"
+        className="w-full flex items-center justify-between gap-3 sm:gap-6 py-5 text-left"
         onClick={() => setOpen(!open)}
       >
         <span className="text-base font-semibold text-gray-900" style={{ fontFamily: "var(--font-ibm-plex-sans)" }}>
@@ -108,7 +108,7 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
       </button>
       <div
         className="overflow-hidden transition-all duration-200"
-        style={{ maxHeight: open ? 200 : 0, opacity: open ? 1 : 0 }}
+        style={{ maxHeight: open ? 500 : 0, opacity: open ? 1 : 0 }}
       >
         <div className="text-base text-gray-500 leading-relaxed pb-5">{a}</div>
       </div>

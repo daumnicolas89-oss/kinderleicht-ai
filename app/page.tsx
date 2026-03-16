@@ -82,7 +82,7 @@ export default function HomePage() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl">{card.emoji}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF6FA] text-[#2596be]">
                     {card.count}
                   </span>
                 </div>
