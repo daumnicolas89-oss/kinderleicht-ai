@@ -27,18 +27,17 @@ export default function UeberUnsPage() {
           </h2>
           <div className="space-y-5 text-base text-gray-500 leading-relaxed">
             <p>
-              kinderleicht.ai ist aus einer einfachen Beobachtung entstanden: Es gibt hunderte KI-Tools, aber kaum
-              jemand erklärt, welche davon wirklich im pädagogischen Alltag helfen und welche datenschutzrechtlich
-              unbedenklich sind.
+              <span className="text-gray-900 font-semibold">Kennst du das?</span> Du sitzt abends am Schreibtisch, willst nur
+              kurz einen Elternbrief schreiben und landest in einer endlosen Google-Suche nach dem richtigen KI-Tool.
+              Ist das DSGVO-konform? Kostet das was? Funktioniert das auch auf Deutsch?
             </p>
             <p>
-              Deshalb prüfen wir jedes Tool auf vier Ebenen: Datenschutz, pädagogischer Nutzen, Bedienbarkeit
-              und Preis-Leistung. Und wir entwickeln eigene Apps wie den Ferienplaner, die genau die Probleme
-              lösen, die wir aus dem Bildungsalltag kennen.
+              Genau deshalb gibt es kinderleicht.ai. Wir haben jedes Tool selbst getestet, den Datenschutz geprüft
+              und alles so aufbereitet, dass du in Minuten findest, was du brauchst. Und wir entwickeln eigene Apps
+              wie den Ferienplaner, die genau die Probleme lösen, die wir aus dem Bildungsalltag kennen.
             </p>
-            <p>
-              Unser Ziel: Pädagogen sollen sich auf das konzentrieren können, was wirklich zählt. Die Arbeit
-              mit Kindern und Jugendlichen.
+            <p className="text-lg text-gray-900 font-semibold">
+              Mehr Zeit für Kinder und Jugendliche. Mehr Zeit für dein Team. Weniger Zeit für Recherche.
             </p>
           </div>
         </div>
