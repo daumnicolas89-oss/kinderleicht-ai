@@ -145,17 +145,17 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Nav-Spalten */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12 text-center sm:text-left">
             {/* Logo-Spalte */}
-            <div className="col-span-2 sm:col-span-1 flex flex-col gap-4">
-              <Logo height={22} />
-              <p className="text-xs text-gray-400 leading-relaxed max-w-[180px]">
+            <div className="flex flex-col items-center sm:items-start gap-4">
+              <Logo height={36} />
+              <p className="text-sm text-gray-400 leading-relaxed">
                 KI im Bildungsalltag. Für Pädagogen.
               </p>
             </div>
 
-{/* KINDERLEICHT.AI */}
-            <div>
+            {/* KINDERLEICHT.AI */}
+            <div className="flex flex-col items-center sm:items-start">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
               <ul className="flex flex-col gap-3">
                 {[
@@ -174,7 +174,7 @@ export default function Footer() {
             </div>
 
             {/* RECHTLICHES */}
-            <div>
+            <div className="flex flex-col items-center sm:items-start">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Rechtliches</p>
               <ul className="flex flex-col gap-3">
                 {[
@@ -192,7 +192,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom-Bar */}
-          <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
             <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
             <p className="text-xs text-gray-400">Made with ♥ für Pädagogen</p>
           </div>
