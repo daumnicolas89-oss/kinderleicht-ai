@@ -9,9 +9,9 @@ const navLinks = [
   { label: "Apps", href: "/apps" },
   { label: "Tools", href: "/tools" },
   { label: "Downloads", href: "/downloads" },
+  { label: "KI-ABC", href: "/ki-abc" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
-  { label: "KI-ABC", href: "/ki-abc" },
 ];
 
 export default function Nav() {
