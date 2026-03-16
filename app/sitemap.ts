@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
-import { allToolSlugsQuery, allDownloadSlugsQuery } from "@/lib/sanity/queries";
+import { allToolSlugsQuery, allDownloadSlugsQuery, allLexikonSlugsQuery } from "@/lib/sanity/queries";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://kinderleicht.ai";
@@ -14,13 +14,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/kontakt`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/so-arbeiten-wir`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/ki-abc`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
 { url: `${baseUrl}/impressum`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/datenschutz`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  const [tools, downloads] = await Promise.all([
+  const [tools, downloads, lexikon] = await Promise.all([
     client.fetch<{ slug: string }[]>(allToolSlugsQuery),
     client.fetch<{ slug: string }[]>(allDownloadSlugsQuery),
+    client.fetch<{ slug: string }[]>(allLexikonSlugsQuery),
   ]);
 
   const toolRoutes: MetadataRoute.Sitemap = tools
@@ -41,5 +43,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }));
 
-  return [...staticRoutes, ...toolRoutes, ...downloadRoutes];
+  const lexikonRoutes: MetadataRoute.Sitemap = lexikon
+    .filter((l) => l.slug)
+    .map((l) => ({
+      url: `${baseUrl}/ki-abc/${l.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
+    }));
+
+  return [...staticRoutes, ...toolRoutes, ...downloadRoutes, ...lexikonRoutes];
 }

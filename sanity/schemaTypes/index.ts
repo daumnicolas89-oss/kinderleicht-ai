@@ -1,7 +1,8 @@
 import { type SchemaTypeDefinition } from 'sanity'
 import { werkzeug } from './werkzeug'
 import download from './download'
+import { lexikon } from './lexikon'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [werkzeug, download],
+  types: [werkzeug, download, lexikon],
 }

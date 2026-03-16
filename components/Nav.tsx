@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Downloads", href: "/downloads" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Kontakt", href: "/kontakt" },
+  { label: "KI-ABC", href: "/ki-abc" },
 ];
 
 export default function Nav() {
