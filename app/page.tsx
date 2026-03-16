@@ -24,7 +24,7 @@ export default function HomePage() {
         />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]">
+          <h1 className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.15]">
             KI-Tools für
             <br />
             <RotatingWord />
