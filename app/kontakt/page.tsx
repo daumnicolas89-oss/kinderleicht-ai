@@ -53,9 +53,8 @@ export default function KontaktPage() {
       />
 
       {/* ── FORMULAR ──────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-xl mx-auto">
-          <div className="bg-white rounded-2xl border border-gray-100 p-8 sm:p-10">
             {state === "success" ? (
               <div className="text-center py-8">
                 <div
@@ -184,7 +183,6 @@ export default function KontaktPage() {
                 </button>
               </form>
             )}
-          </div>
         </div>
       </section>
     </>
