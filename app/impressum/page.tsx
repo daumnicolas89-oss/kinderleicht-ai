@@ -38,7 +38,7 @@ export default function ImpressumPage() {
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto prose-sm">
-          <div className="space-y-10 text-gray-600 text-[15px] leading-relaxed">
+          <div className="space-y-10 text-gray-600 text-[17px] leading-relaxed">
 
             {/* Angaben */}
             <div>

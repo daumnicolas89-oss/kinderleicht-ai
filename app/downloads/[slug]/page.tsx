@@ -184,7 +184,7 @@ export default async function DownloadDetailPage({ params }: Props) {
             >
               Beschreibung
             </h2>
-            <div className="text-base text-gray-600 leading-relaxed whitespace-pre-line">
+            <div className="text-[17px] text-gray-600 leading-relaxed whitespace-pre-line">
               {dl.beschreibung}
             </div>
           </div>
@@ -273,12 +273,12 @@ export default async function DownloadDetailPage({ params }: Props) {
                       )}
                     </div>
                     <h3
-                      className="text-[15px] font-semibold text-gray-900 group-hover:text-[#2596be] transition-colors"
+                      className="text-[17px] font-semibold text-gray-900 group-hover:text-[#2596be] transition-colors"
                     >
                       {s.titel}
                     </h3>
                     {s.kurzbeschreibung && (
-                      <p className="text-[15px] text-gray-500 line-clamp-2 mt-1">{s.kurzbeschreibung}</p>
+                      <p className="text-[17px] text-gray-500 line-clamp-2 mt-1">{s.kurzbeschreibung}</p>
                     )}
                   </div>
                 </Link>

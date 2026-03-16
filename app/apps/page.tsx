@@ -72,7 +72,7 @@ export default function AppsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                   </svg>
                 </div>
-                <p className="text-[15px] text-gray-500 leading-relaxed flex-1">{app.description}</p>
+                <p className="text-[17px] text-gray-500 leading-relaxed flex-1">{app.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {app.tags.map((tag) => (
                     <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-[#F5F5F7] text-gray-500">{tag}</span>
