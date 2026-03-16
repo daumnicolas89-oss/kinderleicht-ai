@@ -67,20 +67,14 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   className={`
-                    relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150
+                    px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150
                     ${active
-                      ? "text-[#2596be] bg-[#2596be]/8"
+                      ? "text-[#2596be] bg-[#2596be]/10 font-semibold"
                       : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
                     }
                   `}
                 >
                   {link.label}
-                  {active && (
-                    <span
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
-                      style={{ backgroundColor: "#2596be" }}
-                    />
-                  )}
                 </Link>
               );
             })}
