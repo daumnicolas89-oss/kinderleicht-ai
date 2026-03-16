@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
+import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 
 export default function HomePage() {
   return (
@@ -37,6 +38,15 @@ export default function HomePage() {
       {/* ── WAS BIETET KINDERLEICHT.AI ───────────────────────── */}
       <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              Alles an einem Ort.
+            </h2>
+            <p className="text-base text-gray-400 max-w-lg mx-auto">
+              Geprüfte KI-Tools, eigene Web-Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für den pädagogischen Alltag.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               {
@@ -92,6 +102,60 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FERIENPLANER HIGHLIGHT ────────────────────────────── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
+              >
+                Jetzt live
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                Ferienbetreuung planen<br />
+                in Minuten statt Stunden.
+              </h2>
+              <p className="text-base text-gray-500 leading-relaxed mb-7">
+                Der Ferienplaner erstellt Ferienprogramme, Elternbriefe und Dienstpläne per KI. Komplett im Browser, kostenlos und ohne Anmeldung.
+              </p>
+              <a
+                href="https://ferienplaner.kinderleicht.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: "#2596be" }}
+              >
+                Ferienplaner öffnen
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M7 17L17 7M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+
+            <FerienplanerSlideshow />
+          </div>
+        </div>
+      </section>
+
+      {/* ── VERTRAUEN ────────────────────────────────────────── */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-gray-400">
+            <span className="flex items-center gap-2">
+              <span>🛡️</span> DSGVO-Einschätzung bei jedem Tool
+            </span>
+            <span className="flex items-center gap-2">
+              <span>🇪🇺</span> Fokus auf EU-konforme Anbieter
+            </span>
+            <span className="flex items-center gap-2">
+              <span>🎓</span> Von Pädagogen für Pädagogen
+            </span>
           </div>
         </div>
       </section>
