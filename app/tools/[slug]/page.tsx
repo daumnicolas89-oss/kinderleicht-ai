@@ -320,7 +320,9 @@ export default async function ToolDetailPage({ params }: Props) {
               {tool.serverstandort && (
                 <div className="px-5 py-4">
                   <SidebarLabel emoji="🖥️" label="Server" />
-                  <p className="text-sm text-gray-700">{tool.serverstandort}</p>
+                  <p className="text-sm text-gray-700">
+                    {Array.isArray(tool.serverstandort) ? tool.serverstandort.join(", ") : tool.serverstandort}
+                  </p>
                 </div>
               )}
 

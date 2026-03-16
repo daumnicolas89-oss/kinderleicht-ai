@@ -181,15 +181,16 @@ export const werkzeug = defineType({
     defineField({
       name: "serverstandort",
       title: "Serverstandort",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
         list: [
-          { title: "EU", value: "EU" },
-          { title: "USA", value: "USA" },
-          { title: "Self-Hosting", value: "Self-Hosting" },
+          { title: "Server in der EU", value: "EU" },
+          { title: "Server in den USA", value: "USA" },
+          { title: "Selfhosting möglich", value: "Self-Hosting" },
           { title: "Unklar", value: "Unklar" },
         ],
-        layout: "radio",
+        layout: "grid",
       },
     }),
     // 22
