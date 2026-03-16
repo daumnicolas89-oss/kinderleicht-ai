@@ -168,7 +168,7 @@ export default async function HomePage() {
                       {tool.name}
                     </h3>
                     {tool.kurzbeschreibung && (
-                      <p className="text-base text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                      <p className="text-base text-gray-500 leading-relaxed line-clamp-3 flex-1">
                         {tool.kurzbeschreibung}
                       </p>
                     )}

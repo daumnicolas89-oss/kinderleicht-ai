@@ -467,7 +467,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     {t.name}
                   </h3>
                   {t.kurzbeschreibung && (
-                    <p className="text-base text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                    <p className="text-base text-gray-500 leading-relaxed line-clamp-3 flex-1">
                       {t.kurzbeschreibung}
                     </p>
                   )}
