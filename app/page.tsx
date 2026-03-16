@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function HomePage() {
   return (
@@ -37,7 +38,7 @@ export default function HomePage() {
 
       {/* ── WAS BIETET KINDERLEICHT.AI ───────────────────────── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-5xl mx-auto">
+        <ScrollReveal className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               Alles an einem Ort.
@@ -103,12 +104,12 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ── FERIENPLANER HIGHLIGHT ────────────────────────────── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
+        <ScrollReveal className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <p
@@ -140,12 +141,12 @@ export default function HomePage() {
 
             <FerienplanerSlideshow />
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-2xl mx-auto text-center">
+        <ScrollReveal className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Jedes Tool wird geprüft.
           </h2>
@@ -162,7 +163,7 @@ export default function HomePage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
     </>
   );
