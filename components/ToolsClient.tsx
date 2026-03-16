@@ -152,7 +152,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       <span
                         className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                         style={{
-                          backgroundColor: DSGVO_BG[tool.dsgvo] ?? "#F3F4F6",
+                          backgroundColor: DSGVO_BG[tool.dsgvo] ?? "#F5F5F7",
                           color: DSGVO_COLOR[tool.dsgvo] ?? "#374151",
                         }}
                       >

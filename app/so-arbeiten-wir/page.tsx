@@ -155,7 +155,7 @@ export default function SoArbeitenWirPage() {
           </p>
           <div
             className="rounded-xl p-5 border-l-4 max-w-2xl"
-            style={{ borderColor: "#2596be", backgroundColor: "#EBF6FB" }}
+            style={{ borderColor: "#2596be", backgroundColor: "#EBF6FA" }}
           >
             <p className="text-base text-gray-600 leading-relaxed">
               Unsere DSGVO-Ampel ist eine Orientierungshilfe. Wir sind keine Rechtsanwälte.

@@ -119,7 +119,7 @@ export default function Footer() {
                 />
                 <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
                 <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.4"/>
-                <circle cx="42" cy="4" r="2" fill="#74C5E0" opacity="0.8"/>
+                <circle cx="42" cy="4" r="2" fill="#2596be" opacity="0.8"/>
                 <circle cx="10" cy="5" r="1.5" fill="#2596be" opacity="0.5"/>
               </svg>
             </div>

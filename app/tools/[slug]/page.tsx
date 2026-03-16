@@ -213,7 +213,7 @@ export default async function ToolDetailPage({ params }: Props) {
               </span>
             )}
             {tool.preismodell && (
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#EBF6FB] text-[#2596be]">
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#EBF6FA] text-[#2596be]">
                 {tool.preismodell}
               </span>
             )}
@@ -488,7 +488,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     <span
                       className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                       style={{
-                        backgroundColor: DSGVO_BG[t.dsgvo as string] ?? "#F3F4F6",
+                        backgroundColor: DSGVO_BG[t.dsgvo as string] ?? "#F5F5F7",
                         color: DSGVO_COLOR[t.dsgvo as string] ?? "#374151",
                       }}
                     >
