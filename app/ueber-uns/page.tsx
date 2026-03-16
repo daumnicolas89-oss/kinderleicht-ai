@@ -37,7 +37,7 @@ export default function UeberUnsPage() {
               wie den Ferienplaner, die genau die Probleme lösen, die wir aus dem Bildungsalltag kennen.
             </p>
             <p className="text-lg text-gray-900 font-semibold">
-              Mehr Zeit für Kinder und Jugendliche. Mehr Zeit für dein Team. Weniger Zeit für Recherche.
+              Mehr Zeit für Kinder und Jugendliche. Mehr Zeit für dein Team. Weniger Zeit am Schreibtisch.
             </p>
           </div>
         </div>
