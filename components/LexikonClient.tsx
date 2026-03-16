@@ -96,7 +96,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                         ${isActive && hasEntries
                           ? "bg-[#2596be] text-white"
                           : hasEntries
-                            ? "text-gray-600 hover:bg-[#EBF6FA] hover:text-[#2596be] cursor-pointer"
+                            ? "text-gray-600 hover:bg-[#2596be] hover:text-white cursor-pointer"
                             : "text-gray-200 cursor-default"
                         }
                       `}
