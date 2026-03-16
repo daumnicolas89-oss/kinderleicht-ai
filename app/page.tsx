@@ -46,7 +46,7 @@ export default async function HomePage() {
           <h1
             className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]"
           >
-            <span style={{ color: "#2596be" }}>KI-Tools</span> für
+            KI-Tools für
             <br />
             <RotatingWord />
           </h1>

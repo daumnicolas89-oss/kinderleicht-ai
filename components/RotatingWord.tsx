@@ -6,30 +6,32 @@ const words = ["Kitas", "Schulen", "Krippen", "GBS", "GTS", "Teams", "Jugendarbe
 
 export default function RotatingWord() {
   const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [phase, setPhase] = useState<"visible" | "exit" | "enter">("visible");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisible(false);
+      setPhase("exit");
       setTimeout(() => {
         setIndex((i) => (i + 1) % words.length);
-        setVisible(true);
-      }, 280);
+        setPhase("enter");
+        setTimeout(() => setPhase("visible"), 30);
+      }, 300);
     }, 2400);
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <span
-      style={{
-        color: "#2596be",
-        display: "inline-block",
-        transition: "opacity 0.28s ease, transform 0.28s ease",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(-6px)",
-      }}
-    >
-      {words[index]}
-    </span>
-  );
+  const style: React.CSSProperties = {
+    color: "#2596be",
+    display: "inline-block",
+    transition: phase === "enter" ? "none" : "opacity 0.3s ease, transform 0.3s ease",
+    opacity: phase === "visible" ? 1 : 0,
+    transform:
+      phase === "exit"
+        ? "translateY(-12px)"
+        : phase === "enter"
+          ? "translateY(12px)"
+          : "translateY(0)",
+  };
+
+  return <span style={style}>{words[index]}</span>;
 }
