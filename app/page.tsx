@@ -2,7 +2,6 @@ import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
-import AnimatedCount from "@/components/AnimatedCount";
 
 export default function HomePage() {
   return (
@@ -54,7 +53,7 @@ export default function HomePage() {
               {
                 href: "/tools",
                 emoji: "🔍",
-                badge: <><AnimatedCount target={100} suffix="+" /></>,
+                badge: "100+",
                 title: "KI-Tools",
                 description: "Geprüfte Tools mit DSGVO-Ampel, Bewertungen und Praxistipps für den Bildungsalltag.",
                 linkText: "Alle Tools ansehen",
@@ -62,7 +61,7 @@ export default function HomePage() {
               {
                 href: "/apps",
                 emoji: "🚀",
-                badge: <>Neu</>,
+                badge: "Neu",
                 title: "Eigene Apps",
                 description: "Selbst entwickelte Web-Apps wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
                 linkText: "Apps entdecken",
@@ -70,7 +69,7 @@ export default function HomePage() {
               {
                 href: "/ki-abc",
                 emoji: "📖",
-                badge: <><AnimatedCount target={150} suffix="+" /></>,
+                badge: "150+",
                 title: "KI-ABC",
                 description: "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt.",
                 linkText: "Zum Lexikon",
