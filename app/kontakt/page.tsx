@@ -68,7 +68,6 @@ export default function KontaktPage() {
           </p>
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.08]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Schreib uns.
           </h1>
@@ -94,7 +93,6 @@ export default function KontaktPage() {
                 </div>
                 <h2
                   className="text-2xl font-bold text-gray-900 mb-2"
-                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                 >
                   Nachricht gesendet!
                 </h2>

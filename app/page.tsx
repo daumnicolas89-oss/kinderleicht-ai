@@ -44,7 +44,6 @@ export default async function HomePage() {
         <div className="relative max-w-3xl mx-auto text-center">
           <h1
             className="text-5xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.08]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             KI-Tools für
             <br />
@@ -133,7 +132,6 @@ export default async function HomePage() {
               </p>
               <h2
                 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Unsere Empfehlungen.
               </h2>
@@ -166,7 +164,6 @@ export default async function HomePage() {
                     </div>
                     <h3
                       className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
-                      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                     >
                       {tool.name}
                     </h3>

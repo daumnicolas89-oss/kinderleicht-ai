@@ -30,7 +30,6 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <h2
       className="text-lg font-semibold text-gray-900 mb-4"
-      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
     >
       {children}
     </h2>
@@ -179,7 +178,6 @@ export default async function ToolDetailPage({ params }: Props) {
               </div>
               <h1
                 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight leading-tight"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 {tool.name}
               </h1>
@@ -436,7 +434,6 @@ export default async function ToolDetailPage({ params }: Props) {
         <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <h2
             className="text-xl font-bold text-gray-900 mb-5"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Ähnliche Tools
           </h2>
@@ -466,7 +463,6 @@ export default async function ToolDetailPage({ params }: Props) {
                   </div>
                   <h3
                     className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
-                    style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                   >
                     {t.name}
                   </h3>

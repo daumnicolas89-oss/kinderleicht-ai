@@ -131,7 +131,6 @@ export default function FAQPage() {
           </p>
           <h1
             className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Häufige Fragen
           </h1>
@@ -170,7 +169,6 @@ export default function FAQPage() {
         <div className="max-w-xl mx-auto text-center">
           <h2
             className="text-2xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Noch Fragen offen?
           </h2>

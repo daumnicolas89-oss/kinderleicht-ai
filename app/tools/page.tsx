@@ -51,7 +51,6 @@ export default async function ToolsPage() {
           </p>
           <h1
             className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Der große Tool-Überblick.
           </h1>

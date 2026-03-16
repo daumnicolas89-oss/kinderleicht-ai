@@ -18,7 +18,6 @@ function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
       className="text-xl font-bold text-gray-900 mb-3 mt-10 first:mt-0"
-      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
     >
       {children}
     </h2>
@@ -29,7 +28,6 @@ function H3({ children }: { children: React.ReactNode }) {
   return (
     <h3
       className="text-base font-bold text-gray-900 mb-2 mt-6"
-      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
     >
       {children}
     </h3>
@@ -59,7 +57,6 @@ export default function DatenschutzPage() {
           </p>
           <h1
             className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Datenschutzerklärung
           </h1>

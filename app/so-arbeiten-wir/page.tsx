@@ -87,7 +87,6 @@ export default function SoArbeitenWirPage() {
           </p>
           <h1
             className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             So arbeiten wir.
           </h1>
@@ -103,7 +102,6 @@ export default function SoArbeitenWirPage() {
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Tools & KI-Werkzeuge
           </h2>
@@ -122,7 +120,6 @@ export default function SoArbeitenWirPage() {
                 </div>
                 <h3
                   className="text-lg font-bold text-gray-900 mb-2"
-                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                 >
                   {c.title}
                 </h3>
@@ -138,7 +135,6 @@ export default function SoArbeitenWirPage() {
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Eigene Apps
           </h2>
@@ -163,7 +159,6 @@ export default function SoArbeitenWirPage() {
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Downloads & Materialien
           </h2>
@@ -180,7 +175,6 @@ export default function SoArbeitenWirPage() {
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Transparenz & Affiliate-Links
           </h2>
@@ -207,7 +201,6 @@ export default function SoArbeitenWirPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Noch Fragen?
           </h2>

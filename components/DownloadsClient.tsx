@@ -165,7 +165,6 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
 
                     <h3
                       className="text-[15px] font-semibold text-gray-900 mb-1"
-                      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                     >
                       {dl.titel}
                     </h3>

@@ -125,7 +125,6 @@ export default function Footer() {
             </div>
             <h3
               className="text-2xl font-bold text-gray-900"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               KI im Bildungsalltag. Direkt ins Postfach.
             </h3>

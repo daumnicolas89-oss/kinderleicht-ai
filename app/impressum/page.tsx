@@ -30,7 +30,6 @@ export default function ImpressumPage() {
           </p>
           <h1
             className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900 leading-[1.06]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Impressum
           </h1>
@@ -45,7 +44,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Angaben gemäß § 5 DDG
               </h2>
@@ -64,7 +62,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Kontakt
               </h2>
@@ -81,7 +78,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
               </h2>
@@ -96,7 +92,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Verbraucherstreitbeilegung
               </h2>
@@ -110,7 +105,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Datenschutzerklärung
               </h2>
@@ -127,7 +121,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Haftung für Inhalte
               </h2>
@@ -150,7 +143,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Haftung für Links
               </h2>
@@ -170,7 +162,6 @@ export default function ImpressumPage() {
             <div>
               <h2
                 className="text-xl font-bold text-gray-900 mb-3"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 Urheberrecht
               </h2>

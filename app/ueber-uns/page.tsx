@@ -32,7 +32,6 @@ export default function UeberUnsPage() {
           </p>
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.08]"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             KI im Bildungsalltag.{" "}
             <span style={{ color: "#2596be" }}>Kinderleicht.</span>
@@ -51,7 +50,6 @@ export default function UeberUnsPage() {
           <div className="text-center mb-12">
             <h2
               className="text-3xl sm:text-4xl font-bold text-gray-900"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               Unser Ansatz
             </h2>
@@ -98,7 +96,6 @@ export default function UeberUnsPage() {
                 </div>
                 <h3
                   className="text-lg font-bold text-gray-900 mb-2"
-                  style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                 >
                   {item.title}
                 </h3>
@@ -118,7 +115,6 @@ export default function UeberUnsPage() {
             </p>
             <h2
               className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               Technologie, die den Menschen unterstützt. Nicht ersetzt.
             </h2>
@@ -153,7 +149,6 @@ export default function UeberUnsPage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
-            style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
           >
             Qualität ist uns wichtig.
           </h2>

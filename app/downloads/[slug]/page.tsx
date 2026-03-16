@@ -118,7 +118,6 @@ export default async function DownloadDetailPage({ params }: Props) {
 
               <h1
                 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4"
-                style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
               >
                 {dl.titel}
               </h1>
@@ -182,7 +181,6 @@ export default async function DownloadDetailPage({ params }: Props) {
           <div className="max-w-3xl mx-auto">
             <h2
               className="text-2xl font-bold text-gray-900 mb-5"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               Beschreibung
             </h2>
@@ -231,7 +229,6 @@ export default async function DownloadDetailPage({ params }: Props) {
           <div className="max-w-5xl mx-auto">
             <h2
               className="text-2xl font-bold text-gray-900 mb-6"
-              style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
             >
               Weitere Downloads
             </h2>
@@ -277,7 +274,6 @@ export default async function DownloadDetailPage({ params }: Props) {
                     </div>
                     <h3
                       className="text-[15px] font-semibold text-gray-900 group-hover:text-[#2596be] transition-colors"
-                      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                     >
                       {s.titel}
                     </h3>

@@ -184,7 +184,6 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
 
                     <h3
                       className="text-[15px] font-semibold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors"
-                      style={{ fontFamily: "var(--font-ibm-plex-sans)" }}
                     >
                       {tool.name}
                     </h3>
