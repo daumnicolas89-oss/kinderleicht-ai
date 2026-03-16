@@ -99,7 +99,7 @@ export default function UeberUnsPage() {
                 >
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                <p className="text-[15px] text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -118,7 +118,7 @@ export default function UeberUnsPage() {
             >
               Technologie, die den Menschen unterstützt. Nicht ersetzt.
             </h2>
-            <p className="text-base text-gray-500 leading-relaxed">
+            <p className="text-lg text-gray-500 leading-relaxed">
               KI soll kinderleicht werden. Verständlich erklärt, praxisnah aufbereitet
               und direkt anwendbar. Sie spart Zeit, unterstützt bei der Erstellung von
               Materialien und verbessert die Kommunikation, ohne dass die pädagogische
@@ -135,8 +135,8 @@ export default function UeberUnsPage() {
               <div key={item.label} className="flex items-start gap-4 bg-[#F5F5F7] rounded-xl px-5 py-4">
                 <span className="text-xl mt-0.5">{item.icon}</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900">{item.label}</p>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
+                  <p className="text-[15px] font-semibold text-gray-900">{item.label}</p>
+                  <p className="text-[15px] text-gray-500">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -152,7 +152,7 @@ export default function UeberUnsPage() {
           >
             Qualität ist uns wichtig.
           </h2>
-          <p className="text-base text-gray-500 leading-relaxed mb-6">
+          <p className="text-lg text-gray-500 leading-relaxed mb-6">
             Kein Tool landet zufällig auf unserer Plattform. Jedes Tool, jede App und jedes Material
             durchläuft einen festen Prüfprozess, damit du dich auf unsere Empfehlungen verlassen kannst.
           </p>

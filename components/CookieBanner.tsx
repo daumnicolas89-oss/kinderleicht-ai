@@ -32,7 +32,7 @@ export default function CookieBanner() {
           className="bg-white rounded-2xl shadow-2xl border border-gray-100 px-6 py-6 max-w-md w-full animate-[cookie-in_0.4s_ease-out]"
         >
           <p className="text-base font-semibold text-gray-900 mb-2">Wir nutzen Cookies</p>
-          <p className="text-sm text-gray-500 leading-relaxed mb-5">
+          <p className="text-[15px] text-gray-500 leading-relaxed mb-5">
             Wir verwenden Cookies und ähnliche Technologien für den Betrieb der Seite, Newsletter-Anmeldung
             über Mailchimp und anonyme Nutzungsanalyse. Details findest du in unserer{" "}
             <Link href="/datenschutz" className="font-medium" style={{ color: "#2596be" }}>

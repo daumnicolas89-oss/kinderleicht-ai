@@ -74,7 +74,7 @@ export default async function HomePage() {
                 Ferienprogramm, Elternbrief<br />
                 und Dienstplan auf Knopfdruck.
               </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-7">
+              <p className="text-gray-500 text-lg leading-relaxed mb-7">
                 Der Ferienplaner erstellt alles, was du für die Ferienbetreuung brauchst.
                 Komplett im Browser, kostenlos und ohne Anmeldung.
               </p>
@@ -86,7 +86,7 @@ export default async function HomePage() {
                   "Alles als PDF oder Word herunterladen",
                   "Direkt im Browser, ohne Installation",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                  <li key={item} className="flex items-start gap-2.5 text-[15px] text-gray-700">
                     <svg className="flex-shrink-0 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
@@ -135,7 +135,7 @@ export default async function HomePage() {
               >
                 Unsere Empfehlungen.
               </h2>
-              <p className="text-gray-400 text-base max-w-md mx-auto">
+              <p className="text-gray-400 text-lg max-w-md mx-auto">
                 Handverlesene Tools mit DSGVO-Einschätzung und Tipps für den pädagogischen Einsatz.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default async function HomePage() {
                       {tool.name}
                     </h3>
                     {tool.kurzbeschreibung && (
-                      <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                      <p className="text-[15px] text-gray-500 leading-relaxed line-clamp-2 flex-1">
                         {tool.kurzbeschreibung}
                       </p>
                     )}

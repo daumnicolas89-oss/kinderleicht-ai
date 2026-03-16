@@ -278,7 +278,7 @@ export default async function DownloadDetailPage({ params }: Props) {
                       {s.titel}
                     </h3>
                     {s.kurzbeschreibung && (
-                      <p className="text-sm text-gray-500 line-clamp-2 mt-1">{s.kurzbeschreibung}</p>
+                      <p className="text-[15px] text-gray-500 line-clamp-2 mt-1">{s.kurzbeschreibung}</p>
                     )}
                   </div>
                 </Link>

@@ -243,7 +243,7 @@ export default async function ToolDetailPage({ params }: Props) {
             {tool.beschreibung && (
               <div className="bg-white rounded-2xl border border-gray-100 p-7">
                 <SectionHeading>Über das Tool</SectionHeading>
-                <p className="text-gray-600 leading-[1.85] whitespace-pre-line text-sm">
+                <p className="text-gray-600 leading-[1.85] whitespace-pre-line text-base">
                   {tool.beschreibung}
                 </p>
               </div>
@@ -258,7 +258,7 @@ export default async function ToolDetailPage({ params }: Props) {
                       <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-3">Vorteile</p>
                       <ul className="space-y-2">
                         {tool.vorteile.map((v: string, i: number) => (
-                          <li key={i} className="flex gap-2 text-sm text-gray-700 leading-snug">
+                          <li key={i} className="flex gap-2 text-[15px] text-gray-700 leading-snug">
                             <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
                               <path d="M20 6L9 17l-5-5" />
                             </svg>
@@ -273,7 +273,7 @@ export default async function ToolDetailPage({ params }: Props) {
                       <p className="text-xs font-semibold text-red-600 uppercase tracking-wider mb-3">Nachteile</p>
                       <ul className="space-y-2">
                         {tool.nachteile.map((n: string, i: number) => (
-                          <li key={i} className="flex gap-2 text-sm text-gray-700 leading-snug">
+                          <li key={i} className="flex gap-2 text-[15px] text-gray-700 leading-snug">
                             <svg className="flex-shrink-0 mt-0.5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DC2626" strokeWidth="2.5">
                               <path d="M18 6L6 18M6 6l12 12" />
                             </svg>
@@ -291,7 +291,7 @@ export default async function ToolDetailPage({ params }: Props) {
               <div className="bg-white rounded-2xl border border-gray-100 p-7">
                 <SectionHeading>Didaktischer Mehrwert</SectionHeading>
                 <blockquote
-                  className="border-l-4 pl-5 text-gray-600 leading-[1.85] text-sm whitespace-pre-line"
+                  className="border-l-4 pl-5 text-gray-600 leading-[1.85] text-base whitespace-pre-line"
                   style={{ borderColor: "#2596be" }}
                 >
                   {tool.didaktischer_mehrwert}
@@ -302,7 +302,7 @@ export default async function ToolDetailPage({ params }: Props) {
             {tool.aufwand && (
               <div className="bg-white rounded-2xl border border-gray-100 p-7">
                 <SectionHeading>Aufwand & Voraussetzungen</SectionHeading>
-                <p className="text-gray-600 leading-[1.85] text-sm">{tool.aufwand}</p>
+                <p className="text-gray-600 leading-[1.85] text-base">{tool.aufwand}</p>
               </div>
             )}
           </div>
@@ -467,7 +467,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     {t.name}
                   </h3>
                   {t.kurzbeschreibung && (
-                    <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 flex-1">
+                    <p className="text-[15px] text-gray-500 leading-relaxed line-clamp-2 flex-1">
                       {t.kurzbeschreibung}
                     </p>
                   )}

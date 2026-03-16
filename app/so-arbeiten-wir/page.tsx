@@ -105,7 +105,7 @@ export default function SoArbeitenWirPage() {
           >
             Tools & KI-Werkzeuge
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed mb-10 max-w-2xl">
+          <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-2xl">
             Bevor ein Tool ins Verzeichnis kommt prüfen wir es auf vier Ebenen.
           </p>
 
@@ -123,7 +123,7 @@ export default function SoArbeitenWirPage() {
                 >
                   {c.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{c.text}</p>
+                <p className="text-[15px] text-gray-500 leading-relaxed">{c.text}</p>
               </div>
             ))}
           </div>
@@ -138,7 +138,7 @@ export default function SoArbeitenWirPage() {
           >
             Eigene Apps
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-2xl">
+          <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-2xl">
             Unsere Apps entwickeln wir selbst für den Bildungsalltag.
           </p>
           <ul className="space-y-4">
@@ -162,7 +162,7 @@ export default function SoArbeitenWirPage() {
           >
             Downloads & Materialien
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed max-w-2xl">
+          <p className="text-gray-500 text-lg leading-relaxed max-w-2xl">
             Jedes Material auf kinderleicht.ai ist praxiserprobt. Wir erstellen Vorlagen und Checklisten
             die direkt im Alltag einsetzbar sind. Kein theoretisches Fachwissen, keine langen Einleitungen.
             Nur das was wirklich hilft.
@@ -178,7 +178,7 @@ export default function SoArbeitenWirPage() {
           >
             Transparenz & Affiliate-Links
           </h2>
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-2xl">
+          <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-2xl">
             Einige Tools im Verzeichnis enthalten Affiliate-Links. Das bedeutet: Wenn du über unseren
             Link ein kostenpflichtiges Abo abschließt erhalten wir eine kleine Provision. Das beeinflusst
             unsere Bewertung nicht. Wir empfehlen kein Tool das wir nicht selbst für gut befinden.
@@ -187,7 +187,7 @@ export default function SoArbeitenWirPage() {
             className="rounded-xl p-5 border-l-4 max-w-2xl"
             style={{ borderColor: "#2596be", backgroundColor: "#EBF6FB" }}
           >
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-base text-gray-600 leading-relaxed">
               Unsere DSGVO-Ampel ist eine Orientierungshilfe. Wir sind keine Rechtsanwälte.
               Für verbindliche Datenschutzentscheidungen empfehlen wir die Rücksprache mit dem
               zuständigen Datenschutzbeauftragten.
@@ -204,7 +204,7 @@ export default function SoArbeitenWirPage() {
           >
             Noch Fragen?
           </h2>
-          <p className="text-gray-500 text-base mb-8">
+          <p className="text-gray-500 text-lg mb-8">
             Schreib uns wenn du ein Tool vermisst oder Feedback zur Bewertung hast.
           </p>
           <Link

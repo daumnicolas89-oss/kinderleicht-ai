@@ -96,7 +96,7 @@ export default function KontaktPage() {
                 >
                   Nachricht gesendet!
                 </h2>
-                <p className="text-sm text-gray-500">
+                <p className="text-base text-gray-500">
                   Vielen Dank fuer deine Nachricht. Wir melden uns so schnell wie moeglich bei dir.
                 </p>
                 <button
