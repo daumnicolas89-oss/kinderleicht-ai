@@ -86,11 +86,11 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
         onReset={() => { setActiveKat(""); setSearch(""); }}
       />
 
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
         {/* ── Grid ────────────────────────────────────── */}
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((dl) => {
               return (
                 <Link
@@ -98,7 +98,7 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                   href={`/downloads/${dl.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
-                  <div className="flex flex-col p-5 flex-1">
+                  <div className="flex flex-col p-6 flex-1">
                     <div className="flex items-start justify-between mb-3">
                       <div className="w-11 h-11 rounded-xl bg-[#EBF6FA] flex-shrink-0 flex items-center justify-center">
                         {KATEGORIE_ICON[dl.kategorie || ""] || (
@@ -134,7 +134,7 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                     )}
                   </div>
 
-                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
+                  <div className="px-6 py-3.5 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                     {dl.kategorie && (
                       <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 border border-gray-100">
                         {dl.kategorie}

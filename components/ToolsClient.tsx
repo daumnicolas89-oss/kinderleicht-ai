@@ -94,7 +94,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
       />
 
       {/* ── Card-Grid ─────────────────────────────────────── */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
 
           {filtered.length === 0 ? (
@@ -109,14 +109,14 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filtered.map((tool) => (
                 <Link
                   key={tool.slug}
                   href={`/tools/${tool.slug}`}
                   className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
-                  <div className="flex flex-col p-5 flex-1">
+                  <div className="flex flex-col p-6 flex-1">
                     <div className="flex items-start justify-between mb-3">
                       <div className="relative w-11 h-11 rounded-xl bg-[#F5F5F7] flex-shrink-0 overflow-hidden">
                         {tool.logoUrl ? (
@@ -147,7 +147,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                       </p>
                     )}
                   </div>
-                  <div className="px-5 py-3 border-t border-gray-50 flex items-center gap-2 flex-wrap">
+                  <div className="px-6 py-3.5 border-t border-gray-50 flex items-center gap-2 flex-wrap">
                     {tool.dsgvo && (
                       <span
                         className="text-[10px] font-semibold px-2 py-0.5 rounded-full"

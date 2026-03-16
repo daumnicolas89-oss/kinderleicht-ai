@@ -36,7 +36,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WAS BIETET KINDERLEICHT.AI ───────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
@@ -107,7 +107,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FERIENPLANER HIGHLIGHT ────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -144,7 +144,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Jedes Tool wird geprüft.

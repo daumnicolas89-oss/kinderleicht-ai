@@ -125,7 +125,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
       </div>
 
       {/* ── Content ── */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
 
           {/* Empty state */}
@@ -154,14 +154,14 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                   <div className="flex-1 h-px bg-gray-100" />
                   <span className="text-xs text-gray-300">{grouped[letter].length} {grouped[letter].length === 1 ? "Begriff" : "Begriffe"}</span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                   {grouped[letter].map((entry) => {
                     const colors = entry.kategorie ? KATEGORIE_COLOR[entry.kategorie] : null;
                     return (
                       <Link
                         key={entry.slug}
                         href={`/ki-abc/${entry.slug}`}
-                        className="group block rounded-2xl border border-gray-100 bg-white p-5 hover:border-[#2596be]/30 hover:shadow-lg transition-all duration-200"
+                        className="group block rounded-2xl border border-gray-100 bg-white p-6 hover:border-[#2596be]/30 hover:shadow-lg transition-all duration-200"
                       >
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <h3 className="text-base font-bold text-gray-900 group-hover:text-[#2596be] transition-colors">
