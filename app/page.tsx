@@ -43,7 +43,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               Alles an einem Ort.
             </h2>
-            <p className="text-base text-gray-400 max-w-lg mx-auto">
+            <p className="text-base text-gray-500 max-w-lg mx-auto">
               Geprüfte KI-Tools, eigene Web-Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für den pädagogischen Alltag.
             </p>
           </div>

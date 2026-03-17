@@ -161,7 +161,7 @@ export default function ImpressumPage() {
 
             {/* Quelle */}
             <div>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 Erstellt mit{" "}
                 <a href="https://www.impressum-generator.de" target="_blank" rel="noopener noreferrer" className="underline">
                   Impressum-Generator.de

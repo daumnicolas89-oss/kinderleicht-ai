@@ -25,7 +25,7 @@ export function ShareBar({ title }: { title: string }) {
 
   return (
     <div className="flex items-center gap-4 py-2.5">
-      <span className="text-xs text-gray-400 font-medium">Teilen:</span>
+      <span className="text-xs text-gray-500 font-medium">Teilen:</span>
       <button
         onClick={handleShare}
         className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 transition-colors"

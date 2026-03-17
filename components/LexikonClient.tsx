@@ -64,7 +64,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
           {/* Suchfeld */}
           <div className="relative mb-3">
             <svg
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
               width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
             >
               <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
@@ -112,13 +112,13 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
             {hasFilter && (
               <button
                 onClick={() => { setSearch(""); setActiveLetter(null); }}
-                className="h-9 px-3 text-sm text-gray-400 hover:text-gray-600 transition-colors whitespace-nowrap flex-shrink-0"
+                className="h-9 px-3 text-sm text-gray-500 hover:text-gray-600 transition-colors whitespace-nowrap flex-shrink-0"
               >
                 Zurücksetzen
               </button>
             )}
 
-            <span className="text-xs text-gray-400 whitespace-nowrap flex-shrink-0 hidden sm:block">
+            <span className="text-xs text-gray-500 whitespace-nowrap flex-shrink-0 hidden sm:block">
               {filtered.length} {filtered.length === 1 ? "Begriff" : "Begriffe"}
             </span>
           </div>
@@ -132,7 +132,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
           {/* Empty state */}
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-400 text-base">Kein Begriff gefunden.</p>
+              <p className="text-gray-500 text-base">Kein Begriff gefunden.</p>
               <button
                 onClick={() => setSearch("")}
                 className="mt-4 text-sm font-semibold hover:opacity-80 transition-opacity"

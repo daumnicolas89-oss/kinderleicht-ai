@@ -24,7 +24,7 @@ export default async function KiAbcPage() {
         subtitle="Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt."
       >
         {entries.length > 0 && (
-          <p className="mt-4 text-sm text-gray-400">{entries.length} Begriffe von A bis Z</p>
+          <p className="mt-4 text-sm text-gray-500">{entries.length} Begriffe von A bis Z</p>
         )}
       </PageHero>
 

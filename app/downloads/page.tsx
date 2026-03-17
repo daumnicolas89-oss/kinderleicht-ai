@@ -40,7 +40,7 @@ export default async function DownloadsPage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-5xl mx-auto">
             <div className="py-20 border border-gray-100 rounded-2xl bg-[#F5F5F7] text-center">
-              <p className="text-gray-400 text-base">Downloads folgen in Kürze.</p>
+              <p className="text-gray-500 text-base">Downloads folgen in Kürze.</p>
             </div>
           </div>
         </section>

@@ -99,7 +99,7 @@ export default async function DownloadDetailPage({ params }: Props) {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-gray-400 mb-6">
+          <nav className="flex items-center gap-1.5 text-sm text-gray-500 mb-6">
             <Link href="/downloads" className="hover:text-gray-600 transition-colors">
               Downloads
             </Link>
@@ -210,19 +210,19 @@ export default async function DownloadDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {dl.typ && (
               <div className="bg-[#F5F5F7] rounded-xl p-5">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Format</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Format</p>
                 <p className="text-sm font-medium text-gray-900">{dl.typ}</p>
               </div>
             )}
             {dl.kategorie && (
               <div className="bg-[#F5F5F7] rounded-xl p-5">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Kategorie</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Kategorie</p>
                 <p className="text-sm font-medium text-gray-900">{dl.kategorie}</p>
               </div>
             )}
             {dl.erscheinungsdatum && (
               <div className="bg-[#F5F5F7] rounded-xl p-5">
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Veröffentlicht</p>
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Veröffentlicht</p>
                 <p className="text-sm font-medium text-gray-900">
                   {new Date(dl.erscheinungsdatum).toLocaleDateString("de-DE", {
                     day: "numeric",

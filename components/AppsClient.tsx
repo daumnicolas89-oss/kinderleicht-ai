@@ -108,7 +108,7 @@ export default function AppsClient() {
             </div>
           ) : (
             <div className="py-20 text-center">
-              <p className="text-gray-400 text-base">Keine Apps gefunden.</p>
+              <p className="text-gray-500 text-base">Keine Apps gefunden.</p>
             </div>
           )}
         </div>

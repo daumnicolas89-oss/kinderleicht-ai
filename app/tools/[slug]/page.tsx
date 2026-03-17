@@ -40,7 +40,7 @@ function SidebarLabel({ emoji, label }: { emoji: string; label: string }) {
   return (
     <div className="flex items-center gap-1.5 mb-2">
       <span className="text-sm leading-none">{emoji}</span>
-      <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">{label}</p>
+      <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">{label}</p>
     </div>
   );
 }
@@ -150,7 +150,7 @@ export default async function ToolDetailPage({ params }: Props) {
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
             <Link href="/tools" className="hover:text-gray-600 transition-colors">
               Tools
             </Link>
@@ -390,7 +390,7 @@ export default async function ToolDetailPage({ params }: Props) {
                       Verfügbar
                     </span>
                   ) : (
-                    <span className="flex items-center gap-1.5 text-sm font-medium text-gray-400">
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-gray-500">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>

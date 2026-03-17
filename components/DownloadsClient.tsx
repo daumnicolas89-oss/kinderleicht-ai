@@ -156,7 +156,7 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
           </div>
         ) : (
           <div className="py-16 text-center">
-            <p className="text-gray-400 text-sm">Keine Downloads gefunden.</p>
+            <p className="text-gray-500 text-sm">Keine Downloads gefunden.</p>
           </div>
         )}
         </div>

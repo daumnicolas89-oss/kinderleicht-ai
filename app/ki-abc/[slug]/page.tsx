@@ -63,7 +63,7 @@ export default async function LexikonDetailPage({ params }: Props) {
 
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
             <Link
               href="/ki-abc"
               className="hover:text-gray-600 transition-colors"

@@ -203,7 +203,7 @@ export default function DatenschutzPage() {
           <P>Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z. B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.</P>
 
           <div className="mt-10 pt-6 border-t border-gray-100">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-500">
               Erstellt mit dem{" "}
               <a href="https://datenschutz-generator.de/" target="_blank" rel="noopener noreferrer" className="underline">
                 Datenschutz-Generator.de

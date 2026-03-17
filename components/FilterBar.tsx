@@ -35,7 +35,7 @@ export default function FilterBar({
         {/* Suchfeld */}
         <div className="relative mb-3">
           <svg
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+            className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
             width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
           >
             <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
@@ -76,13 +76,13 @@ export default function FilterBar({
           {hasFilter && (
             <button
               onClick={onReset}
-              className="h-9 px-3 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+              className="h-9 px-3 text-sm text-gray-500 hover:text-gray-600 transition-colors"
             >
               Zurücksetzen
             </button>
           )}
 
-          <span className="text-xs text-gray-400 ml-auto hidden sm:block">
+          <span className="text-xs text-gray-500 ml-auto hidden sm:block">
             {count} {count === 1 ? countLabelSingular : countLabel}
           </span>
         </div>

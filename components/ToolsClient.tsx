@@ -99,7 +99,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
 
           {filtered.length === 0 ? (
             <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
-              <p className="text-gray-400 text-base">Keine Tools gefunden.</p>
+              <p className="text-gray-500 text-base">Keine Tools gefunden.</p>
               <button
                 onClick={() => { setActiveKat(""); setHighlight(false); setSearch(""); }}
                 className="mt-4 text-sm font-semibold"

@@ -73,7 +73,7 @@ function NewsletterForm() {
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 flex-shrink-0 accent-[#2596be]"
         />
-        <label htmlFor="newsletter-consent" className="text-[13px] text-gray-400 leading-relaxed cursor-pointer">
+        <label htmlFor="newsletter-consent" className="text-[13px] text-gray-500 leading-relaxed cursor-pointer">
           Ich habe die Datenschutzbestimmungen gelesen. Ich stimme dem Erhalt von E-Mails
           und der Übertragung meiner Daten an Mailchimp zu.
         </label>
@@ -131,7 +131,7 @@ export default function Footer() {
             </h3>
           </div>
 
-          <p className="text-sm text-gray-400 mb-7 max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm text-gray-500 mb-7 max-w-lg mx-auto leading-relaxed">
             Praktische Tipps, neue Tools und fertige Materialien direkt ins Postfach.
           </p>
 
@@ -150,14 +150,14 @@ export default function Footer() {
             {/* Logo-Spalte (doppelt breit auf Desktop) */}
             <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
               <Logo height={36} />
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-500 leading-relaxed">
                 KI im Bildungsalltag. Für Pädagogen.
               </p>
             </div>
 
             {/* KINDERLEICHT.AI */}
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
               <ul className="flex flex-col gap-3">
                 {[
                   { label: "Über uns", href: "/ueber-uns" },
@@ -176,7 +176,7 @@ export default function Footer() {
 
             {/* RECHTLICHES */}
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Rechtliches</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Rechtliches</p>
               <ul className="flex flex-col gap-3">
                 {[
                   { label: "Impressum", href: "/impressum" },
@@ -194,18 +194,18 @@ export default function Footer() {
 
           {/* Bottom-Bar */}
           <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
-            <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
+            <p className="text-xs text-gray-500">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => {
                   localStorage.removeItem("cookieConsent");
                   window.location.reload();
                 }}
-                className="text-xs text-gray-400 hover:text-gray-600 transition-colors underline underline-offset-2"
+                className="text-xs text-gray-500 hover:text-gray-600 transition-colors underline underline-offset-2"
               >
                 Cookie-Einstellungen
               </button>
-              <p className="text-xs text-gray-400">Made with ♥ für Pädagogen</p>
+              <p className="text-xs text-gray-500">Made with ♥ für Pädagogen</p>
             </div>
           </div>
 

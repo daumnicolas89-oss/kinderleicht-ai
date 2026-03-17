@@ -38,7 +38,7 @@ export default function ScreenshotLightbox({
             <div className="relative w-16 h-10 rounded-lg overflow-hidden border border-gray-200 group-hover:border-[#2596be]/40 transition-colors flex-shrink-0">
               <Image src={src} alt={alt} fill className="object-cover" sizes="64px" />
             </div>
-            <span className="text-xs text-gray-400 group-hover:text-[#2596be] transition-colors">Screenshot ansehen</span>
+            <span className="text-xs text-gray-500 group-hover:text-[#2596be] transition-colors">Screenshot ansehen</span>
           </div>
         )}
       </button>
