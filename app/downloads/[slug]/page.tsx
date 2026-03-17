@@ -47,7 +47,6 @@ export default async function DownloadDetailPage({ params }: Props) {
   const dl = await client.fetch(downloadBySlugQuery, { slug });
   if (!dl) notFound();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const imageUrl = dl.vorschaubild
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ? urlFor(dl.vorschaubild as any).width(800).height(600).fit("crop").url()
