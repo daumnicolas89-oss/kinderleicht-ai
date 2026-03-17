@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -84,6 +85,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
