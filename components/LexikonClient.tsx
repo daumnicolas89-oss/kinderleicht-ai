@@ -126,7 +126,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
       </div>
 
       {/* ── Content ── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
 
           {/* Empty state */}
@@ -155,7 +155,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                   <div className="flex-1 h-px bg-gray-100" />
                   <span className="text-xs text-gray-300">{grouped[letter].length} {grouped[letter].length === 1 ? "Begriff" : "Begriffe"}</span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {grouped[letter].map((entry) => {
                     const colors = entry.kategorie ? KATEGORIE_COLOR[entry.kategorie] : null;
                     return (

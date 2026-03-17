@@ -47,7 +47,7 @@ export default function AppsClient() {
         onReset={() => setSearch("")}
       />
 
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
           {filtered.length > 0 ? (
             <div className="space-y-12">

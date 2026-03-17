@@ -94,7 +94,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
       />
 
       {/* ── Card-Grid ─────────────────────────────────────── */}
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
+      <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
 
           {filtered.length === 0 ? (
@@ -109,7 +109,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((tool) => (
                 <Link
                   key={tool.slug}
