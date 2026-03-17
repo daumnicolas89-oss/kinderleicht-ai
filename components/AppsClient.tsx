@@ -11,7 +11,7 @@ const apps = [
     title: "Ferienplaner",
     description: "Ferienprogramme, Elternbriefe und Dienstpläne in Minuten statt Stunden erstellen.",
     href: "https://ferienplaner.kinderleicht.ai",
-    tags: ["Planung", "Kita", "Schule"],
+    tags: ["Kita", "GBS", "GTS"],
     features: [
       "Ferienprogramm mit Mottos, Aktivitäten und Zeitplan generieren",
       "Elternbriefe automatisch formulieren und als PDF exportieren",
