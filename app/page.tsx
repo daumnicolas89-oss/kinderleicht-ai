@@ -53,7 +53,7 @@ export default function HomePage() {
               {
                 href: "/tools",
                 emoji: "🔍",
-                badge: "100+",
+                badge: "200+",
                 title: "KI-Tools",
                 description: "Geprüfte Tools mit DSGVO-Ampel, Bewertungen und Praxistipps für den Bildungsalltag.",
                 linkText: "Alle Tools ansehen",

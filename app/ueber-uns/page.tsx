@@ -14,7 +14,7 @@ export default function UeberUnsPage() {
       <PageHero
         label="Über uns"
         title="KI im Bildungsalltag. Kinderleicht."
-        subtitle="Geprüfte Tools, eigene Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für Pädagogen im deutschsprachigen Raum."
+        subtitle="Über 200 geprüfte Tools, eigene Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für Pädagogen im deutschsprachigen Raum."
       />
 
       {/* ── WER STECKT DAHINTER ──────────────────────────────── */}
@@ -56,7 +56,7 @@ export default function UeberUnsPage() {
             {[
               {
                 emoji: "🔍",
-                title: "100+ geprüfte KI-Tools",
+                title: "200+ geprüfte KI-Tools",
                 desc: "Jedes Tool mit DSGVO-Ampel, pädagogischer Einschätzung, Preisdetails und Praxistipps.",
                 href: "/tools",
               },
@@ -114,7 +114,7 @@ export default function UeberUnsPage() {
                 desc: "Wir empfehlen nur Tools, die im Alltag wirklich helfen. Kein Buzzword-Bingo, keine leeren Versprechen.",
               },
               {
-                title: "Unabhängig und transparent",
+                title: "Unabhängig",
                 desc: "Affiliate-Links kennzeichnen wir offen. Unsere Bewertungen sind davon unabhängig und basieren auf eigener Recherche und Praxiserfahrung.",
               },
             ].map((item) => (
