@@ -195,7 +195,18 @@ export default function Footer() {
           {/* Bottom-Bar */}
           <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
             <p className="text-xs text-gray-400">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
-            <p className="text-xs text-gray-400">Made with ♥ für Pädagogen</p>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => {
+                  localStorage.removeItem("cookieConsent");
+                  window.location.reload();
+                }}
+                className="text-xs text-gray-400 hover:text-gray-600 transition-colors underline underline-offset-2"
+              >
+                Cookie-Einstellungen
+              </button>
+              <p className="text-xs text-gray-400">Made with ♥ für Pädagogen</p>
+            </div>
           </div>
 
         </div>

@@ -112,11 +112,14 @@ const categories = [
 
 function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const id = q.replace(/\s+/g, "-").toLowerCase().slice(0, 40);
   return (
     <div className="border-b border-gray-100 last:border-b-0">
       <button
         className="w-full flex items-center justify-between gap-3 sm:gap-6 py-5 text-left"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={`faq-${id}`}
       >
         <span className="text-base font-semibold text-gray-900" style={{ fontFamily: "var(--font-ibm-plex-sans)" }}>
           {q}
@@ -133,6 +136,9 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
         </span>
       </button>
       <div
+        id={`faq-${id}`}
+        role="region"
+        aria-labelledby={`faq-btn-${id}`}
         className="overflow-hidden transition-all duration-200"
         style={{ maxHeight: open ? 500 : 0, opacity: open ? 1 : 0 }}
       >
