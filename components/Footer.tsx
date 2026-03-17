@@ -146,52 +146,49 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Nav-Spalten */}
-          <div className="flex flex-col gap-10 mb-12">
-            {/* Logo-Zeile */}
-            <div className="flex flex-col items-center sm:items-start gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-12">
+            {/* Logo-Spalte (doppelt breit auf Desktop) */}
+            <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
               <Logo height={36} />
               <p className="text-sm text-gray-400 leading-relaxed">
                 KI im Bildungsalltag. Für Pädagogen.
               </p>
             </div>
 
-            {/* Link-Spalten: immer 2-spaltig */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10">
-              {/* KINDERLEICHT.AI */}
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    { label: "Über uns", href: "/ueber-uns" },
-                    { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
-                    { label: "FAQ", href: "/faq" },
-                    { label: "Kontakt", href: "/kontakt" },
-                  ].map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* KINDERLEICHT.AI */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">kinderleicht.ai</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Über uns", href: "/ueber-uns" },
+                  { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
+                  { label: "FAQ", href: "/faq" },
+                  { label: "Kontakt", href: "/kontakt" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* RECHTLICHES */}
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Rechtliches</p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    { label: "Impressum", href: "/impressum" },
-                    { label: "Datenschutz", href: "/datenschutz" },
-                  ].map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* RECHTLICHES */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Rechtliches</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Impressum", href: "/impressum" },
+                  { label: "Datenschutz", href: "/datenschutz" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
