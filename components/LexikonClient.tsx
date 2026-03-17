@@ -81,7 +81,10 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
 
           {/* Alphabet + Count */}
           <div className="flex items-center gap-2">
-            <div className="overflow-x-auto scrollbar-hide flex-1 -mx-1 px-1">
+            <div className="relative flex-1 -mx-1 px-1">
+              {/* Fade-Hinweis rechts: zeigt dass man scrollen kann */}
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 sm:hidden" />
+              <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-[3px] min-w-max">
                 {ALPHABET.map((letter) => {
                   const hasEntries = lettersWithEntries.has(letter);
@@ -106,6 +109,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                     </button>
                   );
                 })}
+              </div>
               </div>
             </div>
 

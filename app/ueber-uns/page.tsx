@@ -115,7 +115,7 @@ export default function UeberUnsPage() {
               },
               {
                 title: "Unabhängig und transparent",
-                desc: "Affiliate-Links kennzeichnen wir offen. Unsere Bewertungen sind davon unabhängig. Mehr dazu auf unserer Transparenz-Seite.",
+                desc: "Affiliate-Links kennzeichnen wir offen. Unsere Bewertungen sind davon unabhängig und basieren auf eigener Recherche und Praxiserfahrung.",
               },
             ].map((item) => (
               <div

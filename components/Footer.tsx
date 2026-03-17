@@ -146,15 +146,16 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Nav-Spalten */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-10 mb-12">
-            {/* Logo-Spalte (doppelt breit auf Desktop) */}
-            <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
-              <Logo height={36} />
-              <p className="text-sm text-gray-500 leading-relaxed">
-                KI im Bildungsalltag. Für Pädagogen.
-              </p>
-            </div>
+          {/* Logo */}
+          <div className="flex flex-col items-center gap-3 mb-10">
+            <Logo height={36} />
+            <p className="text-sm text-gray-500 leading-relaxed">
+              KI im Bildungsalltag. Für Pädagogen.
+            </p>
+          </div>
 
+          {/* Nav-Spalten zentriert */}
+          <div className="flex justify-center gap-16 sm:gap-24 mb-12 text-center">
             {/* KINDERLEICHT.AI */}
             <div>
               <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
@@ -193,7 +194,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom-Bar */}
-          <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-center sm:text-left">
+          <div className="border-t border-gray-100 pt-6 flex flex-col items-center gap-3 text-center">
             <p className="text-xs text-gray-500">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
             <div className="flex items-center gap-4">
               <button
