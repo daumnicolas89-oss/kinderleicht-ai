@@ -145,19 +145,18 @@ export default function Footer() {
       <div className="border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
-          {/* Nav-Spalten */}
-          {/* Logo */}
-          <div className="flex flex-col items-center gap-3 mb-10">
-            <Logo height={36} />
-            <p className="text-sm text-gray-500 leading-relaxed">
-              KI im Bildungsalltag. Für Pädagogen.
-            </p>
-          </div>
+          {/* Logo + Nav-Spalten nebeneinander */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-8 mb-12">
+            {/* Logo-Spalte (doppelt breit) */}
+            <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
+              <Logo height={36} />
+              <p className="text-sm text-gray-500 leading-relaxed">
+                KI im Bildungsalltag. Für Pädagogen.
+              </p>
+            </div>
 
-          {/* Nav-Spalten zentriert */}
-          <div className="flex justify-center gap-16 sm:gap-24 mb-12 text-center">
             {/* KINDERLEICHT.AI */}
-            <div>
+            <div className="text-center sm:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
               <ul className="flex flex-col gap-3">
                 {[
@@ -176,7 +175,7 @@ export default function Footer() {
             </div>
 
             {/* RECHTLICHES */}
-            <div>
+            <div className="text-center sm:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Rechtliches</p>
               <ul className="flex flex-col gap-3">
                 {[
