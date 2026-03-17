@@ -44,7 +44,7 @@ export default function HomePage() {
               Alles an einem Ort.
             </h2>
             <p className="text-base text-gray-600 max-w-lg mx-auto">
-              Geprüfte KI-Tools, eigene Web-Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für den pädagogischen Alltag.
+              Geprüfte KI-Tools, eigene Web-Apps und ein umfassendes KI-Lexikon. Speziell aufbereitet für den pädagogischen Alltag.
             </p>
           </div>
 

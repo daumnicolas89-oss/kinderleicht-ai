@@ -14,7 +14,7 @@ export default function UeberUnsPage() {
       <PageHero
         label="Über uns"
         title="KI im Bildungsalltag. Kinderleicht."
-        subtitle="Über 200 geprüfte Tools, eigene Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für Pädagogen im deutschsprachigen Raum."
+        subtitle="Geprüfte Tools, eigene Apps und ein umfassendes KI-Lexikon. Speziell aufbereitet für Pädagogen im deutschsprachigen Raum."
       />
 
       {/* ── WER STECKT DAHINTER ──────────────────────────────── */}
