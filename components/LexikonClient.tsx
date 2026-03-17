@@ -81,35 +81,36 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
 
           {/* Alphabet + Count */}
           <div className="flex items-center gap-2">
-            <div className="relative flex-1 -mx-1 px-1">
-              {/* Fade-Hinweis rechts: zeigt dass man scrollen kann */}
-              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-white to-transparent z-10 sm:hidden" />
-              <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-[3px] min-w-max">
-                {ALPHABET.map((letter) => {
-                  const hasEntries = lettersWithEntries.has(letter);
-                  const isActive = activeLetter === letter;
-                  return (
-                    <button
-                      key={letter}
-                      disabled={!hasEntries}
-                      onClick={() => hasEntries && scrollToLetter(letter)}
-                      aria-label={`Buchstabe ${letter}`}
-                      className={`
-                        w-8 h-8 rounded-full text-xs font-semibold transition-all duration-150 flex-shrink-0
-                        ${isActive && hasEntries
-                          ? "bg-[#2596be] text-white"
-                          : hasEntries
-                            ? "text-gray-600 hover:bg-[#2596be] hover:text-white cursor-pointer"
-                            : "text-gray-300 cursor-default"
-                        }
-                      `}
-                    >
-                      {letter}
-                    </button>
-                  );
-                })}
-              </div>
+            <div className="relative flex-1 overflow-hidden">
+              {/* Fade-Hinweise: zeigen dass man scrollen kann */}
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-white to-transparent z-10 sm:hidden" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-white to-transparent z-10 sm:hidden" />
+              <div className="overflow-x-auto scrollbar-hide px-1 -mx-1">
+                <div className="flex gap-[2px] sm:gap-[3px] min-w-max sm:justify-center">
+                  {ALPHABET.map((letter) => {
+                    const hasEntries = lettersWithEntries.has(letter);
+                    const isActive = activeLetter === letter;
+                    return (
+                      <button
+                        key={letter}
+                        disabled={!hasEntries}
+                        onClick={() => hasEntries && scrollToLetter(letter)}
+                        aria-label={`Buchstabe ${letter}`}
+                        className={`
+                          w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-semibold transition-all duration-150 flex-shrink-0
+                          ${isActive && hasEntries
+                            ? "bg-[#2596be] text-white"
+                            : hasEntries
+                              ? "text-gray-600 hover:bg-[#2596be] hover:text-white cursor-pointer"
+                              : "text-gray-300 cursor-default"
+                          }
+                        `}
+                      >
+                        {letter}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
