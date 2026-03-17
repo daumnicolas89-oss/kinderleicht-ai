@@ -68,6 +68,9 @@ export default function AppsClient() {
                         <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                           Live
                         </span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">
+                          Beta
+                        </span>
                       </div>
                       <p className="text-base text-gray-500 leading-relaxed mb-5">{app.description}</p>
 
