@@ -43,7 +43,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
               Alles an einem Ort.
             </h2>
-            <p className="text-base text-gray-500 max-w-lg mx-auto">
+            <p className="text-base text-gray-600 max-w-lg mx-auto">
               Geprüfte KI-Tools, eigene Web-Apps und ein Lexikon mit über 150 Begriffen. Speziell aufbereitet für den pädagogischen Alltag.
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function HomePage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#2596be] transition-colors">
                   {card.title}
                 </h3>
-                <p className="text-base text-gray-500 leading-relaxed flex-1 mb-5">
+                <p className="text-base text-gray-600 leading-relaxed flex-1 mb-5">
                   {card.description}
                 </p>
                 <span
@@ -150,7 +150,7 @@ export default function HomePage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Jedes Tool wird geprüft.
           </h2>
-          <p className="text-base text-gray-500 leading-relaxed mb-7">
+          <p className="text-base text-gray-600 leading-relaxed mb-7">
             Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Kein Tool landet hier zufällig.
           </p>
           <Link
