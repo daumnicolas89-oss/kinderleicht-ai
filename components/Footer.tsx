@@ -146,52 +146,49 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Logo + Nav-Spalten nebeneinander */}
-          <div className="flex flex-col sm:flex-row sm:justify-between gap-10 sm:gap-16 mb-12">
-            {/* Logo-Spalte */}
-            <div className="flex flex-col items-center sm:items-start gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-12 max-w-3xl mx-auto mb-12">
+            {/* Logo-Spalte (doppelt breit) */}
+            <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
               <Logo height={36} />
               <p className="text-sm text-gray-500 leading-relaxed">
                 KI im Bildungsalltag. Für Pädagogen.
               </p>
             </div>
 
-            {/* Nav-Spalten */}
-            <div className="flex gap-16 sm:gap-20 justify-center">
-              {/* KINDERLEICHT.AI */}
-              <div className="text-center sm:text-left">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    { label: "Über uns", href: "/ueber-uns" },
-                    { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
-                    { label: "FAQ", href: "/faq" },
-                    { label: "Kontakt", href: "/kontakt" },
-                  ].map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* KINDERLEICHT.AI */}
+            <div className="text-center sm:text-left">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Über uns", href: "/ueber-uns" },
+                  { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
+                  { label: "FAQ", href: "/faq" },
+                  { label: "Kontakt", href: "/kontakt" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* RECHTLICHES */}
-              <div className="text-center sm:text-left">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Rechtliches</p>
-                <ul className="flex flex-col gap-3">
-                  {[
-                    { label: "Impressum", href: "/impressum" },
-                    { label: "Datenschutz", href: "/datenschutz" },
-                  ].map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* RECHTLICHES */}
+            <div className="text-center sm:text-left">
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Rechtliches</p>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: "Impressum", href: "/impressum" },
+                  { label: "Datenschutz", href: "/datenschutz" },
+                ].map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
