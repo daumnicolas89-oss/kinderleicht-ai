@@ -47,9 +47,9 @@ export default function DatenschutzPage() {
         <div className="max-w-3xl mx-auto text-base leading-relaxed text-gray-600">
 
           <H2>Präambel</H2>
-          <P>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als &bdquo;Daten&ldquo; bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z. B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als &bdquo;Onlineangebot&ldquo;).</P>
+          <P>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als &bdquo;Daten&ldquo; bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten sowie innerhalb externer Onlinepräsenzen, wie z. B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als &bdquo;Onlineangebot&ldquo;).</P>
           <P>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</P>
-          <P>Stand: 18. Februar 2026</P>
+          <P>Stand: 17. März 2026</P>
 
           <H2>Verantwortlicher</H2>
           <P>
@@ -75,58 +75,29 @@ export default function DatenschutzPage() {
 
           <H3>Arten der verarbeiteten Daten</H3>
           <UL>
-            <li>Bestandsdaten</li>
-            <li>Beschäftigtendaten</li>
-            <li>Zahlungsdaten</li>
-            <li>Standortdaten</li>
-            <li>Kontaktdaten</li>
-            <li>Inhaltsdaten</li>
-            <li>Vertragsdaten</li>
-            <li>Nutzungsdaten</li>
-            <li>Meta-, Kommunikations- und Verfahrensdaten</li>
-            <li>Event-Daten (Facebook)</li>
+            <li>Kontaktdaten (z. B. E-Mail-Adresse)</li>
+            <li>Inhaltsdaten (z. B. Eingaben in Kontaktformularen)</li>
+            <li>Nutzungsdaten (z. B. besuchte Seiten, Zugriffszeit)</li>
+            <li>Meta- und Kommunikationsdaten (z. B. IP-Adresse, Browsertyp)</li>
             <li>Protokolldaten</li>
           </UL>
 
           <H3>Kategorien betroffener Personen</H3>
           <UL>
-            <li>Leistungsempfänger und Auftraggeber</li>
-            <li>Beschäftigte</li>
-            <li>Interessenten</li>
+            <li>Nutzer unseres Onlineangebots</li>
             <li>Kommunikationspartner</li>
-            <li>Nutzer</li>
-            <li>Gewinnspiel- und Wettbewerbsteilnehmer</li>
-            <li>Geschäfts- und Vertragspartner</li>
-            <li>Bildungs- und Kursteilnehmer</li>
-            <li>Teilnehmer</li>
-            <li>Dritte Personen</li>
-            <li>Hinweisgeber</li>
+            <li>Newsletter-Abonnenten</li>
           </UL>
 
           <H3>Zwecke der Verarbeitung</H3>
           <UL>
-            <li>Erbringung vertraglicher Leistungen und Erfüllung vertraglicher Pflichten</li>
-            <li>Kommunikation</li>
-            <li>Sicherheitsmaßnahmen</li>
-            <li>Direktmarketing</li>
-            <li>Reichweitenmessung</li>
-            <li>Tracking</li>
-            <li>Büro- und Organisationsverfahren</li>
-            <li>Remarketing</li>
-            <li>Konversionsmessung</li>
-            <li>Zielgruppenbildung</li>
-            <li>Affiliate-Nachverfolgung</li>
-            <li>Organisations- und Verwaltungsverfahren</li>
-            <li>Durchführung von Gewinnspielen und Wettbewerben</li>
-            <li>Feedback</li>
-            <li>Umfragen und Fragebögen</li>
-            <li>Marketing</li>
-            <li>Profile mit nutzerbezogenen Informationen</li>
             <li>Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit</li>
+            <li>Kommunikation und Beantwortung von Kontaktanfragen</li>
+            <li>Reichweitenmessung und anonyme Webanalyse</li>
+            <li>Newsletter-Versand</li>
+            <li>Affiliate-Nachverfolgung</li>
+            <li>Sicherheitsmaßnahmen</li>
             <li>Informationstechnische Infrastruktur</li>
-            <li>Hinweisgeberschutz</li>
-            <li>Öffentlichkeitsarbeit</li>
-            <li>Geschäftsprozesse und betriebswirtschaftliche Verfahren</li>
           </UL>
 
           <H2>Maßgebliche Rechtsgrundlagen</H2>
@@ -178,20 +149,6 @@ export default function DatenschutzPage() {
           <P>Wir verarbeiten personenbezogene Daten unserer Vertrags- und Geschäftspartner zur Anbahnung, Durchführung und Abwicklung von Vertragsverhältnissen sowie vergleichbaren Rechtsverhältnissen. Die Verarbeitung dient insbesondere der Erfüllung unserer vertraglichen Haupt- und Nebenpflichten.</P>
           <P>Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO zur Durchführung vorvertraglicher Maßnahmen und zur Erfüllung des jeweiligen Vertragsverhältnisses sowie Art. 6 Abs. 1 lit. c DSGVO zur Erfüllung gesetzlicher Verpflichtungen.</P>
 
-          <H2>Zahlungsverfahren</H2>
-          <P>Im Rahmen von Vertrags- und sonstigen Rechtsbeziehungen bieten wir effiziente und sichere Zahlungsmöglichkeiten an und setzen hierzu neben Banken und Kreditinstituten weitere Dienstleister ein. Für die Zahlungsgeschäfte gelten die Geschäftsbedingungen und die Datenschutzhinweise der jeweiligen Zahlungsdienstleister.</P>
-          <P><strong>Eingesetzte Zahlungsdienstleister:</strong></P>
-          <UL>
-            <li><strong>Amazon Payments</strong> – Amazon Payments Europe S.C.A., Luxemburg (<a href="https://pay.amazon.de/help/201212490" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>American Express</strong> – American Express Europe S.A., Frankfurt (<a href="https://www.americanexpress.com/de-de/firma/legal/datenschutz-center/online-datenschutzerklarung/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>Apple Pay</strong> – Apple Inc., Cupertino, USA (<a href="https://www.apple.com/legal/privacy/de-ww/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>Google Pay</strong> – Google Ireland Limited, Dublin (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>Klarna</strong> – Klarna Bank AB, Stockholm (<a href="https://www.klarna.com/de/datenschutz" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>Mastercard</strong> – Mastercard Europe SA, Waterloo, Belgien (<a href="https://www.mastercard.de/de-de/datenschutz.html" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>PayPal</strong> – PayPal (Europe) S.à r.l. et Cie, Luxemburg (<a href="https://www.paypal.com/de/legalhub/paypal/privacy-full" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>Visa</strong> – Visa Europe Services Inc., London (<a href="https://www.visa.de/nutzungsbedingungen/visa-privacy-center.html" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-          </UL>
-
           <H2>Bereitstellung des Onlineangebots und Webhosting</H2>
           <P>Wir verarbeiten die Daten der Nutzer, um ihnen unsere Online-Dienste zur Verfügung stellen zu können. Zu diesem Zweck verarbeiten wir die IP-Adresse des Nutzers, die notwendig ist, um die Inhalte und Funktionen unserer Online-Dienste an den Browser oder das Endgerät der Nutzer zu übermitteln.</P>
           <P><strong>Erhebung von Zugriffsdaten und Logfiles:</strong> Der Zugriff auf unser Onlineangebot wird in Form von sogenannten &bdquo;Server-Logfiles&ldquo; protokolliert. Logfile-Informationen werden für die Dauer von maximal 30 Tagen gespeichert und danach gelöscht oder anonymisiert.</P>
@@ -201,14 +158,10 @@ export default function DatenschutzPage() {
             <li><strong>Sanity</strong> – Sanity AS, Grensen 5-7, 0159 Oslo, Norwegen (<a href="https://www.sanity.io/legal/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>). Content-Management-System für die Verwaltung von Inhalten.</li>
           </UL>
 
-          <H2>Einsatz von Cookies</H2>
-          <P>Wir verwenden Cookies gemäß den gesetzlichen Vorschriften. Dazu holen wir, wenn erforderlich, vorab die Zustimmung der Nutzer ein. Ist eine Zustimmung nicht notwendig, setzen wir auf unsere berechtigten Interessen. Die Einwilligung kann jederzeit widerrufen werden.</P>
-          <P><strong>Speicherdauer:</strong></P>
-          <UL>
-            <li><strong>Temporäre Cookies (Session-Cookies):</strong> Werden gelöscht, nachdem ein Nutzer ein Onlineangebot verlassen und seinen Browser geschlossen hat.</li>
-            <li><strong>Permanente Cookies:</strong> Bleiben auch nach dem Schließen des Browsers gespeichert. Speicherdauer bis zu zwei Jahre.</li>
-          </UL>
-          <P>Nutzer können die von ihnen abgegebenen Einwilligungen jederzeit widerrufen und zudem einen Widerspruch gegen die Verarbeitung entsprechend den gesetzlichen Vorgaben, auch mittels der Privatsphäre-Einstellungen ihres Browsers, erklären.</P>
+          <H2>Einsatz von Cookies und lokalem Speicher</H2>
+          <P>Unsere Webseite setzt <strong>keine Tracking-Cookies</strong>. Wir speichern lediglich Ihre Cookie-Einstellung (Zustimmung oder Ablehnung) im lokalen Speicher (localStorage) Ihres Browsers, damit wir Sie nicht bei jedem Besuch erneut fragen müssen.</P>
+          <P>Die Webanalyse mit Umami wird erst aktiviert, nachdem Sie über unser Cookie-Banner zugestimmt haben. Umami selbst setzt keine Cookies.</P>
+          <P>Sie können Ihre Einwilligung jederzeit über den Link &bdquo;Cookie-Einstellungen&ldquo; in der Fußzeile unserer Webseite widerrufen. Zudem können Sie den lokalen Speicher Ihres Browsers jederzeit über die Browser-Einstellungen löschen.</P>
 
           <H2>Kontakt- und Anfrageverwaltung</H2>
           <P>Bei der Kontaktaufnahme mit uns (z. B. per Post, Kontaktformular, E-Mail, Telefon oder via soziale Medien) sowie im Rahmen bestehender Nutzer- und Geschäftsbeziehungen werden die Angaben der anfragenden Personen verarbeitet, soweit dies zur Beantwortung der Kontaktanfragen und etwaiger angefragter Maßnahmen erforderlich ist.</P>
@@ -217,11 +170,18 @@ export default function DatenschutzPage() {
           <P>Wir versenden Newsletter, E-Mails und weitere elektronische Benachrichtigungen nur mit der Einwilligung der Empfänger oder einer gesetzlichen Erlaubnis. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.</P>
           <P><strong>Mailchimp:</strong> E-Mail-Versand- und Automatisierungsplattform; Dienstanbieter: Intuit Inc., 2700 Coast Ave., Mountain View, CA 94043, USA. <a href="https://www.intuit.com/privacy/statement/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>.</P>
 
-          <H2>Webanalyse, Monitoring und Optimierung</H2>
-          <P>Die Webanalyse dient der Auswertung der Besucherströme unseres Onlineangebots und kann Verhalten, Interessen oder demographische Informationen umfassen. Wir setzen Webanalyse ein, um die Nutzung unseres Onlineangebots zu optimieren.</P>
-
-          <H2>Onlinemarketing</H2>
-          <P>Wir verarbeiten personenbezogene Daten zu Onlinemarketingzwecken, insbesondere zur Vermarktung von Werbeflächen und zur Darstellung von relevanten Inhalten und Werbung.</P>
+          <H2>Webanalyse mit Umami</H2>
+          <P>Wir nutzen <strong>Umami</strong> zur anonymen Webanalyse. Umami ist eine datenschutzfreundliche, Open-Source-Analysesoftware, die wir selbst auf Vercel hosten. Umami erhebt <strong>keine personenbezogenen Daten</strong>, setzt <strong>keine Cookies</strong> und speichert <strong>keine IP-Adressen</strong>.</P>
+          <P>Folgende anonyme Nutzungsdaten werden erfasst:</P>
+          <UL>
+            <li>Aufgerufene Seiten und Verweildauer</li>
+            <li>Verweisende Webseite (Referrer)</li>
+            <li>Verwendeter Browser und Betriebssystem</li>
+            <li>Land des Zugriffs (basierend auf anonymisierter IP)</li>
+            <li>Bildschirmauflösung</li>
+          </UL>
+          <P>Es werden <strong>keine individuellen Nutzerprofile</strong> erstellt. Ein Rückschluss auf einzelne Personen ist nicht möglich. Die Analyse wird erst nach Ihrer Einwilligung über unser Cookie-Banner aktiviert.</P>
+          <P>Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 S. 1 lit. a DSGVO). Dienstanbieter für das Hosting: Vercel Inc., USA (siehe oben).</P>
 
           <H2>Affiliate-Programme und Affiliate-Links</H2>
           <P>In unser Onlineangebot binden wir sogenannte Affiliate-Links oder andere Verweise auf die Angebote und Leistungen von Drittanbietern ein. Wenn Nutzer den Affiliate-Links folgen oder die Angebote wahrnehmen, können wir von diesen Drittanbietern eine Provision erhalten.</P>
@@ -235,11 +195,8 @@ export default function DatenschutzPage() {
           </UL>
 
           <H2>Plug-ins und eingebettete Funktionen sowie Inhalte</H2>
-          <P>Wir binden in unser Onlineangebot Funktions- und Inhaltselemente ein, die von den Servern ihrer jeweiligen Anbieter bezogen werden. Dies können z. B. Grafiken, Videos oder Stadtpläne sein. Die Einbindung setzt voraus, dass die Anbieter dieser Inhalte die IP-Adresse der Nutzer verarbeiten.</P>
-          <UL>
-            <li><strong>Google Fonts</strong> – Google Ireland Limited, Dublin (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-            <li><strong>YouTube-Videos</strong> – Google Ireland Limited, Dublin (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>)</li>
-          </UL>
+          <P>Wir binden in unser Onlineangebot Funktions- und Inhaltselemente ein, die von den Servern ihrer jeweiligen Anbieter bezogen werden. Die Einbindung setzt voraus, dass die Anbieter dieser Inhalte die IP-Adresse der Nutzer verarbeiten.</P>
+          <P><strong>Schriftarten (Self-Hosted):</strong> Wir verwenden die Schriftarten IBM Plex Sans und Inter. Diese werden <strong>lokal von unserem Server</strong> ausgeliefert und nicht von externen Diensten wie Google Fonts geladen. Es findet keine Datenübermittlung an Google statt.</P>
 
           <H2>Änderung und Aktualisierung</H2>
           <P>Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z. B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.</P>
