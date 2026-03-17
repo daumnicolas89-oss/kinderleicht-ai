@@ -11,6 +11,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "KI-Tools — kinderleicht.ai",
   description: "Geprüfte KI-Tools für Kita, Schule und Bildung. Mit DSGVO-Ampel, Bewertungen und Praxistipps.",
+  alternates: { canonical: "https://kinderleicht.ai/tools" },
 };
 
 export default async function ToolsPage() {

@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Impressum — kinderleicht.ai",
   description: "Impressum von kinderleicht.ai. Angaben gemäß § 5 DDG und Kontaktdaten.",
+  alternates: { canonical: "https://kinderleicht.ai/impressum" },
 };
 
 export default function ImpressumPage() {

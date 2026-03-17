@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${dl.titel} — kinderleicht.ai`,
     description: dl.kurzbeschreibung || `${dl.titel} kostenlos herunterladen.`,
+    alternates: { canonical: `https://kinderleicht.ai/downloads/${slug}` },
   };
 }
 

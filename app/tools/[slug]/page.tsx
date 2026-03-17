@@ -57,6 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${tool.name} — KI-Tools — kinderleicht.ai`,
     description: tool.kurzbeschreibung,
+    alternates: { canonical: `https://kinderleicht.ai/tools/${slug}` },
   };
 }
 

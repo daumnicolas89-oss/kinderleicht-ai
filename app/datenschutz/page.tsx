@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Datenschutzerklärung — kinderleicht.ai",
   description: "Datenschutzerklärung von kinderleicht.ai. Informationen zur Datenverarbeitung nach DSGVO.",
+  alternates: { canonical: "https://kinderleicht.ai/datenschutz" },
 };
 
 function H2({ children }: { children: React.ReactNode }) {

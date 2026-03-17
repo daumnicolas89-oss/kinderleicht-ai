@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Über uns — kinderleicht.ai",
   description: "Das Team hinter kinderleicht.ai. Geprüfte KI-Tools und eigene Apps für Pädagogen im deutschsprachigen Raum.",
+  alternates: { canonical: "https://kinderleicht.ai/ueber-uns" },
 };
 
 export default function UeberUnsPage() {

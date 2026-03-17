@@ -6,6 +6,7 @@ import AppsClient from "@/components/AppsClient";
 export const metadata: Metadata = {
   title: "Apps — kinderleicht.ai",
   description: "Eigene Web-Apps für Kita und Schule. Kostenlos im Browser, ohne Anmeldung.",
+  alternates: { canonical: "https://kinderleicht.ai/apps" },
 };
 
 export default function AppsPage() {

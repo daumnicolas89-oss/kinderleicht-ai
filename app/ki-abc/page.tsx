@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "KI-ABC — kinderleicht.ai",
   description:
     "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt für Pädagogen.",
+  alternates: { canonical: "https://kinderleicht.ai/ki-abc" },
 };
 
 export default async function KiAbcPage() {

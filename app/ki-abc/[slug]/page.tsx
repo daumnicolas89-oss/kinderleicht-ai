@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${entry.begriff} — KI-ABC — kinderleicht.ai`,
     description: entry.kurzdefinition || `${entry.begriff} einfach erklärt.`,
+    alternates: { canonical: `https://kinderleicht.ai/ki-abc/${slug}` },
   };
 }
 

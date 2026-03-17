@@ -26,7 +26,7 @@ const siteDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kinderleicht.ai"),
-  alternates: { canonical: "./" },
+  alternates: { canonical: "https://kinderleicht.ai" },
   title: siteTitle,
   description: siteDescription,
   openGraph: {

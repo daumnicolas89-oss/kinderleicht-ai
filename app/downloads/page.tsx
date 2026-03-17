@@ -11,6 +11,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Downloads — kinderleicht.ai",
   description: "Kostenlose Vorlagen, Checklisten und Leitfäden für Kita, Schule und Pädagogen.",
+  alternates: { canonical: "https://kinderleicht.ai/downloads" },
 };
 
 export default async function DownloadsPage() {

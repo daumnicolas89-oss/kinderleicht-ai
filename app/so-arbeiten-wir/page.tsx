@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "So arbeiten wir — kinderleicht.ai",
   description:
     "Wie wir Tools prüfen, Apps entwickeln und Materialien erstellen. Transparent und nachvollziehbar.",
+  alternates: { canonical: "https://kinderleicht.ai/so-arbeiten-wir" },
 };
 
 const checks = [
