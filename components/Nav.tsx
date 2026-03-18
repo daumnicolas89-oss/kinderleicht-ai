@@ -82,17 +82,10 @@ export default function Nav() {
             })}
           </nav>
 
-          {/* CTA + Social — rechts */}
+          {/* Social Icons — rechts */}
           <div className="flex items-center gap-2">
-            {/* Desktop: CTA Button + LinkedIn */}
-            <div className="hidden md:flex items-center gap-2">
-              <Link
-                href="/apps"
-                className="px-4 py-2 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                Zu den Apps
-              </Link>
+            {/* Social Icons (Desktop) */}
+            <div className="hidden md:flex items-center gap-1">
               <a
                 href="https://www.linkedin.com/in/nicolas-daum/"
                 target="_blank"
@@ -158,14 +151,6 @@ export default function Nav() {
                 </Link>
               );
             })}
-            <Link
-              href="/apps"
-              onClick={() => setMobileOpen(false)}
-              className="mx-4 mt-2 px-4 py-3 rounded-lg text-sm font-semibold text-white text-center transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#2596be" }}
-            >
-              Zu den Apps
-            </Link>
           </nav>
         </div>
       )}
