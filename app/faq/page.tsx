@@ -152,6 +152,21 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
   );
 }
 
+const faqPlainText: Record<string, string> = {
+  "Wie prüft ihr die Apps, Tools und Downloads?":
+    "Jedes Tool durchläuft einen festen Prüfprozess mit vier Ebenen: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Alle Details auf unserer Seite So arbeiten wir.",
+  "Sind die KI-Tools datenschutzkonform?":
+    "Wir weisen bei jedem Tool transparent auf den Anbieter und dessen Datenschutzbestimmungen hin. Für den Einsatz in Einrichtungen empfehlen wir, keine personenbezogenen Daten von Kindern oder Eltern einzugeben.",
+  "Brauche ich KI-Vorkenntnisse?":
+    "Nein. kinderleicht.ai richtet sich ausdrücklich auch an Pädagogen ohne Vorkenntnisse. Alle Tools und Apps sind so aufbereitet, dass du sofort loslegen kannst.",
+  "Speichert kinderleicht.ai meine Daten?":
+    "Wir erheben nur die Daten, die für den Betrieb der Plattform notwendig sind. Details findest du in unserer Datenschutzerklärung.",
+  "Ich habe einen Fehler gefunden. Wo kann ich ihn melden?":
+    "Schreib uns einfach über das Kontaktformular oder direkt an kontakt@kinderleicht.ai. Wir freuen uns über jedes Feedback.",
+  "Kann ich eine Kooperation anfragen?":
+    "Ja, sehr gerne. Ob Fortbildungsinstitut, Träger oder Verlag, schreib uns dein Anliegen über das Kontaktformular.",
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -164,9 +179,7 @@ const faqJsonLd = {
         text:
           typeof faq.a === "string"
             ? faq.a
-            : faq.q === "Wie prüft ihr die Apps, Tools und Downloads?"
-              ? "Jedes Tool durchläuft einen festen Prüfprozess mit vier Ebenen: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Alle Details auf unserer Seite So arbeiten wir."
-              : "",
+            : faqPlainText[faq.q] ?? "",
       },
     }))
   ),

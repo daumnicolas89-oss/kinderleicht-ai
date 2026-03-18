@@ -38,7 +38,8 @@ export const toolBySlugQuery = groq`
     anbieter,
     serverstandort,
     website,
-    affiliate_link
+    affiliate_link,
+    _updatedAt
   }
 `;
 

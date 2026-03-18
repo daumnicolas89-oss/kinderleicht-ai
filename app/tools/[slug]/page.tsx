@@ -419,6 +419,16 @@ export default async function ToolDetailPage({ params }: Props) {
                 </div>
               )}
 
+              {/* ZULETZT AKTUALISIERT */}
+              {tool._updatedAt && (
+                <div className="px-5 py-4">
+                  <SidebarLabel emoji="🕓" label="Zuletzt aktualisiert" />
+                  <p className="text-sm text-gray-700">
+                    {new Date(tool._updatedAt).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })}
+                  </p>
+                </div>
+              )}
+
               {/* CTA */}
               {targetUrl && (
                 <div className="px-5 py-4">

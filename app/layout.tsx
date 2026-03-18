@@ -39,11 +39,13 @@ export const metadata: Metadata = {
     url: "https://kinderleicht.ai",
     locale: "de_DE",
     siteName: "kinderleicht.ai",
+    images: [{ url: "/Kinderleicht-1000x400.png", width: 1000, height: 400, alt: "kinderleicht.ai" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: ["/Kinderleicht-1000x400.png"],
   },
   icons: {
     icon: [
