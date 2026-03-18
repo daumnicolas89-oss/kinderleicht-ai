@@ -44,7 +44,7 @@ export default function FerienplanerSlideshow() {
             <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
             <div className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
-          <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-500 border border-gray-200 font-mono">
+          <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-500 border border-gray-200 font-mono truncate">
             ferienplaner.kinderleicht.ai
           </div>
         </div>
@@ -62,15 +62,15 @@ export default function FerienplanerSlideshow() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-1.5 py-3">
+        <div className="flex justify-center gap-2 py-3">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1} anzeigen`}
-              className="h-1.5 rounded-full transition-all duration-300"
+              className="h-2.5 rounded-full transition-all duration-300"
               style={{
-                width: i === active ? "16px" : "6px",
+                width: i === active ? "20px" : "10px",
                 backgroundColor: i === active ? "#2596be" : "#e5e7eb",
               }}
             />

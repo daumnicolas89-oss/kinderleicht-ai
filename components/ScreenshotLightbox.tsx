@@ -68,7 +68,7 @@ export default function ScreenshotLightbox({
             {/* Close */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"
+              className="absolute top-3 right-3 w-11 h-11 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"
               aria-label="Schließen"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">

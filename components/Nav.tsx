@@ -120,7 +120,7 @@ export default function Nav() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg hover:bg-gray-50 gap-[5px] transition-colors"
+              className="md:hidden flex flex-col justify-center items-center w-11 h-11 rounded-lg hover:bg-gray-50 gap-[5px] transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Menü öffnen"
             >
