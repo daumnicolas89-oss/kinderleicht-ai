@@ -107,79 +107,8 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── WAS BIETET KINDERLEICHT.AI ───────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
-        <ScrollReveal className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-              Alles an einem Ort.
-            </h2>
-            <p className="text-base text-gray-600 max-w-lg mx-auto">
-              Geprüfte KI-Tools, eigene Web-Apps und ein umfassendes KI-Lexikon. Speziell aufbereitet für den pädagogischen Alltag.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {[
-              {
-                href: "/tools",
-                emoji: "🔍",
-                badge: "200+",
-                title: "KI-Tools",
-                description: "Geprüfte Tools mit DSGVO-Ampel, Bewertungen und Praxistipps für den Bildungsalltag.",
-                linkText: "Alle Tools ansehen",
-              },
-              {
-                href: "/apps",
-                emoji: "🚀",
-                badge: "Live",
-                title: "Eigene Apps",
-                description: "Selbst entwickelte Web-Apps wie der Ferienplaner. Kostenlos, im Browser, ohne Anmeldung.",
-                linkText: "Apps entdecken",
-              },
-              {
-                href: "/ki-abc",
-                emoji: "📖",
-                badge: "330+",
-                title: "KI-ABC",
-                description: "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt.",
-                linkText: "Zum Lexikon",
-              },
-            ].map((card) => (
-              <Link
-                key={card.href}
-                href={card.href}
-                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-lg hover:-translate-y-1 active:scale-[0.97] transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{card.emoji}</span>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                    {card.badge}
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#2596be] transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-base text-gray-600 leading-relaxed flex-1 mb-5">
-                  {card.description}
-                </p>
-                <span
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold group-hover:gap-2.5 transition-all"
-                  style={{ color: "#2596be" }}
-                >
-                  {card.linkText}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
       {/* ── FERIENPLANER HIGHLIGHT ────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -216,7 +145,7 @@ export default function HomePage() {
       </section>
 
       {/* ── ZAHLEN / SOCIAL PROOF ─────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <ScrollReveal className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -234,7 +163,7 @@ export default function HomePage() {
               { value: "100%", label: "Kostenlos nutzbar" },
               { value: "DSGVO", label: "Datenschutz geprüft" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-5 rounded-2xl bg-white border border-gray-100">
+              <div key={stat.label} className="text-center p-5 rounded-2xl border border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
                 <p className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: "#2596be" }}>{stat.value}</p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </div>
@@ -244,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Jedes Tool wird geprüft.
@@ -266,7 +195,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
