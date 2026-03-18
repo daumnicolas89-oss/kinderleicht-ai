@@ -64,7 +64,7 @@ export default function HomePage() {
               Für alle, die mit Kindern arbeiten.
             </h2>
             <p className="text-base text-gray-500 max-w-lg mx-auto">
-              Von der Krippe bis zur weiterführenden Schule, von der Leitung bis zur Verwaltung. Unsere Tools sind für euren Alltag gemacht.
+              Von der Krippe bis zur weiterführenden Schule, von der Leitung bis zur Verwaltung. Unsere Tools sind für deinen Alltag gemacht.
             </p>
           </div>
 
