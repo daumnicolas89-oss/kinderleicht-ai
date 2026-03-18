@@ -7,7 +7,8 @@
       "Bash(grep -r \"export.*\\\\\\(FAQ\\\\|Testimonial\\\\|Newsletter\\\\|Review\\\\\\)\" /workspaces/kinderleicht-ai --include=*.tsx --include=*.ts)",
       "Bash(gh api:*)",
       "WebFetch(domain:kinderleicht-web.vercel.app)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(grep -r \"Canon Kreative Park\\\\|Flinga\" --include=*.tsx --include=*.ts --include=*.json)"
     ]
   }
 }
