@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(find /workspaces/kinderleicht-ai/app -type f -name *.tsx)",
-      "Bash(find /workspaces/kinderleicht-ai -name \"*.tsx\" -exec wc -l {} +)"
+      "Bash(find /workspaces/kinderleicht-ai -name \"*.tsx\" -exec wc -l {} +)",
+      "Bash(ls -la /workspaces/kinderleicht-ai/app/ki-abc/[slug]/)"
     ]
   }
 }
