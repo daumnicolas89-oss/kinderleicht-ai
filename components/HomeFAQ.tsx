@@ -34,6 +34,10 @@ const faqs = [
     q: "Was ist der Unterschied zwischen Apps und Tools?",
     a: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir für den pädagogischen Einsatz aufbereitet haben.",
   },
+  {
+    q: "Warum wird auf kinderleicht.ai nicht gegendert?",
+    a: "Wir verwenden auf der gesamten Plattform eine möglichst einfache und klare Sprache. Dabei verzichten wir bewusst auf Genderzeichen, damit Texte gut lesbar bleiben. Selbstverständlich sind immer alle Geschlechter gemeint und alle Menschen willkommen.",
+  },
 ];
 
 function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {

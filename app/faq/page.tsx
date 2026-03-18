@@ -29,6 +29,10 @@ const categories = [
           </>
         ),
       },
+      {
+        q: "Warum wird auf kinderleicht.ai nicht gegendert?",
+        a: "Wir verwenden auf der gesamten Plattform eine möglichst einfache und klare Sprache. Dabei verzichten wir bewusst auf Genderzeichen, damit Texte gut lesbar bleiben. Selbstverständlich sind immer alle Geschlechter gemeint und alle Menschen willkommen.",
+      },
     ],
   },
   {
