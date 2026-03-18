@@ -60,7 +60,7 @@ export default function Nav() {
           </Link>
 
           {/* Desktop Nav — Mitte */}
-          <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+          <nav aria-label="Hauptnavigation" className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
               return (

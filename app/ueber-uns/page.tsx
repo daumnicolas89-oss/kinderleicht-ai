@@ -68,7 +68,7 @@ export default function UeberUnsPage() {
               },
               {
                 emoji: "📖",
-                title: "KI-ABC mit 150+ Begriffen",
+                title: "KI-ABC mit 330+ Begriffen",
                 desc: "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt für Pädagogen.",
                 href: "/ki-abc",
               },
