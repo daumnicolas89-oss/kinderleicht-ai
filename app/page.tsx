@@ -64,7 +64,7 @@ export default function HomePage() {
               Für alle, die mit Kindern arbeiten.
             </h2>
             <p className="text-base text-gray-500 max-w-lg mx-auto">
-              Von der Krippe bis zur weiterführenden Schule, von der Leitung bis zur Verwaltung &ndash; unsere Tools sind für euren Alltag gemacht.
+              Von der Krippe bis zur weiterführenden Schule, von der Leitung bis zur Verwaltung. Unsere Tools sind für euren Alltag gemacht.
             </p>
           </div>
 
@@ -72,27 +72,27 @@ export default function HomePage() {
             {[
               {
                 title: "Krippe & Kita",
-                description: "Elternbriefe, Entwicklungsdoku und Tagesabläufe schnell und einfach erstellen.",
+                description: "Der Elternbrief muss heute noch raus, die Doku wartet seit Tagen. Wir helfen, damit beides nicht am Feierabend hängenbleibt.",
               },
               {
                 title: "Schulen",
-                description: "Unterricht mit KI vorbereiten, differenzieren und schneller Feedback geben.",
+                description: "30 Kinder, 5 Niveaus, eine Stunde Vorbereitung. KI hilft beim Differenzieren, damit du dich auf den Unterricht konzentrieren kannst.",
               },
               {
                 title: "GBS & GTS",
-                description: "Ferienbetreuung planen, Dienstpläne erstellen und Angebote koordinieren.",
+                description: "Ferienprogramm für 80 Kinder, drei Wochen, ein Team. Der Ferienplaner macht aus dem Chaos einen Plan.",
               },
               {
                 title: "Jugendarbeit",
-                description: "Programme gestalten, Teilnehmende dokumentieren und kreative Angebote entwickeln.",
+                description: "Kreative Angebote entwickeln, ohne jedes Mal bei null anzufangen. Mehr Zeit für die Jugendlichen, weniger für Papierkram.",
               },
               {
                 title: "Leitung & Teams",
-                description: "Konzepte schreiben, Fortbildungen planen und Teamarbeit digital organisieren.",
+                description: "Konzepte schreiben, Fortbildungen vorbereiten, das Team mitnehmen. Ohne dass der Schreibtisch zum Dauerwohnsitz wird.",
               },
               {
                 title: "Verwaltung",
-                description: "Formulare, Anschreiben und Berichte zeitsparend mit KI-Unterstützung erstellen.",
+                description: "Anschreiben, Berichte, Formulare. Die Dinge, die niemand gerne macht, aber alle brauchen. Jetzt deutlich schneller erledigt.",
               },
             ].map((card) => (
               <div
