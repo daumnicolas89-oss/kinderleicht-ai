@@ -152,7 +152,7 @@ export default function HomePage() {
               Gebaut aus der Praxis. Für die Praxis.
             </h2>
             <p className="text-base text-gray-500 max-w-lg mx-auto">
-              kinderleicht.ai entsteht direkt im Bildungsalltag &ndash; mit echtem Feedback von Lehrkräften und Pädagog:innen.
+              kinderleicht.ai entsteht direkt im Bildungsalltag. Mit echtem Feedback von Lehrkräften und Pädagogen.
             </p>
           </div>
 

@@ -6,7 +6,8 @@
       "Bash(ls -la /workspaces/kinderleicht-ai/app/ki-abc/[slug]/)",
       "Bash(grep -r \"export.*\\\\\\(FAQ\\\\|Testimonial\\\\|Newsletter\\\\|Review\\\\\\)\" /workspaces/kinderleicht-ai --include=*.tsx --include=*.ts)",
       "Bash(gh api:*)",
-      "WebFetch(domain:kinderleicht-web.vercel.app)"
+      "WebFetch(domain:kinderleicht-web.vercel.app)",
+      "Bash(git commit:*)"
     ]
   }
 }
