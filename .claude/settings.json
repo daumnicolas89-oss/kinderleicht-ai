@@ -4,7 +4,9 @@
       "Bash(find /workspaces/kinderleicht-ai/app -type f -name *.tsx)",
       "Bash(find /workspaces/kinderleicht-ai -name \"*.tsx\" -exec wc -l {} +)",
       "Bash(ls -la /workspaces/kinderleicht-ai/app/ki-abc/[slug]/)",
-      "Bash(grep -r \"export.*\\\\\\(FAQ\\\\|Testimonial\\\\|Newsletter\\\\|Review\\\\\\)\" /workspaces/kinderleicht-ai --include=*.tsx --include=*.ts)"
+      "Bash(grep -r \"export.*\\\\\\(FAQ\\\\|Testimonial\\\\|Newsletter\\\\|Review\\\\\\)\" /workspaces/kinderleicht-ai --include=*.tsx --include=*.ts)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:kinderleicht-web.vercel.app)"
     ]
   }
 }
