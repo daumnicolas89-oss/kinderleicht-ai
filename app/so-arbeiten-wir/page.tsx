@@ -11,42 +11,22 @@ export const metadata: Metadata = {
 
 const checks = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
+    step: 1,
     title: "Datenschutz & DSGVO",
     text: "Wo liegen die Server? Gibt es einen Auftragsverarbeitungsvertrag? Werden Daten für KI-Training genutzt? Wir recherchieren die Datenschutzerklärung und vergeben eine Ampelbewertung. Grün bedeutet EU-Server und AVV vorhanden. Gelb bedeutet Einschränkungen oder Unklarheiten. Rot bedeutet kritisch für den Einsatz in Bildungseinrichtungen.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 18h6M10 22h4M12 2a7 7 0 015 12H7a7 7 0 015-12z" />
-      </svg>
-    ),
+    step: 2,
     title: "Pädagogischer Nutzen",
     text: "Löst das Tool ein echtes Problem im Bildungsalltag? Wir fragen: Spart es Zeit? Unterstützt es bei Planung, Kommunikation oder Materialerstellung? Ist es auch ohne KI-Vorkenntnisse nutzbar?",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z" />
-        <circle cx="17" cy="17" r="3" />
-        <path d="M21 21l-1.5-1.5" />
-      </svg>
-    ),
+    step: 3,
     title: "Bedienbarkeit",
     text: "Wir testen jedes Tool selbst. Wie lange dauert der Einstieg? Braucht es eine Anmeldung? Funktioniert es auf Tablet und Smartphone? Ist die Oberfläche auch auf Deutsch verfügbar?",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M15 8.5c-.7-1-1.8-1.5-3-1.5-2.2 0-4 1.8-4 4s1.8 4 4 4c1.2 0 2.3-.5 3-1.5" />
-        <path d="M12 6v2M12 16v2" />
-      </svg>
-    ),
+    step: 4,
     title: "Preis-Leistung",
     text: "Gibt es einen kostenlosen Plan der wirklich nutzbar ist? Wie teuer ist der Education-Tarif? Wir kennzeichnen transparent ob und wie viel ein Tool kostet.",
   },
@@ -86,8 +66,11 @@ export default function SoArbeitenWirPage() {
                 key={c.title}
                 className="flex flex-col p-6 bg-[#F5F5F7] rounded-2xl"
               >
-                <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-4 shadow-sm">
-                  {c.icon}
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center mb-4 text-sm font-bold text-white"
+                  style={{ backgroundColor: "#2596be" }}
+                >
+                  {c.step}
                 </div>
                 <h3
                   className="text-lg font-bold text-gray-900 mb-2"
