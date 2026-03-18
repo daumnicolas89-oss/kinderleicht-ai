@@ -96,7 +96,7 @@ export default function DownloadsClient({ downloads }: { downloads: Download[] }
                 <Link
                   key={dl.slug}
                   href={`/downloads/${dl.slug}`}
-                  className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
+                  className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 overflow-hidden"
                 >
                   <div className="flex flex-col p-6 flex-1">
                     <div className="flex items-start justify-between mb-3">

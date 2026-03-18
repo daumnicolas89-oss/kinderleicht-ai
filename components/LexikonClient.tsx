@@ -167,7 +167,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                       <Link
                         key={entry.slug}
                         href={`/ki-abc/${entry.slug}`}
-                        className="group block rounded-2xl border border-gray-100 bg-white p-6 hover:border-[#2596be]/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                        className="group block rounded-2xl border border-gray-100 bg-white p-6 hover:border-[#2596be]/30 hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300"
                       >
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <h3 className="text-base font-bold text-gray-900 group-hover:text-[#2596be] transition-colors">

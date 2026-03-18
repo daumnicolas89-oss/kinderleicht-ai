@@ -78,7 +78,7 @@ export default function HomePage() {
               <Link
                 key={card.href}
                 href={card.href}
-                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group flex flex-col p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-lg hover:-translate-y-1 active:scale-[0.97] transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{card.emoji}</span>
@@ -129,7 +129,7 @@ export default function HomePage() {
                 href="https://ferienplaner.kinderleicht.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Ferienplaner öffnen

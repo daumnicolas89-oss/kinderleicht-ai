@@ -36,7 +36,7 @@ const categories = [
     faqs: [
       {
         q: "Was ist der Unterschied zwischen Apps und Tools?",
-        a: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Claude oder ChatGPT, die wir für den pädagogischen Einsatz aufbereitet haben.",
+        a: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir f\u00fcr den p\u00e4dagogischen Einsatz aufbereitet haben.",
       },
       {
         q: "Muss ich etwas installieren?",
