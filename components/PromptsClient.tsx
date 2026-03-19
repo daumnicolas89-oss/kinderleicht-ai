@@ -50,26 +50,41 @@ function ExpandablePrompt({ text }: { text: string }) {
   );
 }
 
-/* ── Aufklappbares Beispiel-Ergebnis ───────────── */
+/* ── Beispiel-Ergebnis (kompakt, nur auf Klick) ── */
 function ExpandableResult({ text }: { text: string }) {
   const [expanded, setExpanded] = useState(false);
-  const isLong = text.length > 150;
+
+  if (!expanded) {
+    return (
+      <button
+        onClick={() => setExpanded(true)}
+        className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold transition-colors hover:opacity-80"
+        style={{ color: "#059669" }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        Beispiel-Ergebnis ansehen
+      </button>
+    );
+  }
 
   return (
-    <div className="bg-[#ECFDF5] rounded-xl p-4 border border-green-100 mt-3">
-      <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-wide mb-2">Beispiel-Ergebnis</p>
-      <p className={`text-[13px] text-gray-700 leading-relaxed whitespace-pre-line ${!expanded && isLong ? "line-clamp-3" : ""}`}>
-        {text}
-      </p>
-      {isLong && (
+    <div className="bg-[#ECFDF5] rounded-xl p-4 border border-green-100 mt-2">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-wide">Beispiel-Ergebnis</p>
         <button
-          onClick={() => setExpanded((v) => !v)}
-          className="mt-2.5 text-xs font-semibold transition-colors"
+          onClick={() => setExpanded(false)}
+          className="text-xs font-semibold transition-colors"
           style={{ color: "#059669" }}
         >
-          {expanded ? "Weniger anzeigen" : "Ganzes Ergebnis anzeigen"}
+          Ausblenden
         </button>
-      )}
+      </div>
+      <p className="text-[13px] text-gray-700 leading-relaxed whitespace-pre-line">
+        {text}
+      </p>
     </div>
   );
 }

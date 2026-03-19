@@ -28,8 +28,8 @@ const apps = [
       { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
     ],
     domain: "ferienplaner.kinderleicht.ai",
-    badge: "Live",
-    badgeColor: "bg-[#EBF6FA] text-[#2596be]",
+    badge: "Beta",
+    badgeColor: "bg-amber-50 text-amber-600",
   },
   {
     id: "lernstufen",
@@ -53,8 +53,8 @@ const apps = [
       { src: "/Lernstufen 4.webp", alt: "Lernstufen Export" },
     ],
     domain: "lernstufen.kinderleicht.ai",
-    badge: "Neu",
-    badgeColor: "bg-emerald-50 text-emerald-700",
+    badge: "Beta",
+    badgeColor: "bg-amber-50 text-amber-600",
   },
 ];
 
