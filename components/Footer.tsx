@@ -73,7 +73,7 @@ function NewsletterForm({ dark = false }: { dark?: boolean }) {
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 flex-shrink-0 accent-[#2596be]"
         />
-        <label htmlFor="newsletter-consent" className={`text-[13px] leading-relaxed cursor-pointer ${dark ? "text-gray-400" : "text-gray-500"}`}>
+        <label htmlFor="newsletter-consent" className={`text-[13px] leading-relaxed cursor-pointer ${dark ? "text-gray-400" : "text-gray-600"}`}>
           Ich habe die Datenschutzbestimmungen gelesen. Ich stimme dem Erhalt von E-Mails
           und der Übertragung meiner Daten an Mailchimp zu.
         </label>
@@ -123,7 +123,7 @@ export default function Footer() {
               </span>
               Nichts verpassen.
             </h3>
-            <p className="text-sm text-gray-500 leading-relaxed mb-7">
+            <p className="text-sm text-gray-600 leading-relaxed mb-7">
               Neue Tools, App-Updates und praktische Tipps. Einmal im Monat, kein Spam.
             </p>
             <div className="max-w-md mx-auto">
