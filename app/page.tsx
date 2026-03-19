@@ -130,7 +130,7 @@ export default function HomePage() {
                 aus der Praxis kommen.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Gebaut von Pädagogen für Pädagogen.
+                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Entwickelt nach den Bedürfnissen aus der Praxis.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
