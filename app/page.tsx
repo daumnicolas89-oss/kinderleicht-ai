@@ -73,42 +73,35 @@ export default function HomePage() {
               {
                 title: "Krippe & Kita",
                 description: "Der Elternbrief muss heute noch raus, die Doku wartet seit Tagen. Wir helfen, damit beides nicht am Feierabend hängenbleibt.",
-                href: "/tools?kategorie=Planung+%26+Vorbereitung",
               },
               {
                 title: "Schulen",
                 description: "30 Kinder, 5 Niveaus, eine Stunde Vorbereitung. KI hilft beim Differenzieren, damit du dich auf den Unterricht konzentrieren kannst.",
-                href: "/tools",
               },
               {
                 title: "GBS & GTS",
                 description: "Ferienprogramm für 80 Kinder, drei Wochen, ein Team. Der Ferienplaner macht aus dem Chaos einen Plan.",
-                href: "/apps",
               },
               {
                 title: "Jugendarbeit",
                 description: "Kreative Angebote entwickeln, ohne jedes Mal bei null anzufangen. Mehr Zeit für die Jugendlichen, weniger für Papierkram.",
-                href: "/tools?kategorie=Bilder+%26+Grafiken",
               },
               {
                 title: "Leitung & Teams",
                 description: "Konzepte schreiben, Fortbildungen vorbereiten, das Team mitnehmen. Ohne dass der Schreibtisch zum Dauerwohnsitz wird.",
-                href: "/tools?kategorie=Texte+%26+Schreiben",
               },
               {
                 title: "Verwaltung",
                 description: "Anschreiben, Berichte, Formulare. Die Dinge, die niemand gerne macht, aber alle brauchen. Jetzt deutlich schneller erledigt.",
-                href: "/tools?kategorie=Planung+%26+Vorbereitung",
               },
             ].map((card) => (
-              <Link
+              <div
                 key={card.title}
-                href={card.href}
-                className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/30 hover:bg-[#EBF6FA]/30 transition-colors group"
+                className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50"
               >
-                <h3 className="text-base font-bold text-gray-900 mb-1.5 group-hover:text-[#2596be] transition-colors">{card.title}</h3>
+                <h3 className="text-base font-bold text-gray-900 mb-1.5">{card.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
-              </Link>
+              </div>
             ))}
           </div>
         </ScrollReveal>
