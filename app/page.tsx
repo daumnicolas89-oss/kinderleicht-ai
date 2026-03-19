@@ -1,6 +1,6 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
-import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
+import AppSlideshow from "@/components/AppSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomeFAQ from "@/components/HomeFAQ";
 
@@ -116,7 +116,7 @@ export default function HomePage() {
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
                 style={{ color: "#2596be" }}
               >
-                Jetzt live
+                Unsere Apps
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
                 Ferienbetreuung planen<br />
@@ -139,7 +139,16 @@ export default function HomePage() {
               </a>
             </div>
 
-            <FerienplanerSlideshow />
+            <AppSlideshow
+              slides={[
+                { src: "/ferienplaner-1.webp", alt: "Ferienplaner Übersicht" },
+                { src: "/ferienplaner-2.webp", alt: "Elternbrief Generator" },
+                { src: "/ferienplaner-3.webp", alt: "Dienstplan Generator" },
+                { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
+              ]}
+              url="https://ferienplaner.kinderleicht.ai"
+              domain="ferienplaner.kinderleicht.ai"
+            />
           </div>
         </ScrollReveal>
       </section>

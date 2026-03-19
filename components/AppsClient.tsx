@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import FilterBar from "@/components/FilterBar";
-import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
-import LernstufenSlideshow from "@/components/LernstufenSlideshow";
+import AppSlideshow from "@/components/AppSlideshow";
 
 const apps = [
   {
@@ -22,7 +21,13 @@ const apps = [
       "Alles als PDF oder Word herunterladen",
       "Direkt im Browser, ohne Installation",
     ],
-    slideshow: "ferienplaner",
+    slides: [
+      { src: "/ferienplaner-1.webp", alt: "Ferienplaner Übersicht" },
+      { src: "/ferienplaner-2.webp", alt: "Elternbrief Generator" },
+      { src: "/ferienplaner-3.webp", alt: "Dienstplan Generator" },
+      { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
+    ],
+    domain: "ferienplaner.kinderleicht.ai",
     badge: "Live",
     badgeColor: "bg-[#EBF6FA] text-[#2596be]",
   },
@@ -41,7 +46,13 @@ const apps = [
       "Einfache Sprache: barrierefrei auf A2-Niveau",
       "Direkt im Browser, ohne Installation",
     ],
-    slideshow: "lernstufen",
+    slides: [
+      { src: "/Lernstufen 1.webp", alt: "Lernstufen Übersicht" },
+      { src: "/Lernstufen 2.webp", alt: "Lernstufen Eingabe" },
+      { src: "/Lernstufen 3.webp", alt: "Lernstufen Ergebnis" },
+      { src: "/Lernstufen 4.webp", alt: "Lernstufen Export" },
+    ],
+    domain: "lernstufen.kinderleicht.ai",
     badge: "Neu",
     badgeColor: "bg-emerald-50 text-emerald-700",
   },
@@ -74,72 +85,84 @@ export default function AppsClient() {
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white min-h-[60vh]">
         <div className="max-w-6xl mx-auto">
           {filtered.length > 0 ? (
-            <div className="space-y-12">
-              {filtered.map((app) => (
-                <div key={app.id} className="rounded-2xl border border-gray-100 overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Slideshow */}
-                    {app.slideshow && (
-                      <div className="bg-[#F5F5F7] p-6 lg:p-8 flex items-center justify-center">
-                        {app.slideshow === "ferienplaner" && <FerienplanerSlideshow />}
-                        {app.slideshow === "lernstufen" && <LernstufenSlideshow />}
-                      </div>
-                    )}
+            <div className="space-y-16">
+              {filtered.map((app, index) => {
+                const isReversed = index % 2 === 1;
+                return (
+                  <div key={app.id}>
+                    {/* App-Nummer + Titel als Section Header */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white" style={{ backgroundColor: "#2596be" }}>
+                        {index + 1}
+                      </span>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{app.title}</h2>
+                      <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badgeColor}`}>
+                        {app.badge}
+                      </span>
+                      <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">
+                        Beta
+                      </span>
+                    </div>
 
-                    {/* Info */}
-                    <div className="p-6 lg:p-8 flex flex-col">
-                      <div className="flex items-center gap-2 mb-3">
-                        <h2 className="text-xl font-bold text-gray-900">{app.title}</h2>
-                        <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badgeColor}`}>
-                          {app.badge}
-                        </span>
-                      </div>
-                      <p className="text-base text-gray-500 leading-relaxed mb-3">{app.description}</p>
+                    <div className="rounded-2xl border border-gray-100 overflow-hidden">
+                      <div className={`grid grid-cols-1 lg:grid-cols-2 ${isReversed ? "" : ""}`}>
+                        {/* Slideshow */}
+                        {app.slides && (
+                          <div className={`bg-[#F5F5F7] p-6 lg:p-8 flex items-center justify-center ${isReversed ? "lg:order-2" : ""}`}>
+                            <AppSlideshow slides={app.slides} url={app.href} domain={app.domain} />
+                          </div>
+                        )}
 
-                      {/* Highlight */}
-                      <p className="text-sm font-semibold text-[#2596be] mb-5">{app.highlight}</p>
+                        {/* Info */}
+                        <div className={`p-6 lg:p-8 flex flex-col ${isReversed ? "lg:order-1" : ""}`}>
+                          <p className="text-base text-gray-500 leading-relaxed mb-3">{app.description}</p>
 
-                      <ul className="space-y-2.5 mb-5 flex-1">
-                        {app.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
-                            <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
-                              <path d="M20 6L9 17l-5-5" />
-                            </svg>
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
+                          {/* Highlight */}
+                          <p className="text-sm font-semibold text-[#2596be] mb-5">{app.highlight}</p>
 
-                      {/* Badges */}
-                      <div className="flex flex-wrap gap-2 mb-5">
-                        {app.badges.map((b) => (
-                          <span key={b} className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-600">{b}</span>
-                        ))}
-                      </div>
+                          <ul className="space-y-2.5 mb-5 flex-1">
+                            {app.features.map((f) => (
+                              <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
+                                  <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                                {f}
+                              </li>
+                            ))}
+                          </ul>
 
-                      <div className="flex flex-wrap items-center gap-3">
-                        <a
-                          href={app.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-                          style={{ backgroundColor: "#2596be" }}
-                        >
-                          App öffnen
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <path d="M7 17L17 7M7 7h10v10" />
-                          </svg>
-                        </a>
-                        <div className="flex gap-2">
-                          {app.tags.map((tag) => (
-                            <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-[#F5F5F7] text-gray-500">{tag}</span>
-                          ))}
+                          {/* Badges */}
+                          <div className="flex flex-wrap gap-2 mb-5">
+                            {app.badges.map((b) => (
+                              <span key={b} className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-600">{b}</span>
+                            ))}
+                          </div>
+
+                          <div className="flex flex-wrap items-center gap-3">
+                            <a
+                              href={app.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                              style={{ backgroundColor: "#2596be" }}
+                            >
+                              App öffnen
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                              </svg>
+                            </a>
+                            <div className="flex gap-2">
+                              {app.tags.map((tag) => (
+                                <span key={tag} className="text-xs px-2.5 py-1 rounded-full bg-[#F5F5F7] text-gray-500">{tag}</span>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Kommt-bald-Teaser */}
               <div className="rounded-2xl border border-dashed border-gray-200 p-8 sm:p-12 text-center">
