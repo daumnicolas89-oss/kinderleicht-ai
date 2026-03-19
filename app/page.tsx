@@ -55,7 +55,7 @@ export default async function HomePage() {
               href="/tools"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-[0.96] transition-all"
             >
-              290+ Tools vergleichen
+              300+ Tools vergleichen
             </Link>
             <Link
               href="/prompts"
@@ -265,7 +265,7 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
-              { value: "290+", label: "Geprüfte KI-Tools" },
+              { value: "300+", label: "Geprüfte KI-Tools" },
               { value: "30+", label: "Fertige Prompts" },
               { value: "330+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
