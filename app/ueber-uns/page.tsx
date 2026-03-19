@@ -56,7 +56,7 @@ export default function UeberUnsPage() {
             {[
               {
                 emoji: "🔍",
-                title: "200+ geprüfte KI-Tools",
+                title: "290+ geprüfte KI-Tools",
                 desc: "Jedes Tool mit DSGVO-Ampel, pädagogischer Einschätzung, Preisdetails und Praxistipps.",
                 href: "/tools",
               },

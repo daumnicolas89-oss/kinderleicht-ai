@@ -99,9 +99,6 @@ export default function AppsClient() {
                       <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badgeColor}`}>
                         {app.badge}
                       </span>
-                      <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">
-                        Beta
-                      </span>
                     </div>
 
                     <div className="rounded-2xl border border-gray-100 overflow-hidden">

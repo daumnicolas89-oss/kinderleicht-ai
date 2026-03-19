@@ -92,51 +92,25 @@ export default function Footer() {
     <footer className="bg-white">
 
       {/* Newsletter-Bereich */}
-      <div className="border-t border-gray-200 bg-white">
-        <style>{`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(-2deg); }
-            50% { transform: translateY(-6px) rotate(2deg); }
-          }
-          @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-          }
-          .envelope-float { animation: float 3s ease-in-out infinite; }
-          .envelope-lid { transform-origin: top; animation: wiggle 3s ease-in-out infinite; }
-        `}</style>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
+      <div className="border-t border-gray-200 bg-[#F9FAFB]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="max-w-4xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
-          {/* Animiertes Briefumschlag-Icon + Headline eng zusammen */}
-          <div className="flex flex-col items-center gap-3 mb-4">
-            <div className="envelope-float">
-              <svg width="52" height="40" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="8" width="50" height="31" rx="4" fill="#EBF6FA" stroke="#2596be" strokeWidth="1.5"/>
-                <path
-                  className="envelope-lid"
-                  d="M1 12 L26 26 L51 12 L51 8 Q51 8 26 22 Q1 8 1 8 Z"
-                  fill="#2596be"
-                  opacity="0.15"
-                />
-                <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
-                <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.4"/>
-                <circle cx="42" cy="4" r="2" fill="#2596be" opacity="0.8"/>
-                <circle cx="10" cy="5" r="1.5" fill="#2596be" opacity="0.5"/>
-              </svg>
+            {/* Text links */}
+            <div className="lg:max-w-md">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Nichts verpassen.
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Neue Tools, App-Updates und praktische Tipps. Einmal im Monat, kein Spam.
+              </p>
             </div>
-            <h3
-              className="text-2xl font-bold text-gray-900"
-            >
-              KI im Bildungsalltag. Direkt ins Postfach.
-            </h3>
-          </div>
 
-          <p className="text-sm text-gray-500 mb-7 max-w-lg mx-auto leading-relaxed">
-            Praktische Tipps, neue Tools und fertige Materialien direkt ins Postfach.
-          </p>
+            {/* Formular rechts */}
+            <div className="flex-1 lg:max-w-sm">
+              <NewsletterForm />
+            </div>
 
-          <div className="max-w-md mx-auto">
-            <NewsletterForm />
           </div>
         </div>
       </div>
