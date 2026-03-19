@@ -107,20 +107,20 @@ export default function Footer() {
       <div className="bg-[#EBF6FA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="envelope-float mb-4 inline-block">
-              <svg width="44" height="34" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="8" width="50" height="31" rx="4" fill="white" stroke="#2596be" strokeWidth="1.5"/>
-                <path
-                  className="envelope-lid"
-                  d="M1 12 L26 26 L51 12 L51 8 Q51 8 26 22 Q1 8 1 8 Z"
-                  fill="#2596be"
-                  opacity="0.12"
-                />
-                <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
-                <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.3"/>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2 inline-flex items-center justify-center gap-3">
+              <span className="envelope-float inline-block">
+                <svg width="32" height="24" viewBox="0 0 52 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="8" width="50" height="31" rx="4" fill="white" stroke="#2596be" strokeWidth="1.5"/>
+                  <path
+                    className="envelope-lid"
+                    d="M1 12 L26 26 L51 12 L51 8 Q51 8 26 22 Q1 8 1 8 Z"
+                    fill="#2596be"
+                    opacity="0.12"
+                  />
+                  <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+                  <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.3"/>
+                </svg>
+              </span>
               Nichts verpassen.
             </h3>
             <p className="text-sm text-gray-500 leading-relaxed mb-7">
