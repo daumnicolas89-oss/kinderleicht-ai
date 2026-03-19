@@ -32,7 +32,7 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
-            Elternbriefe in 2 Minuten, Ferienprogramme per Klick, Unterricht mit KI vorbereiten. Mehr Zeit für das, was wirklich zählt.
+            Deine Plattform für Digitalisierung im Bildungsbereich. Für Pädagogen, Lehrkräfte und Führungskräfte – mehr Zeit für das, was wirklich zählt. Kinderleicht.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
