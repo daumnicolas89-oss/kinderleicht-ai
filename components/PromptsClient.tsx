@@ -206,14 +206,14 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                   }`}
                   style={{ boxShadow: isActive ? undefined : "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 transition-transform duration-200 group-hover:scale-110 ${
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 transition-transform duration-200 group-hover:scale-110 ${
                     isActive ? "bg-[#2596be]/15" : "bg-[#EBF6FA]"
                   }`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
                       <path d={kat.iconPath} />
                     </svg>
                   </div>
-                  <span className={`text-[13px] sm:text-sm font-bold block leading-tight ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
+                  <span className={`text-sm sm:text-base font-bold block leading-tight ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
                     {kat.label}
                   </span>
                   <span className="text-[11px] sm:text-[12px] text-gray-400 leading-snug block mt-1 line-clamp-2">
@@ -230,18 +230,28 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                 </button>
               );
             })}
+            {/* Alle-Prompts Kachel als 8. Element für ausgeglichenes Grid */}
+            <button
+              onClick={showAll}
+              className="group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50/30 transition-all duration-200 overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-[#2596be]/30 hover:bg-[#EBF6FA]/30"
+            >
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 bg-gray-100 transition-transform duration-200 group-hover:scale-110">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </div>
+              <span className="text-sm sm:text-base font-bold block leading-tight text-gray-900">Alle Vorlagen</span>
+              <span className="text-[11px] sm:text-[12px] text-gray-400 leading-snug block mt-1 line-clamp-2">
+                Alle Kategorien durchsuchen und filtern
+              </span>
+              <span className="text-[11px] font-semibold mt-auto pt-2 inline-flex items-center gap-0.5 text-gray-400 group-hover:text-[#2596be] transition-colors">
+                {prompts.length} Prompts
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-0.5">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </span>
+            </button>
           </div>
-          {!showPrompts && (
-            <div className="text-center mt-6">
-              <button
-                onClick={showAll}
-                className="text-sm font-semibold hover:opacity-80 transition-opacity"
-                style={{ color: "#2596be" }}
-              >
-                Oder alle {prompts.length} Prompts anzeigen
-              </button>
-            </div>
-          )}
         </div>
       </section>
 
