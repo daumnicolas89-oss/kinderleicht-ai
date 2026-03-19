@@ -95,13 +95,13 @@ export default function GlobalSearch() {
         </svg>
       </button>
 
-      {/* Overlay + Modal */}
+      {/* Dropdown direkt unter der Lupe */}
       {open && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] sm:pt-[20vh] px-4">
-          <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 z-[100]">
+          <div className="fixed inset-0" onClick={() => setOpen(false)} />
           <div
             ref={containerRef}
-            className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+            className="absolute right-4 sm:right-6 lg:right-8 top-[72px] w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden"
           >
             {/* Input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
