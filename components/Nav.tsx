@@ -9,10 +9,8 @@ const navLinks = [
   { label: "Apps", href: "/apps" },
   { label: "Tools", href: "/tools" },
   { label: "Prompts", href: "/prompts" },
-  { label: "Downloads", href: "/downloads" },
   { label: "KI-ABC", href: "/ki-abc" },
   { label: "Über uns", href: "/ueber-uns" },
-  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export default function Nav() {
@@ -70,7 +68,7 @@ export default function Nav() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={`
-                    px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150
+                    px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150
                     ${active
                       ? "text-[#2596be] bg-[#2596be]/10 font-semibold"
                       : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
@@ -140,7 +138,7 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white">
           <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => {
+            {[...navLinks, { label: "Downloads", href: "/downloads" }, { label: "Kontakt", href: "/kontakt" }].map((link) => {
               const active = pathname === link.href;
               return (
                 <Link
