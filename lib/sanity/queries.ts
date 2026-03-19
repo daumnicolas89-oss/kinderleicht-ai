@@ -139,6 +139,7 @@ export const allPromptsQuery = groq`
     promptText,
     beschreibung,
     kiTool,
-    highlight
+    highlight,
+    beispielErgebnis
   }
 `;

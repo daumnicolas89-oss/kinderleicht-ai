@@ -84,6 +84,13 @@ export const prompt = defineType({
       description: "Als besonders empfehlenswerten Prompt hervorheben",
       initialValue: false,
     }),
+    defineField({
+      name: "beispielErgebnis",
+      title: "Beispiel-Ergebnis",
+      type: "text",
+      rows: 8,
+      description: "Zeigt was der Prompt produziert, wenn man ihn nutzt",
+    }),
   ],
 
   preview: {

@@ -24,6 +24,26 @@ export default async function PromptsPage() {
         subtitle="Erprobte Prompts für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach den passenden Prompt kopieren und in ChatGPT oder Claude einfügen."
       />
 
+      <section className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-lg font-bold text-gray-900 mb-5 text-center">So funktioniert es</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            {[
+              { step: "1", title: "Prompt wählen", text: "Finde den passenden Prompt für deine Aufgabe." },
+              { step: "2", title: "Kopieren", text: "Klicke auf den Kopieren-Button unter dem Prompt." },
+              { step: "3", title: "Einfügen", text: "Füge den Prompt in ChatGPT, Claude oder ein anderes KI-Tool ein." },
+              { step: "4", title: "Anpassen", text: "Ersetze die Platzhalter in [eckigen Klammern] durch deine Angaben." },
+            ].map((s) => (
+              <div key={s.step} className="flex flex-col items-center text-center p-4">
+                <span className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-2" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>{s.step}</span>
+                <p className="text-sm font-semibold text-gray-900 mb-1">{s.title}</p>
+                <p className="text-xs text-gray-500">{s.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <PromptsClient prompts={prompts} />
     </>
   );

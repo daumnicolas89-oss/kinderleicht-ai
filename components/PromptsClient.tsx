@@ -30,6 +30,7 @@ type Prompt = {
   beschreibung?: string;
   kiTool?: string;
   highlight?: boolean;
+  beispielErgebnis?: string;
 };
 
 function ExpandablePrompt({ text }: { text: string }) {
@@ -51,6 +52,31 @@ function ExpandablePrompt({ text }: { text: string }) {
           style={{ color: "#2596be" }}
         >
           {expanded ? "Weniger anzeigen" : "Ganzen Prompt anzeigen"}
+        </button>
+      )}
+    </div>
+  );
+}
+
+function ExpandableResult({ text }: { text: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = text.length > 150;
+
+  return (
+    <div className="bg-[#ECFDF5] rounded-xl p-4 border border-green-100 mt-3">
+      <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-wide mb-2">Beispiel-Ergebnis</p>
+      <p
+        className={`text-[13px] text-gray-700 leading-relaxed whitespace-pre-line ${!expanded && isLong ? "line-clamp-3" : ""}`}
+      >
+        {text}
+      </p>
+      {isLong && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="mt-2.5 text-xs font-semibold transition-colors"
+          style={{ color: "#059669" }}
+        >
+          {expanded ? "Weniger anzeigen" : "Ganzes Ergebnis anzeigen"}
         </button>
       )}
     </div>
@@ -327,6 +353,9 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                       {/* Prompt-Text (aufklappbar) */}
                       <div className="mt-auto pt-3">
                         <ExpandablePrompt text={prompt.promptText} />
+                        {prompt.beispielErgebnis && (
+                          <ExpandableResult text={prompt.beispielErgebnis} />
+                        )}
                       </div>
                     </div>
 
