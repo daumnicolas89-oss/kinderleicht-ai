@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import FilterBar from "@/components/FilterBar";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
 import LernstufenSlideshow from "@/components/LernstufenSlideshow";
@@ -10,8 +11,10 @@ const apps = [
     id: "ferienplaner",
     title: "Ferienplaner",
     description: "Ferienprogramme, Elternbriefe und Dienstpläne in Minuten statt Stunden erstellen.",
+    highlight: "Spart durchschnittlich 45 Minuten pro Ferienwoche",
     href: "https://ferienplaner.kinderleicht.ai",
     tags: ["Kita", "GBS", "GTS"],
+    badges: ["Kostenlos", "Keine Anmeldung", "PDF-Export"],
     features: [
       "Ferienprogramm mit Mottos, Aktivitäten und Zeitplan generieren",
       "Elternbriefe automatisch formulieren und als PDF exportieren",
@@ -20,13 +23,17 @@ const apps = [
       "Direkt im Browser, ohne Installation",
     ],
     slideshow: "ferienplaner",
+    badge: "Live",
+    badgeColor: "bg-[#EBF6FA] text-[#2596be]",
   },
   {
     id: "lernstufen",
     title: "Lernstufen-Generator",
     description: "Text eingeben oder hochladen und die KI erstellt automatisch differenzierte Versionen für unterschiedliche Leistungsniveaus.",
+    highlight: "Aus 1 Text werden 4 Niveaustufen in unter 30 Sekunden",
     href: "https://lernstufen.kinderleicht.ai",
     tags: ["Schule", "Kita", "Inklusion"],
+    badges: ["Kostenlos", "Keine Anmeldung", "PDF-Export"],
     features: [
       "Grundstufe: vereinfacht für Kinder mit Förderbedarf",
       "Mittelstufe: Standard-Niveau für die Klasse",
@@ -35,6 +42,8 @@ const apps = [
       "Direkt im Browser, ohne Installation",
     ],
     slideshow: "lernstufen",
+    badge: "Neu",
+    badgeColor: "bg-emerald-50 text-emerald-700",
   },
 ];
 
@@ -81,16 +90,16 @@ export default function AppsClient() {
                     <div className="p-6 lg:p-8 flex flex-col">
                       <div className="flex items-center gap-2 mb-3">
                         <h2 className="text-xl font-bold text-gray-900">{app.title}</h2>
-                        <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                          Live
-                        </span>
-                        <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-50 text-amber-700">
-                          Beta
+                        <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badgeColor}`}>
+                          {app.badge}
                         </span>
                       </div>
-                      <p className="text-base text-gray-500 leading-relaxed mb-5">{app.description}</p>
+                      <p className="text-base text-gray-500 leading-relaxed mb-3">{app.description}</p>
 
-                      <ul className="space-y-2.5 mb-6 flex-1">
+                      {/* Highlight */}
+                      <p className="text-sm font-semibold text-[#2596be] mb-5">{app.highlight}</p>
+
+                      <ul className="space-y-2.5 mb-5 flex-1">
                         {app.features.map((f) => (
                           <li key={f} className="flex items-start gap-2.5 text-sm text-gray-700">
                             <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2.5">
@@ -100,6 +109,13 @@ export default function AppsClient() {
                           </li>
                         ))}
                       </ul>
+
+                      {/* Badges */}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {app.badges.map((b) => (
+                          <span key={b} className="text-xs px-2.5 py-1 rounded-full border border-gray-200 text-gray-600">{b}</span>
+                        ))}
+                      </div>
 
                       <div className="flex flex-wrap items-center gap-3">
                         <a
@@ -124,6 +140,24 @@ export default function AppsClient() {
                   </div>
                 </div>
               ))}
+
+              {/* Kommt-bald-Teaser */}
+              <div className="rounded-2xl border border-dashed border-gray-200 p-8 sm:p-12 text-center">
+                <p className="text-2xl mb-2">🚀</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Weitere Apps in Entwicklung</h3>
+                <p className="text-sm text-gray-500 max-w-md mx-auto mb-5">
+                  Wir bauen neue Tools aus der Praxis heraus. Du hast eine Idee, was dir im Alltag helfen würde?
+                </p>
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  Idee vorschlagen
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="py-20 text-center">
