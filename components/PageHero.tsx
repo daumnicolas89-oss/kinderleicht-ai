@@ -6,7 +6,7 @@ export default function PageHero({
 }: {
   label?: string;
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   children?: React.ReactNode;
 }) {
   return (
