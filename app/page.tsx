@@ -120,10 +120,10 @@ export default function HomePage() {
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
                 KI-Tools, die wirklich<br />
-                aus der Praxis kommen.
+                aus dem Bildungsalltag kommen.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Entwickelt nach den Bedürfnissen aus der Praxis.
+                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Entwickelt nach den Bedürfnissen von Lehrkräften und Pädagogen.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
