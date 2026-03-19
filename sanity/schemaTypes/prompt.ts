@@ -24,14 +24,13 @@ export const prompt = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Elternbriefe", value: "Elternbriefe" },
+          { title: "Elternkommunikation", value: "Elternkommunikation" },
           { title: "Unterrichtsplanung", value: "Unterrichtsplanung" },
           { title: "Differenzierung", value: "Differenzierung" },
-          { title: "Zeugnisse & Berichte", value: "Zeugnisse & Berichte" },
-          { title: "Konzepte & Anträge", value: "Konzepte & Anträge" },
+          { title: "Berichte & Zeugnisse", value: "Berichte & Zeugnisse" },
           { title: "Förderpläne", value: "Förderpläne" },
-          { title: "Kita & Krippe", value: "Kita & Krippe" },
-          { title: "GBS & Ganztag", value: "GBS & Ganztag" },
+          { title: "Konzepte & Organisation", value: "Konzepte & Organisation" },
+          { title: "Programme & Planung", value: "Programme & Planung" },
         ],
         layout: "dropdown",
       },
