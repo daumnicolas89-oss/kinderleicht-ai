@@ -33,6 +33,30 @@ type Prompt = {
   highlight?: boolean;
 };
 
+function ExpandablePrompt({ text }: { text: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = text.length > 200;
+
+  return (
+    <div className="bg-[#F9FAFB] rounded-lg p-3 border border-gray-100">
+      <p
+        className={`text-xs text-gray-600 leading-relaxed whitespace-pre-line font-mono ${!expanded && isLong ? "line-clamp-3" : ""}`}
+      >
+        {text}
+      </p>
+      {isLong && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="mt-2 text-xs font-semibold transition-colors"
+          style={{ color: "#2596be" }}
+        >
+          {expanded ? "Weniger anzeigen" : "Ganzen Prompt anzeigen"}
+        </button>
+      )}
+    </div>
+  );
+}
+
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -158,20 +182,30 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
         <div className="max-w-6xl mx-auto">
           {filtered.length === 0 ? (
             <div className="py-20 text-center rounded-2xl bg-white border border-gray-100">
-              <p className="text-gray-500 text-base">
-                Keine Prompts gefunden.
-              </p>
-              <button
-                onClick={() => {
-                  setActiveKat("");
-                  setActiveZielgruppe("");
-                  setSearch("");
-                }}
-                className="mt-4 text-sm font-semibold"
-                style={{ color: "#2596be" }}
-              >
-                Filter zurücksetzen
-              </button>
+              {prompts.length === 0 ? (
+                <>
+                  <p className="text-3xl mb-3">📝</p>
+                  <p className="text-gray-900 text-base font-semibold mb-1">Prompts werden gerade erstellt.</p>
+                  <p className="text-gray-500 text-sm">Wir arbeiten an einer Sammlung erprobter Prompts. Schau bald wieder vorbei!</p>
+                </>
+              ) : (
+                <>
+                  <p className="text-gray-500 text-base">
+                    Keine Prompts gefunden.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setActiveKat("");
+                      setActiveZielgruppe("");
+                      setSearch("");
+                    }}
+                    className="mt-4 text-sm font-semibold"
+                    style={{ color: "#2596be" }}
+                  >
+                    Filter zurücksetzen
+                  </button>
+                </>
+              )}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -226,13 +260,9 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                       </p>
                     )}
 
-                    {/* Prompt-Text (eingeklappt) */}
+                    {/* Prompt-Text (aufklappbar) */}
                     <div className="mt-auto pt-3">
-                      <div className="bg-[#F9FAFB] rounded-lg p-3 border border-gray-100">
-                        <p className="text-xs text-gray-600 leading-relaxed line-clamp-3 whitespace-pre-line font-mono">
-                          {prompt.promptText}
-                        </p>
-                      </div>
+                      <ExpandablePrompt text={prompt.promptText} />
                     </div>
                   </div>
 
