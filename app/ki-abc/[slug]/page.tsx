@@ -116,7 +116,7 @@ export default async function LexikonDetailPage({ params }: Props) {
         {entry.beispiel && (
           <div className="bg-white rounded-2xl border border-gray-100 p-7">
             <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <span>💡</span> Praxisbeispiel
+              <span>💡</span> Beispiel
             </h2>
             <p className="text-gray-600 leading-[1.85] whitespace-pre-line text-base">
               {entry.beispiel}

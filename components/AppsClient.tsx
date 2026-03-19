@@ -3,6 +3,7 @@
 import { useState } from "react";
 import FilterBar from "@/components/FilterBar";
 import FerienplanerSlideshow from "@/components/FerienplanerSlideshow";
+import LernstufenSlideshow from "@/components/LernstufenSlideshow";
 
 const apps = [
   {
@@ -18,7 +19,22 @@ const apps = [
       "Alles als PDF oder Word herunterladen",
       "Direkt im Browser, ohne Installation",
     ],
-    hasSlideshow: true,
+    slideshow: "ferienplaner",
+  },
+  {
+    id: "lernstufen",
+    title: "Lernstufen-Generator",
+    description: "Text eingeben oder hochladen und die KI erstellt automatisch differenzierte Versionen für unterschiedliche Leistungsniveaus.",
+    href: "https://lernstufen.kinderleicht.ai",
+    tags: ["Schule", "Kita", "Inklusion"],
+    features: [
+      "Grundstufe: vereinfacht für Kinder mit Förderbedarf",
+      "Mittelstufe: Standard-Niveau für die Klasse",
+      "Erweiterung: anspruchsvoll für leistungsstarke Kinder",
+      "Einfache Sprache: barrierefrei auf A2-Niveau",
+      "Direkt im Browser, ohne Installation",
+    ],
+    slideshow: "lernstufen",
   },
 ];
 
@@ -54,9 +70,10 @@ export default function AppsClient() {
                 <div key={app.id} className="rounded-2xl border border-gray-100 overflow-hidden">
                   <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Slideshow */}
-                    {app.hasSlideshow && (
+                    {app.slideshow && (
                       <div className="bg-[#F5F5F7] p-6 lg:p-8 flex items-center justify-center">
-                        <FerienplanerSlideshow />
+                        {app.slideshow === "ferienplaner" && <FerienplanerSlideshow />}
+                        {app.slideshow === "lernstufen" && <LernstufenSlideshow />}
                       </div>
                     )}
 
