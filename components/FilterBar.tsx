@@ -57,7 +57,7 @@ export default function FilterBar({
               value={activeCategory ?? ""}
               onChange={(e) => onCategoryChange(e.target.value)}
               aria-label={categoryPlaceholder || "Kategorie filtern"}
-              className="h-9 px-3 text-sm rounded-full border bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 cursor-pointer"
+              className="h-9 px-3 text-base sm:text-sm rounded-full border bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 cursor-pointer"
               style={
                 activeCategory
                   ? { borderColor: "#2596be", color: "#2596be", backgroundColor: "#EBF6FA" }
@@ -82,7 +82,7 @@ export default function FilterBar({
             </button>
           )}
 
-          <span className="text-xs text-gray-500 ml-auto hidden sm:block">
+          <span className="text-xs text-gray-500 ml-auto">
             {count} {count === 1 ? countLabelSingular : countLabel}
           </span>
         </div>
