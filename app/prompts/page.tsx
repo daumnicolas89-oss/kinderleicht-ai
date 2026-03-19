@@ -21,23 +21,32 @@ export default async function PromptsPage() {
       <PageHero
         label="KI-Prompts"
         title="Kopieren. Einfügen. Fertig."
-        subtitle="Erprobte Prompts für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach den passenden Prompt kopieren und in ChatGPT oder Claude einfügen."
+        subtitle="Erprobte Prompts für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach kopieren und in ChatGPT oder Claude einfügen."
       />
 
-      <section className="py-10 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      {/* ── SO FUNKTIONIERT ES ──────────────────────── */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-lg font-bold text-gray-900 mb-5 text-center">So funktioniert es</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 justify-center">
             {[
-              { step: "1", title: "Prompt wählen", text: "Finde den passenden Prompt für deine Aufgabe." },
-              { step: "2", title: "Kopieren", text: "Klicke auf den Kopieren-Button unter dem Prompt." },
-              { step: "3", title: "Einfügen", text: "Füge den Prompt in ChatGPT, Claude oder ein anderes KI-Tool ein." },
-              { step: "4", title: "Anpassen", text: "Ersetze die Platzhalter in [eckigen Klammern] durch deine Angaben." },
-            ].map((s) => (
-              <div key={s.step} className="flex flex-col items-center text-center p-4">
-                <span className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-2" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>{s.step}</span>
-                <p className="text-sm font-semibold text-gray-900 mb-1">{s.title}</p>
-                <p className="text-xs text-gray-500">{s.text}</p>
+              { step: "1", text: "Prompt wählen" },
+              { step: "2", text: "Kopieren" },
+              { step: "3", text: "In ChatGPT oder Claude einfügen" },
+              { step: "4", text: "Platzhalter in [Klammern] anpassen" },
+            ].map((s, i) => (
+              <div key={s.step} className="flex items-center gap-2.5">
+                <span
+                  className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                  style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}
+                >
+                  {s.step}
+                </span>
+                <span className="text-sm text-gray-700">{s.text}</span>
+                {i < 3 && (
+                  <svg className="hidden sm:block text-gray-300 flex-shrink-0 ml-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                )}
               </div>
             ))}
           </div>

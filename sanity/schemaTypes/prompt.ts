@@ -43,9 +43,12 @@ export const prompt = defineType({
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Kita", value: "Kita" },
-          { title: "Schule", value: "Schule" },
-          { title: "GBS", value: "GBS" },
+          { title: "Krippe & Kita", value: "Krippe & Kita" },
+          { title: "Schulen", value: "Schulen" },
+          { title: "GBS & GTS", value: "GBS & GTS" },
+          { title: "Jugendarbeit", value: "Jugendarbeit" },
+          { title: "Leitung & Teams", value: "Leitung & Teams" },
+          { title: "Verwaltung", value: "Verwaltung" },
         ],
         layout: "grid",
       },
