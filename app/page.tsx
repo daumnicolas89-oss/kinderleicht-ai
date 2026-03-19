@@ -266,7 +266,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
               { value: "300+", label: "Geprüfte KI-Tools" },
-              { value: "30+", label: "Fertige Prompts" },
+              { value: "35+", label: "Fertige KI-Vorlagen" },
               { value: "330+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
             ].map((stat) => (

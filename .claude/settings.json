@@ -15,7 +15,8 @@
       "Bash(node -e \"process.stdin.resume\\(\\); let d=''''''''; process.stdin.on\\(''''data'''',c=>d+=c\\); process.stdin.on\\(''''end'''',\\(\\)=>console.log\\(JSON.stringify\\(JSON.parse\\(d\\).result, null, 2\\)\\)\\);\")",
       "Bash(git pull:*)",
       "Bash(git show:*)",
-      "Bash(grep -rn \"hover:shadow\\\\|hover:border\\\\|hover:-translate\" /workspaces/kinderleicht-ai/components/Tool*.tsx)"
+      "Bash(grep -rn \"hover:shadow\\\\|hover:border\\\\|hover:-translate\" /workspaces/kinderleicht-ai/components/Tool*.tsx)",
+      "Bash(grep -n console. /workspaces/kinderleicht-ai/components/*.tsx /workspaces/kinderleicht-ai/app/*.tsx)"
     ]
   }
 }

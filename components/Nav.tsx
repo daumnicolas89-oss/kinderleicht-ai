@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import GlobalSearch from "@/components/GlobalSearch";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
@@ -81,8 +82,9 @@ export default function Nav() {
             })}
           </nav>
 
-          {/* Social Icons — rechts */}
+          {/* Search + Social Icons — rechts */}
           <div className="flex items-center gap-2">
+            <GlobalSearch />
             {/* Social Icons (Desktop) */}
             <div className="hidden md:flex items-center gap-1">
               <a
@@ -138,7 +140,7 @@ export default function Nav() {
       {mobileOpen && (
         <div className="md:hidden border-t border-gray-100 bg-white">
           <nav className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
-            {[...navLinks, { label: "Downloads", href: "/downloads" }, { label: "Kontakt", href: "/kontakt" }].map((link) => {
+            {[...navLinks, { label: "Kontakt", href: "/kontakt" }].map((link) => {
               const active = pathname === link.href;
               return (
                 <Link

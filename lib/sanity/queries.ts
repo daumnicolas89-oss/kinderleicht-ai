@@ -141,6 +141,16 @@ export const featuredPromptsQuery = groq`
   }
 `;
 
+export const promptsForToolQuery = groq`
+  *[_type == "prompt" && (kiTool == $toolName || kiTool == "Alle KI-Tools")] | order(highlight desc, kategorie asc, titel asc) [0...4] {
+    titel,
+    "slug": slug.current,
+    kategorie,
+    beschreibung,
+    promptText
+  }
+`;
+
 export const allPromptsQuery = groq`
   *[_type == "prompt"] | order(kategorie asc, titel asc) {
     titel,

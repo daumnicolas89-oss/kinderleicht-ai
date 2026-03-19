@@ -6,7 +6,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { toolBySlugQuery, allToolSlugsQuery, similarToolsQuery } from "@/lib/sanity/queries";
+import { toolBySlugQuery, allToolSlugsQuery, similarToolsQuery, promptsForToolQuery } from "@/lib/sanity/queries";
 import ScreenshotLightbox from "@/components/ScreenshotLightbox";
 import { ShareBar, PriceDetail } from "@/components/ToolDetailClient";
 import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
@@ -80,6 +80,10 @@ export default async function ToolDetailPage({ params }: Props) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     logoUrl: t.logo ? urlFor(t.logo as any).width(160).fit("max").url() : null,
   }));
+
+  // Fetch matching prompts for this tool
+  const matchingPrompts: { titel: string; slug: string; kategorie: string; beschreibung?: string; promptText: string }[] =
+    await client.fetch(promptsForToolQuery, { toolName: tool.name });
 
   // Build JSON-LD structured data
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -450,6 +454,45 @@ export default async function ToolDetailPage({ params }: Props) {
           </aside>
         </div>
       </div>
+
+      {/* ── Passende Vorlagen ──────────────────────────────────── */}
+      {matchingPrompts.length > 0 && (
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-xl font-bold text-gray-900">
+              Passende Vorlagen
+            </h2>
+            <Link
+              href="/prompts"
+              className="text-sm font-semibold hover:opacity-80 transition-opacity"
+              style={{ color: "#2596be" }}
+            >
+              Alle Vorlagen →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {matchingPrompts.map((p) => (
+              <Link
+                key={p.slug}
+                href="/prompts"
+                className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden p-5"
+              >
+                {p.kategorie && (
+                  <span className="self-start text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-2">
+                    {p.kategorie}
+                  </span>
+                )}
+                <h3 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-[#2596be] transition-colors">
+                  {p.titel}
+                </h3>
+                {p.beschreibung && (
+                  <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{p.beschreibung}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ── Ähnliche Tools ────────────────────────────────────── */}
       {similarTools.length >= 3 && (
