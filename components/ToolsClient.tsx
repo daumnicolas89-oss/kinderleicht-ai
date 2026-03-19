@@ -7,13 +7,13 @@ import { DSGVO_COLOR, DSGVO_BG, DSGVO_LABEL } from "@/lib/constants";
 import FilterBar from "@/components/FilterBar";
 
 const KATEGORIEN = [
-  { label: "Texte & Schreiben", icon: "✍️", desc: "Texte erstellen, umschreiben und zusammenfassen" },
-  { label: "Recherche & Analyse", icon: "🔍", desc: "Informationen finden, auswerten und aufbereiten" },
-  { label: "Planung & Vorbereitung", icon: "📅", desc: "Unterricht und Projekte effizient planen" },
-  { label: "Bilder & Grafiken", icon: "🎨", desc: "Illustrationen, Grafiken und Bildmaterial erzeugen" },
-  { label: "Präsentationen", icon: "📊", desc: "Folien und Präsentationen schnell gestalten" },
-  { label: "Video & Audio", icon: "🎬", desc: "Videos, Podcasts und Audiomaterial bearbeiten" },
-  { label: "Fortbildung & Wissen", icon: "🎓", desc: "KI verstehen, lernen und im Team weitergeben" },
+  { label: "Texte & Schreiben", desc: "Texte erstellen, umschreiben und zusammenfassen", iconPath: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" },
+  { label: "Recherche & Analyse", desc: "Informationen finden, auswerten und aufbereiten", iconPath: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+  { label: "Planung & Vorbereitung", desc: "Unterricht und Projekte effizient planen", iconPath: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" },
+  { label: "Bilder & Grafiken", desc: "Illustrationen, Grafiken und Bildmaterial erzeugen", iconPath: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" },
+  { label: "Präsentationen", desc: "Folien und Präsentationen schnell gestalten", iconPath: "M7 21l5-2.5L17 21V5a2 2 0 00-2-2H9a2 2 0 00-2 2v16z" },
+  { label: "Video & Audio", desc: "Videos, Podcasts und Audiomaterial bearbeiten", iconPath: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" },
+  { label: "Fortbildung & Wissen", desc: "KI verstehen, lernen und im Team weitergeben", iconPath: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
 ];
 
 type Tool = {
@@ -121,10 +121,12 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                   }`}
                   style={{ boxShadow: isActive ? undefined : "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl mb-3 transition-transform duration-200 group-hover:scale-110 ${
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 transition-transform duration-200 group-hover:scale-110 ${
                     isActive ? "bg-[#2596be]/15" : "bg-[#EBF6FA]"
                   }`}>
-                    {kat.icon}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
+                      <path d={kat.iconPath} />
+                    </svg>
                   </div>
                   <span className={`text-[13px] sm:text-sm font-bold block leading-tight ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
                     {kat.label}
@@ -148,8 +150,10 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
               onClick={showAll}
               className="group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50/30 transition-all duration-200 overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-[#2596be]/30 hover:bg-[#EBF6FA]/30"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl mb-3 bg-gray-100 transition-transform duration-200 group-hover:scale-110">
-                🔎
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 bg-gray-100 transition-transform duration-200 group-hover:scale-110">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </div>
               <span className="text-[13px] sm:text-sm font-bold block leading-tight text-gray-900">Alle Tools</span>
               <span className="text-[11px] sm:text-[12px] text-gray-400 leading-snug block mt-1 line-clamp-2">
