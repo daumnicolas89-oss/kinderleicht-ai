@@ -2,15 +2,15 @@
 
 import { useState, useMemo, useCallback, useRef } from "react";
 
-const KATEGORIEN: { label: string; icon: string; beschreibung: string }[] = [
-  { label: "Elternbriefe", icon: "✉️", beschreibung: "Elternbriefe, Einladungen und Infos an Familien" },
-  { label: "Unterrichtsplanung", icon: "📋", beschreibung: "Stunden planen, Quizze und Materialien erstellen" },
-  { label: "Differenzierung", icon: "📊", beschreibung: "Texte und Aufgaben auf verschiedene Niveaus anpassen" },
-  { label: "Zeugnisse & Berichte", icon: "📝", beschreibung: "Zeugnistexte und Berichte formulieren" },
-  { label: "Konzepte & Anträge", icon: "📄", beschreibung: "Projekttage, Konzepte und Anträge schreiben" },
-  { label: "Förderpläne", icon: "🎯", beschreibung: "Individuelle Förderpläne strukturiert erstellen" },
-  { label: "Kita & Krippe", icon: "🧸", beschreibung: "Entwicklungsberichte, Tagesabläufe und Kita-Alltag" },
-  { label: "GBS & Ganztag", icon: "🏫", beschreibung: "Ferienprogramme, Wochenpläne und Betreuung" },
+const KATEGORIEN: { label: string; beschreibung: string }[] = [
+  { label: "Elternbriefe", beschreibung: "Elternbriefe, Einladungen und Infos an Familien" },
+  { label: "Unterrichtsplanung", beschreibung: "Stunden planen, Quizze und Materialien erstellen" },
+  { label: "Differenzierung", beschreibung: "Texte und Aufgaben auf verschiedene Niveaus anpassen" },
+  { label: "Zeugnisse & Berichte", beschreibung: "Zeugnistexte und Berichte formulieren" },
+  { label: "Konzepte & Anträge", beschreibung: "Projekttage, Konzepte und Anträge schreiben" },
+  { label: "Förderpläne", beschreibung: "Individuelle Förderpläne strukturiert erstellen" },
+  { label: "Kita & Krippe", beschreibung: "Entwicklungsberichte, Tagesabläufe und Kita-Alltag" },
+  { label: "GBS & Ganztag", beschreibung: "Ferienprogramme, Wochenpläne und Betreuung" },
 ];
 
 const ZIELGRUPPEN = ["Kita", "Schule", "GBS"];
@@ -37,16 +37,17 @@ function ExpandablePrompt({ text }: { text: string }) {
   const isLong = text.length > 200;
 
   return (
-    <div className="bg-[#F9FAFB] rounded-lg p-3 border border-gray-100">
+    <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+      <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wide mb-2">Prompt</p>
       <p
-        className={`text-xs text-gray-600 leading-relaxed whitespace-pre-line font-mono ${!expanded && isLong ? "line-clamp-3" : ""}`}
+        className={`text-[13px] text-gray-700 leading-relaxed whitespace-pre-line ${!expanded && isLong ? "line-clamp-4" : ""}`}
       >
         {text}
       </p>
       {isLong && (
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="mt-2 text-xs font-semibold transition-colors"
+          className="mt-2.5 text-xs font-semibold transition-colors"
           style={{ color: "#2596be" }}
         >
           {expanded ? "Weniger anzeigen" : "Ganzen Prompt anzeigen"}
@@ -152,7 +153,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
       <section className="py-14 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {KATEGORIEN.map((kat) => {
+            {KATEGORIEN.map((kat, i) => {
               const isActive = activeKat === kat.label;
               const count = countPerKat[kat.label] || 0;
               return (
@@ -165,7 +166,13 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                       : "border-gray-100 bg-gray-50/50 hover:border-gray-200 hover:shadow-sm"
                   }`}
                 >
-                  <span className="text-2xl mb-2">{kat.icon}</span>
+                  <span
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mb-2.5 ${
+                      isActive ? "bg-[#2596be] text-white" : "bg-gray-100 text-gray-500"
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
                   <span className={`text-sm font-semibold mb-0.5 ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
                     {kat.label}
                   </span>
@@ -174,7 +181,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                   </span>
                   {count > 0 && (
                     <span className={`mt-2 text-[11px] font-semibold px-2 py-0.5 rounded-full ${
-                      isActive ? "bg-[#2596be] text-white" : "bg-gray-100 text-gray-500"
+                      isActive ? "bg-[#2596be]/20 text-[#2596be]" : "bg-gray-100 text-gray-500"
                     }`}>
                       {count} {count === 1 ? "Prompt" : "Prompts"}
                     </span>
@@ -273,11 +280,20 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                 {filtered.map((prompt) => (
                   <div
                     key={prompt.slug}
-                    className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-300 overflow-hidden"
+                    className={`group flex flex-col rounded-2xl border hover:shadow-md transition-all duration-300 overflow-hidden ${
+                      prompt.highlight
+                        ? "bg-[#FAFEFF] border-[#2596be]/25 ring-1 ring-[#2596be]/8"
+                        : "bg-white border-gray-100 hover:border-[#2596be]/20"
+                    }`}
                   >
                     <div className="flex flex-col p-6 flex-1">
-                      {/* Header: Kategorie + KI-Tool */}
+                      {/* Header: Badges */}
                       <div className="flex items-center gap-2 mb-3 flex-wrap">
+                        {prompt.highlight && (
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600">
+                            Empfohlen
+                          </span>
+                        )}
                         {prompt.kategorie && (
                           <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                             {prompt.kategorie}
@@ -285,7 +301,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                         )}
                         {prompt.kiTool && (
                           <span
-                            className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
+                            className="text-[11px] font-semibold px-2 py-0.5 rounded-full ml-auto"
                             style={{
                               backgroundColor: KI_TOOL_COLOR[prompt.kiTool]?.bg ?? "#F5F5F7",
                               color: KI_TOOL_COLOR[prompt.kiTool]?.text ?? "#6B7280",
@@ -294,15 +310,10 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                             {prompt.kiTool}
                           </span>
                         )}
-                        {prompt.highlight && (
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" className="ml-auto flex-shrink-0">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                          </svg>
-                        )}
                       </div>
 
                       {/* Titel */}
-                      <h3 className="text-[15px] font-semibold text-gray-900 mb-1.5">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1.5">
                         {prompt.titel}
                       </h3>
 

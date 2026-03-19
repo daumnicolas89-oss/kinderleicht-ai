@@ -20,8 +20,8 @@ export default async function PromptsPage() {
     <>
       <PageHero
         label="KI-Prompts"
-        title="KI-Prompts für den Bildungsalltag."
-        subtitle="Fertige Prompts zum Kopieren. Für Elternbriefe, Unterrichtsplanung, Förderpläne und vieles mehr."
+        title="Kopieren. Einfügen. Fertig."
+        subtitle="Erprobte Prompts für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach den passenden Prompt kopieren und in ChatGPT oder Claude einfügen."
       />
 
       <PromptsClient prompts={prompts} />
