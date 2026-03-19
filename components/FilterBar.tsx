@@ -30,7 +30,7 @@ export default function FilterBar({
   onReset: () => void;
 }) {
   return (
-    <div className="sticky top-[72px] z-30 bg-white border-b border-gray-100 shadow-sm">
+    <div className="sticky top-[72px] z-30 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         {/* Suchfeld */}
         <div className="relative mb-3">
@@ -46,7 +46,7 @@ export default function FilterBar({
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder={searchPlaceholder}
             aria-label="Durchsuchen"
-            className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-[#F9FAFB] transition-colors"
+            className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-white transition-colors"
           />
         </div>
 

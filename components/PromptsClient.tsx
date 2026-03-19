@@ -3,14 +3,14 @@
 import { useState, useMemo, useCallback, useRef } from "react";
 
 const KATEGORIEN = [
-  { label: "Elternbriefe", icon: "✉️" },
-  { label: "Unterrichtsplanung", icon: "📋" },
-  { label: "Differenzierung", icon: "📊" },
-  { label: "Zeugnisse & Berichte", icon: "📝" },
-  { label: "Konzepte & Anträge", icon: "📄" },
-  { label: "Förderpläne", icon: "🎯" },
-  { label: "Kita & Krippe", icon: "🧸" },
-  { label: "GBS & Ganztag", icon: "🏫" },
+  { label: "Elternbriefe", icon: "✉️", desc: "Einladungen, Infos und Aushänge für Eltern" },
+  { label: "Unterrichtsplanung", icon: "📋", desc: "Stundenentwürfe, Reihenplanung und Materialideen" },
+  { label: "Differenzierung", icon: "📊", desc: "Texte und Aufgaben an verschiedene Niveaus anpassen" },
+  { label: "Zeugnisse & Berichte", icon: "📝", desc: "Formulierungshilfen für Lernentwicklungsberichte" },
+  { label: "Konzepte & Anträge", icon: "📄", desc: "Pädagogische Konzepte und Förderanträge erstellen" },
+  { label: "Förderpläne", icon: "🎯", desc: "Individuelle Förderziele und Maßnahmen formulieren" },
+  { label: "Kita & Krippe", icon: "🧸", desc: "Beobachtungen, Portfolios und Entwicklungsberichte" },
+  { label: "GBS & Ganztag", icon: "🏫", desc: "Ferienprogramme, AG-Konzepte und Tagesberichte" },
 ];
 
 const ZIELGRUPPEN = ["Krippe & Kita", "Schulen", "GBS & GTS", "Jugendarbeit", "Leitung & Teams", "Verwaltung"];
@@ -131,6 +131,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
   const [activeKat, setActiveKat] = useState("");
   const [activeZielgruppe, setActiveZielgruppe] = useState("");
   const [search, setSearch] = useState("");
+  const [showPrompts, setShowPrompts] = useState(false);
   const promptsRef = useRef<HTMLDivElement>(null);
 
   const filtered = useMemo(() => {
@@ -148,10 +149,29 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
   }, [prompts, activeKat, activeZielgruppe, search]);
 
   function selectKategorie(kat: string) {
-    setActiveKat((v) => (v === kat ? "" : kat));
+    const next = activeKat === kat ? "" : kat;
+    setActiveKat(next);
+    setShowPrompts(true);
     setTimeout(() => {
       promptsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
+  }
+
+  function showAll() {
+    setActiveKat("");
+    setActiveZielgruppe("");
+    setSearch("");
+    setShowPrompts(true);
+    setTimeout(() => {
+      promptsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }
+
+  function resetAll() {
+    setActiveKat("");
+    setActiveZielgruppe("");
+    setSearch("");
+    setShowPrompts(false);
   }
 
   const countPerKat = useMemo(() => {
@@ -170,9 +190,9 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
       <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-sm text-gray-500 mb-6">
-            Wähle eine Kategorie oder scrolle direkt zu den Prompts.
+            Wähle eine Kategorie, um passende Prompts zu sehen.
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {KATEGORIEN.map((kat) => {
               const isActive = activeKat === kat.label;
               const count = countPerKat[kat.label] || 0;
@@ -180,174 +200,189 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                 <button
                   key={kat.label}
                   onClick={() => selectKategorie(kat.label)}
-                  className={`flex flex-col items-center text-center p-3 sm:p-4 rounded-xl border transition-all duration-200 ${
+                  className={`group flex items-start gap-3 text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 ${
                     isActive
-                      ? "border-[#2596be] bg-[#EBF6FA] shadow-sm"
-                      : "border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm"
+                      ? "border-[#2596be] bg-[#EBF6FA] shadow-md"
+                      : "border-gray-100 bg-white hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5"
                   }`}
                 >
-                  <span className="text-xl mb-1.5">{kat.icon}</span>
-                  <span className={`text-sm font-semibold ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
-                    {kat.label}
-                  </span>
-                  {count > 0 && (
-                    <span className="text-[11px] text-gray-400 mt-0.5">
-                      {count} {count === 1 ? "Prompt" : "Prompts"}
+                  <span className="text-2xl flex-shrink-0 mt-0.5">{kat.icon}</span>
+                  <div className="min-w-0">
+                    <span className={`text-sm font-bold block ${isActive ? "text-[#2596be]" : "text-gray-900"}`}>
+                      {kat.label}
                     </span>
-                  )}
+                    <span className="text-[12px] text-gray-400 leading-snug block mt-0.5">
+                      {kat.desc}
+                    </span>
+                    {count > 0 && (
+                      <span className={`text-[11px] font-semibold mt-2 inline-block ${isActive ? "text-[#2596be]" : "text-gray-400"}`}>
+                        {count} {count === 1 ? "Prompt" : "Prompts"} →
+                      </span>
+                    )}
+                  </div>
                 </button>
               );
             })}
           </div>
+          {!showPrompts && (
+            <div className="text-center mt-6">
+              <button
+                onClick={showAll}
+                className="text-sm font-semibold hover:opacity-80 transition-opacity"
+                style={{ color: "#2596be" }}
+              >
+                Oder alle {prompts.length} Prompts anzeigen
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ── KOMPAKTE FILTERLEISTE ──────────────────── */}
-      <div ref={promptsRef} className="scroll-mt-20">
-        <section className="py-3 px-4 sm:px-6 lg:px-8 sticky top-[72px] z-30 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-2.5">
-            {/* Suche */}
-            <div className="relative flex-1 min-w-0 max-w-xs">
-              <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-              </svg>
-              <input
-                type="text"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Suchen..."
-                className="w-full h-9 pl-9 pr-3 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 focus:border-[#2596be]"
-              />
-            </div>
+      {/* ── FILTERLEISTE + PROMPT-KARTEN (nur sichtbar nach Kategorie-Klick) ── */}
+      {showPrompts && (
+        <div ref={promptsRef} className="scroll-mt-20">
+          <section className="py-3 px-4 sm:px-6 lg:px-8 sticky top-[72px] z-30 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-2.5">
+              {/* Suche */}
+              <div className="relative flex-1 min-w-0 max-w-xs">
+                <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+                </svg>
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Suchen..."
+                  className="w-full h-9 pl-9 pr-3 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 focus:border-[#2596be]"
+                />
+              </div>
 
-            {/* Zielgruppe Dropdown */}
-            <select
-              value={activeZielgruppe}
-              onChange={(e) => setActiveZielgruppe(e.target.value)}
-              className="h-9 pl-3 pr-8 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 appearance-none cursor-pointer"
-              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}
-            >
-              <option value="">Alle Zielgruppen</option>
-              {ZIELGRUPPEN.map((zg) => (
-                <option key={zg} value={zg}>{zg}</option>
-              ))}
-            </select>
+              {/* Zielgruppe Dropdown */}
+              <select
+                value={activeZielgruppe}
+                onChange={(e) => setActiveZielgruppe(e.target.value)}
+                className="h-9 pl-3 pr-8 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-[#2596be]/30 appearance-none cursor-pointer"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}
+              >
+                <option value="">Alle Zielgruppen</option>
+                {ZIELGRUPPEN.map((zg) => (
+                  <option key={zg} value={zg}>{zg}</option>
+                ))}
+              </select>
 
-            {/* Aktive Kategorie als Chip */}
-            {activeKat && (
-              <span className="inline-flex items-center gap-1.5 h-9 px-3 text-sm rounded-lg border font-medium" style={{ borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }}>
-                {activeKat}
-                <button onClick={() => setActiveKat("")} className="hover:opacity-70">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M18 6L6 18M6 6l12 12" />
-                  </svg>
-                </button>
-              </span>
-            )}
+              {/* Aktive Kategorie als Chip */}
+              {activeKat && (
+                <span className="inline-flex items-center gap-1.5 h-9 px-3 text-sm rounded-lg border font-medium" style={{ borderColor: "#2596be", backgroundColor: "#EBF6FA", color: "#2596be" }}>
+                  {activeKat}
+                  <button onClick={() => setActiveKat("")} className="hover:opacity-70">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </span>
+              )}
 
-            {/* Zähler + Reset */}
-            <div className="flex items-center gap-2.5 ml-auto">
-              <span className="text-sm text-gray-500">{filtered.length} Prompts</span>
-              {hasActiveFilter && (
+              {/* Zähler + Reset */}
+              <div className="flex items-center gap-2.5 ml-auto">
+                <span className="text-sm text-gray-500">{filtered.length} Prompts</span>
+                {hasActiveFilter && (
+                  <button
+                    onClick={() => { setActiveKat(""); setActiveZielgruppe(""); setSearch(""); }}
+                    className="text-xs font-semibold"
+                    style={{ color: "#2596be" }}
+                  >
+                    Alle anzeigen
+                  </button>
+                )}
                 <button
-                  onClick={() => { setActiveKat(""); setActiveZielgruppe(""); setSearch(""); }}
-                  className="text-xs font-semibold"
-                  style={{ color: "#2596be" }}
+                  onClick={resetAll}
+                  className="text-xs font-semibold text-gray-400 hover:text-gray-600 transition-colors"
                 >
-                  Alle anzeigen
+                  Zurück
                 </button>
+              </div>
+            </div>
+          </section>
+
+          {/* ── PROMPT-KARTEN ──────────────────────── */}
+          <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[40vh]">
+            <div className="max-w-6xl mx-auto">
+              {filtered.length === 0 ? (
+                <div className="py-16 text-center rounded-2xl bg-gray-50/50 border border-gray-100">
+                  <p className="text-gray-500 text-base">Keine Prompts gefunden.</p>
+                  <button
+                    onClick={() => { setActiveKat(""); setActiveZielgruppe(""); setSearch(""); }}
+                    className="mt-3 text-sm font-semibold"
+                    style={{ color: "#2596be" }}
+                  >
+                    Filter zurücksetzen
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
+                  {filtered.map((prompt) => (
+                    <div
+                      key={prompt.slug}
+                      className={`group flex flex-col rounded-2xl border transition-all duration-300 overflow-hidden ${
+                        prompt.highlight
+                          ? "bg-[#FAFEFF] border-[#2596be]/25 ring-1 ring-[#2596be]/8"
+                          : "bg-white border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
+                      }`}
+                    >
+                      <div className="flex flex-col p-4 sm:p-5 flex-1">
+                        {/* Header */}
+                        <div className="flex items-center gap-2 mb-3 flex-wrap">
+                          {prompt.highlight && (
+                            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600">
+                              Empfohlen
+                            </span>
+                          )}
+                          {prompt.kategorie && (
+                            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                              {prompt.kategorie}
+                            </span>
+                          )}
+                          {prompt.kiTool && prompt.kiTool !== "Alle KI-Tools" && (
+                            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 ml-auto">
+                              {prompt.kiTool}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Titel + Beschreibung */}
+                        <h3 className="text-base font-semibold text-gray-900 mb-1">{prompt.titel}</h3>
+                        {prompt.beschreibung && (
+                          <p className="text-sm text-gray-500 leading-relaxed mb-3">{prompt.beschreibung}</p>
+                        )}
+
+                        {/* Prompt + Ergebnis */}
+                        <div className="mt-auto pt-2">
+                          <ExpandablePrompt text={prompt.promptText} />
+                          {prompt.beispielErgebnis && (
+                            <ExpandableResult text={prompt.beispielErgebnis} />
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="px-4 sm:px-5 py-3 border-t border-gray-50 flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {(prompt.zielgruppe ?? []).map((zg) => (
+                            <span key={zg} className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
+                              {zg}
+                            </span>
+                          ))}
+                        </div>
+                        <CopyButton text={prompt.promptText} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
-          </div>
-        </section>
-
-        {/* ── PROMPT-KARTEN ──────────────────────── */}
-        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[40vh]">
-          <div className="max-w-6xl mx-auto">
-            {filtered.length === 0 ? (
-              <div className="py-16 text-center rounded-2xl bg-gray-50/50 border border-gray-100">
-                {prompts.length === 0 ? (
-                  <>
-                    <p className="text-gray-900 text-base font-semibold mb-1">Prompts werden gerade erstellt.</p>
-                    <p className="text-gray-500 text-sm">Schau bald wieder vorbei!</p>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-gray-500 text-base">Keine Prompts gefunden.</p>
-                    <button
-                      onClick={() => { setActiveKat(""); setActiveZielgruppe(""); setSearch(""); }}
-                      className="mt-3 text-sm font-semibold"
-                      style={{ color: "#2596be" }}
-                    >
-                      Filter zurücksetzen
-                    </button>
-                  </>
-                )}
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
-                {filtered.map((prompt) => (
-                  <div
-                    key={prompt.slug}
-                    className={`group flex flex-col rounded-2xl border transition-all duration-300 overflow-hidden ${
-                      prompt.highlight
-                        ? "bg-[#FAFEFF] border-[#2596be]/25 ring-1 ring-[#2596be]/8"
-                        : "bg-white border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
-                    }`}
-                  >
-                    <div className="flex flex-col p-4 sm:p-5 flex-1">
-                      {/* Header */}
-                      <div className="flex items-center gap-2 mb-3 flex-wrap">
-                        {prompt.highlight && (
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-50 text-amber-600">
-                            Empfohlen
-                          </span>
-                        )}
-                        {prompt.kategorie && (
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
-                            {prompt.kategorie}
-                          </span>
-                        )}
-                        {prompt.kiTool && prompt.kiTool !== "Alle KI-Tools" && (
-                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-gray-50 text-gray-500 ml-auto">
-                            {prompt.kiTool}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Titel + Beschreibung */}
-                      <h3 className="text-base font-semibold text-gray-900 mb-1">{prompt.titel}</h3>
-                      {prompt.beschreibung && (
-                        <p className="text-sm text-gray-500 leading-relaxed mb-3">{prompt.beschreibung}</p>
-                      )}
-
-                      {/* Prompt + Ergebnis */}
-                      <div className="mt-auto pt-2">
-                        <ExpandablePrompt text={prompt.promptText} />
-                        {prompt.beispielErgebnis && (
-                          <ExpandableResult text={prompt.beispielErgebnis} />
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Footer */}
-                    <div className="px-4 sm:px-5 py-3 border-t border-gray-50 flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        {(prompt.zielgruppe ?? []).map((zg) => (
-                          <span key={zg} className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
-                            {zg}
-                          </span>
-                        ))}
-                      </div>
-                      <CopyButton text={prompt.promptText} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </section>
-      </div>
+          </section>
+        </div>
+      )}
     </>
   );
 }

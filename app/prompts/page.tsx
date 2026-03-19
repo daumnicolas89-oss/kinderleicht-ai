@@ -21,7 +21,7 @@ export default async function PromptsPage() {
       <PageHero
         label="KI-Prompts"
         title="Kopieren. Einfügen. Fertig."
-        subtitle={<>Fertige Vorlagen für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach kopieren und in ChatGPT oder Claude einfügen. <a href="/ki-abc/prompt-prompting" className="underline underline-offset-2" style={{ color: "#2596be" }}>Was ist ein Prompt?</a></>}
+        subtitle={<>Fertige Vorlagen für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Kopiere den <a href="/ki-abc/prompting" className="underline underline-offset-2" style={{ color: "#2596be" }}>Prompt</a> deiner Wahl und füge ihn in deinem Chatbot ein.</>}
       />
 
       {/* ── SO FUNKTIONIERT ES ──────────────────────── */}
