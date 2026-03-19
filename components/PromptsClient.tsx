@@ -337,8 +337,26 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
           </section>
 
           {/* ── PROMPT-KARTEN ──────────────────────── */}
-          <section className="py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[40vh]">
+          <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-8 bg-white min-h-[40vh]">
             <div className="max-w-6xl mx-auto">
+              {/* Kategorie-Header */}
+              {activeKat && (() => {
+                const kat = KATEGORIEN.find((k) => k.label === activeKat);
+                return kat ? (
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#EBF6FA]">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <path d={kat.iconPath} />
+                      </svg>
+                    </div>
+                    <div>
+                      <h2 className="text-lg sm:text-xl font-bold text-gray-900">{kat.label}</h2>
+                      <p className="text-sm text-gray-400">{kat.desc}</p>
+                    </div>
+                  </div>
+                ) : null;
+              })()}
+
               {filtered.length === 0 ? (
                 <div className="py-16 text-center rounded-2xl bg-gray-50/50 border border-gray-100">
                   <p className="text-gray-500 text-base">Keine Prompts gefunden.</p>
