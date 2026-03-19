@@ -119,11 +119,11 @@ export default function HomePage() {
                 Eigene Apps
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
-                KI-Tools, die wirklich<br />
-                aus dem Bildungsalltag kommen.
+                Eigene Apps für den<br />
+                pädagogischen Alltag.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Entwickelt nach den Bedürfnissen von Lehrkräften und Pädagogen.
+                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
@@ -185,10 +185,10 @@ export default function HomePage() {
         <ScrollReveal className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              Gebaut aus der Praxis. Für die Praxis.
+              Zahlen, die für sich sprechen.
             </h2>
             <p className="text-base text-gray-500 max-w-lg mx-auto">
-              kinderleicht.ai entsteht direkt im Bildungsalltag. Mit echtem Feedback von Lehrkräften und Pädagogen.
+              kinderleicht.ai wächst stetig. Mit echtem Feedback von Lehrkräften und Pädagogen.
             </p>
           </div>
 
