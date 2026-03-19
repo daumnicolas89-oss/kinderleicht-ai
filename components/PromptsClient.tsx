@@ -292,7 +292,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                     className={`group flex flex-col rounded-2xl border transition-all duration-300 overflow-hidden ${
                       prompt.highlight
                         ? "bg-[#FAFEFF] border-[#2596be]/25 ring-1 ring-[#2596be]/8"
-                        : "bg-white border-gray-100 hover:border-gray-200 hover:shadow-sm"
+                        : "bg-white border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
                     }`}
                   >
                     <div className="flex flex-col p-5 flex-1">
