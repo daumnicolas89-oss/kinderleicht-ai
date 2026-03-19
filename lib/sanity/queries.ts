@@ -129,3 +129,16 @@ export const allLexikonQuery = groq`*[_type == "lexikon"] | order(begriff asc) {
 export const lexikonBySlugQuery = groq`*[_type == "lexikon" && slug.current == $slug][0] { begriff, "slug": slug.current, kurzdefinition, definition, beispiel, verwandte_begriffe, kategorie }`;
 
 export const allLexikonSlugsQuery = groq`*[_type == "lexikon"]{ "slug": slug.current }`;
+
+export const allPromptsQuery = groq`
+  *[_type == "prompt"] | order(kategorie asc, titel asc) {
+    titel,
+    "slug": slug.current,
+    kategorie,
+    zielgruppe,
+    promptText,
+    beschreibung,
+    kiTool,
+    highlight
+  }
+`;
