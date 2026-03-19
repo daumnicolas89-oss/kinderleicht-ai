@@ -3,8 +3,13 @@ import RotatingWord from "@/components/RotatingWord";
 import AppSlideshow from "@/components/AppSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomeFAQ from "@/components/HomeFAQ";
+import { client } from "@/sanity/lib/client";
+import { featuredPromptsQuery } from "@/lib/sanity/queries";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const prompts = await client.fetch(featuredPromptsQuery);
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
@@ -38,7 +43,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/apps"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
               style={{ backgroundColor: "#2596be" }}
             >
               Zu den Apps
@@ -48,16 +53,22 @@ export default function HomePage() {
             </Link>
             <Link
               href="/tools"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-[0.96] transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-[0.96] transition-all"
             >
               290+ Tools vergleichen
+            </Link>
+            <Link
+              href="/prompts"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 active:scale-[0.96] transition-all"
+            >
+              Fertige Prompts
             </Link>
           </div>
         </div>
       </section>
 
       {/* ── FÜR WEN ──────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
         <ScrollReveal className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
@@ -68,7 +79,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {[
               {
                 title: "Krippe & Kita",
@@ -108,7 +119,7 @@ export default function HomePage() {
       </section>
 
       {/* ── APPS HIGHLIGHT ────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -180,10 +191,69 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
+      {/* ── PROMPTS HIGHLIGHT ────────────────────────────── */}
+      {prompts.length > 0 && (
+        <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+          <ScrollReveal className="max-w-5xl mx-auto">
+            <div className="text-center mb-8 sm:mb-12">
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
+              >
+                KI-Prompts
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                Fertige Prompts zum Kopieren.
+              </h2>
+              <p className="text-base text-gray-500 max-w-lg mx-auto">
+                Elternbriefe, Förderpläne, Unterrichtsentwürfe. Einfach kopieren, in ChatGPT oder Claude einfügen und anpassen.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
+              {prompts.map((prompt: { titel: string; slug: string; kategorie?: string; beschreibung?: string; promptText: string }) => (
+                <div
+                  key={prompt.slug}
+                  className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                >
+                  {prompt.kategorie && (
+                    <span className="self-start text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-3">
+                      {prompt.kategorie}
+                    </span>
+                  )}
+                  <h3 className="text-base font-semibold text-gray-900 mb-1.5">{prompt.titel}</h3>
+                  {prompt.beschreibung && (
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">{prompt.beschreibung}</p>
+                  )}
+                  <div className="mt-auto pt-3">
+                    <p className="text-[12px] text-gray-400 font-mono leading-relaxed line-clamp-3">
+                      {prompt.promptText}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                href="/prompts"
+                className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
+                style={{ backgroundColor: "#2596be" }}
+              >
+                Alle Prompts ansehen
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </section>
+      )}
+
       {/* ── ZAHLEN / SOCIAL PROOF ─────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
               Zahlen, die für sich sprechen.
             </h2>
@@ -192,14 +262,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
               { value: "290+", label: "Geprüfte KI-Tools" },
+              { value: "30+", label: "Fertige Prompts" },
               { value: "330+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
-              { value: "DSGVO", label: "Datenschutz geprüft" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-5 rounded-2xl border border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
+              <div key={stat.label} className="text-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-white">
                 <p className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: "#2596be" }}>{stat.value}</p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </div>
@@ -209,7 +279,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <ScrollReveal className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
             Jedes Tool wird geprüft.
@@ -231,7 +301,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">

@@ -25,15 +25,15 @@ export default async function PromptsPage() {
       />
 
       {/* ── SO FUNKTIONIERT ES ──────────────────────── */}
-      <section className="py-6 px-4 sm:px-6 lg:px-8 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
-        <div className="max-w-2xl mx-auto flex items-center justify-center gap-2 text-sm text-gray-500">
-          <span className="inline-flex items-center gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>1</span>Wählen</span>
-          <svg className="text-gray-300 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
-          <span className="inline-flex items-center gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>2</span>Kopieren</span>
-          <svg className="text-gray-300 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
-          <span className="inline-flex items-center gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>3</span>Einfügen</span>
-          <svg className="text-gray-300 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
-          <span className="inline-flex items-center gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>4</span>Anpassen</span>
+      <section className="py-4 sm:py-6 px-4 sm:px-6 lg:px-8 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
+        <div className="max-w-2xl mx-auto flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-500">
+          <span className="inline-flex items-center gap-1 sm:gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>1</span>Wählen</span>
+          <svg className="text-gray-300 flex-shrink-0" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+          <span className="inline-flex items-center gap-1 sm:gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>2</span>Kopieren</span>
+          <svg className="text-gray-300 flex-shrink-0" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+          <span className="inline-flex items-center gap-1 sm:gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>3</span>Einfügen</span>
+          <svg className="text-gray-300 flex-shrink-0" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6" /></svg>
+          <span className="inline-flex items-center gap-1 sm:gap-1.5"><span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0" style={{ backgroundColor: "#EBF6FA", color: "#2596be" }}>4</span>Anpassen</span>
         </div>
       </section>
 

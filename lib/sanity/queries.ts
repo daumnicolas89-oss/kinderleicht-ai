@@ -130,6 +130,17 @@ export const lexikonBySlugQuery = groq`*[_type == "lexikon" && slug.current == $
 
 export const allLexikonSlugsQuery = groq`*[_type == "lexikon"]{ "slug": slug.current }`;
 
+export const featuredPromptsQuery = groq`
+  *[_type == "prompt" && highlight == true] | order(kategorie asc, titel asc) [0...3] {
+    titel,
+    "slug": slug.current,
+    kategorie,
+    promptText,
+    beschreibung,
+    beispielErgebnis
+  }
+`;
+
 export const allPromptsQuery = groq`
   *[_type == "prompt"] | order(kategorie asc, titel asc) {
     titel,

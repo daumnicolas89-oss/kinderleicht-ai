@@ -167,7 +167,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
   return (
     <>
       {/* ── KATEGORIE-KACHELN ALS EINSTIEG ──────── */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <p className="text-center text-sm text-gray-500 mb-6">
             Wähle eine Kategorie oder scrolle direkt zu den Prompts.
@@ -180,7 +180,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                 <button
                   key={kat.label}
                   onClick={() => selectKategorie(kat.label)}
-                  className={`flex flex-col items-center text-center p-4 rounded-xl border transition-all duration-200 ${
+                  className={`flex flex-col items-center text-center p-3 sm:p-4 rounded-xl border transition-all duration-200 ${
                     isActive
                       ? "border-[#2596be] bg-[#EBF6FA] shadow-sm"
                       : "border-gray-100 bg-white hover:border-gray-200 hover:shadow-sm"
@@ -204,7 +204,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
 
       {/* ── KOMPAKTE FILTERLEISTE ──────────────────── */}
       <div ref={promptsRef} className="scroll-mt-20">
-        <section className="py-3 px-4 sm:px-6 lg:px-8 sticky top-16 z-30 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
+        <section className="py-3 px-4 sm:px-6 lg:px-8 sticky top-[72px] z-30 border-b border-gray-100" style={{ backgroundColor: "#F5F5F7" }}>
           <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-2.5">
             {/* Suche */}
             <div className="relative flex-1 min-w-0 max-w-xs">
@@ -285,7 +285,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-5">
                 {filtered.map((prompt) => (
                   <div
                     key={prompt.slug}
@@ -295,7 +295,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                         : "bg-white border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
                     }`}
                   >
-                    <div className="flex flex-col p-5 flex-1">
+                    <div className="flex flex-col p-4 sm:p-5 flex-1">
                       {/* Header */}
                       <div className="flex items-center gap-2 mb-3 flex-wrap">
                         {prompt.highlight && (
@@ -331,7 +331,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                     </div>
 
                     {/* Footer */}
-                    <div className="px-5 py-3 border-t border-gray-50 flex items-center justify-between gap-2">
+                    <div className="px-4 sm:px-5 py-3 border-t border-gray-50 flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         {(prompt.zielgruppe ?? []).map((zg) => (
                           <span key={zg} className="text-[11px] font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded-full border border-gray-100">
