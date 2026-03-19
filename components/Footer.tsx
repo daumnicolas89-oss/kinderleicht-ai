@@ -4,7 +4,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import { useState } from "react";
 
-function NewsletterForm() {
+function NewsletterForm({ dark = false }: { dark?: boolean }) {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -36,7 +36,7 @@ function NewsletterForm() {
 
   if (status === "success") {
     return (
-      <p className="text-sm text-green-600 font-medium">
+      <p className={`text-sm font-medium ${dark ? "text-green-400" : "text-green-600"}`}>
         Danke! Du erhältst gleich eine Bestätigungsmail.
       </p>
     );
@@ -52,7 +52,7 @@ function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="deine@email.de"
           aria-label="E-Mail für Newsletter"
-          className="flex-1 min-w-0 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] bg-white"
+          className={`flex-1 min-w-0 px-3 py-2 text-sm rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2596be]/50 focus:border-[#2596be] ${dark ? "bg-white/10 border border-white/20 text-white placeholder:text-gray-400" : "border border-gray-200 bg-white text-gray-900"}`}
         />
         <button
           onClick={handleSubmit}
@@ -73,7 +73,7 @@ function NewsletterForm() {
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-0.5 flex-shrink-0 accent-[#2596be]"
         />
-        <label htmlFor="newsletter-consent" className="text-[13px] text-gray-500 leading-relaxed cursor-pointer">
+        <label htmlFor="newsletter-consent" className={`text-[13px] leading-relaxed cursor-pointer ${dark ? "text-gray-400" : "text-gray-500"}`}>
           Ich habe die Datenschutzbestimmungen gelesen. Ich stimme dem Erhalt von E-Mails
           und der Übertragung meiner Daten an Mailchimp zu.
         </label>
@@ -92,25 +92,18 @@ export default function Footer() {
     <footer className="bg-white">
 
       {/* Newsletter-Bereich */}
-      <div className="border-t border-gray-200 bg-[#F9FAFB]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="max-w-4xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-
-            {/* Text links */}
-            <div className="lg:max-w-md">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Nichts verpassen.
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Neue Tools, App-Updates und praktische Tipps. Einmal im Monat, kein Spam.
-              </p>
+      <div className="bg-[#1a1a2e]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl font-bold text-white mb-2">
+              Nichts verpassen.
+            </h3>
+            <p className="text-sm text-gray-400 leading-relaxed mb-8">
+              Neue Tools, App-Updates und praktische Tipps. Einmal im Monat, kein Spam.
+            </p>
+            <div className="max-w-md mx-auto">
+              <NewsletterForm dark />
             </div>
-
-            {/* Formular rechts */}
-            <div className="flex-1 lg:max-w-sm">
-              <NewsletterForm />
-            </div>
-
           </div>
         </div>
       </div>

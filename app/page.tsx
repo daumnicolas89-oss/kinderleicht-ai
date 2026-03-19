@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
+import AppSlideshow from "@/components/AppSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomeFAQ from "@/components/HomeFAQ";
 
@@ -116,78 +117,72 @@ export default function HomePage() {
       {/* ── APPS HIGHLIGHT ────────────────────────────── */}
       <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Ferienplaner */}
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col">
-              <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Ferienplaner</h3>
-                <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">Live</span>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Ferienprogramme, Elternbriefe und Dienstpläne per KI erstellen. In Minuten statt Stunden.
-              </p>
-              <p className="text-xs font-semibold text-[#2596be] mb-5">Spart durchschnittlich 45 Min. pro Ferienwoche</p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">Kita</span>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">GBS</span>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">GTS</span>
-              </div>
-              <a
-                href="https://ferienplaner.kinderleicht.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity w-full"
-                style={{ backgroundColor: "#2596be" }}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
               >
-                App öffnen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M7 7h10v10" />
+                Eigene Apps
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                KI-Tools, die wirklich<br />
+                aus der Praxis kommen.
+              </h2>
+              <p className="text-base text-gray-500 leading-relaxed mb-7">
+                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung. Gebaut von Pädagogen für Pädagogen.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://ferienplaner.kinderleicht.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
+                  style={{ backgroundColor: "#2596be" }}
+                >
+                  Ferienplaner
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+                <a
+                  href="https://lernstufen.kinderleicht.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
+                >
+                  Lernstufen-Generator
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+              </div>
+              <Link
+                href="/apps"
+                className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold hover:opacity-80 transition-opacity"
+                style={{ color: "#2596be" }}
+              >
+                Alle Apps ansehen
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
 
-            {/* Lernstufen-Generator */}
-            <div className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col">
-              <div className="flex items-center gap-2 mb-3">
-                <h3 className="text-lg font-bold text-gray-900">Lernstufen-Generator</h3>
-                <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">Neu</span>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">
-                Text eingeben und die KI erstellt automatisch differenzierte Versionen für unterschiedliche Leistungsniveaus.
-              </p>
-              <p className="text-xs font-semibold text-[#2596be] mb-5">Aus 1 Text werden 4 Niveaustufen in unter 30 Sek.</p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">Schule</span>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">Kita</span>
-                <span className="text-[11px] px-2 py-0.5 rounded-full bg-[#F5F5F7] text-gray-500">Inklusion</span>
-              </div>
-              <a
-                href="https://lernstufen.kinderleicht.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity w-full"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                App öffnen
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M7 17L17 7M7 7h10v10" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Link zur Apps-Seite */}
-          <div className="text-center mt-8">
-            <Link
-              href="/apps"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity"
-              style={{ color: "#2596be" }}
-            >
-              Alle Apps ansehen
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
+            <AppSlideshow
+              slides={[
+                { src: "/ferienplaner-1.webp", alt: "Ferienplaner Übersicht" },
+                { src: "/ferienplaner-2.webp", alt: "Elternbrief Generator" },
+                { src: "/ferienplaner-3.webp", alt: "Dienstplan Generator" },
+                { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
+                { src: "/Lernstufen 1.webp", alt: "Lernstufen Übersicht" },
+                { src: "/Lernstufen 2.webp", alt: "Lernstufen Eingabe" },
+                { src: "/Lernstufen 3.webp", alt: "Lernstufen Ergebnis" },
+                { src: "/Lernstufen 4.webp", alt: "Lernstufen Export" },
+              ]}
+              url="https://ferienplaner.kinderleicht.ai"
+              domain="kinderleicht.ai/apps"
+            />
           </div>
         </ScrollReveal>
       </section>
