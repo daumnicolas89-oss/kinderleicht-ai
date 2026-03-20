@@ -114,14 +114,13 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                 <button
                   key={kat.label}
                   onClick={() => selectKategorie(kat.label)}
-                  className={`group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border-2 transition-all duration-200 overflow-hidden ${
+                  className={`group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 ${
                     isActive
-                      ? "border-[#2596be] bg-[#EBF6FA] shadow-lg scale-[1.02]"
-                      : "border-transparent bg-white shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-[#2596be]/30"
+                      ? "border-[#2596be] bg-[#EBF6FA] shadow-sm"
+                      : "border-gray-100 bg-white hover:border-[#2596be]/30 hover:shadow-md"
                   }`}
-                  style={{ boxShadow: isActive ? undefined : "0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)" }}
                 >
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 transition-transform duration-200 group-hover:scale-110 ${
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 ${
                     isActive ? "bg-[#2596be]/15" : "bg-[#EBF6FA]"
                   }`}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
@@ -148,9 +147,9 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
             {/* Alle-Tools Kachel als 8. Element für ausgeglichenes Grid */}
             <button
               onClick={showAll}
-              className="group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50/30 transition-all duration-200 overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-[#2596be]/30 hover:bg-[#EBF6FA]/30"
+              className="group relative flex flex-col text-left p-4 sm:p-5 rounded-2xl border border-dashed border-gray-200 bg-gray-50/30 transition-all duration-200 hover:shadow-md hover:border-[#2596be]/30"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 bg-gray-100 transition-transform duration-200 group-hover:scale-110">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center mb-2.5 bg-gray-100">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
                   <path d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -231,7 +230,7 @@ export default function ToolsClient({ tools }: { tools: Tool[] }) {
                 <Link
                   key={tool.slug}
                   href={`/tools/${tool.slug}`}
-                  className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 overflow-hidden"
+                  className="group flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200 overflow-hidden"
                 >
                   <div className="flex flex-col p-5 sm:p-6 flex-1">
                     <div className="flex items-start justify-between mb-3">
