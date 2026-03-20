@@ -46,10 +46,8 @@ function SidebarLabel({ emoji, label }: { emoji: string; label: string }) {
 }
 
 export async function generateStaticParams() {
-  // Only pre-render first 50 tools at build time to avoid Sanity rate limits.
-  // The rest are generated on-demand (ISR).
   const slugs: { slug: string }[] = await client.fetch(allToolSlugsQuery);
-  return slugs.slice(0, 50).map((s) => ({ slug: s.slug }));
+  return slugs.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
