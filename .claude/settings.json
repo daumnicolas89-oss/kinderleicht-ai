@@ -17,7 +17,10 @@
       "Bash(git show:*)",
       "Bash(grep -rn \"hover:shadow\\\\|hover:border\\\\|hover:-translate\" /workspaces/kinderleicht-ai/components/Tool*.tsx)",
       "Bash(grep -n console. /workspaces/kinderleicht-ai/components/*.tsx /workspaces/kinderleicht-ai/app/*.tsx)",
-      "Bash(pkill -9 -f node)"
+      "Bash(pkill -9 -f node)",
+      "Bash(gh run:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://kinderleicht.ai/laitfaden)",
+      "Bash(curl -s https://kinderleicht.ai/laitfaden)"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"
