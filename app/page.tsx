@@ -63,37 +63,31 @@ export default async function HomePage() {
               {
                 title: "Krippe & Kita",
                 description: "Der Elternbrief muss heute noch raus, die Doku wartet seit Tagen. Wir helfen, damit beides nicht am Feierabend hängenbleibt.",
-                href: "/tools",
               },
               {
                 title: "Schulen",
                 description: "30 Kinder, 5 Niveaus, eine Stunde Vorbereitung. KI hilft beim Differenzieren, damit du dich auf den Unterricht konzentrieren kannst.",
-                href: "/tools",
               },
               {
                 title: "GBS & GTS",
                 description: "Ferienprogramm für 80 Kinder, drei Wochen, ein Team. Der Ferienplaner macht aus dem Chaos einen Plan.",
-                href: "/apps",
               },
               {
                 title: "Jugendarbeit",
                 description: "Kreative Angebote entwickeln, ohne jedes Mal bei null anzufangen. Mehr Zeit für die Jugendlichen, weniger für Papierkram.",
-                href: "/prompts",
               },
               {
                 title: "Leitung & Teams",
                 description: "Konzepte schreiben, Fortbildungen vorbereiten, das Team mitnehmen. Ohne dass der Schreibtisch zum Dauerwohnsitz wird.",
-                href: "/prompts",
               },
               {
                 title: "Verwaltung",
                 description: "Anschreiben, Berichte, Formulare. Die Dinge, die niemand gerne macht, aber alle brauchen. Jetzt deutlich schneller erledigt.",
-                href: "/tools",
               },
             ].map((card) => (
               <Link
                 key={card.title}
-                href={card.href}
+                href="/tools"
                 className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
               >
                 <h3 className="text-base font-bold text-gray-900 mb-1.5">{card.title}</h3>
