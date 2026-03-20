@@ -13,7 +13,7 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   const slugs: { slug: string }[] = await client.fetch(allLexikonSlugsQuery);
-  return slugs.map((s) => ({ slug: s.slug }));
+  return slugs.slice(0, 50).map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
