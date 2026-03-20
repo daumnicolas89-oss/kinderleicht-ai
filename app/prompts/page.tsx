@@ -9,7 +9,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "KI-Prompts für den Bildungsalltag — kinderleicht.ai",
   description:
-    "Fertige KI-Prompts für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach kopieren und in ChatGPT oder Claude einfügen.",
+    "Fertige KI-Vorlagen für Elternbriefe, Unterrichtsplanung, Förderpläne und mehr. Einfach kopieren und in deinem KI-Chatbot einfügen.",
   alternates: { canonical: "https://kinderleicht.ai/prompts" },
 };
 

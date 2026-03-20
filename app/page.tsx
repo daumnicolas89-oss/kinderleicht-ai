@@ -63,35 +63,42 @@ export default async function HomePage() {
               {
                 title: "Krippe & Kita",
                 description: "Der Elternbrief muss heute noch raus, die Doku wartet seit Tagen. Wir helfen, damit beides nicht am Feierabend hängenbleibt.",
+                href: "/tools",
               },
               {
                 title: "Schulen",
                 description: "30 Kinder, 5 Niveaus, eine Stunde Vorbereitung. KI hilft beim Differenzieren, damit du dich auf den Unterricht konzentrieren kannst.",
+                href: "/tools",
               },
               {
                 title: "GBS & GTS",
                 description: "Ferienprogramm für 80 Kinder, drei Wochen, ein Team. Der Ferienplaner macht aus dem Chaos einen Plan.",
+                href: "/apps",
               },
               {
                 title: "Jugendarbeit",
                 description: "Kreative Angebote entwickeln, ohne jedes Mal bei null anzufangen. Mehr Zeit für die Jugendlichen, weniger für Papierkram.",
+                href: "/prompts",
               },
               {
                 title: "Leitung & Teams",
                 description: "Konzepte schreiben, Fortbildungen vorbereiten, das Team mitnehmen. Ohne dass der Schreibtisch zum Dauerwohnsitz wird.",
+                href: "/prompts",
               },
               {
                 title: "Verwaltung",
                 description: "Anschreiben, Berichte, Formulare. Die Dinge, die niemand gerne macht, aber alle brauchen. Jetzt deutlich schneller erledigt.",
+                href: "/tools",
               },
             ].map((card) => (
-              <div
+              <Link
                 key={card.title}
-                className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50"
+                href={card.href}
+                className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
               >
                 <h3 className="text-base font-bold text-gray-900 mb-1.5">{card.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </ScrollReveal>
@@ -197,19 +204,14 @@ export default async function HomePage() {
                   className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
                 >
                   {prompt.kategorie && (
-                    <span className="self-start text-[11px] font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-3">
+                    <span className="self-start text-xs font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-3">
                       {prompt.kategorie}
                     </span>
                   )}
                   <h3 className="text-base font-semibold text-gray-900 mb-1.5">{prompt.titel}</h3>
                   {prompt.beschreibung && (
-                    <p className="text-sm text-gray-500 leading-relaxed mb-3">{prompt.beschreibung}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{prompt.beschreibung}</p>
                   )}
-                  <div className="mt-auto pt-3">
-                    <p className="text-[12px] text-gray-400 font-mono leading-relaxed line-clamp-3">
-                      {prompt.promptText}
-                    </p>
-                  </div>
                 </Link>
               ))}
             </div>
@@ -255,28 +257,22 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-        </ScrollReveal>
-      </section>
 
-      {/* ── SO ARBEITEN WIR ─────────────────────────────────── */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <ScrollReveal className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-            Jedes Tool wird geprüft.
-          </h2>
-          <p className="text-base text-gray-600 leading-relaxed mb-7">
-            Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Kein Tool landet hier zufällig.
-          </p>
-          <Link
-            href="/so-arbeiten-wir"
-            className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
-            style={{ color: "#2596be" }}
-          >
-            Mehr erfahren
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
+          <div className="mt-10 text-center">
+            <p className="text-sm text-gray-500 mb-3">
+              Jedes Tool wird auf Datenschutz, pädagogischen Nutzen und Bedienbarkeit geprüft.
+            </p>
+            <Link
+              href="/so-arbeiten-wir"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-70"
+              style={{ color: "#2596be" }}
+            >
+              So arbeiten wir
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 
@@ -297,7 +293,7 @@ export default async function HomePage() {
           <div className="text-center mt-8">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-opacity hover:opacity-70"
               style={{ color: "#2596be" }}
             >
               Alle FAQ ansehen
