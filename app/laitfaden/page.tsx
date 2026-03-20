@@ -13,6 +13,7 @@ const sections = [
   {
     id: "datenschutz",
     title: "Datenschutz",
+    navLabel: "Datenschutz",
     intro: "KI-Tools verarbeiten alles, was du eingibst. Deshalb ist wichtig, was du teilst und wo deine Daten landen.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -40,6 +41,7 @@ const sections = [
   {
     id: "verantwortung",
     title: "Pädagogische Verantwortung",
+    navLabel: "Verantwortung",
     intro: "KI kann dir Arbeit abnehmen, aber nicht das pädagogische Urteil. Am Ende entscheidest immer du.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -67,6 +69,7 @@ const sections = [
   {
     id: "qualitaet",
     title: "Qualität und Fehler",
+    navLabel: "Qualität",
     intro: "KI klingt oft überzeugend, liegt aber auch mal daneben. Fakten prüfen gehört dazu.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -89,6 +92,7 @@ const sections = [
   {
     id: "transparenz",
     title: "Fairness und Transparenz",
+    navLabel: "Transparenz",
     intro: "Offenheit schafft Vertrauen. Klare Regeln helfen mehr als Verbote.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -112,6 +116,7 @@ const sections = [
   {
     id: "toolauswahl",
     title: "Tool-Auswahl",
+    navLabel: "Tools",
     intro: "Nicht jedes Tool, das gut aussieht, ist auch gut für den Bildungsbereich. Ein kurzer Check spart später Ärger.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -154,7 +159,7 @@ export default function LAItfadenPage() {
                 className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:border-[#2596be] hover:text-[#2596be] transition-colors"
               >
                 <span className="text-[#2596be] flex-shrink-0">{s.icon}</span>
-                {s.title}
+                {s.navLabel}
               </a>
             ))}
           </div>
