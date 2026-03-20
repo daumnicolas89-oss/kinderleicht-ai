@@ -97,7 +97,7 @@ export default function LexikonClient({ entries }: { entries: LexikonEntry[] }) 
                         onClick={() => hasEntries && scrollToLetter(letter)}
                         aria-label={`Buchstabe ${letter}`}
                         className={`
-                          w-8 h-8 sm:w-9 sm:h-9 rounded-full text-xs sm:text-sm font-semibold transition-all duration-150 flex-shrink-0
+                          w-9 h-9 sm:w-9 sm:h-9 rounded-full text-xs sm:text-sm font-semibold transition-all duration-150 flex-shrink-0
                           ${isActive && hasEntries
                             ? "bg-[#2596be] text-white"
                             : hasEntries

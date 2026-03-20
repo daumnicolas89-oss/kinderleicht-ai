@@ -156,7 +156,7 @@ export default function GlobalSearch() {
                 </ul>
               )}
               {!loading && query.length < 2 && (
-                <div className="py-6 text-center text-xs text-gray-300">Mindestens 2 Zeichen eingeben</div>
+                <div className="py-6 text-center text-xs text-gray-400">Mindestens 2 Zeichen eingeben</div>
               )}
             </div>
           </div>

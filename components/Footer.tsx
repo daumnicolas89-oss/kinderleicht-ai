@@ -172,7 +172,7 @@ export default function Footer() {
               >
                 Cookie-Einstellungen
               </button>
-              <p className="text-xs text-gray-500">Made with ♥ für Pädagogen</p>
+              <p className="text-xs text-gray-500">Made with <span aria-label="Liebe" role="img">♥</span> für Pädagogen</p>
             </div>
           </div>
 
