@@ -99,7 +99,7 @@ export default function Nav() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/kinderleich.ai"
+                href="https://www.instagram.com/kinderleicht.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -172,7 +172,7 @@ export default function Nav() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/kinderleich.ai"
+                href="https://www.instagram.com/kinderleicht.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

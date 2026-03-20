@@ -99,7 +99,7 @@ export default function UebersichtPage() {
               <Link
                 key={area.href}
                 href={area.href}
-                className="group flex gap-4 p-5 sm:p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                className="group flex gap-4 p-5 sm:p-6 rounded-2xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
               >
                 <span
                   className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center"

@@ -90,7 +90,12 @@ export default async function HomePage() {
                 href="/tools"
                 className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
               >
-                <h3 className="text-base font-bold text-gray-900 mb-1.5">{card.title}</h3>
+                <div className="flex items-center justify-between mb-1.5">
+                  <h3 className="text-base font-bold text-gray-900">{card.title}</h3>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" className="flex-shrink-0">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
                 <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
               </Link>
             ))}
@@ -186,7 +191,7 @@ export default async function HomePage() {
                 Fertige Vorlagen zum Kopieren.
               </h2>
               <p className="text-base text-gray-500 max-w-lg mx-auto">
-                Elternbriefe, Förderpläne, Unterrichtsentwürfe. Einfach kopieren, in den KI-Chatbot deines Vertrauens einfügen und anpassen.
+                Kopiere eine Vorlage, füge sie in ChatGPT oder einen anderen Chatbot ein, passe die Platzhalter an und du bekommst z.B. einen fertigen Elternbrief, Förderplan oder Unterrichtsentwurf.
               </p>
             </div>
 
@@ -227,7 +232,7 @@ export default async function HomePage() {
       )}
 
       {/* ── ZAHLEN / SOCIAL PROOF ─────────────────────────────── */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
         <ScrollReveal className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
@@ -241,11 +246,11 @@ export default async function HomePage() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
               { value: "300+", label: "Geprüfte KI-Tools" },
-              { value: "35+", label: "Fertige KI-Vorlagen" },
+              { value: "35+", label: "Fertige KI-Prompts" },
               { value: "330+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-white">
+              <div key={stat.label} className="text-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-gray-50/50">
                 <p className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: "#2596be" }}>{stat.value}</p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </div>
@@ -294,6 +299,36 @@ export default async function HomePage() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINALER CTA ──────────────────────────────────────── */}
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            Bereit, loszulegen?
+          </h2>
+          <p className="text-base text-gray-500 mb-8 max-w-lg mx-auto">
+            Alle Tools, Apps und Vorlagen sind kostenlos. Ohne Anmeldung, ohne Haken.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link
+              href="/tools"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+              style={{ backgroundColor: "#2596be" }}
+            >
+              Tools entdecken
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/prompts"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all"
+            >
+              Prompts ansehen
             </Link>
           </div>
         </div>
