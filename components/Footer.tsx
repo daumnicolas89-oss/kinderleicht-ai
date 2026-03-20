@@ -137,6 +137,7 @@ export default function Footer() {
                 {[
                   { label: "Über uns", href: "/ueber-uns" },
                   { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
+                  { label: "L-AI-tfaden", href: "/laitfaden" },
                   { label: "FAQ", href: "/faq" },
                   { label: "Kontakt", href: "/kontakt" },
                 ].map((l) => (
