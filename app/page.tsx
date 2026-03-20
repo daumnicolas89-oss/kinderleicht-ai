@@ -13,9 +13,9 @@ export default async function HomePage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-16 pb-12 sm:pt-24 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-12 pb-10 sm:pt-24 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.15]">
+          <h1 className="text-[2rem] sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.15]">
             KI-Tools für
             <br />
             <RotatingWord />

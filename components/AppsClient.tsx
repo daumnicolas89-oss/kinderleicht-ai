@@ -105,13 +105,13 @@ export default function AppsClient() {
                       <div className={`grid grid-cols-1 lg:grid-cols-2 ${isReversed ? "" : ""}`}>
                         {/* Slideshow */}
                         {app.slides && (
-                          <div className={`bg-[#F5F5F7] p-6 lg:p-8 flex items-center justify-center ${isReversed ? "lg:order-2" : ""}`}>
+                          <div className={`bg-[#F5F5F7] p-4 sm:p-6 lg:p-8 flex items-center justify-center ${isReversed ? "lg:order-2" : ""}`}>
                             <AppSlideshow slides={app.slides} url={app.href} domain={app.domain} />
                           </div>
                         )}
 
                         {/* Info */}
-                        <div className={`p-6 lg:p-8 flex flex-col ${isReversed ? "lg:order-1" : ""}`}>
+                        <div className={`p-4 sm:p-6 lg:p-8 flex flex-col ${isReversed ? "lg:order-1" : ""}`}>
                           <p className="text-base text-gray-500 leading-relaxed mb-3">{app.description}</p>
 
                           {/* Highlight */}
@@ -140,7 +140,7 @@ export default function AppsClient() {
                               href={app.href}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                               style={{ backgroundColor: "#2596be" }}
                             >
                               App öffnen
@@ -162,7 +162,7 @@ export default function AppsClient() {
               })}
 
               {/* Kommt-bald-Teaser */}
-              <div className="rounded-2xl border border-dashed border-gray-200 p-8 sm:p-12 text-center">
+              <div className="rounded-2xl border border-dashed border-gray-200 p-6 sm:p-12 text-center">
                 <p className="text-2xl mb-2">🚀</p>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Weitere Apps in Entwicklung</h3>
                 <p className="text-sm text-gray-500 max-w-md mx-auto mb-5">

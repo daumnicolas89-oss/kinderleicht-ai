@@ -83,11 +83,11 @@ export default function GlobalSearch() {
   };
 
   return (
-    <>
+    <div className="relative">
       {/* Search trigger — nur Lupe */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center justify-center w-8 h-8 rounded-lg text-gray-400 hover:text-[#2596be] transition-colors"
+        className="flex items-center justify-center w-10 h-10 rounded-lg text-gray-400 hover:text-[#2596be] transition-colors"
         aria-label="Suche öffnen"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -97,11 +97,11 @@ export default function GlobalSearch() {
 
       {/* Dropdown direkt unter der Lupe */}
       {open && (
-        <div className="fixed inset-0 z-[100]">
-          <div className="fixed inset-0" onClick={() => setOpen(false)} />
+        <>
+          <div className="fixed inset-0 z-[99]" onClick={() => setOpen(false)} />
           <div
             ref={containerRef}
-            className="absolute right-4 sm:right-6 lg:right-8 top-[72px] w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden"
+            className="absolute right-0 top-full mt-2 z-[100] w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden"
           >
             {/* Input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100">
@@ -139,7 +139,7 @@ export default function GlobalSearch() {
                     <li key={r.href}>
                       <button
                         onClick={() => navigate(r.href)}
-                        className="w-full flex items-start gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors text-left"
+                        className="w-full flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
                       >
                         <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded mt-0.5 flex-shrink-0 ${typeColors[r.type] ?? "bg-gray-100 text-gray-500"}`}>
                           {r.typeLabel}
@@ -160,8 +160,8 @@ export default function GlobalSearch() {
               )}
             </div>
           </div>
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 }

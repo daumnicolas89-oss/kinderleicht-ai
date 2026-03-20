@@ -10,14 +10,14 @@ export default function PageHero({
   children?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-white pt-14 pb-10 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white pt-10 pb-8 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8">
       <div className="relative max-w-3xl mx-auto text-center">
         {label && (
           <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: "#2596be" }}>
             {label}
           </p>
         )}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.08]">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.15]">
           {title}
         </h1>
         {subtitle && (

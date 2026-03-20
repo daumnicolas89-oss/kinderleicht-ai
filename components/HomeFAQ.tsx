@@ -55,7 +55,7 @@ function AccordionItem({ q, a }: { q: string; a: React.ReactNode }) {
           {q}
         </span>
         <span
-          className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-200"
+          className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200"
           style={{ backgroundColor: open ? "#2596be" : "#F5F5F7", color: open ? "#fff" : "#9ca3af" }}
         >
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3}>

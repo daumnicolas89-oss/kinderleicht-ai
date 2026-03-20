@@ -92,12 +92,20 @@ export default function Footer() {
     <footer className="bg-white">
 
       {/* Newsletter-Bereich */}
-      <div className="bg-[#EBF6FA]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="border-t-2 border-[#2596be]/20" style={{ background: "linear-gradient(180deg, #EBF6FA 0%, #F4FAFE 100%)" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Nichts verpassen.
-            </h3>
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <svg width="28" height="22" viewBox="0 0 52 40" fill="none" className="flex-shrink-0">
+                <rect x="1" y="8" width="50" height="31" rx="4" fill="white" stroke="#2596be" strokeWidth="1.5"/>
+                <path d="M1 12 L26 26 L51 12 L51 8 Q51 8 26 22 Q1 8 1 8 Z" fill="#2596be" opacity="0.12"/>
+                <path d="M1 8 L26 24 L51 8" stroke="#2596be" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
+                <path d="M1 39 L20 22M51 39 L32 22" stroke="#2596be" strokeWidth="1" opacity="0.3"/>
+              </svg>
+              <h3 className="text-2xl font-bold text-gray-900">
+                Nichts verpassen.
+              </h3>
+            </div>
             <p className="text-sm text-gray-600 leading-relaxed mb-7">
               Neue Tools, App-Updates und praktische Tipps. Einmal im Monat, kein Spam.
             </p>
@@ -113,7 +121,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
 
           {/* Logo + Nav-Spalten nebeneinander */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-10 sm:gap-12 max-w-3xl mx-auto mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12 max-w-3xl mx-auto mb-12">
             {/* Logo-Spalte (doppelt breit) */}
             <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
               <Logo height={36} />

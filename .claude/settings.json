@@ -16,7 +16,11 @@
       "Bash(git pull:*)",
       "Bash(git show:*)",
       "Bash(grep -rn \"hover:shadow\\\\|hover:border\\\\|hover:-translate\" /workspaces/kinderleicht-ai/components/Tool*.tsx)",
-      "Bash(grep -n console. /workspaces/kinderleicht-ai/components/*.tsx /workspaces/kinderleicht-ai/app/*.tsx)"
+      "Bash(grep -n console. /workspaces/kinderleicht-ai/components/*.tsx /workspaces/kinderleicht-ai/app/*.tsx)",
+      "Bash(pkill -9 -f node)"
+    ],
+    "additionalDirectories": [
+      "/workspaces/kinderleicht-ai/.next"
     ]
   }
 }
