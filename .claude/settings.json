@@ -20,7 +20,8 @@
       "Bash(pkill -9 -f node)",
       "Bash(gh run:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://kinderleicht.ai/laitfaden)",
-      "Bash(curl -s https://kinderleicht.ai/laitfaden)"
+      "Bash(curl -s https://kinderleicht.ai/laitfaden)",
+      "Bash(SANITY_API_TOKEN=\"\" npx next build)"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"
