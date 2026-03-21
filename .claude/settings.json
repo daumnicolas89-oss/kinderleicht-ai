@@ -21,7 +21,8 @@
       "Bash(gh run:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://kinderleicht.ai/laitfaden)",
       "Bash(curl -s https://kinderleicht.ai/laitfaden)",
-      "Bash(SANITY_API_TOKEN=\"\" npx next build)"
+      "Bash(SANITY_API_TOKEN=\"\" npx next build)",
+      "Bash(ls /workspaces/kinderleicht-ai/public/checkliste* /workspaces/kinderleicht-ai/public/Checkliste*)"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"

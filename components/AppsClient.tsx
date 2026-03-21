@@ -56,6 +56,31 @@ const apps = [
     badge: "Beta",
     badgeColor: "bg-amber-50 text-amber-600",
   },
+  {
+    id: "checkliste",
+    title: "Checklisten-Generator",
+    description: "Individuelle Checklisten für Ausflüge, Elternabende, Eingewöhnung, Projekttage und mehr. Per KI erstellt, als PDF exportierbar.",
+    highlight: "Von der Idee zur fertigen Checkliste in unter 1 Minute",
+    href: "https://checkliste.kinderleicht.ai",
+    tags: ["Kita", "Schule", "GBS", "Leitung"],
+    badges: ["Kostenlos", "Keine Anmeldung", "PDF-Export"],
+    features: [
+      "Checklisten für jeden Anlass: Ausflüge, Feste, Eingewöhnung, Projekttage",
+      "Anlass beschreiben, KI generiert passende Punkte",
+      "Punkte individuell anpassen, ergänzen oder löschen",
+      "Als PDF exportieren und ausdrucken",
+      "Direkt im Browser, ohne Installation",
+    ],
+    slides: [
+      { src: "/checkliste-1.webp", alt: "Checklisten-Generator Übersicht" },
+      { src: "/checkliste-2.webp", alt: "Checkliste erstellen" },
+      { src: "/checkliste-3.webp", alt: "Checkliste bearbeiten" },
+      { src: "/checkliste-4.webp", alt: "Checkliste als PDF" },
+    ],
+    domain: "checkliste.kinderleicht.ai",
+    badge: "Neu",
+    badgeColor: "bg-emerald-50 text-emerald-600",
+  },
 ];
 
 export default function AppsClient() {

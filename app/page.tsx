@@ -1,6 +1,5 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
-import AppSlideshow from "@/components/AppSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomeFAQ from "@/components/HomeFAQ";
 import { client } from "@/sanity/lib/client";
@@ -119,7 +118,7 @@ export default async function HomePage() {
                 pädagogischen Alltag.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Ferienplanung, Textdifferenzierung und mehr. Kostenlos im Browser, ohne Anmeldung.
+                Ferienplanung, Textdifferenzierung, Checklisten und mehr. Kostenlos im Browser, ohne Anmeldung.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
@@ -145,6 +144,17 @@ export default async function HomePage() {
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </a>
+                <a
+                  href="https://checkliste.kinderleicht.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
+                >
+                  Checklisten-Generator
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
               </div>
               <Link
                 href="/apps"
@@ -158,20 +168,35 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <AppSlideshow
-              slides={[
-                { src: "/ferienplaner-1.webp", alt: "Ferienplaner Übersicht" },
-                { src: "/ferienplaner-2.webp", alt: "Elternbrief Generator" },
-                { src: "/ferienplaner-3.webp", alt: "Dienstplan Generator" },
-                { src: "/ferienplaner-4.webp", alt: "Ferienprogramm Generator" },
-                { src: "/Lernstufen 1.webp", alt: "Lernstufen Übersicht" },
-                { src: "/Lernstufen 2.webp", alt: "Lernstufen Eingabe" },
-                { src: "/Lernstufen 3.webp", alt: "Lernstufen Ergebnis" },
-                { src: "/Lernstufen 4.webp", alt: "Lernstufen Export" },
-              ]}
-              url="https://ferienplaner.kinderleicht.ai"
-              domain="kinderleicht.ai/apps"
-            />
+            <div className="flex flex-col gap-4">
+              {[
+                { src: "/ferienplaner-1.webp", alt: "Ferienplaner", label: "Ferienplaner", href: "https://ferienplaner.kinderleicht.ai", badge: "Beta" },
+                { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator", label: "Lernstufen-Generator", href: "https://lernstufen.kinderleicht.ai", badge: "Beta" },
+                { src: "/checkliste-1.webp", alt: "Checklisten-Generator", label: "Checklisten-Generator", href: "https://checkliste.kinderleicht.ai", badge: "Neu" },
+              ].map((app) => (
+                <a
+                  key={app.label}
+                  href={app.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div className="relative aspect-[16/9] bg-[#F9FAFB]">
+                    <img
+                      src={app.src}
+                      alt={app.alt}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100">
+                    <span className="text-sm font-semibold text-gray-900">{app.label}</span>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badge === "Neu" ? "bg-emerald-50 text-emerald-600" : "bg-amber-50 text-amber-600"}`}>
+                      {app.badge}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </section>
