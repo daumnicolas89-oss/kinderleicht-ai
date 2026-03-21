@@ -23,7 +23,10 @@
       "Bash(curl -s https://kinderleicht.ai/laitfaden)",
       "Bash(SANITY_API_TOKEN=\"\" npx next build)",
       "Bash(ls /workspaces/kinderleicht-ai/public/checkliste* /workspaces/kinderleicht-ai/public/Checkliste*)",
-      "Bash(ls /workspaces/kinderleicht-ai/public/*ernstufen* /workspaces/kinderleicht-ai/public/*Lernstufen*)"
+      "Bash(ls /workspaces/kinderleicht-ai/public/*ernstufen* /workspaces/kinderleicht-ai/public/*Lernstufen*)",
+      "Bash(grep -E \"\\\\.tsx$|^d\")",
+      "Bash(grep -r import.*LexikonClient /workspaces/kinderleicht-ai/app)",
+      "Bash(grep -E \"py-[0-9]{1,2}\\\\b\")"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"

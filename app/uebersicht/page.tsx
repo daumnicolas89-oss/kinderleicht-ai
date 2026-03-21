@@ -61,7 +61,7 @@ const areas = [
   {
     title: "KI-ABC",
     href: "/ki-abc",
-    description: "330+ Begriffe rund um KI, Datenschutz und Digitalisierung. Einfach erklärt, mit Praxisbeispielen.",
+    description: "385+ Begriffe rund um KI, Datenschutz und Digitalisierung. Einfach erklärt, mit Praxisbeispielen.",
     examples: "DSGVO, Prompt, Algorithmus, AVV",
     color: "#DC2626",
     icon: (
