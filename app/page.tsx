@@ -121,16 +121,16 @@ export default async function HomePage() {
               <p className="text-base text-gray-500 leading-relaxed mb-7">
                 Ferienplanung, Textdifferenzierung, Checklisten und mehr. Kostenlos im Browser, ohne Anmeldung.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 <a
                   href="https://ferienplaner.kinderleicht.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
                   style={{ backgroundColor: "#2596be" }}
                 >
                   Ferienplaner
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </a>
@@ -138,10 +138,10 @@ export default async function HomePage() {
                   href="https://lernstufen.kinderleicht.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
                 >
-                  Lernstufen-Generator
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  Lernstufen
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </a>
@@ -149,10 +149,10 @@ export default async function HomePage() {
                   href="https://checkliste.kinderleicht.ai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 active:scale-[0.96] transition-all"
                 >
-                  Checklisten-Generator
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  Checklisten
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </a>
