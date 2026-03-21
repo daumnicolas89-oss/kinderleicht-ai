@@ -78,8 +78,8 @@ const apps = [
       { src: "/checkliste-4.webp", alt: "Checkliste als PDF" },
     ],
     domain: "checkliste.kinderleicht.ai",
-    badge: "Neu",
-    badgeColor: "bg-emerald-50 text-emerald-600",
+    badge: "Beta",
+    badgeColor: "bg-amber-50 text-amber-600",
   },
 ];
 
