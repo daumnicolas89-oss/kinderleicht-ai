@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RotatingWord from "@/components/RotatingWord";
+import AppSlideshow from "@/components/AppSlideshow";
 import ScrollReveal from "@/components/ScrollReveal";
 import HomeFAQ from "@/components/HomeFAQ";
 import { client } from "@/sanity/lib/client";
@@ -168,35 +169,15 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="flex flex-col gap-4">
-              {[
-                { src: "/ferienplaner-1.webp", alt: "Ferienplaner", label: "Ferienplaner", href: "https://ferienplaner.kinderleicht.ai", badge: "Beta" },
-                { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator", label: "Lernstufen-Generator", href: "https://lernstufen.kinderleicht.ai", badge: "Beta" },
-                { src: "/checkliste-1.webp", alt: "Checklisten-Generator", label: "Checklisten-Generator", href: "https://checkliste.kinderleicht.ai", badge: "Neu" },
-              ].map((app) => (
-                <a
-                  key={app.label}
-                  href={app.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  <div className="relative aspect-[16/9] bg-[#F9FAFB]">
-                    <img
-                      src={app.src}
-                      alt={app.alt}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100">
-                    <span className="text-sm font-semibold text-gray-900">{app.label}</span>
-                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${app.badge === "Neu" ? "bg-emerald-50 text-emerald-600" : "bg-amber-50 text-amber-600"}`}>
-                      {app.badge}
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            <AppSlideshow
+              slides={[
+                { src: "/ferienplaner-1.webp", alt: "Ferienplaner" },
+                { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator" },
+                { src: "/checkliste-1.webp", alt: "Checklisten-Generator" },
+              ]}
+              url="https://ferienplaner.kinderleicht.ai"
+              domain="kinderleicht.ai/apps"
+            />
           </div>
         </ScrollReveal>
       </section>
