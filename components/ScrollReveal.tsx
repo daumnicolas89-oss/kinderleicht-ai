@@ -25,7 +25,7 @@ export default function ScrollReveal({ children, className = "" }: { children: R
           observer.unobserve(el);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     );
 
     observer.observe(el);
@@ -38,7 +38,7 @@ export default function ScrollReveal({ children, className = "" }: { children: R
       className={`${
         prefersReducedMotion
           ? ""
-          : `transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`
+          : `transition-all duration-500 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`
       } ${className}`}
     >
       {children}
