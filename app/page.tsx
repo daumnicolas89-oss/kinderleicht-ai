@@ -253,7 +253,7 @@ export default async function HomePage() {
             {[
               { value: "310+", label: "Geprüfte KI-Tools" },
               { value: "55+", label: "Fertige KI-Prompts" },
-              { value: "370+", label: "Begriffe im KI-ABC" },
+              { value: "385+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-gray-50/50">
