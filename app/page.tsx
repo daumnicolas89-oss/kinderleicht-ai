@@ -123,52 +123,74 @@ export default async function HomePage() {
       {prompts.length > 0 && (
         <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
           <ScrollReveal className="max-w-5xl mx-auto">
-            <div className="text-center mb-8 sm:mb-12">
-              <p
-                className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "#2596be" }}
-              >
-                KI-Prompts
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-                Fertige Vorlagen zum Kopieren.
-              </h2>
-              <p className="text-base text-gray-500 max-w-lg mx-auto">
-                Kopiere eine Vorlage, füge sie in ChatGPT oder einen anderen Chatbot ein, passe die Platzhalter an und du bekommst z.B. einen fertigen Elternbrief, Förderplan oder Unterrichtsentwurf.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5">
-              {prompts.map((prompt: { titel: string; slug: string; kategorie?: string; beschreibung?: string; promptText: string }) => (
-                <Link
-                  key={prompt.slug}
-                  href="/prompts"
-                  className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-white hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p
+                  className="text-xs font-semibold uppercase tracking-widest mb-4"
+                  style={{ color: "#2596be" }}
                 >
-                  {prompt.kategorie && (
-                    <span className="self-start text-xs font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-3">
-                      {prompt.kategorie}
-                    </span>
-                  )}
-                  <h3 className="text-base font-semibold text-gray-900 mb-1.5">{prompt.titel}</h3>
-                  {prompt.beschreibung && (
-                    <p className="text-sm text-gray-500 leading-relaxed">{prompt.beschreibung}</p>
-                  )}
+                  Prompts
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                  Fertige Vorlagen<br />
+                  zum Kopieren.
+                </h2>
+                <p className="text-base text-gray-500 leading-relaxed mb-7">
+                  Elternbrief, Förderplan oder Unterrichtsentwurf. Vorlage kopieren, in deinen Chatbot einfügen, Platzhalter anpassen, fertig.
+                </p>
+                <Link
+                  href="/prompts"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                  style={{ backgroundColor: "#2596be" }}
+                >
+                  Alle Vorlagen ansehen
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
                 </Link>
-              ))}
-            </div>
+              </div>
 
-            <div className="text-center mt-10">
-              <Link
-                href="/prompts"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
-                style={{ backgroundColor: "#2596be" }}
-              >
-                Alle Vorlagen ansehen
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
+              {/* Prompt-Vorschau im Terminal-Style */}
+              <div className="relative">
+                <div
+                  className="absolute -inset-6 rounded-3xl pointer-events-none"
+                  style={{ background: "radial-gradient(ellipse, rgba(37,150,190,0.08) 0%, transparent 70%)" }}
+                />
+                <div className="relative rounded-2xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 px-4 py-3 bg-[#F5F5F7] border-b border-gray-100">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+                      <div className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+                      <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+                    </div>
+                    <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-500 border border-gray-200 font-mono truncate">
+                      Prompt-Vorlagen
+                    </div>
+                  </div>
+
+                  {/* Prompt Cards */}
+                  <div className="p-4 flex flex-col gap-3">
+                    {prompts.map((prompt: { titel: string; slug: string; kategorie?: string; promptText: string }) => (
+                      <Link
+                        key={prompt.slug}
+                        href="/prompts"
+                        className="block p-4 rounded-xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-sm transition-all"
+                      >
+                        {prompt.kategorie && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                            {prompt.kategorie}
+                          </span>
+                        )}
+                        <p className="text-sm font-semibold text-gray-900 mt-2 mb-1.5">{prompt.titel}</p>
+                        <p className="text-xs text-gray-400 font-mono leading-relaxed line-clamp-2">
+                          {prompt.promptText.slice(0, 120)}...
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </section>
