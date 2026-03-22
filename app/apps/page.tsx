@@ -29,6 +29,25 @@ export default function AppsPage() {
         </Link>
       </PageHero>
 
+      {/* Datenschutz-Hinweis */}
+      <div className="px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl border border-gray-100 bg-[#EBF6FA]/30 p-5 sm:p-6 flex gap-4 items-start">
+            <span className="flex-shrink-0 mt-0.5">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2596be" strokeWidth="1.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </span>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-1">Deine Daten bleiben bei dir.</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Unsere Apps nutzen die OpenAI-API mit deaktiviertem Training. Das bedeutet: Deine Eingaben und die generierten Ergebnisse werden nicht gespeichert und nicht zum Trainieren von KI-Modellen verwendet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <AppsClient />
     </>
   );
