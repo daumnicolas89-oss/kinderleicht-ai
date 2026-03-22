@@ -115,7 +115,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links — kompakt in einer Zeile */}
+          {/* Links — kompakt mit Trenner */}
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8">
             {[
               { label: "Über uns", href: "/ueber-uns" },
@@ -123,6 +123,13 @@ export default function Footer() {
               { label: "L-AI-tfaden", href: "/laitfaden" },
               { label: "FAQ", href: "/faq" },
               { label: "Kontakt", href: "/kontakt" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+                {l.label}
+              </Link>
+            ))}
+            <span className="text-gray-200">|</span>
+            {[
               { label: "Impressum", href: "/impressum" },
               { label: "Datenschutz", href: "/datenschutz" },
             ].map((l) => (
