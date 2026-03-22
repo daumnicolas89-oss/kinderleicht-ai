@@ -15,7 +15,7 @@ export default function AppsPage() {
       <PageHero
         label="Eigene Apps"
         title="Web-Apps für Pädagogen"
-        subtitle="Eigene KI-gestützte Web-Apps speziell für den pädagogischen Alltag. Direkt im Browser nutzbar, ohne Installation, ohne Account. Deine Eingaben werden nicht gespeichert und nicht zum KI-Training verwendet."
+        subtitle={<>Eigene KI-gestützte Web-Apps speziell für den pädagogischen Alltag. Direkt im Browser nutzbar, ohne Installation, ohne Account. Deine Eingaben werden <strong className="text-gray-700">nicht gespeichert</strong> und <strong className="text-gray-700">nicht zum KI-Training</strong> verwendet.</>}
       >
         <Link
           href="/so-arbeiten-wir"
