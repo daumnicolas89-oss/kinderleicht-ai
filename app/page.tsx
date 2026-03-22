@@ -13,7 +13,7 @@ export default async function HomePage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white pt-12 pb-10 sm:pt-24 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-14 pb-12 sm:pt-28 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-3xl mx-auto text-center">
           <h1 className="text-[2rem] sm:text-6xl lg:text-[70px] font-bold tracking-tight text-gray-900 leading-[1.15]">
             KI-Tools für
@@ -24,80 +24,10 @@ export default async function HomePage() {
           <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed max-w-xl mx-auto">
             Geprüfte Tools, eigene Apps und fertige Vorlagen für Kita, Schule und Bildungseinrichtungen. Kostenlos.
           </p>
-
-          <div className="mt-8">
-            <Link
-              href="/tools"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
-              style={{ backgroundColor: "#2596be" }}
-            >
-              Tools entdecken
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── FÜR WEN ──────────────────────────────────────────── */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
-        <ScrollReveal className="max-w-5xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-              Für alle, die mit Kindern arbeiten.
-            </h2>
-            <p className="text-base text-gray-500 max-w-lg mx-auto">
-              Von der Krippe bis zur weiterführenden Schule, von der Leitung bis zur Verwaltung. Unsere Tools sind für deinen Alltag gemacht.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-            {[
-              {
-                title: "Krippe & Kita",
-                description: "Der Elternbrief muss heute noch raus, die Doku wartet seit Tagen. Wir helfen, damit beides nicht am Feierabend hängenbleibt.",
-              },
-              {
-                title: "Schulen",
-                description: "30 Kinder, 5 Niveaus, eine Stunde Vorbereitung. KI hilft beim Differenzieren, damit du dich auf den Unterricht konzentrieren kannst.",
-              },
-              {
-                title: "GBS & GTS",
-                description: "Ferienprogramm für 80 Kinder, drei Wochen, ein Team. Der Ferienplaner macht aus dem Chaos einen Plan.",
-              },
-              {
-                title: "Jugendarbeit",
-                description: "Kreative Angebote entwickeln, ohne jedes Mal bei null anzufangen. Mehr Zeit für die Jugendlichen, weniger für Papierkram.",
-              },
-              {
-                title: "Leitung & Teams",
-                description: "Konzepte schreiben, Fortbildungen vorbereiten, das Team mitnehmen. Ohne dass der Schreibtisch zum Dauerwohnsitz wird.",
-              },
-              {
-                title: "Verwaltung",
-                description: "Anschreiben, Berichte, Formulare. Die Dinge, die niemand gerne macht, aber alle brauchen. Jetzt deutlich schneller erledigt.",
-              },
-            ].map((card) => (
-              <Link
-                key={card.title}
-                href="/tools"
-                className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
-              >
-                <div className="flex items-center justify-between mb-1.5">
-                  <h3 className="text-base font-bold text-gray-900">{card.title}</h3>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" strokeWidth="2" className="flex-shrink-0">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-                <p className="text-sm text-gray-500 leading-relaxed">{card.description}</p>
-              </Link>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
-      {/* ── APPS HIGHLIGHT ────────────────────────────── */}
+      {/* ── APPS ────────────────────────────── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
         <ScrollReveal className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -129,7 +59,7 @@ export default async function HomePage() {
 
             <AppSlideshow
               slides={[
-                { src: "/Ferienplaner 1.webp", alt: "Ferienplaner" },
+                { src: "/Ferienplaner 1.webp", alt: "Ferienplaner-Generator" },
                 { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator" },
                 { src: "/checkliste-1.webp", alt: "Checklisten-Generator" },
                 { src: "/entwicklung 1.webp", alt: "Entwicklungsbericht-Generator" },
@@ -141,9 +71,57 @@ export default async function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ── PROMPTS HIGHLIGHT ────────────────────────────── */}
+      {/* ── TOOLS ────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <ScrollReveal className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="lg:order-2">
+              <p
+                className="text-xs font-semibold uppercase tracking-widest mb-4"
+                style={{ color: "#2596be" }}
+              >
+                KI-Tools
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                315 geprüfte Tools<br />
+                für den Bildungsbereich.
+              </h2>
+              <p className="text-base text-gray-500 leading-relaxed mb-7">
+                Jedes Tool mit DSGVO-Ampel, pädagogischer Einschätzung und Praxistipps. Von ChatGPT bis Fobizz, von Canva bis SchulKI.
+              </p>
+              <Link
+                href="/tools"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                style={{ backgroundColor: "#2596be" }}
+              >
+                Tools entdecken
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="lg:order-1 grid grid-cols-2 gap-3">
+              {[
+                { label: "DSGVO-Ampel", desc: "Grün, Gelb oder Rot auf einen Blick", icon: "🟢" },
+                { label: "Preismodell", desc: "Kostenlos, Freemium oder Kostenpflichtig", icon: "💰" },
+                { label: "Kategorien", desc: "Von Texte bis Video, von Quiz bis Planung", icon: "📂" },
+                { label: "Praxistipps", desc: "Didaktischer Mehrwert und Aufwand", icon: "💡" },
+              ].map((item) => (
+                <div key={item.label} className="p-4 rounded-xl border border-gray-100 bg-gray-50/50">
+                  <p className="text-xl mb-2">{item.icon}</p>
+                  <p className="text-sm font-semibold text-gray-900 mb-0.5">{item.label}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ── PROMPTS ────────────────────────────── */}
       {prompts.length > 0 && (
-        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
           <ScrollReveal className="max-w-5xl mx-auto">
             <div className="text-center mb-8 sm:mb-12">
               <p
@@ -165,7 +143,7 @@ export default async function HomePage() {
                 <Link
                   key={prompt.slug}
                   href="/prompts"
-                  className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
+                  className="flex flex-col p-5 rounded-2xl border border-gray-100 bg-white hover:border-[#2596be]/20 hover:shadow-md transition-all duration-200"
                 >
                   {prompt.kategorie && (
                     <span className="self-start text-xs font-semibold px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be] mb-3">
@@ -196,8 +174,8 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* ── ZAHLEN / SOCIAL PROOF ─────────────────────────────── */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+      {/* ── ZAHLEN ─────────────────────────────── */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <ScrollReveal className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
