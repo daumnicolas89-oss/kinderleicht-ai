@@ -240,7 +240,7 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
-              { value: "310+", label: "Geprüfte KI-Tools" },
+              { value: "315", label: "Geprüfte KI-Tools" },
               { value: "55+", label: "Fertige KI-Prompts" },
               { value: "385+", label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },

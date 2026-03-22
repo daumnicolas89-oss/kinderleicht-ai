@@ -25,7 +25,7 @@ const areas = [
   {
     title: "Tools",
     href: "/tools",
-    description: "310+ geprüfte KI-Tools für Bildung. Mit Kategorie, Preismodell und DSGVO-Einschätzung.",
+    description: "315 geprüfte KI-Tools für Bildung. Mit Kategorie, Preismodell und DSGVO-Einschätzung.",
     examples: "ChatGPT, Fobizz, Canva, SchulKI",
     color: "#059669",
     icon: (
