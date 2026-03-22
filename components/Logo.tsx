@@ -5,7 +5,7 @@ export default function Logo({ height = 32 }: { height?: number }) {
 
   return (
     <Image
-      src="/Kinderleicht-1000x400.png"
+      src="/Kinderleicht-1000x400.webp"
       alt="kinderleicht.ai"
       width={width}
       height={height}

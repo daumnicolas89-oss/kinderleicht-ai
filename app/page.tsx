@@ -129,6 +129,32 @@ export default async function HomePage() {
         <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#F5F5F7" }}>
           <ScrollReveal className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <p
+                  className="text-xs font-semibold uppercase tracking-widest mb-4"
+                  style={{ color: "#2596be" }}
+                >
+                  Prompts
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
+                  Fertige Vorlagen<br />
+                  zum Kopieren.
+                </h2>
+                <p className="text-base text-gray-500 leading-relaxed mb-7">
+                  Elternbrief, Förderplan oder Unterrichtsentwurf. Vorlage kopieren, in deinen Chatbot einfügen, Platzhalter anpassen, fertig.
+                </p>
+                <Link
+                  href="/prompts"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                  style={{ backgroundColor: "#2596be" }}
+                >
+                  Alle Vorlagen ansehen
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
+
               {/* Prompt-Vorschau im Terminal-Style */}
               <div className="relative">
                 <div
@@ -169,32 +195,6 @@ export default async function HomePage() {
                     ))}
                   </div>
                 </div>
-              </div>
-
-              <div>
-                <p
-                  className="text-xs font-semibold uppercase tracking-widest mb-4"
-                  style={{ color: "#2596be" }}
-                >
-                  Prompts
-                </p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
-                  Fertige Vorlagen<br />
-                  zum Kopieren.
-                </h2>
-                <p className="text-base text-gray-500 leading-relaxed mb-7">
-                  Elternbrief, Förderplan oder Unterrichtsentwurf. Vorlage kopieren, in deinen Chatbot einfügen, Platzhalter anpassen, fertig.
-                </p>
-                <Link
-                  href="/prompts"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
-                  style={{ backgroundColor: "#2596be" }}
-                >
-                  Alle Vorlagen ansehen
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </Link>
               </div>
             </div>
           </ScrollReveal>
