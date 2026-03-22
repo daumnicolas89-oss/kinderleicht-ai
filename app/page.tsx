@@ -119,13 +119,14 @@ export default async function HomePage() {
                 pädagogischen Alltag.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Ferienplanung, Textdifferenzierung, Checklisten und mehr. Kostenlos im Browser, ohne Anmeldung.
+                Ferienplanung, Textdifferenzierung, Checklisten, Entwicklungsberichte und mehr. Kostenlos im Browser, ohne Anmeldung.
               </p>
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                 {[
                   { label: "Ferienplaner", href: "https://ferienplaner.kinderleicht.ai", primary: true },
                   { label: "Lernstufen", href: "https://lernstufen.kinderleicht.ai", primary: false },
                   { label: "Checklisten", href: "https://checkliste.kinderleicht.ai", primary: false },
+                  { label: "Entwicklung", href: "https://entwicklung.kinderleicht.ai", primary: false },
                 ].map((app) => (
                   <a
                     key={app.label}
@@ -163,6 +164,7 @@ export default async function HomePage() {
                 { src: "/Ferienplaner 1.webp", alt: "Ferienplaner" },
                 { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator" },
                 { src: "/checkliste-1.webp", alt: "Checklisten-Generator" },
+                { src: "/entwicklung 1.webp", alt: "Entwicklungsbericht-Generator" },
               ]}
               url="https://ferienplaner.kinderleicht.ai"
               domain="kinderleicht.ai/apps"

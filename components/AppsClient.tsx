@@ -81,6 +81,31 @@ const apps = [
     badge: "Beta",
     badgeColor: "bg-amber-50 text-amber-600",
   },
+  {
+    id: "entwicklung",
+    title: "Entwicklungsbericht-Generator",
+    description: "Stichpunkte eingeben, der Generator formuliert einen vollständigen, ressourcenorientierten Entwicklungsbericht. Keine sensiblen Daten nötig.",
+    highlight: "Arbeitet mit Platzhaltern statt echten Kindernamen",
+    href: "https://entwicklung.kinderleicht.ai",
+    tags: ["Kita", "Krippe", "Vorschule"],
+    badges: ["Kostenlos", "Keine Anmeldung", "PDF-Export"],
+    features: [
+      "Einrichtungstyp wählen: Krippe (0-3), Kita (3-6), Vorschule (5-6)",
+      "Nur Bereiche ausfüllen, zu denen du etwas beobachtet hast",
+      "Ressourcenorientierte Formulierungen werden automatisch generiert",
+      "Bericht mit Platzhaltern statt echten Namen",
+      "Als PDF exportieren und individuell anpassen",
+    ],
+    slides: [
+      { src: "/entwicklung 1.webp", alt: "Entwicklungsbericht Übersicht" },
+      { src: "/entwicklung 2.webp", alt: "Entwicklungsbericht Eingabe" },
+      { src: "/entwicklung 3.webp", alt: "Entwicklungsbericht Ergebnis" },
+      { src: "/entwicklung 4.webp", alt: "Entwicklungsbericht Export" },
+    ],
+    domain: "entwicklung.kinderleicht.ai",
+    badge: "Beta",
+    badgeColor: "bg-amber-50 text-amber-600",
+  },
 ];
 
 export default function AppsClient() {
