@@ -9,7 +9,12 @@ import { featuredPromptsQuery } from "@/lib/sanity/queries";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const prompts = await client.fetch(featuredPromptsQuery);
+  const [prompts, toolCount, promptCount, lexikonCount] = await Promise.all([
+    client.fetch(featuredPromptsQuery),
+    client.fetch(`count(*[_type == "werkzeug"])`),
+    client.fetch(`count(*[_type == "prompt"])`),
+    client.fetch(`count(*[_type == "lexikon"])`),
+  ]);
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
@@ -87,7 +92,7 @@ export default async function HomePage() {
                 das zu dir passt.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Über 315 Tools für Kita, Schule und Verwaltung. Mit DSGVO-Ampel, Praxistipps und ehrlicher Einschätzung.
+                Über {toolCount} Tools für Kita, Schule und Verwaltung. Mit DSGVO-Ampel, Praxistipps und ehrlicher Einschätzung.
               </p>
               <Link
                 href="/tools"
@@ -210,9 +215,9 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {[
-              { value: "315", label: "Geprüfte KI-Tools" },
-              { value: "55+", label: "Fertige KI-Prompts" },
-              { value: "385+", label: "Begriffe im KI-ABC" },
+              { value: String(toolCount), label: "Geprüfte KI-Tools" },
+              { value: String(promptCount), label: "Fertige KI-Prompts" },
+              { value: String(lexikonCount), label: "Begriffe im KI-ABC" },
               { value: "100%", label: "Kostenlos nutzbar" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-4 sm:p-5 rounded-2xl border border-gray-100 bg-gray-50/50">

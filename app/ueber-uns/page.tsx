@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import { client } from "@/sanity/lib/client";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Über uns — kinderleicht.ai",
@@ -8,7 +11,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://kinderleicht.ai/ueber-uns" },
 };
 
-export default function UeberUnsPage() {
+export default async function UeberUnsPage() {
+  const toolCount = await client.fetch(`count(*[_type == "werkzeug"])`);
+  const lexikonCount = await client.fetch(`count(*[_type == "lexikon"])`);
   return (
     <>
       <PageHero
@@ -56,7 +61,7 @@ export default function UeberUnsPage() {
             {[
               {
                 emoji: "🔍",
-                title: "315 geprüfte KI-Tools",
+                title: `${toolCount} geprüfte KI-Tools`,
                 desc: "Jedes Tool mit DSGVO-Ampel, pädagogischer Einschätzung, Preisdetails und Praxistipps.",
                 href: "/tools",
               },
@@ -68,7 +73,7 @@ export default function UeberUnsPage() {
               },
               {
                 emoji: "📖",
-                title: "KI-ABC mit 385+ Begriffen",
+                title: `KI-ABC mit ${lexikonCount} Begriffen`,
                 desc: "Alle wichtigen Begriffe rund um KI, Datenschutz und digitale Tools. Einfach erklärt für Pädagogen.",
                 href: "/ki-abc",
               },

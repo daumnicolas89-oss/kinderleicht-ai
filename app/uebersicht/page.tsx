@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import { client } from "@/sanity/lib/client";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Übersicht — kinderleicht.ai",
@@ -25,7 +28,7 @@ const areas = [
   {
     title: "Tools",
     href: "/tools",
-    description: "315 geprüfte KI-Tools für Bildung. Mit Kategorie, Preismodell und DSGVO-Einschätzung.",
+    description: "TOOLCOUNT geprüfte KI-Tools für Bildung. Mit Kategorie, Preismodell und DSGVO-Einschätzung.",
     examples: "ChatGPT, Fobizz, Canva, SchulKI",
     color: "#059669",
     icon: (
@@ -61,7 +64,7 @@ const areas = [
   {
     title: "KI-ABC",
     href: "/ki-abc",
-    description: "385+ Begriffe rund um KI, Datenschutz und Digitalisierung. Einfach erklärt, mit Praxisbeispielen.",
+    description: "LEXIKONCOUNT Begriffe rund um KI, Datenschutz und Digitalisierung. Einfach erklärt, mit Praxisbeispielen.",
     examples: "DSGVO, Prompt, Algorithmus, AVV",
     color: "#DC2626",
     icon: (
@@ -84,7 +87,13 @@ const areas = [
   },
 ];
 
-export default function UebersichtPage() {
+export default async function UebersichtPage() {
+  const [toolCount, lexikonCount] = await Promise.all([
+    client.fetch(`count(*[_type == "werkzeug"])`),
+    client.fetch(`count(*[_type == "lexikon"])`),
+  ]);
+  const replaceCount = (text: string) =>
+    text.replace("TOOLCOUNT", String(toolCount)).replace("LEXIKONCOUNT", String(lexikonCount));
   return (
     <>
       <PageHero
@@ -112,7 +121,7 @@ export default function UebersichtPage() {
                     {area.title}
                   </h2>
                   <p className="text-sm text-gray-500 leading-relaxed mb-2">
-                    {area.description}
+                    {replaceCount(area.description)}
                   </p>
                   <p className="text-xs text-gray-400">
                     z.B. {area.examples}
