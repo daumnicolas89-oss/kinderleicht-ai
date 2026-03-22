@@ -26,7 +26,8 @@
       "Bash(ls /workspaces/kinderleicht-ai/public/*ernstufen* /workspaces/kinderleicht-ai/public/*Lernstufen*)",
       "Bash(grep -E \"\\\\.tsx$|^d\")",
       "Bash(grep -r import.*LexikonClient /workspaces/kinderleicht-ai/app)",
-      "Bash(grep -E \"py-[0-9]{1,2}\\\\b\")"
+      "Bash(grep -E \"py-[0-9]{1,2}\\\\b\")",
+      "Bash(ls /workspaces/kinderleicht-ai/public/Ferienplaner* /workspaces/kinderleicht-ai/public/ferienplaner*)"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"

@@ -171,7 +171,7 @@ export default async function HomePage() {
 
             <AppSlideshow
               slides={[
-                { src: "/ferienplaner-1.webp", alt: "Ferienplaner" },
+                { src: "/Ferienplaner 1.webp", alt: "Ferienplaner" },
                 { src: "/Lernstufen 1.webp", alt: "Lernstufen-Generator" },
                 { src: "/checkliste-1.webp", alt: "Checklisten-Generator" },
               ]}
