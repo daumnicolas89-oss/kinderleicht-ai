@@ -115,70 +115,28 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Logo + Nav-Spalten nebeneinander */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-12 max-w-3xl mx-auto mb-12">
-            {/* Logo-Spalte (doppelt breit) */}
-            <div className="col-span-2 flex flex-col items-center sm:items-start gap-3">
-              <Logo height={36} />
-              <p className="text-sm text-gray-500 leading-relaxed">
-                KI im Bildungsalltag. Für Pädagogen.
-              </p>
-            </div>
-
-            {/* KINDERLEICHT.AI */}
-            <div className="text-center sm:text-left">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">kinderleicht.ai</p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  { label: "Über uns", href: "/ueber-uns" },
-                  { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
-                  { label: "L-AI-tfaden", href: "/laitfaden" },
-                  { label: "Übersicht", href: "/uebersicht" },
-                  { label: "FAQ", href: "/faq" },
-                  { label: "Kontakt", href: "/kontakt" },
-                ].map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* RECHTLICHES */}
-            <div className="text-center sm:text-left">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Rechtliches</p>
-              <ul className="flex flex-col gap-3">
-                {[
-                  { label: "Impressum", href: "/impressum" },
-                  { label: "Datenschutz", href: "/datenschutz" },
-                ].map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Links — kompakt in einer Zeile */}
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8">
+            {[
+              { label: "Über uns", href: "/ueber-uns" },
+              { label: "So arbeiten wir", href: "/so-arbeiten-wir" },
+              { label: "L-AI-tfaden", href: "/laitfaden" },
+              { label: "FAQ", href: "/faq" },
+              { label: "Kontakt", href: "/kontakt" },
+              { label: "Impressum", href: "/impressum" },
+              { label: "Datenschutz", href: "/datenschutz" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="text-sm text-gray-400 hover:text-gray-700 transition-colors">
+                {l.label}
+              </Link>
+            ))}
           </div>
 
           {/* Bottom-Bar */}
-          <div className="border-t border-gray-100 pt-6 flex flex-col items-center gap-3 text-center">
-            <p className="text-xs text-gray-500">© {new Date().getFullYear()} kinderleicht.ai. Alle Rechte vorbehalten.</p>
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => {
-                  localStorage.removeItem("cookieConsent");
-                  window.location.reload();
-                }}
-                className="text-xs text-gray-500 hover:text-gray-600 transition-colors underline underline-offset-2"
-              >
-                Cookie-Einstellungen
-              </button>
-              <p className="text-xs text-gray-500">Made with <span aria-label="Liebe" role="img">♥</span> für Pädagogen</p>
-            </div>
+          <div className="border-t border-gray-100 pt-5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs text-gray-400">
+            <p>© {new Date().getFullYear()} kinderleicht.ai</p>
+            <span className="hidden sm:inline">·</span>
+            <p>Made with <span aria-label="Liebe" role="img">♥</span> für Pädagogen</p>
           </div>
 
         </div>
