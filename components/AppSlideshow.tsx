@@ -126,20 +126,23 @@ export default function AppSlideshow({ slides, url, domain }: AppSlideshowProps)
           </div>
         </a>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2 py-3">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Slide ${i + 1} anzeigen`}
-              className="h-2.5 rounded-full transition-all duration-300"
-              style={{
-                width: i === active ? "20px" : "10px",
-                backgroundColor: i === active ? "#2596be" : "#e5e7eb",
-              }}
-            />
-          ))}
+        {/* Label + Dots */}
+        <div className="flex flex-col items-center gap-1.5 py-3">
+          <p className="text-xs font-semibold text-gray-500 transition-all duration-300">{slides[active].alt}</p>
+          <div className="flex gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Slide ${i + 1} anzeigen`}
+                className="h-2.5 rounded-full transition-all duration-300"
+                style={{
+                  width: i === active ? "20px" : "10px",
+                  backgroundColor: i === active ? "#2596be" : "#e5e7eb",
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

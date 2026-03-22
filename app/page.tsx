@@ -25,22 +25,16 @@ export default async function HomePage() {
             Geprüfte Tools, eigene Apps und fertige Vorlagen für Kita, Schule und Bildungseinrichtungen. Kostenlos.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="mt-8">
             <Link
               href="/tools"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
               style={{ backgroundColor: "#2596be" }}
             >
               Tools entdecken
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </Link>
-            <Link
-              href="/apps"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all"
-            >
-              Eigene Apps testen
             </Link>
           </div>
         </div>
@@ -121,39 +115,13 @@ export default async function HomePage() {
               <p className="text-base text-gray-500 leading-relaxed mb-7">
                 Ferienplanung, Textdifferenzierung, Checklisten, Entwicklungsberichte und mehr. Kostenlos im Browser, ohne Anmeldung.
               </p>
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                {[
-                  { label: "Ferienplaner", href: "https://ferienplaner.kinderleicht.ai", primary: true },
-                  { label: "Lernstufen", href: "https://lernstufen.kinderleicht.ai", primary: false },
-                  { label: "Checklisten", href: "https://checkliste.kinderleicht.ai", primary: false },
-                  { label: "Entwicklung", href: "https://entwicklung.kinderleicht.ai", primary: false },
-                ].map((app) => (
-                  <a
-                    key={app.label}
-                    href={app.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold active:scale-[0.96] transition-all ${
-                      app.primary
-                        ? "text-white hover:opacity-90"
-                        : "text-gray-700 bg-white border border-gray-200 hover:bg-gray-50"
-                    }`}
-                    style={app.primary ? { backgroundColor: "#2596be" } : undefined}
-                  >
-                    {app.label}
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M7 17L17 7M7 7h10v10" />
-                    </svg>
-                  </a>
-                ))}
-              </div>
               <Link
                 href="/apps"
-                className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold hover:opacity-80 transition-opacity"
-                style={{ color: "#2596be" }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                style={{ backgroundColor: "#2596be" }}
               >
                 Alle Apps ansehen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
