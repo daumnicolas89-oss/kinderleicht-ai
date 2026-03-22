@@ -80,14 +80,14 @@ export default async function HomePage() {
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
                 style={{ color: "#2596be" }}
               >
-                KI-Tools
+                Tools
               </p>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
-                315 geprüfte Tools<br />
-                für den Bildungsbereich.
+                Finde das Tool,<br />
+                das zu dir passt.
               </h2>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
-                Jedes Tool mit DSGVO-Ampel, pädagogischer Einschätzung und Praxistipps. Von ChatGPT bis Fobizz, von Canva bis SchulKI.
+                Über 315 Tools für Kita, Schule und Verwaltung. Mit DSGVO-Ampel, Praxistipps und ehrlicher Einschätzung.
               </p>
               <Link
                 href="/tools"

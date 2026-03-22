@@ -24,9 +24,9 @@ export default async function ToolsPage() {
   return (
     <>
       <PageHero
-        label="KI-Tools"
+        label="Tools"
         title="Der große Tool-Überblick."
-        subtitle="Geprüfte KI-Tools mit Tipps für den pädagogischen Einsatz."
+        subtitle="Alle Tools auf einen Blick. Filtere nach Kategorie, Preis oder DSGVO-Bewertung und finde genau das, was du brauchst."
       >
         <Link
           href="/so-arbeiten-wir"
