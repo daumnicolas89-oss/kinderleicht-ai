@@ -174,7 +174,7 @@ export default async function HomePage() {
                     {prompts.map((prompt: { titel: string; slug: string; kategorie?: string; promptText: string }) => (
                       <Link
                         key={prompt.slug}
-                        href="/prompts"
+                        href={prompt.kategorie ? `/prompts?kategorie=${encodeURIComponent(prompt.kategorie)}` : "/prompts"}
                         className="block p-4 rounded-xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-sm transition-all"
                       >
                         {prompt.kategorie && (

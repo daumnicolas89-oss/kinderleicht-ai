@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 const KATEGORIEN = [
   { label: "Elternkommunikation", desc: "Briefe, Einladungen und Infos für Eltern", iconPath: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
@@ -142,11 +143,22 @@ function CopyButton({ text }: { text: string }) {
 
 /* ── Hauptkomponente ───────────────────────────── */
 export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
+  const searchParams = useSearchParams();
   const [activeKat, setActiveKat] = useState("");
   const [activeZielgruppe, setActiveZielgruppe] = useState("");
   const [search, setSearch] = useState("");
   const [showPrompts, setShowPrompts] = useState(false);
   const promptsRef = useRef<HTMLDivElement>(null);
+
+  // URL-Parameter auslesen (z.B. /prompts?kategorie=Elternkommunikation)
+  useEffect(() => {
+    const kat = searchParams.get("kategorie");
+    if (kat && KATEGORIEN.some((k) => k.label === kat)) {
+      setActiveKat(kat);
+      setShowPrompts(true);
+      setTimeout(() => promptsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    }
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     return prompts.filter((p) => {

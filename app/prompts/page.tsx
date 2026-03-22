@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { client } from "@/sanity/lib/client";
 import { allPromptsQuery } from "@/lib/sanity/queries";
 import PromptsClient from "@/components/PromptsClient";
@@ -37,7 +38,7 @@ export default async function PromptsPage() {
         </div>
       </section>
 
-      <PromptsClient prompts={prompts} />
+      <Suspense><PromptsClient prompts={prompts} /></Suspense>
     </>
   );
 }
