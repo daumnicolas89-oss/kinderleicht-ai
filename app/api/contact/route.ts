@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${resendKey}`,
         },
         body: JSON.stringify({
-          from: "Kontaktformular <onboarding@resend.dev>",
+          from: "Kontaktformular <noreply@kinderleicht.ai>",
           to: ["kontakt@kinderleicht.ai"],
           reply_to: email,
           subject: `[Kontakt] ${subject}`,
