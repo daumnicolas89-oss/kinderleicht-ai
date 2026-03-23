@@ -240,7 +240,7 @@ export default function LAItfadenPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/ki-abc"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-opacity"
               style={{ backgroundColor: "#2596be" }}
             >
               Alle Begriffe im KI-ABC

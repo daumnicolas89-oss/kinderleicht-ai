@@ -18,7 +18,7 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row items-center gap-3">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 active:scale-[0.96]"
           style={{ backgroundColor: "#2596be" }}
         >
           Zur Startseite

@@ -52,7 +52,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/apps"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Alle Apps ansehen
@@ -96,7 +96,7 @@ export default async function HomePage() {
               </p>
               <Link
                 href="/tools"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Tools entdecken
@@ -145,7 +145,7 @@ export default async function HomePage() {
                 </p>
                 <Link
                   href="/prompts"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-all"
                   style={{ backgroundColor: "#2596be" }}
                 >
                   Alle Vorlagen ansehen

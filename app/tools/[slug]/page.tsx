@@ -229,7 +229,7 @@ export default async function ToolDetailPage({ params }: Props) {
                 href={targetUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="sm:ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                className="sm:ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-opacity"
                 style={{ backgroundColor: "#2596be" }}
               >
                 Tool öffnen
@@ -447,7 +447,7 @@ export default async function ToolDetailPage({ params }: Props) {
                     href={targetUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-90 active:scale-[0.96] transition-opacity"
                     style={{ backgroundColor: "#2596be" }}
                   >
                     Tool öffnen

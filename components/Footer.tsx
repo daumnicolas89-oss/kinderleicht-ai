@@ -57,7 +57,7 @@ function NewsletterForm({ dark = false }: { dark?: boolean }) {
         <button
           onClick={handleSubmit}
           disabled={status === "loading" || !consent || !email}
-          className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90 disabled:opacity-40 whitespace-nowrap"
+          className="px-4 py-2 text-sm font-semibold text-white rounded-lg transition-opacity hover:opacity-90 active:scale-[0.96] disabled:opacity-40 whitespace-nowrap"
           style={{ backgroundColor: "#2596be" }}
         >
           {status === "loading" ? "Wird gesendet..." : "Anmelden"}

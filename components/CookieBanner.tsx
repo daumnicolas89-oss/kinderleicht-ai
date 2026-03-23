@@ -50,7 +50,7 @@ export default function CookieBanner() {
             </button>
             <button
               onClick={() => accept("all")}
-              className="flex-1 px-4 py-2.5 text-sm font-semibold text-white rounded-lg hover:opacity-90 transition-opacity"
+              className="flex-1 px-4 py-2.5 text-sm font-semibold text-white rounded-lg hover:opacity-90 active:scale-[0.96] transition-opacity"
               style={{ backgroundColor: "#2596be" }}
             >
               Alle akzeptieren

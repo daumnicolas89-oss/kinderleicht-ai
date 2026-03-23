@@ -163,7 +163,7 @@ export default function SoArbeitenWirPage() {
           </p>
           <Link
             href="/kontakt"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white transition-opacity hover:opacity-90 active:scale-[0.96]"
             style={{ backgroundColor: "#2596be" }}
           >
             Kontakt aufnehmen

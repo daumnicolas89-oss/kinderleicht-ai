@@ -113,7 +113,7 @@ export default function KontaktForm() {
       <button
         type="submit"
         disabled={state === "loading"}
-        className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 active:scale-[0.96] mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         style={{ backgroundColor: "#2596be" }}
       >
         {state === "loading" ? (

@@ -23,7 +23,7 @@ export default function Error({
       <div className="flex flex-col sm:flex-row gap-4">
         <button
           onClick={reset}
-          className="inline-flex items-center px-6 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-90 cursor-pointer"
+          className="inline-flex items-center px-6 py-3 rounded-lg text-white font-medium transition-opacity hover:opacity-90 active:scale-[0.96] cursor-pointer"
           style={{ backgroundColor: "#2596be" }}
         >
           Erneut versuchen
