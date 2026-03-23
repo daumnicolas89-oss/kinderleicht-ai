@@ -386,7 +386,7 @@ export default function PromptsClient({ prompts }: { prompts: Prompt[] }) {
                   {filtered.map((prompt) => (
                     <div
                       key={prompt.slug}
-                      className={`group flex flex-col rounded-2xl border transition-all duration-300 overflow-hidden ${
+                      className={`group flex flex-col rounded-2xl border transition-all duration-200 overflow-hidden ${
                         prompt.highlight
                           ? "bg-[#FAFEFF] border-[#2596be]/25 ring-1 ring-[#2596be]/8"
                           : "bg-white border-gray-100 hover:border-[#2596be]/20 hover:shadow-md"

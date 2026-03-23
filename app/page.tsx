@@ -35,7 +35,7 @@ export default async function HomePage() {
       {/* ── APPS ────────────────────────────── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
         <ScrollReveal className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 lg:gap-12 items-center">
             <div>
               <p
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -79,7 +79,7 @@ export default async function HomePage() {
       {/* ── TOOLS ────────────────────────────── */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
         <ScrollReveal className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="lg:order-2">
               <p
                 className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -128,7 +128,7 @@ export default async function HomePage() {
       {prompts.length > 0 && (
         <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
           <ScrollReveal className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div>
                 <p
                   className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -183,7 +183,7 @@ export default async function HomePage() {
                         className="block p-4 rounded-xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
                       >
                         {prompt.kategorie && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
+                          <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
                             {prompt.kategorie}
                           </span>
                         )}
