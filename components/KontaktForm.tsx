@@ -7,6 +7,7 @@ type FormState = "idle" | "loading" | "success" | "error";
 export default function KontaktForm() {
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [consent, setConsent] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -98,7 +99,7 @@ export default function KontaktForm() {
       </div>
 
       <div className="flex items-start gap-3">
-        <input id="datenschutz" name="datenschutz" type="checkbox" required className="mt-1 h-4 w-4 rounded border-gray-300 text-[#2596be] focus:ring-[#2596be] cursor-pointer" />
+        <input id="datenschutz" name="datenschutz" type="checkbox" required checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 h-4 w-4 rounded border-gray-300 text-[#2596be] focus:ring-[#2596be] cursor-pointer" />
         <label htmlFor="datenschutz" className="text-[13px] text-gray-500 leading-relaxed cursor-pointer">
           Ich habe die{" "}
           <a href="/datenschutz" target="_blank" className="underline font-medium" style={{ color: "#2596be" }}>Datenschutzerklärung</a>{" "}
@@ -112,7 +113,7 @@ export default function KontaktForm() {
 
       <button
         type="submit"
-        disabled={state === "loading"}
+        disabled={state === "loading" || !consent}
         className="w-full py-3 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90 active:scale-[0.96] mt-1 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         style={{ backgroundColor: "#2596be" }}
       >
