@@ -180,7 +180,7 @@ export default async function HomePage() {
                       <Link
                         key={prompt.slug}
                         href={prompt.kategorie ? `/prompts?kategorie=${encodeURIComponent(prompt.kategorie)}` : "/prompts"}
-                        className="block p-4 rounded-xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200"
+                        className="block p-4 rounded-xl border border-gray-100 hover:border-[#2596be]/20 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.96] transition-all duration-200"
                       >
                         {prompt.kategorie && (
                           <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#EBF6FA] text-[#2596be]">
