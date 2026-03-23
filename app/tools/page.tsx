@@ -51,7 +51,7 @@ export default async function ToolsPage() {
               { q: "Was bedeutet die DSGVO-Ampel?", a: "Grün: Server in der EU, AVV vorhanden. Gelb: Einschränkungen oder unklare Datenlage. Rot: Kritisch für den Einsatz in Bildungseinrichtungen. Die Ampel ist eine Orientierungshilfe, keine Rechtsberatung." },
               { q: "Wie wählt ihr die Tools aus?", a: "Jedes Tool durchläuft unseren 4-Schritte-Prüfprozess: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Wir testen jedes Tool selbst." },
               { q: "Sind alle Tools kostenlos?", a: "Nein. Wir kennzeichnen transparent, ob ein Tool kostenlos, Freemium oder kostenpflichtig ist. Viele Tools bieten einen kostenlosen Plan, der für den Schulalltag ausreicht." },
-              { q: "Kann ich ein Tool vorschlagen?", a: "Ja. Schreib uns über das Kontaktformular. Wir prüfen jeden Vorschlag und nehmen passende Tools ins Verzeichnis auf." },
+              { q: "Kann ich ein Tool vorschlagen?", a: <>Ja. Schreib uns über das <Link href="/kontakt" className="font-semibold underline" style={{ color: "#2596be" }}>Kontaktformular</Link>. Wir prüfen jeden Vorschlag und nehmen passende Tools ins Verzeichnis auf.</> },
             ].map((faq) => (
               <details key={faq.q} className="group bg-white rounded-xl border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">

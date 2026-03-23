@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { allPromptsQuery } from "@/lib/sanity/queries";
 import PromptsClient from "@/components/PromptsClient";
@@ -49,7 +50,7 @@ export default async function PromptsPage() {
               { q: "Was ist ein Prompt?", a: "Ein Prompt ist eine Anweisung an eine KI wie ChatGPT oder Claude. Je genauer die Anweisung, desto besser das Ergebnis. Unsere Vorlagen sind so formuliert, dass du nur noch Platzhalter anpassen musst." },
               { q: "Welchen Chatbot kann ich verwenden?", a: "Unsere Prompts funktionieren mit allen gängigen KI-Chatbots: ChatGPT, Claude, Google Gemini, Microsoft Copilot oder Fobizz. Einfach kopieren und einfügen." },
               { q: "Muss ich die Ergebnisse noch bearbeiten?", a: "Ja. KI liefert Entwürfe, keine fertigen Dokumente. Lies das Ergebnis kritisch, passe es an deine Situation an und prüfe Fakten, bevor du es verwendest." },
-              { q: "Kann ich eigene Prompts einreichen?", a: "Ja. Wenn du einen Prompt hast, der sich in der Praxis bewährt hat, schreib uns über das Kontaktformular. Wir nehmen gute Vorschläge gerne auf." },
+              { q: "Kann ich eigene Prompts einreichen?", a: <>Ja. Wenn du einen Prompt hast, der sich in der Praxis bewährt hat, schreib uns über das <Link href="/kontakt" className="font-semibold underline" style={{ color: "#2596be" }}>Kontaktformular</Link>. Wir nehmen gute Vorschläge gerne auf.</> },
             ].map((faq) => (
               <details key={faq.q} className="group bg-white rounded-xl border border-gray-100 overflow-hidden">
                 <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
