@@ -167,6 +167,10 @@ export default function DatenschutzPage() {
           <H2>Kontakt- und Anfrageverwaltung</H2>
           <P>Bei der Kontaktaufnahme mit uns (z. B. per Post, Kontaktformular, E-Mail, Telefon oder via soziale Medien) sowie im Rahmen bestehender Nutzer- und Geschäftsbeziehungen werden die Angaben der anfragenden Personen verarbeitet, soweit dies zur Beantwortung der Kontaktanfragen und etwaiger angefragter Maßnahmen erforderlich ist.</P>
 
+          <H3>Kontaktformular und E-Mail-Versand via Resend</H3>
+          <P>Wenn du das Kontaktformular auf unserer Webseite nutzt, werden deine Angaben (Name, E-Mail-Adresse, Betreff, Nachricht) über den Dienst <strong>Resend</strong> per E-Mail an uns übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (deine Einwilligung durch Absenden des Formulars). Die Daten werden ausschließlich zur Bearbeitung deiner Anfrage verwendet und nicht an Dritte weitergegeben.</P>
+          <P><strong>Resend:</strong> E-Mail-Versanddienst; Dienstanbieter: Resend Inc., 2261 Market Street #4059, San Francisco, CA 94114, USA. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>.</P>
+
           <H2>Newsletter und elektronische Benachrichtigungen</H2>
           <P>Wir versenden Newsletter, E-Mails und weitere elektronische Benachrichtigungen nur mit der Einwilligung der Empfänger oder einer gesetzlichen Erlaubnis. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.</P>
           <P><strong>Mailchimp:</strong> E-Mail-Versand- und Automatisierungsplattform; Dienstanbieter: Intuit Inc., 2700 Coast Ave., Mountain View, CA 94043, USA. <a href="https://www.intuit.com/privacy/statement/" target="_blank" rel="noopener noreferrer" style={{ color: "#2596be" }}>Datenschutzerklärung</a>.</P>
