@@ -47,22 +47,32 @@ const categories = [
     ],
   },
   {
-    label: "Apps & Tools",
+    label: "Plattform",
     faqs: [
       {
         q: "Was ist der Unterschied zwischen Apps und Tools?",
-        a: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir für den pädagogischen Einsatz aufbereitet haben.",
-        plain: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir für den pädagogischen Einsatz aufbereitet haben.",
+        a: "Unsere Apps sind selbst entwickelte Web-Anwendungen. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir geprüft und für den pädagogischen Einsatz aufbereitet haben.",
+        plain: "Unsere Apps sind selbst entwickelte Web-Anwendungen. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir geprüft und für den pädagogischen Einsatz aufbereitet haben.",
       },
       {
-        q: "Muss ich etwas installieren?",
-        a: "Nein. Alle unsere Apps laufen direkt im Browser, ohne Installation oder App-Download.",
-        plain: "Nein. Alle unsere Apps laufen direkt im Browser, ohne Installation oder App-Download.",
+        q: "Was sind Prompts und wie nutze ich sie?",
+        a: (
+          <>
+            Prompts sind fertige Textvorlagen, die du in einen KI-Chatbot kopierst. Du passt nur die Platzhalter an und erhältst z.B. einen Elternbrief oder Förderplan. Alle Vorlagen findest du auf der{" "}
+            <Link href="/prompts" className="font-semibold underline" style={{ color: "#2596be" }}>Prompts-Seite</Link>.
+          </>
+        ),
+        plain: "Prompts sind fertige Textvorlagen, die du in einen KI-Chatbot kopierst. Du passt nur die Platzhalter an und erhältst z.B. einen Elternbrief oder Förderplan.",
       },
       {
-        q: "Kann ich die Apps auch auf dem Smartphone nutzen?",
-        a: "Ja. Alle Apps sind für mobile Geräte optimiert und funktionieren auf Smartphone und Tablet.",
-        plain: "Ja. Alle Apps sind für mobile Geräte optimiert und funktionieren auf Smartphone und Tablet.",
+        q: "Was ist das KI-ABC?",
+        a: (
+          <>
+            Ein Lexikon mit hunderten Begriffen rund um KI, Datenschutz und digitale Tools. Einfach erklärt, mit Praxisbeispielen aus dem Bildungsalltag. Zum{" "}
+            <Link href="/ki-abc" className="font-semibold underline" style={{ color: "#2596be" }}>KI-ABC</Link>.
+          </>
+        ),
+        plain: "Ein Lexikon mit hunderten Begriffen rund um KI, Datenschutz und digitale Tools. Einfach erklärt, mit Praxisbeispielen aus dem Bildungsalltag.",
       },
     ],
   },

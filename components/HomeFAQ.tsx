@@ -5,38 +5,26 @@ import Link from "next/link";
 
 const faqs = [
   {
-    q: "Kostet die Nutzung etwas?",
-    a: "Nein. kinderleicht.ai ist kostenlos nutzbar. Alle Apps, Tools und Downloads stehen dir ohne Registrierung zur Verfügung.",
-  },
-  {
-    q: "Sind die KI-Tools datenschutzkonform?",
-    a: (
-      <>
-        Wir weisen bei jedem Tool transparent auf den Anbieter und dessen Datenschutzbestimmungen hin. Für den Einsatz in Einrichtungen empfehlen wir, keine personenbezogenen Daten von Kindern oder Eltern einzugeben. Mehr dazu in unserer{" "}
-        <Link href="/datenschutz" className="font-semibold underline" style={{ color: "#2596be" }}>Datenschutzerklärung</Link>.
-      </>
-    ),
+    q: "Kostet kinderleicht.ai etwas?",
+    a: "Nein. Alle Apps, Tools, Prompts und Downloads sind kostenlos nutzbar. Ohne Registrierung, ohne versteckte Kosten.",
   },
   {
     q: "Brauche ich KI-Vorkenntnisse?",
     a: (
       <>
-        Nein. kinderleicht.ai richtet sich ausdrücklich auch an Pädagogen ohne Vorkenntnisse. Alle Tools und Apps sind so aufbereitet, dass du sofort loslegen kannst. Falls du einen Begriff nicht kennst, hilft dir unser{" "}
-        <Link href="/ki-abc" className="font-semibold underline" style={{ color: "#2596be" }}>KI-ABC</Link> mit hunderten einfach erklärten Begriffen.
+        Nein. Alles ist so aufbereitet, dass du sofort loslegen kannst. Falls du einen Begriff nicht kennst, hilft dir unser{" "}
+        <Link href="/ki-abc" className="font-semibold underline" style={{ color: "#2596be" }}>KI-ABC</Link>.
       </>
     ),
   },
   {
-    q: "Muss ich etwas installieren?",
-    a: "Nein. Alle unsere Apps laufen direkt im Browser, ohne Installation oder App-Download. Auch auf Smartphone und Tablet.",
-  },
-  {
-    q: "Was ist der Unterschied zwischen Apps und Tools?",
-    a: "Unsere Apps sind selbst entwickelte Web-Anwendungen, die du direkt im Browser nutzen kannst. KI-Tools sind externe Anbieter wie Canva, Fobizz oder Edpuzzle, die wir für den pädagogischen Einsatz aufbereitet haben.",
-  },
-  {
-    q: "Warum wird auf kinderleicht.ai nicht gegendert?",
-    a: "Wir verwenden auf der gesamten Plattform eine möglichst einfache und klare Sprache. Dabei verzichten wir bewusst auf Genderzeichen, damit Texte gut lesbar bleiben. Selbstverständlich sind immer alle Geschlechter gemeint und alle Menschen willkommen.",
+    q: "Wie prüft ihr die Tools?",
+    a: (
+      <>
+        Jedes Tool durchläuft unseren 4-Schritte-Prüfprozess: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. Details auf{" "}
+        <Link href="/so-arbeiten-wir" className="font-semibold underline" style={{ color: "#2596be" }}>So arbeiten wir</Link>.
+      </>
+    ),
   },
 ];
 
