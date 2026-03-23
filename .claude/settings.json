@@ -31,7 +31,8 @@
       "Bash(ls /workspaces/kinderleicht-ai/public/entwicklung* /workspaces/kinderleicht-ai/public/Entwicklung*)",
       "Bash(curl -s https://kinderleicht.ai/apps)",
       "Bash(ls /workspaces/kinderleicht-ai/app/ki-abc/[slug]/)",
-      "Bash(ls /workspaces/kinderleicht-ai/public/Kinderleicht*)"
+      "Bash(ls /workspaces/kinderleicht-ai/public/Kinderleicht*)",
+      "Bash(ls /workspaces/kinderleicht-ai/public/geo* /workspaces/kinderleicht-ai/public/Geo* /workspaces/kinderleicht-ai/public/GEO*)"
     ],
     "additionalDirectories": [
       "/workspaces/kinderleicht-ai/.next"

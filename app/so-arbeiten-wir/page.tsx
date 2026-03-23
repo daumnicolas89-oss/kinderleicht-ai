@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "So arbeiten wir — kinderleicht.ai",
   description:
-    "Wie wir Tools prüfen, Apps entwickeln und Materialien erstellen. Transparent und nachvollziehbar.",
+    "Jedes Tool durchläuft unseren 4-Schritte-Prüfprozess: Datenschutz, pädagogischer Nutzen, Bedienbarkeit und Preis-Leistung. So arbeiten wir bei kinderleicht.ai.",
   alternates: { canonical: "https://kinderleicht.ai/so-arbeiten-wir" },
 };
 

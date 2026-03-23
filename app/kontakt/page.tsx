@@ -4,7 +4,7 @@ import KontaktForm from "@/components/KontaktForm";
 
 export const metadata: Metadata = {
   title: "Kontakt — kinderleicht.ai",
-  description: "Fragen, Feedback oder Kooperationsideen? Schreib uns. Wir freuen uns von dir zu hören.",
+  description: "Fragen, Feedback oder Kooperationsideen? Schreib uns direkt über das Kontaktformular. Wir melden uns in der Regel innerhalb von 1 bis 2 Werktagen.",
   alternates: { canonical: "https://kinderleicht.ai/kontakt" },
 };
 

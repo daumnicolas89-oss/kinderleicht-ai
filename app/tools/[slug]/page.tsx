@@ -239,6 +239,13 @@ export default async function ToolDetailPage({ params }: Props) {
               </a>
             )}
           </div>
+
+          {/* Zuletzt aktualisiert */}
+          {tool._updatedAt && (
+            <p className="mt-4 text-xs text-gray-400">
+              Zuletzt aktualisiert: {new Date(tool._updatedAt).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })}
+            </p>
+          )}
         </div>
       </div>
 

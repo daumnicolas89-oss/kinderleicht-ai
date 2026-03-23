@@ -8,7 +8,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Übersicht — kinderleicht.ai",
   description:
-    "Alle Bereiche auf einen Blick: Apps, Tools, Prompts, Downloads, KI-ABC und mehr.",
+    "Alle Bereiche von kinderleicht.ai auf einen Blick: Eigene Apps, geprüfte KI-Tools, fertige Prompts, Downloads und das KI-ABC mit hunderten Begriffen.",
   alternates: { canonical: "https://kinderleicht.ai/uebersicht" },
 };
 

@@ -68,19 +68,42 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "kinderleicht.ai",
-              url: "https://kinderleicht.ai",
-              description:
-                "KI-Tools und Apps für Pädagogen im deutschsprachigen Raum",
-              contactPoint: {
-                "@type": "ContactPoint",
-                email: "kontakt@kinderleicht.ai",
-                contactType: "customer service",
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "kinderleicht.ai",
+                url: "https://kinderleicht.ai",
+                logo: "https://kinderleicht.ai/Kinderleicht-1000x400.png",
+                description: "kinderleicht.ai ist eine kostenlose Plattform für Pädagogen im deutschsprachigen Raum. Sie bietet über 315 geprüfte KI-Tools mit DSGVO-Ampel, eigene Web-Apps für Kita und Schule, fertige Prompt-Vorlagen und ein KI-Lexikon mit über 389 Begriffen.",
+                sameAs: [
+                  "https://www.instagram.com/kinderleicht.ai",
+                  "https://www.linkedin.com/in/nicolas-daum/",
+                  "https://www.facebook.com/profile.php?id=61579684331678",
+                ],
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  email: "kontakt@kinderleicht.ai",
+                  contactType: "customer service",
+                  availableLanguage: "German",
+                },
               },
-            }),
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "kinderleicht.ai",
+                url: "https://kinderleicht.ai",
+                inLanguage: "de",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: "https://kinderleicht.ai/tools?q={search_term_string}",
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+              },
+            ]),
           }}
         />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#2596be] focus:text-white focus:rounded-lg focus:text-sm focus:font-semibold">

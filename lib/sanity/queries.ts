@@ -126,7 +126,7 @@ export const similarToolsQuery = groq`
 
 export const allLexikonQuery = groq`*[_type == "lexikon"] | order(begriff asc) { begriff, "slug": slug.current, kurzdefinition, buchstabe, kategorie }`;
 
-export const lexikonBySlugQuery = groq`*[_type == "lexikon" && slug.current == $slug][0] { begriff, "slug": slug.current, kurzdefinition, definition, beispiel, verwandte_begriffe, kategorie }`;
+export const lexikonBySlugQuery = groq`*[_type == "lexikon" && slug.current == $slug][0] { begriff, "slug": slug.current, kurzdefinition, definition, beispiel, verwandte_begriffe, kategorie, _updatedAt }`;
 
 export const allLexikonSlugsQuery = groq`*[_type == "lexikon"]{ "slug": slug.current }`;
 

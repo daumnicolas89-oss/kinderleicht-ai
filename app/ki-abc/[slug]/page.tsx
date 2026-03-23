@@ -42,8 +42,25 @@ export default async function LexikonDetailPage({ params }: Props) {
   };
   const katColors = entry.kategorie ? KATEGORIE_COLOR[entry.kategorie as string] : null;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: entry.begriff,
+    description: entry.kurzdefinition || `${entry.begriff} einfach erklärt.`,
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: "KI-ABC",
+      url: "https://kinderleicht.ai/ki-abc",
+    },
+    url: `https://kinderleicht.ai/ki-abc/${entry.slug}`,
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero area */}
       <div className="relative bg-white border-b border-gray-100 overflow-hidden">
         {/* Dot grid */}
@@ -141,6 +158,13 @@ export default async function LexikonDetailPage({ params }: Props) {
               ))}
             </div>
           </div>
+        )}
+
+        {/* Zuletzt aktualisiert */}
+        {entry._updatedAt && (
+          <p className="text-xs text-gray-400">
+            Zuletzt aktualisiert: {new Date(entry._updatedAt).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })}
+          </p>
         )}
 
         {/* Back link */}
